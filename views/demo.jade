@@ -1,0 +1,35 @@
+//
+   Created by user on 12/5/14.
+doctype html
+html(lang="en")
+   head
+      title= pageTitle
+
+      script(src="javascripts/jquery.min.js")
+      link(rel="stylesheet" href="stylesheets/reveal.min.css")
+      link(rel="stylesheet" href="stylesheets/sky.css" id="theme")
+
+
+
+   body
+      div(class="reveal")
+         div(class="slides")
+            section
+            h1 This is a #{pageTitle} demo
+            p enjoy it!
+
+   script(src="javascripts/reveal.min.js")
+   script(src="javascripts/head.min.js")
+   script(type="text/javascript").
+      Reveal.initialize(
+              {
+                 controls: true,
+                 progress: true,
+                 history: true,
+                 center: true,
+              });
+
+   script(src="/socket.io/socket.io.js")
+
+
+
