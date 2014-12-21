@@ -1,2 +1,5 @@
 .idea/*
-
+.idea/libraries/*
+.idea/runConfigurations/*
+.idea/*.xml
+.idea/scopes/*
