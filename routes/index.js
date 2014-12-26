@@ -4,9 +4,13 @@ var fs = require('fs');
 var formidable = require('formidable');
 var util = require('util');
 
+// require server control
+var db = require('../ctrl/db').db;
+var sc = require('../ctrl/sc').sc;
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', test:'db and sc', test_db: db.test(), test_sc: sc.test() });
 
 });
 router.post('/upload', function(req, res){
