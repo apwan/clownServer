@@ -5,6 +5,7 @@
 var mongodb = require('./db').database;
 
 function User(user) {
+	this._id = user._id;
     this.name = user.name;
 	this.password = user.password;
 	this.email = user.email;
@@ -36,7 +37,7 @@ User.prototype.createUser = function createUser(callback) {
 	});
 };
 
-User.prototype.getUserByName = function (username, callback) {
+User.getUserByName = function (username, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
 			return callback(err);
@@ -59,7 +60,7 @@ User.prototype.getUserByName = function (username, callback) {
 	});
 };
 
-User.prototype.deleteUserByName = function (username, callback) {
+User.deleteUserByName = function (username, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
 			return callback(err);
