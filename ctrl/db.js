@@ -7,7 +7,7 @@ var Db = require('mongodb').Db;
 var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 
-var database = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT, {}));
+var database = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT), {safe:false});
 
 var clearDataBase = function(callback) {
 	var collectionList = ['users', 'slides', 'resources'];
@@ -20,5 +20,12 @@ var clearDataBase = function(callback) {
 	}
 }	
 
-exports.databse = database;
-exports.clearDataBase = clearDatabase;
+exports.database = database;
+exports.clearDataBase = clearDataBase;
+
+exports.db = {
+	version: '0.0.0',
+		test: function(){
+	return 'database' + this.version;
+}
+}

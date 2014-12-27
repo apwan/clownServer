@@ -48,11 +48,8 @@ router.post('/upload', function(req, res){
   console.log(file.path);
   res.status(typeof(req.body)).send(file.path);
   form.parse(req);
-  fs.rename(file.path, form.uploadDir + '/' + file.filename);
-      //function(err, fields, files){
-    //res.writeHeaders(200, {'content-type':'text/plain'});
-    //res.end(util.inspect({fields: fields, files: files}));});
-  //
+  //fs.rename(file.path, form.uploadDir + '/' + file.filename);
+
   //console.log(req);
 });
 
