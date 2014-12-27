@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var formidable = require('formidable');
 var util = require('util');
+var io = require('socket.io');
 
 // require server control
 var db = require('../ctrl/db').db;
@@ -16,7 +17,7 @@ router.get('/', function(req, res) {
 router.post('/upload', function(req, res){
   var form = formidable.IncomingForm();
 
-  form.uploadDir = 'public/images/';
+  form.uploadDir = 'public/tmp/';
   form.keepExtensions = true;
   form.maxFieldsSize = 2*1024*1024;
   //console.log('new formidable', form);
