@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="decks edit dark" data-editor-version="2" data-account="free" data-visibility="all" >
+	<head>
+		<meta name="viewport" content="width=1024, user-scalable=no, minimal-ui" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<script src="javascripts/front/initialize.js"></script>
+		<title>Slides: Edit</title>
+		<meta name="description" content="Slides">
+		<link href="stylesheets/slides.css" media="all" rel="stylesheet" />
+		<link href="stylesheets/application.css" media="all" rel="stylesheet" />
+		<link href="stylesheets/editor-v2.css" media="all" rel="stylesheet" />
+		<link href="stylesheets/deck-v2.css" media="all" rel="stylesheet" />
+		<meta content="authenticity_token" name="csrf-param" />
+		<meta content="40+Zpfyb+b7eRZZkhFV7pLG+NPvXG3YXXH3CG3GZeYQ=" name="csrf-token" />
+		<style id="user-css-output" type="text/css"></style>
+		<script id="user-css-input" type="text/template"></script>
+	</head>
+	<body>
+
+		<div class="page-loader">
+			<div class="page-loader-inner">
+				<p class="page-loader-message">Loading editor</p>
+				<div class="page-loader-spinner spinner"></div>
+			</div>
+		</div>
+
+		<div class="page-wrapper">
+
+			<div class="preview-controls">
+				<button class="button preview-controls-button preview-controls-exit grey l" data-tooltip="Resume editing" data-tooltip-direction="b" data-tooltip-delay="1000">
+					<span class="icon i-pen-alt2"></span>
+				</button>
+				<a class="button preview-controls-button preview-controls-external grey l" href="#" target="_blank" data-tooltip="Present this deck" data-tooltip-direction="b">
+					<span class="icon i-new-window"></span>
+				</a>
+			</div>
+
+			<div class="sidebar">
+
+				<div class="primary">
+					<button class="button preview" data-tooltip-delay="500" data-tooltip-alignment="r"><span class="icon i-eye"></span></button>
+					<button class="button undo" data-tooltip-delay="500" data-tooltip-alignment="r"><span class="icon i-undo"></span></button>
+					<button class="button save disabled is-saved" data-tooltip-delay="500" data-tooltip-alignment="r">
+						<span class="icon download i-disk"></span>
+						<span class="icon check i-checkmark"></span>
+						<span class="spinner centered" data-spinner-radius="7" data-spinner-length="4" data-spinner-width="2" data-spinner-color="#bbbbbb"></span>
+					</button>
+				</div>
+
+				<div class="secondary">
+					<button class="button publish" data-tooltip="Visibility" data-tooltip-alignment="r"><span class="icon i-unlock-stroke"></button>
+					<button class="button settings" data-tooltip="Settings" data-tooltip-alignment="r"><span class="icon i-cog"></span><span class="close icon i-x"></span></button>
+					<button class="button style" data-tooltip="Style" data-tooltip-alignment="r"><span class="icon i-brush"></span><span class="close icon i-x"></span></button>
+					<button class="button arrange no-arrow" data-tooltip="Arrange slides" data-tooltip-alignment="r"><span class="icon i-layers"></span><span class="close icon i-x"></span></button>
+					<button class="button revisions" data-tooltip="Revision history" data-tooltip-alignment="r"><span class="icon i-clock"></span><span class="close icon i-x"></span></button>
+					<button class="button import" data-tooltip="Import" data-tooltip-alignment="r"><span class="icon i-cloud-upload"></span><span class="close icon i-x"></span></button>
+					<button class="button export" data-tooltip="Export" data-tooltip-alignment="r"><span class="icon i-cloud-download"></span><span class="close icon i-x"></span></button>
+					<button class="button share" data-tooltip="Share" data-tooltip-alignment="r"><span class="icon i-share"></span><span class="close icon i-x"></span></button>
+					<a class="button gopro" data-tooltip="Upgrade to Pro" data-tooltip-alignment="r" href="/pricing" target="_blank" target=><span class="icon i-star"></span></a>
+					<button class="button more-options"><span class="more-options-dot"></span><span class="more-options-dot"></span><span class="more-options-dot"></span></button>
+				</div>
+
+				<div class="scroll-shadow-top"></div>
+				<div class="scroll-shadow-bottom"></div>
+
+				<header class="global-header ">
+  <div class="wrapper">
+    <h1 class="logo-animation">
+      <a class="symbol" href="/">
+        <div class="box-1"></div>
+        <div class="box-2"></div>
+        <div class="box-3"></div>
+      </a>
+      <a class="word" href="/"></a>
+    </h1>
+    <ul class="nav">
+        <li class="nav-item" data-page-id="home/explore">
+          <a class="nav-item-anchor" href="/explore"><span class="nav-item-label">Explore</span></a>
+        </li>
+        <li class="nav-item profile-button">
+          <a class="nav-item-anchor" href="/chenwenxiao">
+            <span class="nav-item-label">chenwenxiao</span>
+            <span class="nav-item-burger">
+              <span class="nav-item-burger-1"></span>
+              <span class="nav-item-burger-2"></span>
+              <span class="nav-item-burger-3"></span>
+            </span>
+          </a>
+        </li>
+    </ul>
+  </div>
+</header>
+
+			</div>
+
+			<div class="sidebar-panel">
+
+				<section class="settings">
+					<div class="panel-body sl-form">
+						<h2>Settings</h2>
+
+						<div class="unit text title">
+							<label for="deck[title]">Title</label>
+							<input id="deck-input-title" name="deck[title]" size="30" type="text" placeholder="Title" class="xl" maxlength="200" />
+						</div>
+
+						<div class="unit text slug">
+							<span class="text-prefix">http://</span>
+							<input id="deck-input-slug" name="deck[slug]" size="30" type="text" placeholder="URL" class="l" maxlength="200" />
+						</div>
+
+						<div class="unit text description">
+							<label for="deck[description]">Description</label>
+							<textarea id="deck-input-description" name="deck[description]" rows="4" maxlength="1400" placeholder="This will appear next to your deck"></textarea>
+						</div>
+
+						<div class="toggles">
+							<div class="sl-checkbox outline">
+								<input id="settings-loop" value="should_loop" type="checkbox">
+								<label for="settings-loop" data-tooltip="Make the last slide loop back to the first" data-tooltip-maxwidth="220" data-tooltip-delay="500">Loop presentation</label>
+							</div>
+
+							<div class="sl-checkbox outline rtl-wrapper">
+								<input id="settings-rtl" value="rtl" type="checkbox">
+								<label for="settings-rtl" data-tooltip="Make content flow right-to-left" data-tooltip-maxwidth="220" data-tooltip-delay="500">Right-to-left</label>
+							</div>
+
+							<div class="sl-checkbox outline hide-when-visibility-self hide-when-visibility-team">
+								<input id="settings-comments_enabled" value="comments_enabled" type="checkbox">
+								<label for="settings-comments_enabled" data-tooltip="Allow comments on this deck" data-tooltip-maxwidth="220" data-tooltip-delay="500">Comments</label>
+							</div>
+
+							<div class="sl-checkbox outline hide-when-visibility-self hide-when-visibility-team">
+								<input id="settings-forking_enabled" value="forking_enabled" type="checkbox">
+								<label for="settings-forking_enabled" data-tooltip="Allow others to fork this deck" data-tooltip-maxwidth="220" data-tooltip-delay="500">Forking</label>
+							</div>
+						</div>
+
+						<div class="unit text autoslide">
+							<label for="deck[autoslide]">Auto-slide</label>
+							<select class="sl-select" id="deck-input-autoslide" name="deck[autoslide]"></select>
+						</div>
+					</div>
+
+					<footer class="panel-footer">
+						<button class="button cancel grey xl">Cancel</button>
+						<button class="button save xl">OK</button>
+					</footer>
+				</section>
+
+				<section class="style">
+					<div class="panel-body">
+
+					</div>
+					<footer class="panel-footer">
+						<button class="button cancel grey xl">Cancel</button>
+						<button class="button save xl">OK</button>
+					</footer>
+				</section>
+
+				<section class="export">
+					<div class="panel-body sl-form">
+						<div class="section promotion">
+							<h2>PDF and Dropbox Sync</h2>
+							<p>
+								With a Pro account you can export your deck to PDF. It's also possible to automatically sync your work to Dropbox, giving you full offline access.
+							</p>
+							<a class="button l upgrade-button" href="/account/upgrade" target="_blank">Upgrade to Pro</a>
+						</div>
+						<div class="section download-html">
+							<h2>Export to HTML</h2>
+							<p>
+								Download the HTML source of your deck. The exported file does not include external assets, such as images, and is not suitable for offline use.
+							</p>
+							<button class="button download-html-button l">Download HTML</button>
+						</div>
+						<div class="section download-reveal">
+							<h2>Export to reveal.js</h2>
+							<p>
+								This includes the markup for your content as well as the Slides theme CSS. To export, download a copy of the <a href="https://github.com/hakimel/reveal.js" target="_blank">reveal.js</a> framework and make the following edits to its index.
+							</p>
+							1. In the &lt;head&gt;, replace the theme CSS &lt;link&gt; with:
+							<textarea class="deck-css-contents" readonly></textarea>
+							2. In the &lt;body&gt;, replace the &lt;div class="reveal"&gt; node with:
+							<textarea class="deck-html-contents" readonly></textarea>
+						</div>
+					</div>
+					<footer class="panel-footer">
+						<button class="button close xl grey">Close</button>
+					</footer>
+				</section>
+
+				<section class="import">
+					<div class="panel-body sl-form">
+						<div class="section import-from-file">
+							<h2>Import PDF</h2>
+							<p>
+								Upload a PDF document to import all contained pages as separate slides. Imported content is converted to images.
+							</p>
+							<div class="import-browse-button button disabled l">Loading...</div>
+						</div>
+						<div class="section import-from-reveal">
+							<h2>Import from reveal.js</h2>
+							<p>
+								Paste the HTML source of a <a href="http://github.com/hakimel/reveal.js" target="_blank">reveal.js</a> presentation below to import all contained slides. Note that the formatting of imported content can differ since Slides and reveal.js use different themes.
+							</p>
+							<textarea class="import-input" placeholder="Insert reveal.js markup..."></textarea>
+							<div class="import-status">
+								<span class="icon"></span>
+								<span class="text"></span>
+								<button class="button outline white l proceed">Import</button>
+							</div>
+						</div>
+					</div>
+					<footer class="panel-footer">
+						<button class="button close xl grey">Close</button>
+					</footer>
+				</section>
+
+				<section class="share">
+					<div class="panel-body sl-form">
+						<div class="contents"></div>
+					</div>
+					<footer class="panel-footer">
+						<button class="button close xl grey">Close</button>
+					</footer>
+				</section>
+
+				<section class="revisions">
+					<div class="panel-body">
+						<h2>Revision History</h2>
+						<ul class="version-list"></ul>
+						<p class="loading"><span class="spinner" data-spinner-color="#222222"></span></p>
+						<p class="empty">Once your deck has been saved a few times you'll see a record of each saved version here. You'll be able to preview or roll back to any of those versions.</p>
+						<p class="error">Please try again by closing and re-opening this panel.</p>
+					</div>
+					<footer class="panel-footer">
+						<div class="panel-info" data-tooltip="Revisions are automatically deleted after six months." data-tooltip-maxwidth="300"><span class="icon i-info"></span></div>
+						<button class="button close xl grey">Close</button>
+					</footer>
+				</section>
+			</div>
+
+			<article class="projector">
+				<div class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+					<div class="reveal">
+						<div class="slides">
+							<section class="has-dark-background"
+									 data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/chenwenxiao/images/900107/background.jpg"
+									 data-background-color="#9900ff" data-id="1a0a655fbb26117bc93e1355eb7e84d5">
+								<div class="sl-block" data-block-type="text"
+									 style="width: 800px; left: 0px; top: 130px; height: auto;"
+									 data-block-id="cf08c505d6c9962a55339e27053959c4">
+									<div class="sl-block-content" data-placeholder-tag="h1"
+										 data-placeholder-text="Title Text" style="z-index: 12;">
+										<h1>Hello World</h1>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="code"
+									 data-block-id="aa47afdc21fc91b209f84d73b58c7a1e"
+									 style="min-width: 30px; min-height: 30px; width: 500px; height: 300px; left: 118px; top: 340px;">
+									<div class="sl-block-content"
+										 style="z-index: 11; border-width: 1px; border-style: solid;"><pre
+											class="cpp"><code>#include &lt;cstdio&gt;
+
+										int main()
+										{
+										return 0;
+
+										}</code></pre>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text"
+									 data-block-id="e9109cac86f064f0ef2f6579c17c2639"
+									 style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 340px; top: 401px;">
+									<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text"
+										 style="z-index: 13;"><p>Text</p></div>
+								</div>
+							</section>
+							<section></section>
+						</div>
+					</div>
+				</div>
+
+				<div class="icon add-horizontal-slide" data-tooltip="Add new slide<br>(Hold shift for blank)"
+					 data-tooltip-alignment="l" data-tooltip-delay="1500">
+					<span class="icon i-plus"></span>
+				</div>
+				<div class="icon add-vertical-slide" data-tooltip="Add new slide<br>(Hold shift for blank)"
+					 data-tooltip-alignment="t" data-tooltip-delay="1500">
+					<span class="icon i-plus"></span>
+				</div>
+			</article>
+		</div>
+		<script src="javascripts/front/user.js"></script>
+		<script src="javascripts/front/slconfig.js"></script>
+		<script defer="defer" src="javascripts/front/application.js"></script>
+		<script defer="defer" src="javascripts/front/editor-v2.js"></script>
+		<script defer="defer" src="javascripts/reveal.min.js"></script>
+		<script defer="defer" src="javascripts/front/ckeditor.js"></script>
+	</body>
+</html>

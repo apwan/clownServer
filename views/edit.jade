@@ -1,0 +1,228 @@
+//
+   Created by WuYijie on 12/28/14.
+
+mixin secondary
+   .secondary
+      button.button.publish(data-tooltip="Visibility", data-tooltip-alignment="r")
+         span.icon.i-unlock-stroke
+      button.button.settings(data-tooltip="Settings", data-tooltip-alignment="r")
+         span.icon.i-cog
+         span.close.icon.i-x
+      button.button.style(data-tooltip="Style", data-tooltip-alignment="r")
+         span.icon.i-brush
+         span.close.icon.i-x
+      button.button.arrange.no-arrow(data-tooltip="Arrange slides", data-tooltip-alignment="r")
+         span.icon.i-layers
+         span.close.icon.i-x
+      button.button.revisions(data-tooltip="Revision history", data-tooltip-alignment="r")
+         span.icon.i-clock
+         span.close.icon.i-x
+      button.button.import(data-tooltip="Import", data-tooltip-alignment="r")
+         span.icon.i-cloud-upload
+         span.close.icon.i-x
+      button.button.export(data-tooltip="Export", data-tooltip-alignment="r")
+         span.icon.i-cloud-download
+         span.close.icon.i-x
+      button.button.share(data-tooltip="Share", data-tooltip-alignment="r")
+         span.icon.i-share
+         span.close.icon.i-x
+      a.button.gopro(data-tooltip="Upgrade to Pro", data-tooltip-alignment="r", href="/pricing", target="_blank")
+         span.icon.i-star
+      button.button.more-options
+         span.more-options-dot
+         span.more-options-dot
+         span.more-options-dot
+mixin primary
+   .primary
+      button.button.preview(data-tooltip-delay="500", data-tooltip-alignment="r")
+         span.icon.i-eye
+      button.button.undo(data-tooltip-delay="500", data-tooltip-alignment="r")
+         span.icon.i-undo
+      button.button.save.disabled.is-saved(data-tooltip-delay="500", data-tooltip-alignment="r")
+         span.icon.download.i-disk
+         span.icon.check.i-checkmark
+         span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
+
+mixin head(title, username)
+   header.global-header
+      .wrapper
+         h1.logo-animation #{title}
+            a.symbol(href="/")
+               div.box-1
+               div.box-2
+               div.box-3
+            a.word(href="/")
+         ul.nav
+            li.nav-item(data-page-id="explore")
+            li(class="nav-item-anchor profile-button")
+               a.navitem-anchor(href='/'+username)
+                  span.nav-item-label #{username}
+                  span.nav-item-burger
+                     span.nav-item-burger-1
+                     span.nav-item-burger-2
+                     span.nav-item-burger-3
+
+mixin sec_settings
+   section.settings
+      .panel-body.sl-form
+         h2 Settings
+         .unit.text.title
+            label(for="deck[title]") Title
+            input#deck-input-title.xl(type="text", name="deck[title]", size="30", placeholder="Title", maxlength="200")
+         .unit.text.slug
+            span.text-prefix http://
+            input#deck-input-slug.l(type="text", name="deck[slug]", size="30", placeholder="URL", maxlength="200")
+         .unit.text.description
+            label(for="deck[description]") Description
+            textarea#deck-input-description(name="deck[description]", rows="4", maxlength="1400", placeholder="This will appear next to your deck")
+         .toggles
+            .sl-checkbox.outline
+               input#settings-loop(type="checkbox", value="should_loop")
+               label(for="settings-loop", data-tooltip="Make the last slide loop back to the first", data-tooltip-maxwidth="220", data-tooltip-delay="500") Loop presentation
+            .sl-checkbox.outline.rtl-wrapper
+               input#settings-rtl(type="checkbox", value="rtl")
+               label(for="settings-rtl", data-tooltip="Make content flow right-to-left", data-tooltip-maxwidth="220", data-tooltip-delay="500") Right-to-left
+            .sl-checkbox.outline.hide-when-visibility-self.hide-when-visibility-team
+               input#settings-comments_enabled(type="checkbox", value="comments_enabled")
+               label(for="settings-comments_enabled", data-tooltip="Allow comments on this deck", data-tooltip-maxwidth="220", data-tooltip-delay="500") Comments
+            .sl-checkbox.outline.hide-when-visibility-self.hide-when-visibility-team
+               input#settings-forking_enabled(type="checkbox", value="forking_enabled")
+               label(for="settings-forking_enabled", data-tooltip="Allow others to fork this deck", data-tooltip-maxwidth="220", data-tooltip-delay="500") Forking
+         .unit.text.autoslide
+            label(for="deck[autoslide]") Auto-slide
+            select#deck-input-autoslide.sl-select(name="deck[autoslide]")
+      footer.panel-footer
+         button.button.cancel.grey.xl Cancel
+         button.button.save.xl OK
+
+mixin sec_style
+   section.style
+      .panel-body
+      footer.panel-footer
+         button.button.cancel.grey.xl Cancel
+         button.button.save.xl OK
+mixin sec_export
+   section.export
+      .panel-body.sl-form
+         .section.promotion
+            h2 PDF and Dropbox Sync
+            p
+               | With a Pro account you can export your deck to PDF. It"s also possible to automatically sync your work to Dropbox, giving you full offline access.
+            a.button.l.upgrade-button(href="/account/upgrade", target="_blank") Upgrade to Pro
+         .section.download-html
+            h2 Export to HTML
+            p
+               | Download the HTML source of your deck. The exported file does not include external assets, such as images, and is not suitable for offline use.
+            button.button.download-html-button.l Download HTML
+         .section.download-reveal
+            h2 Export to reveal.js
+            p
+               | This includes the markup for your content as well as the Slides theme CSS. To export, download a copy of the
+               a(href="https://github.com/hakimel/reveal.js", target="_blank") reveal.js
+               | framework and make the following edits to its index.
+            | 1. In the &#60;head&#62;, replace the theme CSS &#60;link&#62; with:
+            textarea.deck-css-contents(readonly="")
+            | 2. In the &#60;body&#62;, replace the &#60;div class="reveal"&#62; node with:
+            textarea.deck-html-contents(readonly="")
+      footer.panel-footer
+         button.button.close.xl.grey Close
+mixin sec_import
+   section.import
+      .panel-body.sl-form
+         .section.import-from-file
+            h2 Import PDF
+            p
+               | Upload a PDF document to import all contained pages as separate slides. Imported content is converted to images.
+            .import-browse-button.button.disabled.l Loading...
+         .section.import-from-reveal
+            h2 Import from reveal.js
+            p
+               | Paste the HTML source of a
+               a(href="http://github.com/hakimel/reveal.js", target="_blank") reveal.js
+               | presentation below to import all contained slides. Note that the formatting of imported content can differ since Slides and reveal.js use different themes.
+            textarea.import-input(placeholder="Insert reveal.js markup...")
+            .import-status
+               span.icon
+               span.text
+               button.button.outline.white.l.proceed Import
+      footer.panel-footer
+         button.button.close.xl.grey Close
+mixin sec_share
+   section.share
+      .panel-body.sl-form
+         .contents
+      footer.panel-footer
+         button.button.close.xl.grey Close
+
+mixin sec_revisions
+   section.revisions
+      .panel-body
+         h2 Revision History
+         ul.version-list
+         p.loading
+            span.spinner(data-spinner-color="#222222")
+         p.empty
+            | Once your deck has been saved a few times you"ll see a record of each saved version here. You"ll be able to preview or roll back to any of those versions.
+         p.error Please try again by closing and re-opening this panel.
+      footer.panel-footer
+         .panel-info(data-tooltip="Revisions are automatically deleted after six months.", data-tooltip-maxwidth="300")
+            span.icon.i-info
+         button.button.close.xl.grey Close
+
+mixin projector
+   article.projector
+      .reveal-viewport.theme-font-montserrat.theme-color-white-blue
+         .reveal
+            .slides
+               section.has-dark-background(data-background-image="/image/sample.jpg", data-background-color="#9900ff", data-id="1a0a655fbb26117bc93e1355eb7e84d5")
+                  .sl-block(data-block-type="text", style="width: 800px; left: 0px; top: 130px; height: auto;", data-block-id="cf08c505d6c9962a55339e27053959c4")
+                     .sl-block-content(data-placeholder-tag="h1", data-placeholder-text="Title Text", style="z-index: 12;")
+                        h1 Hello World
+                  .sl-block(data-block-type="code", data-block-id="aa47afdc21fc91b209f84d73b58c7a1e", style="min-width: 30px; min-height: 30px; width: 500px; height: 300px; left: 118px; top: 340px;")
+                     .sl-block-content(style="z-index: 11; border-width: 1px; border-style: solid;")
+
+
+                  .sl-block(data-block-type="text", data-block-id="e9109cac86f064f0ef2f6579c17c2639", style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 340px; top: 401px;")
+                     .sl-block-content(data-placeholder-tag="p", data-placeholder-text="Text", style="z-index: 13;")
+                        p Text
+               section
+      .icon.add-horizontal-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="l", data-tooltip-delay="1500")
+         span.icon.i-plus
+      .icon.add-vertical-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="t", data-tooltip-delay="1500")
+         span.icon.i-plus
+
+
+mixin front_script(scripts)
+   - each val in scripts
+      script(defer="defer", src="javascripts/front/"+val)
+
+mixin edit(title, username)
+   .page-loader
+      .page-loader-inner
+         p.page-loader-message Loading editor
+         .page-loader-spinner.spinner
+   .page-wrapper
+      .preview-controls
+         button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
+            span.icon.i-pen-alt2
+         a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
+            span.icon.i-new-window
+      .sidebar
+         + primary
+         + secondary
+         .scroll-shadow-top
+         .scroll-shadow-bottom
+         + head(title, username)
+      .sidebar-panel
+         + sec_settings
+         + sec_style
+         + sec_export
+         + sec_import
+         + sec_share
+         + sec_import
+      + projector
+
+   + front_script(['slconfig.js','application.js', 'editor-v2.js'])
+   script(defer="defer", src="javascripts/lib/reveal.min.js")
+   script(defer="defer", src="javascripts/front/ckeditor.js")
+

@@ -11,7 +11,15 @@ var sc = require('../ctrl/sc').sc;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express', test:'db and sc', test_db: db.test(), test_sc: sc.test() });
+  var cfg = {
+    title: 'CLoWN Online Presentation',
+    test: {
+      test_on: 'true',
+      test_db: db.test(),
+      test_sc: sc.test()
+    }
+  };
+  res.render('index', cfg);
 
 });
 router.post('/upload', function(req, res){

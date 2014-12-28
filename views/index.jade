@@ -1,13 +1,54 @@
 
-block content
-  h1= title
-  p Welcome to #{title}
-  div(id='test')
-    h2= test
-    p Database test: #{test_db}
-    p Socket test: #{test_sc}
-  div
-    form(action='/upload', method='post', enctype='multipart/form-data')
-      input(type='file', id='file1', name='file1')
-      br
-      button(type='submit', id='btn1', name='btn1') upload
+
+doctype html
+
+html(lang="en")
+ head
+   title=title
+   meta(charset="utf-8")
+   meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+   meta(name="viewport", content="width=1024, user-scalable=no, minimal-ui")
+   meta(name="description", content="Slides")
+
+   link(rel="stylesheet" href="stylesheets/reveal.min.css")
+
+   link#theme(rel="stylesheet" href="#")
+
+
+   script(src="javascripts/lib/jquery.min.js")
+   script(src="javascripts/front/tools.js")
+
+   script(src="javascripts/front/initialize.js")
+
+   link(href="stylesheets/slides.css", media="all", rel="stylesheet")
+   link(href="stylesheets/application.css", media="all", rel="stylesheet")
+   link(href="stylesheets/editor-v2.css", media="all", rel="stylesheet")
+   link(href="stylesheets/deck-v2.css", media="all", rel="stylesheet")
+   style#user-css-output(type="text/css")
+   script#user-css-input(type="text/template")
+
+   if test.test_on == 'true'
+     script(type="text/javascript").
+       $(document).ready(function(){
+       ajax_include('/ajax','test_ajax');
+       $('#theme')[0].href='/stylesheets/sky.css';
+       });
+ body
+   if test.test_on == 'true' || test_on == 'true'
+     div#test
+       p Database test: #{test.test_db}
+       p Socket test: #{test.test_sc}
+       img(src="/users/img" width="200" hight="200")
+     form#test_upload(action='/upload', method='post', enctype='multipart/form-data')
+       input(type='file', id='file1', name='file1')
+       br
+       button(type='submit', id='btn1', name='btn1') upload
+       div#test_ajax
+   else
+      include edit
+      +edit(title, 'Guest')
+
+
+
+
+
