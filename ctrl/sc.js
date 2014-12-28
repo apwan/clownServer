@@ -2,25 +2,31 @@
  * Created by Wu Yijie on 12/26/14.
  */
 
-
+/** 
+ * socket control namespace
+ * @namespace sc 
+ */
 var sc = {
 
 
     version: '0.0.0',
     test: function(){
         return 'socket' + this.version;
-    }
+    },
 
-    // 结构体数组,每个结构体代表一个展示进程
-    var showArray = {};
-
+    /** 结构体数组,每个结构体代表一个展示进程
+     * @type {Object.<string, Object>}
+     */
+    showArray: {},
 
 	/**
 	 * 展示者通过post一个url, 开始或结束一个展示
 	 * 生成一个链接用以观看展示
+	 * @param req - post request
+	 * @param res - post result
 	 * @todo 将信息存入数据库,而不是内存是不是更好?
 	 */
-	function slide_show(req, res) {
+	slideShow: function (req, res) {
 		console.log('slide show post recv');
 		if (req.body.command == 'start') {
 			var now = new Date();
@@ -30,7 +36,7 @@ var sc = {
 			var passwd = md5.update(req.body.passwd).digest('base64');
 			var jsonFileName = __dirname + '/public/showJsonFiles/' + showId + '.json';
 			var jsonUrl = '/showJsonFiles/' + showId + '.json';
-			path.exists(jsonFileName, function(exists) {
+			fs.exists(jsonFileName, function(exists) {
 				if (exists) {
 					console.log('show json file already exist');
 					req.flash('error', err);
@@ -79,12 +85,14 @@ var sc = {
 				return res.redirect('/');
 			});
 		}
-	};
+	},
 
 	/**
 	 * 展示者通过Post特定url, 切换slides
+	 * @param req - post request
+	 * @param res - post result
 	 */
-	function slide_change(req, res) {
+	slideChange: function (req, res) {
 		console.log('slide change recv');
 		var reqBody = req.body;
 		if (reqBody.showId in showArray && reqBody.passwd == showArray[reqBody.showId].passwd) {
@@ -97,13 +105,14 @@ var sc = {
 				}
 			});	
 		}
-	};
+	},
 
 	/**
 	 * 通过Get特定url, 用户开始观看某个展示
-	 *
+	 * @param req - get request
+	 * @param res - get result
 	 */
-	function slide_watch(req, res) {
+	slideWatch: function (req, res) {
 		console.log('slide watch recv');
 		var query = url.parse(req.url, true).query;
 		if (!(query.showId in showArray)) {
@@ -116,14 +125,14 @@ var sc = {
 			return res.redirect('/');
 		}
 		res.render('watching', { 'showId': query.showId, 'passwd': query.passwd, 'jsonUrl': showArray[query.showId].jsonUrl });
-	};
+	},
 
 
     /**
      * 客户端与服务器建立socket长连接时调用
      * @param socket - 与客户端连接的socket
      */
-    function onConnection(socket) {
+    onConnection: function (socket) {
     	console.log('socket connect');
     	var addedUser = false;
     	var showId = null;
@@ -174,7 +183,7 @@ var sc = {
    				message: data
    			});
    		});
-    };
+    }
     
 }
 
