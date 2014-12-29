@@ -137,6 +137,7 @@ var sc = {
     	var addedUser = false;
     	var showId = null;
 
+
     	// 加入展示房间
     	socket.on('slide watch', function(data) {
     		if (data.showId in showArray) {
@@ -147,7 +148,7 @@ var sc = {
     			// 加入展示房间
     			socket.join(showId);
     			// 第一次同步
-    			socket.emit('slide change');
+    			socket.emit('slide change', showArray[showId].jsonUrl);
     			// 加入聊天室
     			++showArray[showId].numUsers;
     			showArray[showId].usernameArray[username] = username;
