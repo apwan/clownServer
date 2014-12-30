@@ -7500,59 +7500,59 @@ var CryptoJS = CryptoJS || function(t, e) {
         this._track(SL.analytics.CATEGORY_THEMING, t, e)
     },trackPresenting: function(t, e) {
         this._track(SL.analytics.CATEGORY_PRESENTING, t, e)
-    }}, SL.config = {SLIDE_WIDTH: 960,SLIDE_HEIGHT: 700,LOGIN_STATUS_INTERVAL: 6e4,UNSAVED_CHANGES_INTERVAL: 1500,AUTOSAVE_INTERVAL: 4e3,DECK_TITLE_MAXLENGTH: 200,SPEAKER_NOTES_MAXLENGTH: 300,MAX_IMAGE_UPLOAD_SIZE: 1e4,MAX_IMPORT_UPLOAD_SIZE: 1e5,IMPORT_SOCKET_TIMEOUT: 24e4,PRESENT_CONTROLS_DEFAULT: !0,PRESENT_UPSIZING_DEFAULT: !0,PRESENT_UPSIZING_MAX_SCALE: 10,DEFAULT_THEME_COLOR: "white-blue",DEFAULT_THEME_FONT: "montserrat",DEFAULT_THEME_TRANSITION: "slide",DEFAULT_THEME_BACKGROUND_TRANSITION: "slide",AUTO_SLIDE_OPTIONS: [2, 4, 6, 8, 10, 15, 20, 30, 40],THEME_COLORS: [{id: "white-blue"}, {id: "black-blue"}, {id: "sand-blue"}, {id: "beige-brown"}, {id: "sky-blue"}, {id: "silver-green"}, {id: "silver-blue"}, {id: "grey-blue"}, {id: "black-mint"}, {id: "black-orange"}, {id: "blue-yellow"}, {id: "forest-yellow"}, {id: "yellow-black"}, {id: "cobalt-orange"}, {id: "asphalt-orange"}, {id: "mint-beige"}, {id: "sea-yellow"}, {id: "coral-blue"}],THEME_FONTS: [{id: "montserrat",title: "Montserrat"}, {id: "league",title: "League"}, {id: "opensans",title: "Open Sans"}, {id: "josefine",title: "Josefine"}, {id: "palatino",title: "Palatino"}, {id: "news",title: "News"}, {id: "helvetica",title: "Helvetica"}, {id: "asul",title: "Asul"}, {id: "merriweather",title: "Merriweather"}, {id: "sketch",title: "Sketch"}, {id: "quicksand",title: "Quicksand"}, {id: "overpass",title: "Overpass"}],THEME_TRANSITIONS: [{id: "slide",title: "Slide"}, {id: "linear",title: "Linear",deprecated: !0}, {id: "fade",title: "Fade"}, {id: "none",title: "None"}, {id: "default",title: "Default"}, {id: "concave",title: "Concave"}, {id: "zoom",title: "Zoom"}, {id: "cube",title: "Cube",deprecated: !0}, {id: "page",title: "Page",deprecated: !0}],THEME_BACKGROUND_TRANSITIONS: [{id: "slide",title: "Slide"}, {id: "fade",title: "Fade"}, {id: "none",title: "None"}, {id: "convex",title: "Convex"}, {id: "concave",title: "Concave"}, {id: "zoom",title: "Zoom"}],BLOCKS: new SL.models.Collection([{type: "text",factory: "Text",label: "Text",icon: "type"}, {type: "image",factory: "Image",label: "Image",icon: "picture"}, {type: "shape",factory: "Shape",label: "Shape",icon: "shapes"}, {type: "iframe",factory: "Iframe",label: "Iframe",icon: "browser"}, {type: "code",factory: "Code",label: "Code",icon: "file-css"}, {type: "math",factory: "Math",label: "Math",icon: "divide"}, {type: "snippet",factory: "Snippet",label: "snippet",icon: "file-xml",hidden: !0}]),DEFAULT_DECK_THUMBNAIL: "https://s3.amazonaws.com/static.slid.es/images/default-deck-thumbnail.png",DEFAULT_USER_THUMBNAIL: "https://s3.amazonaws.com/static.slid.es/images/default-profile-picture.png",DECK_THUMBNAIL_TEMPLATE: ['<li class="deck-thumbnail">', '<div class="deck-image" style="background-image: url({{DECK_THUMB_URL}})">', '<a class="deck-link" href="{{DECK_URL}}"></a>', "</div>", '<footer class="deck-details">', '<a class="author" href="{{USER_URL}}">', '<span class="picture" style="background-image: url({{USER_THUMB_URL}})"></span>', '<span class="name">{{USER_NAME}}</span>', "</a>", '<div class="stats">', '<div>{{DECK_VIEWS}}<span class="icon i-eye"></span></div>', "</div>", "</footer>", "</li>"].join(""),AJAX_SEARCH: "/api/v1/search.json",AJAX_SEARCH_ORGANIZATION: "/api/v1/team/search.json",AJAX_CREATE_DECK: function() {
-        return "/api/v1/decks.json"
+    }}, SL.config = {SLIDE_WIDTH: 960,SLIDE_HEIGHT: 700,LOGIN_STATUS_INTERVAL: 6e4,UNSAVED_CHANGES_INTERVAL: 1500,AUTOSAVE_INTERVAL: 4e3,DECK_TITLE_MAXLENGTH: 200,SPEAKER_NOTES_MAXLENGTH: 300,MAX_IMAGE_UPLOAD_SIZE: 1e4,MAX_IMPORT_UPLOAD_SIZE: 1e5,IMPORT_SOCKET_TIMEOUT: 24e4,PRESENT_CONTROLS_DEFAULT: !0,PRESENT_UPSIZING_DEFAULT: !0,PRESENT_UPSIZING_MAX_SCALE: 10,DEFAULT_THEME_COLOR: "white-blue",DEFAULT_THEME_FONT: "montserrat",DEFAULT_THEME_TRANSITION: "slide",DEFAULT_THEME_BACKGROUND_TRANSITION: "slide",AUTO_SLIDE_OPTIONS: [2, 4, 6, 8, 10, 15, 20, 30, 40],THEME_COLORS: [{id: "white-blue"}, {id: "black-blue"}, {id: "sand-blue"}, {id: "beige-brown"}, {id: "sky-blue"}, {id: "silver-green"}, {id: "silver-blue"}, {id: "grey-blue"}, {id: "black-mint"}, {id: "black-orange"}, {id: "blue-yellow"}, {id: "forest-yellow"}, {id: "yellow-black"}, {id: "cobalt-orange"}, {id: "asphalt-orange"}, {id: "mint-beige"}, {id: "sea-yellow"}, {id: "coral-blue"}],THEME_FONTS: [{id: "montserrat",title: "Montserrat"}, {id: "league",title: "League"}, {id: "opensans",title: "Open Sans"}, {id: "josefine",title: "Josefine"}, {id: "palatino",title: "Palatino"}, {id: "news",title: "News"}, {id: "helvetica",title: "Helvetica"}, {id: "asul",title: "Asul"}, {id: "merriweather",title: "Merriweather"}, {id: "sketch",title: "Sketch"}, {id: "quicksand",title: "Quicksand"}, {id: "overpass",title: "Overpass"}],THEME_TRANSITIONS: [{id: "slide",title: "Slide"}, {id: "linear",title: "Linear",deprecated: !0}, {id: "fade",title: "Fade"}, {id: "none",title: "None"}, {id: "default",title: "Default"}, {id: "concave",title: "Concave"}, {id: "zoom",title: "Zoom"}, {id: "cube",title: "Cube",deprecated: !0}, {id: "page",title: "Page",deprecated: !0}],THEME_BACKGROUND_TRANSITIONS: [{id: "slide",title: "Slide"}, {id: "fade",title: "Fade"}, {id: "none",title: "None"}, {id: "convex",title: "Convex"}, {id: "concave",title: "Concave"}, {id: "zoom",title: "Zoom"}],BLOCKS: new SL.models.Collection([{type: "text",factory: "Text",label: "Text",icon: "type"}, {type: "image",factory: "Image",label: "Image",icon: "picture"}, {type: "shape",factory: "Shape",label: "Shape",icon: "shapes"}, {type: "iframe",factory: "Iframe",label: "Iframe",icon: "browser"}, {type: "code",factory: "Code",label: "Code",icon: "file-css"}, {type: "math",factory: "Math",label: "Math",icon: "divide"}, {type: "snippet",factory: "Snippet",label: "snippet",icon: "file-xml",hidden: !0}]),DEFAULT_DECK_THUMBNAIL: "https://s3.amazonaws.com/static.slid.es/images/default-deck-thumbnail.png",DEFAULT_USER_THUMBNAIL: "https://s3.amazonaws.com/static.slid.es/images/default-profile-picture.png",DECK_THUMBNAIL_TEMPLATE: ['<li class="deck-thumbnail">', '<div class="deck-image" style="background-image: url({{DECK_THUMB_URL}})">', '<a class="deck-link" href="{{DECK_URL}}"></a>', "</div>", '<footer class="deck-details">', '<a class="author" href="{{USER_URL}}">', '<span class="picture" style="background-image: url({{USER_THUMB_URL}})"></span>', '<span class="name">{{USER_NAME}}</span>', "</a>", '<div class="stats">', '<div>{{DECK_VIEWS}}<span class="icon i-eye"></span></div>', "</div>", "</footer>", "</li>"].join(""),AJAX_SEARCH: "/ajax/search.json",AJAX_SEARCH_ORGANIZATION: "/ajax/team/search.json",AJAX_CREATE_DECK: function() {
+        return "/ajax/decks.json"
     },AJAX_UPDATE_DECK: function(t) {
-        return "/api/v1/decks/" + t + ".json"
+        return "/ajax/" + t + ".json"
     },AJAX_PUBLISH_DECK: function(t) {
-        return "/api/v1/decks/" + t + "/publish.json"
+        return "/ajax/" + t + "/publish.json"
     },AJAX_GET_DECK_VERSIONS: function(t) {
-        return "/api/v1/decks/" + t + "/revisions.json"
+        return "/ajax/" + t + "/revisions.json"
     },AJAX_PREVIEW_DECK_VERSION: function(t, e, n) {
         return "/" + t + "/" + e + "/preview?revision=" + n
     },AJAX_RESTORE_DECK_VERSION: function(t, e) {
-        return "/api/v1/decks/" + t + "/revisions/" + e + "/restore.json"
+        return "/ajax/" + t + "/revisions/" + e + "/restore.json"
     },AJAX_EXPORT_DECK: function(t, e) {
         return "/" + t + "/" + e + "/export"
     },AJAX_THUMBNAIL_DECK: function(t) {
-        return "/api/v1/decks/" + t + "/thumbnails.json"
+        return "/ajax/" + t + "/thumbnails.json"
     },AJAX_FORK_DECK: function(t) {
-        return "/api/v1/decks/" + t + "/fork.json"
+        return "/ajax/" + t + "/fork.json"
     },AJAX_KUDO_DECK: function(t) {
-        return "/api/v1/decks/" + t + "/kudos/kudo.json"
+        return "/ajax/" + t + "/kudos/kudo.json"
     },AJAX_UNKUDO_DECK: function(t) {
-        return "/api/v1/decks/" + t + "/kudos/unkudo.json"
+        return "/ajax/" + t + "/kudos/unkudo.json"
     },AJAX_PDF_EXPORT_START: function(t) {
-        return "/api/v1/decks/" + t + "/exports.json"
+        return "/ajax/" + t + "/exports.json"
     },AJAX_PDF_EXPORT_LIST: function(t) {
-        return "/api/v1/decks/" + t + "/exports.json"
+        return "/ajax/" + t + "/exports.json"
     },AJAX_PDF_EXPORT_STATUS: function(t, e) {
-        return "/api/v1/decks/" + t + "/exports/" + e + ".json"
-    },AJAX_PDF_IMPORT_NEW: "/api/v1/imports.json",AJAX_PDF_IMPORT_UPLOADED: function(t) {
-        return "/api/v1/imports/" + t + ".json"
+        return "/ajax/" + t + "/exports/" + e + ".json"
+    },AJAX_PDF_IMPORT_NEW: "/ajax/imports.json",AJAX_PDF_IMPORT_UPLOADED: function(t) {
+        return "/ajax/imports/" + t + ".json"
     },AJAX_DROPBOX_CONNECT: "/settings/dropbox/authorize",AJAX_DROPBOX_DISCONNECT: "https://www.dropbox.com/account/security#apps",AJAX_DROPBOX_SYNC_DECK: function(t) {
-        return "/api/v1/decks/" + t + "/export.json"
-    },AJAX_UPDATE_ORGANIZATION: "/api/v1/team.json",AJAX_LOOKUP_ORGANIZATION: "/api/v1/team/lookup.json",AJAX_ORGANIZATION_MEMBERS_LIST: "/api/v1/team/users.json",AJAX_ORGANIZATION_MEMBER_CREATE: "/api/v1/team/users.json",AJAX_ORGANIZATION_MEMBER_DELETE: function(t) {
-        return "/api/v1/team/users/" + t + ".json"
+        return "/ajax/" + t + "/export.json"
+    },AJAX_UPDATE_ORGANIZATION: "/ajax/team.json",AJAX_LOOKUP_ORGANIZATION: "/ajax/team/lookup.json",AJAX_ORGANIZATION_MEMBERS_LIST: "/ajax/team/users.json",AJAX_ORGANIZATION_MEMBER_CREATE: "/ajax/team/users.json",AJAX_ORGANIZATION_MEMBER_DELETE: function(t) {
+        return "/ajax/team/users/" + t + ".json"
     },AJAX_ORGANIZATION_MEMBER_WELCOME: function(t) {
-        return "/api/v1/team/users/" + t + "/welcome.json"
-    },AJAX_THEMES_LIST: "/api/v1/themes.json",AJAX_THEMES_CREATE: "/api/v1/themes.json",AJAX_THEMES_UPDATE: function(t) {
-        return "/api/v1/themes/" + t + ".json"
+        return "/ajax/team/users/" + t + "/welcome.json"
+    },AJAX_THEMES_LIST: "/ajax/themes.json",AJAX_THEMES_CREATE: "/ajax/themes.json",AJAX_THEMES_UPDATE: function(t) {
+        return "/ajax/themes/" + t + ".json"
     },AJAX_THEMES_DELETE: function(t) {
-        return "/api/v1/themes/" + t + ".json"
-    },AJAX_SLIDE_TEMPLATES_LIST: "/api/v1/slide_templates.json",AJAX_SLIDE_TEMPLATES_CREATE: "/api/v1/slide_templates.json",AJAX_SLIDE_TEMPLATES_UPDATE: function(t) {
-        return "/api/v1/slide_templates/" + t + ".json"
+        return "/ajax/themes/" + t + ".json"
+    },AJAX_SLIDE_TEMPLATES_LIST: "/ajax/slide_templates.json",AJAX_SLIDE_TEMPLATES_CREATE: "/ajax/slide_templates.json",AJAX_SLIDE_TEMPLATES_UPDATE: function(t) {
+        return "/ajax/slide_templates/" + t + ".json"
     },AJAX_SLIDE_TEMPLATES_DELETE: function(t) {
-        return "/api/v1/slide_templates/" + t + ".json"
-    },AJAX_TEAM_SLIDE_TEMPLATES_LIST: "/api/v1/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_CREATE: "/api/v1/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_UPDATE: function(t) {
-        return "/api/v1/team/slide_templates/" + t + ".json"
+        return "/ajax/slide_templates/" + t + ".json"
+    },AJAX_TEAM_SLIDE_TEMPLATES_LIST: "/ajax/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_CREATE: "/ajax/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_UPDATE: function(t) {
+        return "/ajax/team/slide_templates/" + t + ".json"
     },AJAX_TEAM_SLIDE_TEMPLATES_DELETE: function(t) {
-        return "/api/v1/team/slide_templates/" + t + ".json"
+        return "/ajax/team/slide_templates/" + t + ".json"
     },AJAX_GET_USER: function(t) {
-        return "/api/v1/users/" + t + ".json"
-    },AJAX_LOOKUP_USER: "/api/v1/users/lookup.json",AJAX_SERVICES_USER: "/api/v1/users/services.json",AJAX_UPDATE_USER: "/users.json",AJAX_GET_USER_SETTINGS: "/api/v1/user_settings.json",AJAX_UPDATE_USER_SETTINGS: "/api/v1/user_settings.json",AJAX_SUBSCRIPTIONS: "/subscriptions",AJAX_SUBSCRIPTIONS_STATUS: "/account/details.json",AJAX_SUBSCRIPTIONS_PRINT_RECEIPT: function(t) {
+        return "/ajax/users/" + t + ".json"
+    },AJAX_LOOKUP_USER: "/ajax/users/lookup.json",AJAX_SERVICES_USER: "/ajax/users/services.json",AJAX_UPDATE_USER: "/users.json",AJAX_GET_USER_SETTINGS: "/ajax/user_settings.json",AJAX_UPDATE_USER_SETTINGS: "/ajax/user_settings.json",AJAX_SUBSCRIPTIONS: "/subscriptions",AJAX_SUBSCRIPTIONS_STATUS: "/account/details.json",AJAX_SUBSCRIPTIONS_PRINT_RECEIPT: function(t) {
         return "/account/receipts/" + t
-    },AJAX_TEAMS_CREATE: "/teams.json",AJAX_CHECK_STATUS: "/api/v1/status.json",AJAX_IMAGE_UPLOAD: "/api/v1/media.json",STREAM_ENGINE_HOST: window.location.protocol + "//stream.slides.com",STREAM_ENGINE_LIVE_NAMESPACE: "live",STREAM_ENGINE_EDITOR_NAMESPACE: "editor",S3_HOST: "https://s3.amazonaws.com/media-p.slid.es",ASSET_URLS: {"offline-v2.css": "./Slides  Edit_files/offline-v2.css","homepage-background.jpg": "./Slides  Edit_files/homepage-background.jpg","reveal-plugins/markdown/marked.js": "./Slides  Edit_files/marked.js","reveal-plugins/markdown/markdown.js": "./Slides  Edit_files/markdown.js","reveal-plugins/highlight/highlight.js": "./Slides  Edit_files/highlight.js"}}, SL.config.V1 = {DEFAULT_THEME_COLOR: "grey-blue",DEFAULT_THEME_FONT: "league",DEFAULT_THEME_TRANSITION: "linear",DEFAULT_THEME_BACKGROUND_TRANSITION: "fade",THEME_COLORS: [{id: "grey-blue"}, {id: "black-mint"}, {id: "black-orange"}, {id: "forest-yellow"}, {id: "lila-yellow"}, {id: "asphalt-orange"}, {id: "sky-blue"}, {id: "beige-brown"}, {id: "sand-grey"}, {id: "silver-green"}, {id: "silver-blue"}, {id: "cobalt-orange"}, {id: "white-blue"}, {id: "mint-beige"}, {id: "sea-yellow"}, {id: "coral-blue"}],THEME_FONTS: [{id: "league",title: "League"}, {id: "opensans",title: "Open Sans"}, {id: "josefine",title: "Josefine"}, {id: "palatino",title: "Palatino"}, {id: "news",title: "News"}, {id: "montserrat",title: "Montserrat"}, {id: "helvetica",title: "Helvetica"}, {id: "asul",title: "Asul"}, {id: "merriweather",title: "Merriweather"}, {id: "sketch",title: "Sketch"}, {id: "quicksand",title: "Quicksand"}, {id: "overpass",title: "Overpass"}]}, SL.keyboard = {init: function() {
+    },AJAX_TEAMS_CREATE: "/teams.json",AJAX_CHECK_STATUS: "/ajax/status.json",AJAX_IMAGE_UPLOAD: "/ajax/media.json",STREAM_ENGINE_HOST: window.location.protocol + "//stream.slides.com",STREAM_ENGINE_LIVE_NAMESPACE: "live",STREAM_ENGINE_EDITOR_NAMESPACE: "editor",S3_HOST: "https://s3.amazonaws.com/media-p.slid.es",ASSET_URLS: {"offline-v2.css": "./Slides  Edit_files/offline-v2.css","homepage-background.jpg": "./Slides  Edit_files/homepage-background.jpg","reveal-plugins/markdown/marked.js": "./Slides  Edit_files/marked.js","reveal-plugins/markdown/markdown.js": "./Slides  Edit_files/markdown.js","reveal-plugins/highlight/highlight.js": "./Slides  Edit_files/highlight.js"}}, SL.config.V1 = {DEFAULT_THEME_COLOR: "grey-blue",DEFAULT_THEME_FONT: "league",DEFAULT_THEME_TRANSITION: "linear",DEFAULT_THEME_BACKGROUND_TRANSITION: "fade",THEME_COLORS: [{id: "grey-blue"}, {id: "black-mint"}, {id: "black-orange"}, {id: "forest-yellow"}, {id: "lila-yellow"}, {id: "asphalt-orange"}, {id: "sky-blue"}, {id: "beige-brown"}, {id: "sand-grey"}, {id: "silver-green"}, {id: "silver-blue"}, {id: "cobalt-orange"}, {id: "white-blue"}, {id: "mint-beige"}, {id: "sea-yellow"}, {id: "coral-blue"}],THEME_FONTS: [{id: "league",title: "League"}, {id: "opensans",title: "Open Sans"}, {id: "josefine",title: "Josefine"}, {id: "palatino",title: "Palatino"}, {id: "news",title: "News"}, {id: "montserrat",title: "Montserrat"}, {id: "helvetica",title: "Helvetica"}, {id: "asul",title: "Asul"}, {id: "merriweather",title: "Merriweather"}, {id: "sketch",title: "Sketch"}, {id: "quicksand",title: "Quicksand"}, {id: "overpass",title: "Overpass"}]}, SL.keyboard = {init: function() {
         this.keyupConsumers = new SL.models.Collection, this.keydownConsumers = new SL.models.Collection, $(document).on("keydown", this.onDocumentKeyDown.bind(this)), $(document).on("keyup", this.onDocumentKeyUp.bind(this))
     },keydown: function(t) {
         this.keydownConsumers.push(t)
@@ -7863,7 +7863,7 @@ var CryptoJS = CryptoJS || function(t, e) {
     },connect: function() {
         this.options.publisher ? this.setupPublisher() : this.setupSubscriber()
     },setupPublisher: function() {
-        this.publish = this.publish.bind(this), this.publishable = !0, this.options.reveal.addEventListener("slidechanged", this.publish), this.options.reveal.addEventListener("fragmentshown", this.publish), this.options.reveal.addEventListener("fragmenthidden", this.publish), this.options.reveal.addEventListener("overviewshown", this.publish), this.options.reveal.addEventListener("overviewhidden", this.publish), this.options.reveal.addEventListener("paused", this.publish), this.options.reveal.addEventListener("resumed", this.publish), $.ajax({url: "/api/v1/decks/" + this.options.deckID + "/stream.json",type: "GET",context: this}).done(function(t) {
+        this.publish = this.publish.bind(this), this.publishable = !0, this.options.reveal.addEventListener("slidechanged", this.publish), this.options.reveal.addEventListener("fragmentshown", this.publish), this.options.reveal.addEventListener("fragmenthidden", this.publish), this.options.reveal.addEventListener("overviewshown", this.publish), this.options.reveal.addEventListener("overviewhidden", this.publish), this.options.reveal.addEventListener("paused", this.publish), this.options.reveal.addEventListener("resumed", this.publish), $.ajax({url: "/ajax/" + this.options.deckID + "/stream.json",type: "GET",context: this}).done(function(t) {
             this.log("found existing stream"), this.setState(JSON.parse(t.state), !0), this.setupSocket(), this.ready.dispatch()
         }).error(function() {
             this.log("no existing stream, publishing state"), this.publish(function() {
@@ -7871,7 +7871,7 @@ var CryptoJS = CryptoJS || function(t, e) {
             }.bind(this))
         })
     },setupSubscriber: function() {
-        $.ajax({url: "/api/v1/decks/" + this.options.deckID + "/stream.json",type: "GET",context: this}).done(function(t) {
+        $.ajax({url: "/ajax/" + this.options.deckID + "/stream.json",type: "GET",context: this}).done(function(t) {
             this.log("found existing stream"), this.setStatus(SL.helpers.StreamLive.STATUS_NONE), this.setState(JSON.parse(t.state), !0), this.setupSocket(), this.ready.dispatch()
         }).error(function() {
             this.retryStartTime = Date.now(), this.setStatus(SL.helpers.StreamLive.STATUS_WAITING_FOR_PUBLISHER), this.log("no existing stream, retrying in " + SL.helpers.StreamLive.CONNECTION_RETRY_INTERVAL / 1e3 + "s"), setTimeout(this.setupSubscriber.bind(this), SL.helpers.StreamLive.CONNECTION_RETRY_INTERVAL)
@@ -7884,7 +7884,7 @@ var CryptoJS = CryptoJS || function(t, e) {
     },publish: function(t, e) {
         if (this.publishable) {
             var n = this.options.reveal.getState();
-            n.publisher_id = this.options.publisherID, n = $.extend(n, e), this.log("publish", n.publisher_id), $.ajax({url: "/api/v1/decks/" + this.options.deckID + "/stream.json",type: "PUT",data: {state: JSON.stringify(n)},success: t})
+            n.publisher_id = this.options.publisherID, n = $.extend(n, e), this.log("publish", n.publisher_id), $.ajax({url: "/ajax/" + this.options.deckID + "/stream.json",type: "PUT",data: {state: JSON.stringify(n)},success: t})
         }
     },log: function() {
         if (this.debugMode && "function" == typeof console.log.apply) {

@@ -1,0 +1,188 @@
+doctype html
+html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibility="all")
+  include head
+  + head('CLoWN Online presentation')
+  body
+    .page-loader
+      .page-loader-inner
+        p.page-loader-message Loading editor
+        .page-loader-spinner.spinner
+    .page-wrapper
+      .preview-controls
+        button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
+          span.icon.i-pen-alt2
+        a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
+          span.icon.i-new-window
+      .sidebar
+        .primary
+          button.button.preview(data-tooltip-delay="500", data-tooltip-alignment="r")
+            span.icon.i-eye
+          button.button.undo(data-tooltip-delay="500", data-tooltip-alignment="r")
+            span.icon.i-undo
+          button.button.save.disabled.is-saved(data-tooltip-delay="500", data-tooltip-alignment="r")
+            span.icon.download.i-disk
+            span.icon.check.i-checkmark
+            span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
+        .secondary
+          - var btn2nd = {publish:['Visibility','i-unlock-stroke'], settings:['Settings','i-cog'], style:['style','i-brush'], arrange:['Arrange slides','i-layers'], revisions:['Revision history','i-clock'], import:['Import','i-cloud-upload'], export:['Export','i-cloud-download'], share:['Share','i-share'], about:['About', 'i-star']}
+          - each val, key in btn2nd
+             button.button(class=key, data-tooltip=val[0], data-tooltip-alignment="r")
+                span.icon(class=val[1])
+                span.close.icon.i-x
+
+          button.button.more-options
+            span.more-options-dot
+            span.more-options-dot
+            span.more-options-dot
+        .scroll-shadow-top
+        .scroll-shadow-bottom
+        header.global-header
+          .wrapper
+            h1.logo-animation
+              a.symbol(href="/")
+                .box-1
+                .box-2
+                .box-3
+              a.word(href="/")
+            ul.nav
+              li.nav-item(data-page-id="home/explore")
+                a.nav-item-anchor(href="/explore")
+                  span.nav-item-label Explore
+              li.nav-item.profile-button
+                a.nav-item-anchor(href="/chenwenxiao")
+                  span.nav-item-label chenwenxiao
+                  span.nav-item-burger
+                    span.nav-item-burger-1
+                    span.nav-item-burger-2
+                    span.nav-item-burger-3
+      .sidebar-panel
+        section.settings
+          .panel-body.sl-form
+            h2 Settings
+            .unit.text.title
+              label(for="deck[title]") Title
+              input#deck-input-title.xl(type="text", name="deck[title]", size="30", placeholder="Title", maxlength="200")
+            .unit.text.slug
+              span.text-prefix http://
+              input#deck-input-slug.l(type="text", name="deck[slug]", size="30", placeholder="URL", maxlength="200")
+            .unit.text.description
+              label(for="deck[description]") Description
+              textarea#deck-input-description(name="deck[description]", rows="4", maxlength="1400", placeholder="This will appear next to your deck")
+            .toggles
+              .sl-checkbox.outline
+                input#settings-loop(type="checkbox", value="should_loop")
+                label(for="settings-loop", data-tooltip="Make the last slide loop back to the first", data-tooltip-maxwidth="220", data-tooltip-delay="500") Loop presentation
+              .sl-checkbox.outline.rtl-wrapper
+                input#settings-rtl(type="checkbox", value="rtl")
+                label(for="settings-rtl", data-tooltip="Make content flow right-to-left", data-tooltip-maxwidth="220", data-tooltip-delay="500") Right-to-left
+              .sl-checkbox.outline.hide-when-visibility-self.hide-when-visibility-team
+                input#settings-comments_enabled(type="checkbox", value="comments_enabled")
+                label(for="settings-comments_enabled", data-tooltip="Allow comments on this deck", data-tooltip-maxwidth="220", data-tooltip-delay="500") Comments
+              .sl-checkbox.outline.hide-when-visibility-self.hide-when-visibility-team
+                input#settings-forking_enabled(type="checkbox", value="forking_enabled")
+                label(for="settings-forking_enabled", data-tooltip="Allow others to fork this deck", data-tooltip-maxwidth="220", data-tooltip-delay="500") Forking
+            .unit.text.autoslide
+              label(for="deck[autoslide]") Auto-slide
+              select#deck-input-autoslide.sl-select(name="deck[autoslide]")
+          footer.panel-footer
+            button.button.cancel.grey.xl Cancel
+            button.button.save.xl OK
+        section.style
+          .panel-body
+          footer.panel-footer
+            button.button.cancel.grey.xl Cancel
+            button.button.save.xl OK
+        section.export
+          .panel-body.sl-form
+            .section.promotion
+              h2 PDF and Dropbox Sync
+              p
+                | You can export your deck to PDF.
+              a.button.l.upgrade-button(href="#", target="_blank")
+            .section.download-html
+              h2 Export to HTML
+              p
+                | Download the HTML source of your deck. The exported file does not include external assets, such as images, and is not suitable for offline use.
+              button.button.download-html-button.l Download HTML
+            .section.download-reveal
+              h2 Export to reveal.js
+              p
+                | This includes the markup for your content as well as the Slides theme CSS. To export, download a copy of the
+                a(href="https://github.com/hakimel/reveal.js", target="_blank") reveal.js
+                | framework and make the following edits to its index.
+              | 1. In the &#60;head&#62;, replace the theme CSS &#60;link&#62; with:
+              textarea.deck-css-contents(readonly="")
+              | 2. In the &#60;body&#62;, replace the &#60;div class="reveal"&#62; node with:
+              textarea.deck-html-contents(readonly="")
+          footer.panel-footer
+            button.button.close.xl.grey Close
+        section.import
+          .panel-body.sl-form
+            .section.import-from-file
+              h2 Import PDF
+              p
+                | Upload a PDF document to import all contained pages as separate slides. Imported content is converted to images.
+              .import-browse-button.button.disabled.l Loading...
+            .section.import-from-reveal
+              h2 Import from reveal.js
+              p
+                | Paste the HTML source of a
+                a(href="http://github.com/hakimel/reveal.js", target="_blank") reveal.js
+                | presentation below to import all contained slides. Note that the formatting of imported content can differ since Slides and reveal.js use different themes.
+              textarea.import-input(placeholder="Insert reveal.js markup...")
+              .import-status
+                span.icon
+                span.text
+                button.button.outline.white.l.proceed Import
+          footer.panel-footer
+            button.button.close.xl.grey Close
+        section.share
+          .panel-body.sl-form
+            .contents
+          footer.panel-footer
+            button.button.close.xl.grey Close
+        section.revisions
+          .panel-body
+            h2 Revision History
+            ul.version-list
+            p.loading
+              span.spinner(data-spinner-color="#222222")
+            p.empty
+              | Once your deck has been saved a few times you"ll see a record of each saved version here. You"ll be able to preview or roll back to any of those versions.
+            p.error Please try again by closing and re-opening this panel.
+          footer.panel-footer
+            .panel-info(data-tooltip="Revisions are automatically deleted after six months.", data-tooltip-maxwidth="300")
+              span.icon.i-info
+            button.button.close.xl.grey Close
+      article.projector
+        .reveal-viewport.theme-font-montserrat.theme-color-white-blue
+          .reveal
+            .slides
+              section.has-dark-background(data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/chenwenxiao/images/900107/background.jpg", data-background-color="#9900ff", data-id="1a0a655fbb26117bc93e1355eb7e84d5")
+              section
+        .icon.add-horizontal-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="l", data-tooltip-delay="1500")
+          span.icon.i-plus
+        .icon.add-vertical-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="t", data-tooltip-delay="1500")
+          span.icon.i-plus
+    script(type="text/javascript").
+      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='javascripts/front/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+      UserVoice.push(['set', {
+      accent_color: '#448dd6',
+      trigger_color: 'white',
+      trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+      position: 'automatic'
+      }]);
+      UserVoice.push(['identify', {
+      email:      "chenwenxiao@live.cn",
+      name:       "chenwenxiao",
+      id:         "248705",
+      type:       "default",
+      created_at: 1417746430
+      }]);
+      var SLConfig = {"current_user":{"id":248705,"username":"chenwenxiao","name":null,"email":"chenwenxiao@live.cn","description":null,"thumbnail_url":"https://www.gravatar.com/avatar/442a4877f0ece41c1903d9eb714fb61b?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"enterprise_manager":false,"notify_on_receipt":false,"billing_address":null,"editor_tutorial_completed":true,"settings":{"id":63494,"present_controls":true,"present_upsizing":true,"editor_grid":true,"editor_snap":true,"developer_mode":false},"registered":true},"deck":{"id":303028,"slug":"deck--3","title":"deck","description":"","visibility":"all","published_at":"2014-12-05T02:46:25.345Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/chenwenxiao/bc3b65/deck--3.jpg","view_count":3,"user":{"id":248705,"username":"chenwenxiao","name":null,"email":"chenwenxiao@live.cn","description":null,"thumbnail_url":"https://www.gravatar.com/avatar/442a4877f0ece41c1903d9eb714fb61b?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"enterprise_manager":false,"notify_on_receipt":false,"billing_address":null,"editor_tutorial_completed":true,"settings":{"id":63494,"present_controls":true,"present_upsizing":true,"editor_grid":true,"editor_snap":true,"developer_mode":false},"registered":true},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"should_loop":false,"rtl":false,"version":2,"access_token":"GpRLWceTs1pPHdnxfxFAF3Bi8yzr","notes":{}}};
+
+    script(defer="defer", src="javascripts/front/application.js")
+    script(defer="defer", src="javascripts/front/editor-v2.js")
+    script(defer="defer", src="javascripts/lib/reveal.min.js")
+    script(defer="defer", src="javascripts/front/ckeditor.js")

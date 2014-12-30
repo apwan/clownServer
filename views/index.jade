@@ -30,7 +30,18 @@ html(lang="en")
    if test.test_on == 'true'
      script(type="text/javascript").
        $(document).ready(function(){
-       ajax_include('/ajax','test_ajax');
+         $.ajax({
+            type:'put',
+            url:'/ajax/put',
+            dataType:'text',
+            data:{
+              username:'apwan',
+              email:'471369331@qq.com'
+            },
+            success:function(data){
+              $('#test_ajax')[0].innerHTML = data;
+            }
+         });
        $('#theme')[0].href='/stylesheets/sky.css';
        });
  body
@@ -44,6 +55,7 @@ html(lang="en")
        br
        button(type='submit', id='btn1', name='btn1') upload
        div#test_ajax
+
    else
       include edit
       +edit(title, 'Guest')

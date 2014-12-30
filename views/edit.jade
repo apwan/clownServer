@@ -26,7 +26,9 @@ mixin secondary
       button.button.share(data-tooltip="Share", data-tooltip-alignment="r")
          span.icon.i-share
          span.close.icon.i-x
-      a.button.gopro(data-tooltip="Upgrade to Pro", data-tooltip-alignment="r", href="/pricing", target="_blank")
+      //a.button.gopro(data-tooltip="Upgrade to Pro", data-tooltip-alignment="r", href="/pricing", target="_blank")
+         span.icon.i-star
+      button.button.about(data-tooltip="About CLoWN")
          span.icon.i-star
       button.button.more-options
          span.more-options-dot
@@ -222,6 +224,22 @@ mixin edit(title, username)
          + sec_import
       + projector
 
+   script(type="text/javascript").
+      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='javascripts/front/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+      UserVoice.push(['set', {
+         accent_color: '#448dd6',
+         trigger_color: 'white',
+         trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+         position: 'automatic'
+      }]);
+      UserVoice.push(['identify', {
+         email:      "chenwenxiao@live.cn",
+         name:       "chenwenxiao",
+         id:         "248705",
+         type:       "default",
+         created_at: 1417746430
+      }]);
    + front_script(['slconfig.js','application.js', 'editor-v2.js'])
    script(defer="defer", src="javascripts/lib/reveal.min.js")
    script(defer="defer", src="javascripts/front/ckeditor.js")

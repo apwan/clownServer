@@ -22,6 +22,9 @@ router.get('/', function(req, res) {
   res.render('index', cfg);
 
 });
+router.get('/edit', function(req, res){
+  res.render('SlidesEdit', {});
+});
 router.post('/upload', function(req, res){
   var form = formidable.IncomingForm();
 
