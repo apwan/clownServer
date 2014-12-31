@@ -31,7 +31,7 @@ User.prototype.createUser = function createUser(callback) {
 			collection.ensureIndex('name', {unique: true});
 			collection.insert(user, {safe: true}, function(err, userT) {
 				mogodb.close();
-				callback(err, userT);
+				return callback(err, userT);
 			})
 		});
 	});
@@ -51,9 +51,9 @@ User.getUserByName = function (username, callback) {
 				mongodb.close();
 				if (doc) {
 					var user = new User(doc);
-					callback(err, user);
+					return callback(err, user);
 				} else {
-					callback(err, null);
+					return callback(err, null);
 				}
 			});
 		});
@@ -73,9 +73,9 @@ User.deleteUserByName = function (username, callback) {
 			collection.deleteMany({name: username}, function(err, result) {
 				mongodb.close();
 				if (err) {
-					callback(err);
+					return callback(err);
 				} else {
-					callback(err, result);
+					return callback(err, result);
 				}
 			});
 		});

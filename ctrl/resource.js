@@ -29,7 +29,7 @@ Resource.prototype.createResource = function createResource(content, callback) {
 			collection.insert(resource, {safe: true}, function(err, resourceT) {
 				if (err) {
 					mogodb.close();
-					callback(err);
+					return callback(err);
 				}
 				var dir = __dirname + '/public/resources/' + resourceT._id;
 				fs.writeFile(dir, content, function(err) {
