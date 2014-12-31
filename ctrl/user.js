@@ -29,9 +29,9 @@ User.prototype.createUser = function createUser(callback) {
 				return callback(err);
 			}
 			collection.ensureIndex('name', {unique: true});
-			collection.insert(user, {safe: true}, function(err, user) {
+			collection.insert(user, {safe: true}, function(err, userT) {
 				mogodb.close();
-				callback(err, user);
+				callback(err, userT);
 			})
 		});
 	});
