@@ -7,10 +7,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug')('clownServer');
 
-// require route control
+/**
+ *
+ * @type {router}
+ */
+// main entry
 var routes = require('./routes/index');
+// for file transfer
 var users = require('./routes/users');
+// for SE course final presentation
 var demo = require('./routes/demo');
+// for dynamic loading information
 var ajax = require('./routes/ajax');
 
 var app = express();
@@ -18,21 +25,29 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.set('port', process.env.PORT | 3000);
-
+app.set('port', process.env.PORT | 3000);// default 3000
+/**
+ * Launch server
+ * @type {http.Server}
+ */
 var server = app.listen(app.get('port'), function() {
-    debug('Express server listening on port ' + server.address().port);
+    console.log('Express server listening on port ' + server.address().port);
 });
+// set up socket
 var io = require('socket.io')(server);
 
-// uncomment after placing your favicon in /public
+/**
+ *  Basic configuration
+ */
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+/**
+ *  Routes planning
+ */
 app.use('/', routes);
 app.use('/users', users);
 app.use('/demo', demo);
