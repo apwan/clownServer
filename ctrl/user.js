@@ -4,6 +4,10 @@
 
 var mongodb = require('./db').database;
 
+/*
+ * 构造函数
+ * @param user 包含用于构造用户object的初始属性
+ */
 function User(user) {
 	this._id = user._id;
     this.name = user.name;
@@ -12,6 +16,10 @@ function User(user) {
 	this.regtime = user.regtime;
 }
 
+/*
+ * 将该用户信息插入数据库
+ * @param callback 回调函数。参数为错误信息、插入返回的object。
+ */
 User.prototype.createUser = function createUser(callback) {
 	var user = {
 		name: this.name,
@@ -37,6 +45,11 @@ User.prototype.createUser = function createUser(callback) {
 	});
 };
 
+/*
+ * 通过用户名获得用户object
+ * @param username 用户名。
+ * @param callback 回调函数。参数为：错误信息、用户object。
+ */
 User.getUserByName = function (username, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
@@ -60,6 +73,11 @@ User.getUserByName = function (username, callback) {
 	});
 };
 
+/*
+ * 从数据库删除给定用户名的用户。
+ * @param username 用户名
+ * @param callback 回调函数。参数为：错误信息、结果object。
+ */
 User.deleteUserByName = function (username, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
