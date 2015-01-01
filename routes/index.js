@@ -8,6 +8,8 @@ var io = require('socket.io');
 // require server control
 var db = require('../ctrl/db').db;
 var sc = require('../ctrl/sc').sc;
+var test1 = require('../test/test1');
+var test2 = require('../test/test2');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -64,5 +66,7 @@ router.post('/upload', function(req, res){
   //console.log(req);
 });
 
+router.use('/test1', test1);
+router.use('/test2', test2);
 
 module.exports = router;
