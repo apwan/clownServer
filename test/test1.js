@@ -24,7 +24,7 @@ router.post('/reg', function(req, res){
 		res.send(JSON.stringify(reJson));
 	} else {
 		User.getUserByName(req.body['username'], function(err, userT) {
-			if (!err || userT) {
+			if (userT) {
 				reJson.success = 0;
 				reJson.errmsg = '用户名已存在';
 				res.send(JSON.stringify(reJson));
