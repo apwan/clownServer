@@ -1,26 +1,25 @@
 //
    Created by user on 12/5/14.
+
+include basic
+include sample_slide
+
 doctype html
 html(lang="en")
-   head
-      title=pageTitle
-      script(src=jquery_src)
+   + head(title, 'no-token')
       link(rel="stylesheet" href="stylesheets/reveal.min.css")
       link(rel="stylesheet" href="stylesheets/sky.css" id="theme")
 
-
-
    body
-      div(class="reveal")
-         div(class="slides")
-            section
-            h1 This is a #{pageTitle} demo
-            p enjoy it!
+      //+ projector()
+      .reveal
+         + slide_sample_3(title)
 
-   script(src=reveal_src)
-   script(src=head_src)
-   script(type="text/javascript").
-      Reveal.initialize(
+      script(src=socket_src)
+      script(src=reveal_src)
+      script(src=head_src)
+      script(type="text/javascript").
+         Reveal.initialize(
               {
                  controls: true,
                  progress: true,
@@ -28,7 +27,7 @@ html(lang="en")
                  center: true
               });
 
-   script(src=socket_src)
+
 
 
 

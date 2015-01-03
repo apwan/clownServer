@@ -14,6 +14,14 @@ var sc = {
         return 'socket' + this.version;
     },
 
+	/**
+	 *
+	 * @param newIO
+	 */
+	setIO: function (newIO) {
+		io = newIO;
+	},
+
     /** 结构体数组,每个结构体代表一个展示进程
      * @type {Object.<string, Object>}
      */

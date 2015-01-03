@@ -1,8 +1,28 @@
 //
    Created by WuYijie on 1/3/15.
-//- subpage holding reveal document
 
 
+mixin head(title,token)
+   head
+      meta(name="viewport", content="width=1024, user-scalable=no, minimal-ui")
+      meta(charset="utf-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+      - each val in ['lib/jquery.min','front/tools','front/initialize']
+         script(src="javascripts/"+val+".js", type="text/javascript")
+      title= title
+      meta(name="description", content="Slides")
+      - each val in ['slides','application','editor-v2','deck-v2']
+         link(href="stylesheets/"+val+".css" media="all", rel="stylesheet")
+      meta(content="authenticity_token", name="csrf-param")
+      meta(content=token, name="csrf-token")
+      style#user-css-output(type="text/css")
+      script#user-css-input(type="text/template")
+      if block
+         block
+      else
+
+//- eg. cfg = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
+    eg. cfg = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
 mixin projector(cfg)
    article.projector
       .reveal-viewport.theme-font-montserrat.theme-color-white-blue

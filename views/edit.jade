@@ -21,18 +21,13 @@ mixin gheader(hrefs, user)
               span.nav-item-burger-2
               span.nav-item-burger-3
 
-//- for loading js in batches
-mixin front_script(scripts)
-  - each val in scripts
-     script(defer="defer", src='javascripts/'+val+'.js')
 
 
 
 -var ajax_url = '/tmp/'+slide_id+'.json'
 doctype html
 html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibility="all")
-  include head
-  +head('CLoWN Online presentation')
+  +head('CLoWN Online presentation', "40+Zpfyb+b7eRZZkhFV7pLG+NPvXG3YXXH3CG3GZeYQ=")
     script(type="text/javascript").
        $(ajax_include("#{ajax_url}","user-info","var SLConfig=", " "));
 
@@ -82,12 +77,13 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
         + sec_import
 
       include sample_slide
-      - var subpage_info = {slide_info:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
-      + projector(subpage_info)
+      //- var subpage = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
+      - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
+      + projector(subpage)
           + slide_sample_1
 
 
     script#user-info(type="text/javascript")
-
-    + front_script(['front/application', 'front/editor-v2', 'reveal.min','front/ckeditor'])
+    - each val in ['front/application', 'front/editor-v2', 'lib/reveal.min','front/ckeditor']
+       script(defer="defer", src='javascripts/'+val+'.js')
 

@@ -5,14 +5,37 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var debug = require('debug')('clownServer');
+
+var app = express();
+
+/**
+ *  Basic configuration
+ */
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.set('port', process.env.PORT | 3000);// default 3000
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+/**
+ * Launch server
+ * @type {http.Server}
+ */
+var server = app.listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + server.address().port);
+    require('./routes/index').init(server);
+});
+
 
 /**
  *
  * @type {router}
  */
 // main entry
-var routes = require('./routes/index');
+var routes = require('./routes/index').router;
 // for file transfer
 var users = require('./routes/users');
 // for SE course final presentation
@@ -20,31 +43,7 @@ var demo = require('./routes/demo');
 // for dynamic loading information
 var ajax = require('./routes/ajax');
 
-var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.set('port', process.env.PORT | 3000);// default 3000
-/**
- * Launch server
- * @type {http.Server}
- */
-var server = app.listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + server.address().port);
-});
-// set up socket
-var io = require('socket.io')(server);
-
-/**
- *  Basic configuration
- */
-app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 /**
  *  Routes planning
  */
@@ -54,14 +53,8 @@ app.use('/demo', demo);
 app.use('/ajax', ajax);
 
 // configure socket control
-io.on('connection', function(socket){
-    socket.on('test', function(data){
-       socket.broadcast.emit('test back', {
-           status: 'success',
-           message: data
-       });
-    });
-});
+// set up socket
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,6 +62,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
 
 // error handlers
 

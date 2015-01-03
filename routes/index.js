@@ -3,7 +3,8 @@ var router = express.Router();
 var fs = require('fs');
 var formidable = require('formidable');
 var util = require('util');
-var io = require('socket.io');
+var io = null;
+var server = null;
 
 // require server control
 var db = require('../ctrl/db').db;
@@ -13,15 +14,25 @@ var test2 = require('../test/test2');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    var cfg = {
-        title: 'CLoWN Online Presentation',
-        test: {
-            test_on: 'true',
-            test_db: db.test(),
-            test_sc: sc.test()
-        }
-    };
-    res.render('index', cfg);
+    console.log(req.query);
+    if(req.query.user && req.query.slide){
+        var info = {
+            username: req.query.user,
+            slide_id: req.query.slide
+        };
+        res.render('edit', info);
+    }else{
+        var cfg = {
+            title: 'CLoWN Online Presentation',
+            test: {
+                test_on: 'true',
+                test_db: db.test(),
+                test_sc: sc.test()
+            }
+        };
+        res.render('index', cfg);
+    }
+
 
 });
 router.get('/edit', function (req, res) {
@@ -30,7 +41,7 @@ router.get('/edit', function (req, res) {
         username: 'Guest',
         slide_id: '303028'
     };
-    res.render('SlidesEdit', info);
+    res.render('edit', info);
 
 
 
@@ -77,4 +88,20 @@ router.post('/upload', function (req, res) {
 router.use('/test1', test1);
 router.use('/test2', test2);
 
-module.exports = router;
+var setup = function(newServer){
+    server = newServer;
+    io = require('socket.io')(server);
+
+    io.on('connection', function(socket){
+        socket.on('test', function(data){
+            socket.broadcast.emit('test back', {
+                status: 'success',
+                message: data
+            });
+        });
+    });
+    console.log('socket setup');
+};
+exports.init = setup;
+exports.router = router;
+

@@ -1,5 +1,5 @@
 /**
- * Created by user on 12/5/14.
+ * Created by WuYijie on 12/5/14.
  */
 
 var express = require('express');
@@ -8,9 +8,8 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
     var cfg = {
-        pageTitle: '设计',
-        reveal_src: 'javascripts/reveal.min.js',
-        jquery_src: 'javascripts/lib/jquery.min.js',
+        title: 'Design',
+        reveal_src: 'javascripts/lib/reveal.min.js',
         socket_src: 'socket.io/socket.io.js',
         head_src: 'javascripts/lib/head.min.js'
     };
