@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 
 });
 router.get('/img', function(req, res){
-  res.sendfile('public/images/sample.png');
+  res.sendfile('public/images/background_cwx.jpg');
 });
 router.get('/txt', function(req, res){
   res.sendfile('public/html/sample.html');

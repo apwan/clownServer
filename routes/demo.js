@@ -9,7 +9,7 @@ var router = express.Router();
 router.get('/', function(req, res) {
     var cfg = {
         pageTitle: '设计',
-        reveal_src: 'javascripts/lib/reveal.min.js',
+        reveal_src: 'javascripts/reveal.min.js',
         jquery_src: 'javascripts/lib/jquery.min.js',
         socket_src: 'socket.io/socket.io.js',
         head_src: 'javascripts/lib/head.min.js'

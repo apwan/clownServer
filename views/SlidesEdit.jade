@@ -1,3 +1,5 @@
+include basic
+
 mixin gheader(hrefs, user)
   header.global-header
     .wrapper
@@ -19,16 +21,21 @@ mixin gheader(hrefs, user)
               span.nav-item-burger-2
               span.nav-item-burger-3
 
+//- for loading js in batches
 mixin front_script(scripts)
   - each val in scripts
-     script(defer="defer", src="javascripts/front/"+val)
+     script(defer="defer", src='javascripts/'+val+'.js')
 
-include edit
 
+
+-var ajax_url = '/tmp/'+slide_id+'.json'
 doctype html
 html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibility="all")
   include head
-  + head('CLoWN Online presentation')
+  +head('CLoWN Online presentation')
+    script(type="text/javascript").
+       $(ajax_include("#{ajax_url}","user-info","var SLConfig=", " "));
+
   body
     .page-loader
       .page-loader-inner
@@ -63,9 +70,9 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
             span.more-options-dot
         .scroll-shadow-top
         .scroll-shadow-bottom
-        - var hrefs = ["/","/","explore","/users","/"+username]
+        - var hrefs = ['/','/','explore','/users','/'+username]
         + gheader(hrefs, username)
-
+      include sections
       .sidebar-panel
         + sec_settings
         + sec_style
@@ -74,35 +81,13 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
         + sec_share
         + sec_import
 
+      include sample_slide
+      - var subpage_info = {slide_info:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
+      + projector(subpage_info)
+          + slide_sample_1
 
-      article.projector
-        .reveal-viewport.theme-font-montserrat.theme-color-white-blue
-          .reveal
-            .slides
-              section.has-dark-background(data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/chenwenxiao/images/900107/background.jpg", data-background-color="#9900ff", data-id="1a0a655fbb26117bc93e1355eb7e84d5")
-              section
-        .icon.add-horizontal-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="l", data-tooltip-delay="1500")
-          span.icon.i-plus
-        .icon.add-vertical-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="t", data-tooltip-delay="1500")
-          span.icon.i-plus
-    script(type="text/javascript").
-      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='javascripts/front/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
 
-      UserVoice.push(['set', {
-      accent_color: '#448dd6',
-      trigger_color: 'white',
-      trigger_background_color: 'rgba(46, 49, 51, 0.6)',
-      position: 'automatic'
-      }]);
-      UserVoice.push(['identify', {
-      email:      "chenwenxiao@live.cn",
-      name:       "chenwenxiao",
-      id:         "248705",
-      type:       "default",
-      created_at: 1417746430
-      }]);
-      var SLConfig = {"current_user":{"id":248705,"username":"chenwenxiao","name":null,"email":"chenwenxiao@live.cn","description":null,"thumbnail_url":"https://www.gravatar.com/avatar/442a4877f0ece41c1903d9eb714fb61b?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"enterprise_manager":false,"notify_on_receipt":false,"billing_address":null,"editor_tutorial_completed":true,"settings":{"id":63494,"present_controls":true,"present_upsizing":true,"editor_grid":true,"editor_snap":true,"developer_mode":false},"registered":true},"deck":{"id":303028,"slug":"deck--3","title":"deck","description":"","visibility":"all","published_at":"2014-12-05T02:46:25.345Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/chenwenxiao/bc3b65/deck--3.jpg","view_count":3,"user":{"id":248705,"username":"chenwenxiao","name":null,"email":"chenwenxiao@live.cn","description":null,"thumbnail_url":"https://www.gravatar.com/avatar/442a4877f0ece41c1903d9eb714fb61b?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"enterprise_manager":false,"notify_on_receipt":false,"billing_address":null,"editor_tutorial_completed":true,"settings":{"id":63494,"present_controls":true,"present_upsizing":true,"editor_grid":true,"editor_snap":true,"developer_mode":false},"registered":true},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"should_loop":false,"rtl":false,"version":2,"access_token":"GpRLWceTs1pPHdnxfxFAF3Bi8yzr","notes":{}}};
+    script#user-info(type="text/javascript")
 
-    + front_script(['application.js', 'editor-v2.js'])
-    script(defer="defer", src="javascripts/reveal.min.js")
-    script(defer="defer", src="javascripts/front/ckeditor.js")
+    + front_script(['front/application', 'front/editor-v2', 'reveal.min','front/ckeditor'])
+

@@ -3,7 +3,7 @@
  */
 
 
-function ajax_include(src,id){
+function ajax_include(src,id,ahead,append){
     $.ajax({
         type: "GET",
         url: src,
@@ -11,7 +11,12 @@ function ajax_include(src,id){
         dataType: "html",
         success: function(data){
             var ul = document.getElementById(id);
-            ul.innerHTML = data;
+            if(append && ahead) {
+                ul.innerHTML = ahead + data + append;
+            }else{
+                ul.innerHTML = data;
+            }
         }
     });
 }
+

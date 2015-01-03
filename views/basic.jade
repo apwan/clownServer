@@ -1,0 +1,19 @@
+//
+   Created by WuYijie on 1/3/15.
+//- subpage holding reveal document
+
+
+mixin projector(cfg)
+   article.projector
+      .reveal-viewport.theme-font-montserrat.theme-color-white-blue
+         .reveal
+            if block
+               block
+            else
+               .slide
+                  section
+                     h1 Blank Slide
+      .icon.add-horizontal-slide(data-tooltip=cfg.h_tip, data-tooltip-alignment="l", data-tooltip-delay="1500")
+         span.icon.i-plus
+      .icon.add-vertical-slide(data-tooltip=cfg.v_tip, data-tooltip-alignment="t", data-tooltip-delay="1500")
+         span.icon.i-plus
