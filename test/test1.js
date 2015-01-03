@@ -10,6 +10,7 @@ router.post('/reg', function(req, res){
 	var reJson = {
 		receive: 1
 	}
+	res.send('1');
 	if (req.body['repassword'] != req.body['password']) {
 		reJson.success = 0;
 		reJson.errmsg = '两次输入的口令不一致';
@@ -17,6 +18,7 @@ router.post('/reg', function(req, res){
 	} else if (req.body['password'] == '') {
 		reJson.success = 0;
 		reJson.errmsg = '密码不能为空';
+		res.send('2');
 		res.send(reJson.toString());
 	} else if (req.body['username'].length < 3) {
 		reJson.success = 0;
@@ -49,6 +51,7 @@ router.post('/reg', function(req, res){
 			}
 		});
 	}
+	res.send('end');
     //res.send('This is the first test module.');
 });
 
