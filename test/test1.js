@@ -11,6 +11,7 @@ router.post('/reg', function(req, res){
 		receive: 1
 	}
 	res.send('1');
+	res.send(req.body);
 	if (req.body['repassword'] != req.body['password']) {
 		reJson.success = 0;
 		reJson.errmsg = '两次输入的口令不一致';
