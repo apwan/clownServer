@@ -29,12 +29,13 @@ router.post('/reg', function(req, res){
 				reJson.errmsg = '用户名已存在';
 				res.send(JSON.stringify(reJson));
 			} else {
+			    res.send(JSON.sringify(reJson));
 				var newUser = new User({
 					name: req.body['username'],
 					email: req.body['email'],
 					password: crypto.createhash('md5').update(req.body['password']).digest('base64')
 				});
-				res.send(JSON.sringify(newUser));
+				
 				newUser.createUser(function (err, userT) {
 					if (err) {
 						reJson.success = 0;
