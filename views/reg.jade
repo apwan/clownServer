@@ -4,7 +4,8 @@ html(lang="en")
 		title="reg"
 	body
 		form
-			- each val in ["username", "password", "repassword", "email"]
-				input(type="text", name=val)
-			   
+			input(type="text", name="username")
+			input(type="text", name="password")
+			input(type="text", name="repassword")
+			input(type="text", name="email")
 			input(type="submit", name="submit")
