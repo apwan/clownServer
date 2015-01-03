@@ -34,6 +34,7 @@ router.post('/reg', function(req, res){
 					email: req.body['email'],
 					password: crypto.createhash('md5').update(req.body['password']).digest('base64')
 				});
+				res.send(JSON.sringify(newUser));
 				newUser.createUser(function (err, userT) {
 					if (err) {
 						reJson.success = 0;
