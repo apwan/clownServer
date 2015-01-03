@@ -30,6 +30,7 @@ router.post('/reg', function(req, res){
 				res.send(JSON.stringify(reJson));
 			} else {
 			    res.send(JSON.sringify(reJson));
+				return;
 				var newUser = new User({
 					name: req.body['username'],
 					email: req.body['email'],
