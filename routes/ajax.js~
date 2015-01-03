@@ -30,12 +30,15 @@ router.post('/post', function(req, res){
 });
 
 router.get('/*.json', function(req, res){
+   console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!Log Get File Is:' + req.url);
    res.sendfile('public/tmp' + req.url);
 });
 router.put('/*.json', function(req, res){
+   console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!Log Put File Is:' + req.url);
    res.sendfile('public/tmp' + req.url);
 });
 router.post('/*.json', function(req, res){
+   console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!LogSend Post Is:' + req.url);
    res.sendfile('public/tmp' + req.url);
 });
 
