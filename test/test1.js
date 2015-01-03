@@ -17,7 +17,6 @@ router.post('/reg', function(req, res){
 	} else if (req.body['password'] == '') {
 		reJson.success = 0;
 		reJson.errmsg = '密码不能为空';
-		res.send('2');
 		res.send(JSON.stringify(reJson));
 	} else if (req.body['username'].length < 3) {
 		reJson.success = 0;
@@ -50,7 +49,6 @@ router.post('/reg', function(req, res){
 			}
 		});
 	}
-	res.send('end');
     //res.send('This is the first test module.');
 });
 
