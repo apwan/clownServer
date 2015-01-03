@@ -37,7 +37,7 @@ router.post('/reg', function(req, res){
 				newUser.createUser(function (err, userT) {
 					if (err) {
 						reJson.success = 0;
-						reJson.errmsg = err.toString();
+						reJson.errmsg = JSON.stringify(err);
 						res.send(JSON.stringify(reJson));
 					} else {
 						req.session.user = userT;
