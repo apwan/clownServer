@@ -45,7 +45,7 @@ mixin primary
          span.icon.check.i-checkmark
          span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
 
-mixin head(title, username)
+mixin header(title, username)
    header.global-header
       .wrapper
          h1.logo-animation #{title}
@@ -194,9 +194,7 @@ mixin projector
          span.icon.i-plus
 
 
-mixin front_script(scripts)
-   - each val in scripts
-      script(defer="defer", src="javascripts/front/"+val)
+
 
 mixin edit(title, username)
    .page-loader
@@ -214,7 +212,7 @@ mixin edit(title, username)
          + secondary
          .scroll-shadow-top
          .scroll-shadow-bottom
-         + head(title, username)
+         + header(title, username)
       .sidebar-panel
          + sec_settings
          + sec_style
@@ -224,23 +222,5 @@ mixin edit(title, username)
          + sec_import
       + projector
 
-   script(type="text/javascript").
-      UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='javascripts/front/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
 
-      UserVoice.push(['set', {
-         accent_color: '#448dd6',
-         trigger_color: 'white',
-         trigger_background_color: 'rgba(46, 49, 51, 0.6)',
-         position: 'automatic'
-      }]);
-      UserVoice.push(['identify', {
-         email:      "chenwenxiao@live.cn",
-         name:       "chenwenxiao",
-         id:         "248705",
-         type:       "default",
-         created_at: 1417746430
-      }]);
-   + front_script(['slconfig.js','application.js', 'editor-v2.js'])
-   script(defer="defer", src="javascripts/lib/reveal.min.js")
-   script(defer="defer", src="javascripts/front/ckeditor.js")
 
