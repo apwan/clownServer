@@ -10,7 +10,6 @@ router.post('/reg', function(req, res){
 	var reJson = {
 		receive: 1
 	}
-	res.send('1');
 	res.send(req.body.toString());
 	if (req.body['repassword'] != req.body['password']) {
 		reJson.success = 0;
