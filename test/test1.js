@@ -47,7 +47,7 @@ router.post('/reg', function(req, res){
 				});
 				
 			}
-		}
+		});
 	}
     //res.send('This is the first test module.');
 });
