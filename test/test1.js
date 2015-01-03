@@ -5,8 +5,9 @@ var express = require('express');
 var router = express.Router();
 
 // for Lin Zinan
-router.get('/', function(req, res){
-    res.send('This is the first test module.');
+router.post('/reg', function(req, res){
+   res.render('reg',{});
+    //res.send('This is the first test module.');
 });
 
 module.exports = router;
