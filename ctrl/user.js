@@ -25,7 +25,7 @@ User.prototype.createUser = function createUser(callback) {
 		name: this.name,
 		password: this.password,
 		email: this.email,
-		regtime: new Date().now()
+		regtime: (new Date()).getDay()
 	}
 	mongodb.open(function(err, db) {
 		if (err) {
@@ -38,7 +38,7 @@ User.prototype.createUser = function createUser(callback) {
 			}
 			collection.ensureIndex('name', {unique: true});
 			collection.insert(user, {safe: true}, function(err, userT) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err, userT);
 			})
 		});

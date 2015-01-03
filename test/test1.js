@@ -35,7 +35,7 @@ router.post('/reg', function(req, res){
 				var newUser = new User({
 					name: req.body['username'],
 					email: req.body['email'],
-					password: crypto.createHashMap('md5').update(req.body['password']).digest('base64')
+					password: req.body['password']
 				});
 				
 				newUser.createUser(function (err, userT) {
@@ -44,7 +44,7 @@ router.post('/reg', function(req, res){
 						reJson.errmsg = JSON.stringify(err);
 						res.send(JSON.stringify(reJson));
 					} else {
-						req.session.user = userT;
+						//req.session.user = userT;
 						reJson.success = 1;
 						res.send(JSON.stringify(reJson));
 					}
