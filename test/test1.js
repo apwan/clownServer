@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
+var crypto = require('crypto');
 var User = require('../ctrl/user.js');
 
 // for Lin Zinan
@@ -29,12 +30,12 @@ router.post('/reg', function(req, res){
 				reJson.errmsg = '用户名已存在';
 				res.send(JSON.stringify(reJson));
 			} else {
-			    res.send(JSON.sringify(reJson));
-				return;
+			    //res.send(JSON.stringify(reJson));
+				//return;
 				var newUser = new User({
 					name: req.body['username'],
 					email: req.body['email'],
-					password: crypto.createhash('md5').update(req.body['password']).digest('base64')
+					password: crypto.createHashMap('md5').update(req.body['password']).digest('base64')
 				});
 				
 				newUser.createUser(function (err, userT) {
