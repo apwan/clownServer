@@ -32,7 +32,7 @@ router.post('/reg', function(req, res){
 				var newUser = new User({
 					name: req.body['username'],
 					email: req.body['email'],
-					password: crypto.createhash('md5').update(req.body['password']).digest('base64');
+					password: crypto.createhash('md5').update(req.body['password']).digest('base64')
 				});
 				newUser.createUser(function (err, userT) {
 					if (err) {
