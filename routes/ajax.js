@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
+var fs = require('fs');
 
 router.put('/put', function(req, res){
    var cfg = {
@@ -26,6 +27,15 @@ router.post('/post', function(req, res){
    }
    else
       console.log('nobody');
+});
+
+router.get('/*.json', function(req, res){
+   res.sendfile('public/tmp/template.json');
+
+});
+router.put('/*.json', function(req, res){
+   res.sendfile('public/tmp/template.json');
+
 });
 
 
