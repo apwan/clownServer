@@ -10,7 +10,6 @@ router.post('/reg', function(req, res){
 	var reJson = {
 		receive: 1
 	}
-	res.send(JSON.stringify(req.body));
 	if (req.body['repassword'] != req.body['password']) {
 		reJson.success = 0;
 		reJson.errmsg = '两次输入的口令不一致';
@@ -19,17 +18,17 @@ router.post('/reg', function(req, res){
 		reJson.success = 0;
 		reJson.errmsg = '密码不能为空';
 		res.send('2');
-		res.send(reJson.toString());
+		res.send(JSON.stringify(reJson));
 	} else if (req.body['username'].length < 3) {
 		reJson.success = 0;
 		reJson.errmsg = '用户名小于3个字符';
-		res.send(reJson.toString());
+		res.send(JSON.stringify(reJson));
 	} else {
 		User.getUserByName(req.body['username'], function(err, userT) {
 			if (!err || userT) {
 				reJson.success = 0;
 				reJson.errmsg = '用户名已存在';
-				res.send(reJson.toString());
+				res.send(JSON.stringify(reJson));
 			} else {
 				var newUser = new User({
 					name: req.body['username'],
@@ -40,11 +39,11 @@ router.post('/reg', function(req, res){
 					if (err) {
 						reJson.success = 0;
 						reJson.errmsg = err.toString();
-						res.send(reJson.toString());
+						res.send(JSON.stringify(reJson));
 					} else {
 						req.session.user = userT;
 						reJson.success = 1;
-						res.send(reJson.toString());
+						res.send(JSON.stringify(reJson));
 					}
 				});
 				
