@@ -68,11 +68,11 @@ router.post('/login', function(req, res){
 	//res.send(JSON.stringify(user));
 	user.checkPassword(function(err, userT) {
 		if (userT) {
-			session.user = userT;
+			req.session.user = userT;
 			reJson.success = 1;
 			res.send(JSON.stringify(reJson));
 		} else {
-			session.user = null;
+			req.session.user = null;
 			reJson.success = 0;
 			res.send(JSON.stringify(reJson));			
 		}
@@ -80,17 +80,17 @@ router.post('/login', function(req, res){
 });
 
 router.get('/login', function(req, res){
-	if (session.user != null) {
+	if (req.session.user != null) {
 		var user = new User({
-			name: session.user.name,
-			password: session.user.password
+			name: req.session.user.name,
+			password: req.session.user.password
 		}, 1);
 		user.checkPassword(function(err, userT) {
 			if (userT) {
-				session.user = userT;
+				req.session.user = userT;
 				res.render('logged', {usermsg: JSON.stringify(userT)});
 			} else {
-				session.user = null;
+				req.session.user = null;
 				res.render('login',{});	
 			}
 		});
@@ -100,7 +100,7 @@ router.get('/login', function(req, res){
 });
 
 router.get('/logout', function(req, res) {
-	session.user = null;
+	req.session.user = null;
 	res.redirect('/test1/login');
 });
 
