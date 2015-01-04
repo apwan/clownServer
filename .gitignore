@@ -3,3 +3,4 @@
 .idea/runConfigurations/*
 .idea/*.xml
 .idea/scopes/*
+*.log
