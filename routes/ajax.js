@@ -50,6 +50,7 @@ router.put('/*.json', function(req, res){
    var slide_id = req.params[0];
    var slide_data = req.body["deck[data]"];
    console.log(slide_id);
+   /*
    fs.writeFile('public/html/'+slide_id+'.html',slide_data,function(err){
       if(err){
          console.log("Writing failed");
@@ -57,6 +58,7 @@ router.put('/*.json', function(req, res){
          console.log("Writing successful");
       }
    });
+   */
    //console.log(req.body);
    res.send('ok');
 });
