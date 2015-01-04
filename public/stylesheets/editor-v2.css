@@ -1,1 +1,4028 @@
-.katex{font:normal 1.21em KaTeX_Main;line-height:1.2;white-space:nowrap}.katex .katex-inner{display:inline-block}.katex .base{display:inline-block}.katex .strut{display:inline-block}.katex .mathit{font-family:KaTeX_Math;font-style:italic}.katex .amsrm{font-family:KaTeX_AMS}.katex .textstyle>.mord+.mop{margin-left:0.16667em}.katex .textstyle>.mord+.mbin{margin-left:0.22222em}.katex .textstyle>.mord+.mrel{margin-left:0.27778em}.katex .textstyle>.mord+.minner{margin-left:0.16667em}.katex .textstyle>.mop+.mord{margin-left:0.16667em}.katex .textstyle>.mop+.mop{margin-left:0.16667em}.katex .textstyle>.mop+.mrel{margin-left:0.27778em}.katex .textstyle>.mop+.minner{margin-left:0.16667em}.katex .textstyle>.mbin+.mord{margin-left:0.22222em}.katex .textstyle>.mbin+.mop{margin-left:0.22222em}.katex .textstyle>.mbin+.mopen{margin-left:0.22222em}.katex .textstyle>.mbin+.minner{margin-left:0.22222em}.katex .textstyle>.mrel+.mord{margin-left:0.27778em}.katex .textstyle>.mrel+.mop{margin-left:0.27778em}.katex .textstyle>.mrel+.mopen{margin-left:0.27778em}.katex .textstyle>.mrel+.minner{margin-left:0.27778em}.katex .textstyle>.mclose+.mop{margin-left:0.16667em}.katex .textstyle>.mclose+.mbin{margin-left:0.22222em}.katex .textstyle>.mclose+.mrel{margin-left:0.27778em}.katex .textstyle>.mclose+.minner{margin-left:0.16667em}.katex .textstyle>.mpunct+.mord{margin-left:0.16667em}.katex .textstyle>.mpunct+.mop{margin-left:0.16667em}.katex .textstyle>.mpunct+.mrel{margin-left:0.16667em}.katex .textstyle>.mpunct+.mopen{margin-left:0.16667em}.katex .textstyle>.mpunct+.mclose{margin-left:0.16667em}.katex .textstyle>.mpunct+.mpunct{margin-left:0.16667em}.katex .textstyle>.mpunct+.minner{margin-left:0.16667em}.katex .textstyle>.minner+.mord{margin-left:0.16667em}.katex .textstyle>.minner+.mop{margin-left:0.16667em}.katex .textstyle>.minner+.mbin{margin-left:0.22222em}.katex .textstyle>.minner+.mrel{margin-left:0.27778em}.katex .textstyle>.minner+.mopen{margin-left:0.16667em}.katex .textstyle>.minner+.mpunct{margin-left:0.16667em}.katex .textstyle>.minner+.minner{margin-left:0.16667em}.katex .mord+.mop{margin-left:0.16667em}.katex .mop+.mord{margin-left:0.16667em}.katex .mop+.mop{margin-left:0.16667em}.katex .mclose+.mop{margin-left:0.16667em}.katex .minner+.mop{margin-left:0.16667em}.katex .reset-textstyle.textstyle{font-size:1em}.katex .reset-textstyle.scriptstyle{font-size:0.7em}.katex .reset-textstyle.scriptscriptstyle{font-size:0.5em}.katex .reset-scriptstyle.textstyle{font-size:1.42857em}.katex .reset-scriptstyle.scriptstyle{font-size:1em}.katex .reset-scriptstyle.scriptscriptstyle{font-size:0.71429em}.katex .reset-scriptscriptstyle.textstyle{font-size:2em}.katex .reset-scriptscriptstyle.scriptstyle{font-size:1.4em}.katex .reset-scriptscriptstyle.scriptscriptstyle{font-size:1em}.katex .style-wrap{position:relative}.katex .vlist{display:inline-block}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist .baseline-fix{display:inline-table;table-layout:fixed}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{width:100%}.katex .mfrac .frac-line:before{border-bottom-style:solid;border-bottom-width:1px;content:"";display:block}.katex .mfrac .frac-line:after{border-bottom-style:solid;border-bottom-width:0.04em;content:"";display:block;margin-top:-1px}.katex .mspace{display:inline-block}.katex .mspace.negativethinspace{margin-left:-0.16667em}.katex .mspace.thinspace{width:0.16667em}.katex .mspace.mediumspace{width:0.22222em}.katex .mspace.thickspace{width:0.27778em}.katex .mspace.enspace{width:0.5em}.katex .mspace.quad{width:1em}.katex .mspace.qquad{width:2em}.katex .llap,.katex .rlap{width:0;position:relative}.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .rlap>.inner{left:0}.katex .katex-logo .a{font-size:0.75em;margin-left:-0.32em;position:relative;top:-0.2em}.katex .katex-logo .t{margin-left:-0.23em}.katex .katex-logo .e{margin-left:-0.1667em;position:relative;top:0.2155em}.katex .katex-logo .x{margin-left:-0.125em}.katex .rule{display:inline-block;border-style:solid}.katex .overline .overline-line{width:100%}.katex .overline .overline-line:before{border-bottom-style:solid;border-bottom-width:1px;content:"";display:block}.katex .overline .overline-line:after{border-bottom-style:solid;border-bottom-width:0.04em;content:"";display:block;margin-top:-1px}.katex .sqrt>.sqrt-sign{position:relative}.katex .sqrt .sqrt-line{width:100%}.katex .sqrt .sqrt-line:before{border-bottom-style:solid;border-bottom-width:1px;content:"";display:block}.katex .sqrt .sqrt-line:after{border-bottom-style:solid;border-bottom-width:0.04em;content:"";display:block;margin-top:-1px}.katex .sizing,.katex .fontsize-ensurer{display:inline-block}.katex .sizing.reset-size1.size1,.katex .fontsize-ensurer.reset-size1.size1{font-size:1em}.katex .sizing.reset-size1.size2,.katex .fontsize-ensurer.reset-size1.size2{font-size:1.4em}.katex .sizing.reset-size1.size3,.katex .fontsize-ensurer.reset-size1.size3{font-size:1.6em}.katex .sizing.reset-size1.size4,.katex .fontsize-ensurer.reset-size1.size4{font-size:1.8em}.katex .sizing.reset-size1.size5,.katex .fontsize-ensurer.reset-size1.size5{font-size:2em}.katex .sizing.reset-size1.size6,.katex .fontsize-ensurer.reset-size1.size6{font-size:2.4em}.katex .sizing.reset-size1.size7,.katex .fontsize-ensurer.reset-size1.size7{font-size:2.88em}.katex .sizing.reset-size1.size8,.katex .fontsize-ensurer.reset-size1.size8{font-size:3.46em}.katex .sizing.reset-size1.size9,.katex .fontsize-ensurer.reset-size1.size9{font-size:4.14em}.katex .sizing.reset-size1.size10,.katex .fontsize-ensurer.reset-size1.size10{font-size:4.98em}.katex .sizing.reset-size2.size1,.katex .fontsize-ensurer.reset-size2.size1{font-size:0.7142857142857143em}.katex .sizing.reset-size2.size2,.katex .fontsize-ensurer.reset-size2.size2{font-size:1em}.katex .sizing.reset-size2.size3,.katex .fontsize-ensurer.reset-size2.size3{font-size:1.142857142857143em}.katex .sizing.reset-size2.size4,.katex .fontsize-ensurer.reset-size2.size4{font-size:1.2857142857142858em}.katex .sizing.reset-size2.size5,.katex .fontsize-ensurer.reset-size2.size5{font-size:1.4285714285714286em}.katex .sizing.reset-size2.size6,.katex .fontsize-ensurer.reset-size2.size6{font-size:1.7142857142857144em}.katex .sizing.reset-size2.size7,.katex .fontsize-ensurer.reset-size2.size7{font-size:2.0571428571428574em}.katex .sizing.reset-size2.size8,.katex .fontsize-ensurer.reset-size2.size8{font-size:2.4714285714285715em}.katex .sizing.reset-size2.size9,.katex .fontsize-ensurer.reset-size2.size9{font-size:2.9571428571428573em}.katex .sizing.reset-size2.size10,.katex .fontsize-ensurer.reset-size2.size10{font-size:3.557142857142858em}.katex .sizing.reset-size3.size1,.katex .fontsize-ensurer.reset-size3.size1{font-size:0.625em}.katex .sizing.reset-size3.size2,.katex .fontsize-ensurer.reset-size3.size2{font-size:0.8749999999999999em}.katex .sizing.reset-size3.size3,.katex .fontsize-ensurer.reset-size3.size3{font-size:1em}.katex .sizing.reset-size3.size4,.katex .fontsize-ensurer.reset-size3.size4{font-size:1.125em}.katex .sizing.reset-size3.size5,.katex .fontsize-ensurer.reset-size3.size5{font-size:1.25em}.katex .sizing.reset-size3.size6,.katex .fontsize-ensurer.reset-size3.size6{font-size:1.4999999999999998em}.katex .sizing.reset-size3.size7,.katex .fontsize-ensurer.reset-size3.size7{font-size:1.7999999999999998em}.katex .sizing.reset-size3.size8,.katex .fontsize-ensurer.reset-size3.size8{font-size:2.1624999999999996em}.katex .sizing.reset-size3.size9,.katex .fontsize-ensurer.reset-size3.size9{font-size:2.5874999999999995em}.katex .sizing.reset-size3.size10,.katex .fontsize-ensurer.reset-size3.size10{font-size:3.1125000000000003em}.katex .sizing.reset-size4.size1,.katex .fontsize-ensurer.reset-size4.size1{font-size:0.5555555555555556em}.katex .sizing.reset-size4.size2,.katex .fontsize-ensurer.reset-size4.size2{font-size:0.7777777777777777em}.katex .sizing.reset-size4.size3,.katex .fontsize-ensurer.reset-size4.size3{font-size:0.888888888888889em}.katex .sizing.reset-size4.size4,.katex .fontsize-ensurer.reset-size4.size4{font-size:1em}.katex .sizing.reset-size4.size5,.katex .fontsize-ensurer.reset-size4.size5{font-size:1.1111111111111112em}.katex .sizing.reset-size4.size6,.katex .fontsize-ensurer.reset-size4.size6{font-size:1.3333333333333333em}.katex .sizing.reset-size4.size7,.katex .fontsize-ensurer.reset-size4.size7{font-size:1.5999999999999999em}.katex .sizing.reset-size4.size8,.katex .fontsize-ensurer.reset-size4.size8{font-size:1.922222222222222em}.katex .sizing.reset-size4.size9,.katex .fontsize-ensurer.reset-size4.size9{font-size:2.3em}.katex .sizing.reset-size4.size10,.katex .fontsize-ensurer.reset-size4.size10{font-size:2.766666666666667em}.katex .sizing.reset-size5.size1,.katex .fontsize-ensurer.reset-size5.size1{font-size:0.5em}.katex .sizing.reset-size5.size2,.katex .fontsize-ensurer.reset-size5.size2{font-size:0.7em}.katex .sizing.reset-size5.size3,.katex .fontsize-ensurer.reset-size5.size3{font-size:0.8em}.katex .sizing.reset-size5.size4,.katex .fontsize-ensurer.reset-size5.size4{font-size:0.9em}.katex .sizing.reset-size5.size5,.katex .fontsize-ensurer.reset-size5.size5{font-size:1em}.katex .sizing.reset-size5.size6,.katex .fontsize-ensurer.reset-size5.size6{font-size:1.2em}.katex .sizing.reset-size5.size7,.katex .fontsize-ensurer.reset-size5.size7{font-size:1.44em}.katex .sizing.reset-size5.size8,.katex .fontsize-ensurer.reset-size5.size8{font-size:1.73em}.katex .sizing.reset-size5.size9,.katex .fontsize-ensurer.reset-size5.size9{font-size:2.07em}.katex .sizing.reset-size5.size10,.katex .fontsize-ensurer.reset-size5.size10{font-size:2.49em}.katex .sizing.reset-size6.size1,.katex .fontsize-ensurer.reset-size6.size1{font-size:0.4166666666666667em}.katex .sizing.reset-size6.size2,.katex .fontsize-ensurer.reset-size6.size2{font-size:0.5833333333333334em}.katex .sizing.reset-size6.size3,.katex .fontsize-ensurer.reset-size6.size3{font-size:0.6666666666666667em}.katex .sizing.reset-size6.size4,.katex .fontsize-ensurer.reset-size6.size4{font-size:0.75em}.katex .sizing.reset-size6.size5,.katex .fontsize-ensurer.reset-size6.size5{font-size:0.8333333333333334em}.katex .sizing.reset-size6.size6,.katex .fontsize-ensurer.reset-size6.size6{font-size:1em}.katex .sizing.reset-size6.size7,.katex .fontsize-ensurer.reset-size6.size7{font-size:1.2em}.katex .sizing.reset-size6.size8,.katex .fontsize-ensurer.reset-size6.size8{font-size:1.4416666666666667em}.katex .sizing.reset-size6.size9,.katex .fontsize-ensurer.reset-size6.size9{font-size:1.7249999999999999em}.katex .sizing.reset-size6.size10,.katex .fontsize-ensurer.reset-size6.size10{font-size:2.075em}.katex .sizing.reset-size7.size1,.katex .fontsize-ensurer.reset-size7.size1{font-size:0.3472222222222222em}.katex .sizing.reset-size7.size2,.katex .fontsize-ensurer.reset-size7.size2{font-size:0.4861111111111111em}.katex .sizing.reset-size7.size3,.katex .fontsize-ensurer.reset-size7.size3{font-size:0.5555555555555556em}.katex .sizing.reset-size7.size4,.katex .fontsize-ensurer.reset-size7.size4{font-size:0.625em}.katex .sizing.reset-size7.size5,.katex .fontsize-ensurer.reset-size7.size5{font-size:0.6944444444444444em}.katex .sizing.reset-size7.size6,.katex .fontsize-ensurer.reset-size7.size6{font-size:0.8333333333333334em}.katex .sizing.reset-size7.size7,.katex .fontsize-ensurer.reset-size7.size7{font-size:1em}.katex .sizing.reset-size7.size8,.katex .fontsize-ensurer.reset-size7.size8{font-size:1.2013888888888888em}.katex .sizing.reset-size7.size9,.katex .fontsize-ensurer.reset-size7.size9{font-size:1.4375em}.katex .sizing.reset-size7.size10,.katex .fontsize-ensurer.reset-size7.size10{font-size:1.729166666666667em}.katex .sizing.reset-size8.size1,.katex .fontsize-ensurer.reset-size8.size1{font-size:0.28901734104046245em}.katex .sizing.reset-size8.size2,.katex .fontsize-ensurer.reset-size8.size2{font-size:0.40462427745664736em}.katex .sizing.reset-size8.size3,.katex .fontsize-ensurer.reset-size8.size3{font-size:0.46242774566473993em}.katex .sizing.reset-size8.size4,.katex .fontsize-ensurer.reset-size8.size4{font-size:0.5202312138728324em}.katex .sizing.reset-size8.size5,.katex .fontsize-ensurer.reset-size8.size5{font-size:0.5780346820809249em}.katex .sizing.reset-size8.size6,.katex .fontsize-ensurer.reset-size8.size6{font-size:0.6936416184971098em}.katex .sizing.reset-size8.size7,.katex .fontsize-ensurer.reset-size8.size7{font-size:0.8323699421965318em}.katex .sizing.reset-size8.size8,.katex .fontsize-ensurer.reset-size8.size8{font-size:1em}.katex .sizing.reset-size8.size9,.katex .fontsize-ensurer.reset-size8.size9{font-size:1.1965317919075145em}.katex .sizing.reset-size8.size10,.katex .fontsize-ensurer.reset-size8.size10{font-size:1.4393063583815031em}.katex .sizing.reset-size9.size1,.katex .fontsize-ensurer.reset-size9.size1{font-size:0.24154589371980678em}.katex .sizing.reset-size9.size2,.katex .fontsize-ensurer.reset-size9.size2{font-size:0.33816425120772947em}.katex .sizing.reset-size9.size3,.katex .fontsize-ensurer.reset-size9.size3{font-size:0.38647342995169087em}.katex .sizing.reset-size9.size4,.katex .fontsize-ensurer.reset-size9.size4{font-size:0.4347826086956522em}.katex .sizing.reset-size9.size5,.katex .fontsize-ensurer.reset-size9.size5{font-size:0.48309178743961356em}.katex .sizing.reset-size9.size6,.katex .fontsize-ensurer.reset-size9.size6{font-size:0.5797101449275363em}.katex .sizing.reset-size9.size7,.katex .fontsize-ensurer.reset-size9.size7{font-size:0.6956521739130435em}.katex .sizing.reset-size9.size8,.katex .fontsize-ensurer.reset-size9.size8{font-size:0.8357487922705314em}.katex .sizing.reset-size9.size9,.katex .fontsize-ensurer.reset-size9.size9{font-size:1em}.katex .sizing.reset-size9.size10,.katex .fontsize-ensurer.reset-size9.size10{font-size:1.202898550724638em}.katex .sizing.reset-size10.size1,.katex .fontsize-ensurer.reset-size10.size1{font-size:0.2008032128514056em}.katex .sizing.reset-size10.size2,.katex .fontsize-ensurer.reset-size10.size2{font-size:0.2811244979919678em}.katex .sizing.reset-size10.size3,.katex .fontsize-ensurer.reset-size10.size3{font-size:0.321285140562249em}.katex .sizing.reset-size10.size4,.katex .fontsize-ensurer.reset-size10.size4{font-size:0.3614457831325301em}.katex .sizing.reset-size10.size5,.katex .fontsize-ensurer.reset-size10.size5{font-size:0.4016064257028112em}.katex .sizing.reset-size10.size6,.katex .fontsize-ensurer.reset-size10.size6{font-size:0.48192771084337344em}.katex .sizing.reset-size10.size7,.katex .fontsize-ensurer.reset-size10.size7{font-size:0.5783132530120482em}.katex .sizing.reset-size10.size8,.katex .fontsize-ensurer.reset-size10.size8{font-size:0.6947791164658634em}.katex .sizing.reset-size10.size9,.katex .fontsize-ensurer.reset-size10.size9{font-size:0.8313253012048192em}.katex .sizing.reset-size10.size10,.katex .fontsize-ensurer.reset-size10.size10{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:0.12em}.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .op-limits>.vlist>span{text-align:center}.katex .accent>.vlist>span{text-align:center}.katex .accent .accent-body>span{width:0}.katex .accent .accent-body.accent-vec>span{position:relative;left:0.326em}@font-face{font-family:'KaTeX_AMS';src:url(https://slides.com/assets/katex/KaTeX_AMS-Regular-451e51eb0259d72a37cd3baa470aa32d.eot);src:url(https://slides.com/assets/katex/KaTeX_AMS-Regular-451e51eb0259d72a37cd3baa470aa32d.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_AMS-Regular-90550e574d551720dda0e0d777eee4b9.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_AMS-Regular-1c8fef240ead24089bdbd97229f30dd7.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Caligraphic';src:url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Bold.eot);src:url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Bold.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Bold.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Bold.ttf) format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'KaTeX_Caligraphic';src:url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Regular.eot);src:url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Regular.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Regular.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Caligraphic-Regular.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Fraktur';src:url(https://slides.com/fonts/katex/KaTeX_Fraktur-Bold.eot);src:url(https://slides.com/fonts/katex/KaTeX_Fraktur-Bold.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Fraktur-Bold.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Fraktur-Bold.ttf) format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'KaTeX_Fraktur';src:url(https://slides.com/fonts/katex/KaTeX_Fraktur-Regular.eot);src:url(https://slides.com/fonts/katex/KaTeX_Fraktur-Regular.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Fraktur-Regular.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Fraktur-Regular.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Greek';src:url(https://slides.com/fonts/katex/KaTeX_Greek-Bold.eot);src:url(https://slides.com/fonts/katex/KaTeX_Greek-Bold.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Greek-Bold.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Greek-Bold.ttf) format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'KaTeX_Greek';src:url(https://slides.com/fonts/katex/KaTeX_Greek-BoldItalic.eot);src:url(https://slides.com/fonts/katex/KaTeX_Greek-BoldItalic.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Greek-BoldItalic.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Greek-BoldItalic.ttf) format("truetype");font-weight:bold;font-style:italic}@font-face{font-family:'KaTeX_Greek';src:url(https://slides.com/fonts/katex/KaTeX_Greek-Italic.eot);src:url(https://slides.com/fonts/katex/KaTeX_Greek-Italic.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Greek-Italic.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Greek-Italic.ttf) format("truetype");font-weight:normal;font-style:italic}@font-face{font-family:'KaTeX_Greek';src:url(https://slides.com/fonts/katex/KaTeX_Greek-Regular.eot);src:url(https://slides.com/fonts/katex/KaTeX_Greek-Regular.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Greek-Regular.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Greek-Regular.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Main';src:url(https://slides.com/assets/katex/KaTeX_Main-Bold-53b7d91e5d056b93e611df64ad89730e.eot);src:url(https://slides.com/assets/katex/KaTeX_Main-Bold-53b7d91e5d056b93e611df64ad89730e.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Main-Bold-1678813aa5cd68c344336d11d653f500.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Main-Bold-8f98e10ccb0730b476523d22071c7409.ttf) format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'KaTeX_Main';src:url(https://slides.com/assets/katex/KaTeX_Main-Italic-981c7292ff597f98d5a52ca25e91f744.eot);src:url(https://slides.com/assets/katex/KaTeX_Main-Italic-981c7292ff597f98d5a52ca25e91f744.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Main-Italic-c1d1a360762f08c377998ed08de8031f.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Main-Italic-cf4592eb117424ae245c75aa0a01558e.ttf) format("truetype");font-weight:normal;font-style:italic}@font-face{font-family:'KaTeX_Main';src:url(https://slides.com/assets/katex/KaTeX_Main-Regular-85505d9833f27cf108d4b52b4f25e816.eot);src:url(https://slides.com/assets/katex/KaTeX_Main-Regular-85505d9833f27cf108d4b52b4f25e816.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Main-Regular-8c967e29188ac20489b4d93207c3dac1.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Main-Regular-91131cc97ae3001e54314c6d299be56a.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Math';src:url(https://slides.com/assets/katex/KaTeX_Math-BoldItalic-63e4550c00ed2363cde219adf507317c.eot);src:url(https://slides.com/assets/katex/KaTeX_Math-BoldItalic-63e4550c00ed2363cde219adf507317c.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Math-BoldItalic-c86e9dcd4258839991da8396311851f5.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Math-BoldItalic-7798353cf37e0fd5bcf770080f731f92.ttf) format("truetype");font-weight:bold;font-style:italic}@font-face{font-family:'KaTeX_Math';src:url(https://slides.com/assets/katex/KaTeX_Math-Italic-c3615b71b3933fffaa184458650478fc.eot);src:url(https://slides.com/assets/katex/KaTeX_Math-Italic-c3615b71b3933fffaa184458650478fc.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Math-Italic-aa0ad5cddff652b3e2954a8d838b97c1.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Math-Italic-ac34448c740e81c38ce6dc57fdc99800.ttf) format("truetype");font-weight:normal;font-style:italic}@font-face{font-family:'KaTeX_Math';src:url(https://slides.com/assets/katex/KaTeX_Math-Regular-c04faa4787f3dfda2348426c02b0754e.eot);src:url(https://slides.com/assets/katex/KaTeX_Math-Regular-c04faa4787f3dfda2348426c02b0754e.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Math-Regular-1c6079afbda138d090afee2168627edc.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Math-Regular-98428c175a09a1bb106abad30c4ba596.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_SansSerif';src:url(https://slides.com/fonts/katex/KaTeX_SansSerif-Bold.eot);src:url(https://slides.com/fonts/katex/KaTeX_SansSerif-Bold.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_SansSerif-Bold.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_SansSerif-Bold.ttf) format("truetype");font-weight:bold;font-style:normal}@font-face{font-family:'KaTeX_SansSerif';src:url(https://slides.com/fonts/katex/KaTeX_SansSerif-Italic.eot);src:url(https://slides.com/fonts/katex/KaTeX_SansSerif-Italic.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_SansSerif-Italic.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_SansSerif-Italic.ttf) format("truetype");font-weight:normal;font-style:italic}@font-face{font-family:'KaTeX_SansSerif';src:url(https://slides.com/fonts/katex/KaTeX_SansSerif-Regular.eot);src:url(https://slides.com/fonts/katex/KaTeX_SansSerif-Regular.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_SansSerif-Regular.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_SansSerif-Regular.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Script';src:url(https://slides.com/fonts/katex/KaTeX_Script-Regular.eot);src:url(https://slides.com/fonts/katex/KaTeX_Script-Regular.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Script-Regular.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Script-Regular.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Size1';src:url(https://slides.com/assets/katex/KaTeX_Size1-Regular-659d3ecabbc9ea1f7b26cae3ee738bbb.eot);src:url(https://slides.com/assets/katex/KaTeX_Size1-Regular-659d3ecabbc9ea1f7b26cae3ee738bbb.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Size1-Regular-4f2debb539c2a4d19a98c7fc52dd3020.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Size1-Regular-c661586995f8ec8efe6005279925639b.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Size2';src:url(https://slides.com/assets/katex/KaTeX_Size2-Regular-574cd0654fb8e348e567e78106d99110.eot);src:url(https://slides.com/assets/katex/KaTeX_Size2-Regular-574cd0654fb8e348e567e78106d99110.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Size2-Regular-8a22094cb13773e79f5d59a7ed2e5395.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Size2-Regular-d46cea04b98b43f0985d0fc1ebeac120.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Size3';src:url(https://slides.com/assets/katex/KaTeX_Size3-Regular-f6572bf4bedf950347e7088002c3ddeb.eot);src:url(https://slides.com/assets/katex/KaTeX_Size3-Regular-f6572bf4bedf950347e7088002c3ddeb.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Size3-Regular-526f0a348feabb4244512f5c5620e5eb.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Size3-Regular-1b6cdd783f8154890d3b4cc278fcac65.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Size4';src:url(https://slides.com/assets/katex/KaTeX_Size4-Regular-15a317b1a992d5481acf3c6d0be9ba7a.eot);src:url(https://slides.com/assets/katex/KaTeX_Size4-Regular-15a317b1a992d5481acf3c6d0be9ba7a.eot?#iefix) format("embedded-opentype"),url(https://slides.com/assets/katex/KaTeX_Size4-Regular-c18e1da4a83bb42d440df825d7a188de.woff) format("woff"),url(https://slides.com/assets/katex/KaTeX_Size4-Regular-7ac8bcdbe67223d0e10523cb2c277c4d.ttf) format("truetype");font-weight:normal;font-style:normal}@font-face{font-family:'KaTeX_Typewriter';src:url(https://slides.com/fonts/katex/KaTeX_Typewriter-Regular.eot);src:url(https://slides.com/fonts/katex/KaTeX_Typewriter-Regular.eot?#iefix) format("embedded-opentype"),url(https://slides.com/fonts/katex/KaTeX_Typewriter-Regular.woff) format("woff"),url(https://slides.com/fonts/katex/KaTeX_Typewriter-Regular.ttf) format("truetype");font-weight:normal;font-style:normal}.sl-colorpicker{position:absolute;top:0;left:0;z-index:200;background-color:#eeeeee;box-shadow:0px 2px 10px rgba(0,0,0,0.3)}.sl-colorpicker .sl-colorpicker-spectrum{width:270px;background:transparent;border:0}.sl-colorpicker .sl-colorpicker-spectrum:after{display:none}.sl-colorpicker .sl-colorpicker-buttons{padding:0 15px 15px 15px;font-size:16px;text-align:right}.sl-colorpicker .sl-colorpicker-buttons .button{margin-left:10px}.sl-colorpicker .sl-colorpicker-arrow{position:absolute}.sl-colorpicker[data-alignment="t"] .sl-colorpicker-arrow:before{content:'';position:absolute;height:0px;width:0px;left:auto;right:auto;top:auto;bottom:auto;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-left:-6px;border-bottom-width:0;border-top-color:#eeeeee}.sl-colorpicker[data-alignment="r"] .sl-colorpicker-arrow:before{content:'';position:absolute;height:0px;width:0px;left:auto;right:auto;top:auto;bottom:auto;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-top:-6px;border-left-width:0;border-right-color:#eeeeee}.sl-colorpicker[data-alignment="b"] .sl-colorpicker-arrow:before{content:'';position:absolute;height:0px;width:0px;left:auto;right:auto;top:auto;bottom:auto;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-left:-6px;border-top-width:0;border-bottom-color:#eeeeee}.sl-colorpicker[data-alignment="l"] .sl-colorpicker-arrow:before{content:'';position:absolute;height:0px;width:0px;left:auto;right:auto;top:auto;bottom:auto;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-top:-6px;border-right-width:0;border-left-color:#eeeeee}.sl-colorpicker .sp-palette-container{min-width:240px;padding:15px;margin:0 0 15px 0;border:0;border-bottom:1px solid #bbb}.sl-colorpicker .sp-picker-container{width:240px;padding:0 15px 15px 15px;margin:0}.sl-colorpicker .sp-picker-container .sp-input-container{width:170px}.sl-colorpicker .sp-palette{max-width:none}.sl-colorpicker .sp-top{margin-bottom:6px}.sl-colorpicker .sp-alpha-enabled .sp-top{margin-bottom:18px}.sl-colorpicker .sp-palette .sp-thumb-el{width:20px;height:20px}.sl-colorpicker .sp-palette-row-selection{border-top:1px solid #CCC;padding-top:10px;margin-top:10px}.sl-prompt.editor-settings .inner{min-width:260px}html.decks.edit .sidebar{position:absolute;width:70px;height:100%;left:0;top:0;padding:0;z-index:102;background:#222;font-size:17px;-webkit-transition:all 0.25s ease;transition:all 0.25s ease}html.decks.edit .sidebar .primary .button:not(:hover),html.decks.edit .sidebar .secondary .button:not(.active):not(:hover){-webkit-transition:opacity 0.5s ease;transition:opacity 0.5s ease}html.decks.edit .sidebar.has-active-panel .primary .button:not(:hover),html.decks.edit .sidebar.has-active-panel .secondary .button:not(.active):not(:hover){opacity:0.4}html.decks.edit .sidebar .primary .button,html.decks.edit .sidebar .secondary .button{display:block;position:relative;width:100%;padding:10px;margin-top:4px;font-size:13px;color:#eee;border-radius:2px;cursor:pointer;text-align:left;line-height:initial;background:#444;-webkit-transition:background 0.12s ease;transition:background 0.12s ease;-webkit-font-smoothing:initial}html.decks.edit .sidebar .primary .button:hover,html.decks.edit .sidebar .secondary .button:hover{background:#515151}html.decks.edit .sidebar .primary{width:100%;padding:6px 8px 6px 8px;border-bottom:1px solid #333}html.decks.edit .sidebar .primary .divider{margin-bottom:0}html.decks.edit .sidebar .primary .button{display:inline-block;height:50px;padding:0;margin-bottom:6px;background:#40cb90;text-align:center}html.decks.edit .sidebar .primary .button:hover{background:#68d6a7}html.decks.edit .sidebar .primary .button:focus{outline:0}html.decks.edit .sidebar .primary .button.disabled{background:#666666;cursor:default;opacity:1}html.decks.edit .sidebar .primary .button.disabled .icon{color:#999999}html.decks.edit .sidebar .primary .button .icon{position:absolute;height:40px;width:100%;left:0;top:0;line-height:50px;font-size:26px;text-align:center}html.decks.edit .sidebar .primary .button .spinner{position:absolute;margin-left:-13px;margin-top:-13px}html.decks.edit .sidebar .primary .save .check,html.decks.edit .sidebar .primary .save .spinner{display:none}html.decks.edit .sidebar .primary .save.is-saved .check{display:inline-block}html.decks.edit .sidebar .primary .save.is-saved .spinner,html.decks.edit .sidebar .primary .save.is-saved .download{display:none}html.decks.edit .sidebar .primary .save.is-saving .spinner{display:block}html.decks.edit .sidebar .primary .save.is-saving .check,html.decks.edit .sidebar .primary .save.is-saving .download{display:none}html.decks.edit .sidebar .primary .undo{background:#666666}html.decks.edit .sidebar .primary .undo .icon{font-size:22px}html.decks.edit .sidebar .primary .undo:not(.disabled):hover{background:gray}html.decks.edit .sidebar .secondary{position:relative;overflow:auto;padding:0 0 8px 0;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar}html.decks.edit .sidebar .secondary .button{width:100%;height:50px;padding:0;background:transparent;border-radius:0px;margin:0;overflow:hidden;outline:0;text-align:center;-webkit-transition:none;transition:none}html.decks.edit .sidebar .secondary .button:before{content:'';position:absolute;height:0px;width:0px;left:auto;right:-1px;top:50%;bottom:auto;border-style:solid;border-width:8px;border-color:transparent;-webkit-transform:rotate(360deg);margin-top:-8px;border-left-width:0;border-right-color:whitesmoke}html.decks.edit .sidebar .secondary .button:before{-webkit-transition:all 0.2s ease;transition:all 0.2s ease;-webkit-transform:translateX(10px);-ms-transform:translateX(10px);transform:translateX(10px)}html.decks.edit .sidebar .secondary .button .icon,html.decks.edit .sidebar .secondary .button .close{position:absolute;width:100%;height:100%;left:0;top:0;line-height:50px;font-size:17px;-webkit-transition:all 0.4s ease;transition:all 0.4s ease}html.decks.edit .sidebar .secondary .button .close{opacity:0;-webkit-transform:scale(0.5);-ms-transform:scale(0.5);transform:scale(0.5)}html.decks.edit .sidebar .secondary .button.short{padding-top:10px;padding-bottom:10px}html.decks.edit .sidebar .secondary .button.active:not(.no-arrow):before{opacity:1;-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}html.decks.edit .sidebar .secondary .button.active .icon{opacity:0;-webkit-transform:scale(0.5);-ms-transform:scale(0.5);transform:scale(0.5)}html.decks.edit .sidebar .secondary .button.active .close{opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}html.decks.edit .sidebar .secondary .button.active,html.decks.edit .sidebar .secondary .button:hover{background:#333}html.decks.edit .sidebar .secondary .button+.button{border-top:1px solid #2a2a2a}html.decks.edit .sidebar .secondary .button.gopro{display:none}html.decks.edit .sidebar .secondary .button.more-options{cursor:default}html.decks.edit .sidebar .secondary .button .more-options-dot{display:block;width:5px;height:5px;border-radius:3px;margin:3px auto;background-color:#fff}html.decks.edit .sidebar .secondary .sl-toggle{padding-top:12px;padding-bottom:12px;border-top:0}html.decks.edit .sidebar .divider{border-bottom:1px solid #333;margin:10px 0}html.decks.edit .sidebar .scroll-shadow-top,html.decks.edit .sidebar .scroll-shadow-bottom{position:absolute;left:0;height:15px;width:100%;opacity:0;pointer-events:none;background-repeat:repeat-x;background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yNSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)}html.decks.edit .sidebar .scroll-shadow-top{-webkit-transform:scale(1, -1);-ms-transform:scale(1, -1);transform:scale(1, -1)}html.decks.edit.is-new .sidebar .button.share,html.decks.edit.is-new .sidebar .button.export,html.decks.edit.is-new .sidebar .button.revisions,html.decks.edit.is-new .sidebar .button.more-options{display:none}html.decks.edit[data-account=free] .sidebar .button.publish{opacity:0.4 !important}html.decks.edit[data-account=free] .sidebar .button.publish:hover{background:transparent !important}html.decks.edit[data-account=free] .sidebar .button.gopro{display:block}html.decks.edit .sidebar-panel{position:absolute;width:100%;height:100%;left:70px;top:0;z-index:101;visibility:hidden;line-height:1.5;-webkit-transition:all 0.15s ease;transition:all 0.15s ease}html.decks.edit .sidebar-panel.visible{visibility:visible;background:rgba(0,0,0,0.4)}html.decks.edit .sidebar-panel section{position:absolute;width:500px;height:100%;padding:40px;padding-top:0;top:0;z-index:4;background:whitesmoke;color:#222;border-right:1px solid rgba(0,0,0,0.2);font-size:14px;overflow:hidden;-webkit-transition:all 0.5s cubic-bezier(0.3, 0.9, 0.135, 1);transition:all 0.5s cubic-bezier(0.3, 0.9, 0.135, 1);-webkit-transform:translateX(-600px);-ms-transform:translateX(-600px);transform:translateX(-600px)}html.decks.edit .sidebar-panel section.visible{-webkit-transform:none;-ms-transform:none;transform:none}html.decks.edit .sidebar-panel section h2{position:relative;font-size:16px;font-weight:600;margin-bottom:14px}html.decks.edit .sidebar-panel section h3{font-size:16px;font-weight:600}html.decks.edit .sidebar-panel section textarea,html.decks.edit .sidebar-panel section input[type=text]{background-color:#fff}html.decks.edit .sidebar-panel section .panel-body{position:relative;overflow:auto;padding-top:30px;-webkit-overflow-scrolling:touch}html.decks.edit .sidebar-panel section .panel-footer{position:relative;height:50px;margin-top:20px;padding-top:20px;text-align:right;border-top:1px solid #ccc}html.decks.edit .sidebar-panel section .panel-footer button+button{margin-left:8px}html.decks.edit .sidebar-panel section .panel-info{position:absolute;width:25px;height:25px;line-height:23px;border-radius:25px;background:#000;color:#fff;text-align:center;font-size:12px;opacity:0.4}html.decks.edit .sidebar-panel section .panel-info:hover{opacity:1}html.decks.edit .sidebar-panel section h2 .panel-info{top:-2px;right:0}html.decks.edit .sidebar-panel section .panel-footer .panel-info{top:30px}html.decks.edit .sidebar-panel section.overflowing{padding:0}html.decks.edit .sidebar-panel section.overflowing .panel-body{position:absolute;top:0;left:0;right:0;bottom:90px;padding:40px;padding-top:30px}html.decks.edit .sidebar-panel section.overflowing .panel-footer{position:absolute;left:0;right:0;bottom:40px;padding-left:40px;padding-right:40px}html.decks.edit .sidebar-panel section.overflowing .panel-footer:before{content:'';display:block;position:absolute;top:-15px;left:0;height:15px;width:100%;opacity:0.4;background-repeat:repeat-x;background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yNSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)}html.decks.edit .sidebar-panel section .sl-select:not(.outline){display:block;margin:6px 0}html.decks.edit .sidebar-panel section p{font-size:14px;margin-top:0.5em}html.decks.edit.touch-editor .panel-info{display:none}html.decks.edit .sidebar-panel .export h2{margin-bottom:0}html.decks.edit .sidebar-panel .export ol li{margin-bottom:5px}html.decks.edit .sidebar-panel .export textarea{width:100%;height:80px;padding:5px;resize:none;margin:10px 0}html.decks.edit .sidebar-panel .export .section{margin-bottom:40px}html.decks.edit .sidebar-panel .export .section.dropbox{height:124px}html.decks.edit .sidebar-panel .export .section.download-pdf .previous-pdf{margin-top:15px}html.decks.edit .sidebar-panel .export .section.download-pdf .previous-pdf a{font-weight:bold}html.decks.edit .sidebar-panel .export button+button{margin-left:10px}html.decks.edit[data-account=free] .sidebar-panel .export .section.dropbox,html.decks.edit[data-account=free] .sidebar-panel .export .section.download-pdf{display:none}html.decks.edit .sidebar-panel .import button+button{margin-left:10px}html.decks.edit .sidebar-panel .import .section+.section{margin-top:25px}html.decks.edit .sidebar-panel .import-from-reveal .import-input{width:100%;height:180px;padding:5px;margin-bottom:15px;resize:none}html.decks.edit .sidebar-panel .import-from-reveal .import-status{position:relative;width:100%;padding-left:58px;height:0;line-height:46px;overflow:hidden;border-radius:2px;color:#fff;-webkit-transition:height 0.2s ease;transition:height 0.2s ease}html.decks.edit .sidebar-panel .import-from-reveal .import-status .icon{position:absolute;width:46px;height:46px;line-height:46px;left:0;top:0;text-align:center;background-color:rgba(0,0,0,0.2)}html.decks.edit .sidebar-panel .import-from-reveal .import-status .text{vertical-align:middle}html.decks.edit .sidebar-panel .import-from-reveal .import-status .proceed{display:none;float:right;margin:6px}html.decks.edit .sidebar-panel .import-from-reveal .import-status.visible{height:46px}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="error"]{background:#e43434}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="error"]:before{content:'';position:absolute;height:0px;width:0px;left:23px;right:initial;top:initial;bottom:100%;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-left:-6px;border-top-width:0;border-bottom-color:#ca1b1b}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="error"] .icon{background-color:#ca1b1b}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"]{background:#42b165}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"]:before{content:'';position:absolute;height:0px;width:0px;left:23px;right:initial;top:initial;bottom:100%;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-left:-6px;border-top-width:0;border-bottom-color:#348c50}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"] .icon{background-color:#348c50}html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"] .proceed{display:inline-block}html.decks.edit .sidebar-panel .import-from-file .import-browse-button{position:relative}html.decks.edit .sidebar-panel .import-from-file .import-browse-button input[type="file"]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;z-index:5;cursor:pointer}html.decks.edit .import-overlay{position:absolute;width:100%;height:100%;top:0;left:0;text-align:center;background-color:rgba(0,0,0,0.8);z-index:110;opacity:0;-webkit-transition:opacity 0.15s ease 0.1s;transition:opacity 0.15s ease 0.1s}html.decks.edit .import-overlay .import-overlay-inner{-webkit-transition:-webkit-transform 0.15s ease 0.1s;transition:transform 0.15s ease 0.1s;-webkit-transform:scale(0.95);-ms-transform:scale(0.95);transform:scale(0.95)}html.decks.edit .import-overlay.visible{opacity:1}html.decks.edit .import-overlay.visible .import-overlay-inner{-webkit-transform:none;-ms-transform:none;transform:none}html.decks.edit .import-overlay:before{content:'';display:inline-block;height:100%;vertical-align:middle}html.decks.edit .import-overlay .import-overlay-inner{display:inline-block;position:relative;width:410px;margin:auto;padding:20px;background-color:#fff;border-radius:2px;vertical-align:middle;font-size:16px;line-height:1.4}html.decks.edit .import-overlay .import-overlay-inner .import-overlay-body{padding:15px 0}html.decks.edit .import-overlay .import-overlay-inner .import-overlay-body p{margin:0}html.decks.edit .import-overlay .import-overlay-inner .import-overlay-footer{text-align:right}html.decks.edit .import-overlay .import-overlay-inner .import-overlay-footer button+button{margin-left:10px}html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress{position:relative;width:100%;height:50px;border:1px solid #1baee1}html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-text{position:absolute;top:0;left:0;color:#000;line-height:48px;padding-left:10px}html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-spinner{position:absolute;top:50%;right:10px;margin:-16px 0 0 0;z-index:3}html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-inner{position:absolute;width:0%;height:100%;left:0;top:0;background-color:#1baee1;z-index:2;overflow:hidden;white-space:nowrap;-webkit-transition:width 0.2s ease;transition:width 0.2s ease}html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-inner .progress-text{color:#fff}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"]{width:645px}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview{position:relative;width:100%;max-height:340px;margin:20px 0;padding:10px;overflow:auto;border:1px solid rgba(0,0,0,0.1);text-align:left}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview .preview-slide{position:relative;display:inline-block;width:30%;height:134px;margin:1.666%;vertical-align:top;background-repeat:no-repeat;background-size:contain;background-position:50% 50%;cursor:pointer}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview .preview-slide-excluded-overlay{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAOklEQVQYV4XMyQ0AIAwDQdwf5dKfUSKBOJxk36NFKyLZkRkHwAjRAjaR6AQSveBDClwoAhtlwFEFDE2H4yNTc2sRaQAAAABJRU5ErkJggg==);background-repeat:repeat;background-clip:content-box;background-color:rgba(255,255,255,0.6)}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview .preview-slide-excluded-overlay .icon{position:absolute;width:100%;top:50%;margin-top:-45px;font-size:90px;vertical-align:top;text-align:center;color:rgba(0,0,0,0.15)}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .options{text-align:left;margin-bottom:20px}html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .options .sl-checkbox{margin-bottom:6px}html.decks.edit .sidebar-panel .revisions .version-list{display:none;list-style:none;border-top:1px solid rgba(255,255,255,0.1)}html.decks.edit .sidebar-panel .revisions .version-list li{position:relative;padding:22px 0;cursor:default;line-height:1}html.decks.edit .sidebar-panel .revisions .version-list li+li{border-top:1px solid rgba(255,255,255,0.05)}html.decks.edit .sidebar-panel .revisions .version-list li .de-em{color:#999;margin-left:5px}html.decks.edit .sidebar-panel .revisions .version-list li .actions{position:absolute;right:0;top:13px}html.decks.edit .sidebar-panel .revisions .version-list li .actions .button{margin-left:8px;font-size:16px;-webkit-transition:none;transition:none}html.decks.edit .sidebar-panel .revisions .empty,html.decks.edit .sidebar-panel .revisions .error,html.decks.edit .sidebar-panel .revisions .loading{display:none;padding:22px 0;border-top:1px solid rgba(255,255,255,0.1)}html.decks.edit .sidebar-panel .revisions .loading{text-align:center}html.decks.edit .sidebar-panel .revisions .loading .spinner{display:inline-block}html.decks.edit .sidebar-panel .revisions[data-state=populated] .version-list{display:block}html.decks.edit .sidebar-panel .revisions[data-state=loading] .loading{display:block}html.decks.edit .sidebar-panel .revisions[data-state=empty] .empty{display:block}html.decks.edit .sidebar-panel .revisions[data-state=error] .error{display:block}html.decks.edit .sidebar-panel .settings input[type=text]{width:100%;margin-bottom:8px}html.decks.edit .sidebar-panel .settings input[type=text].xl{padding-left:10px;padding-right:10px}html.decks.edit .sidebar-panel .settings textarea{width:100%;margin-bottom:4px;font-size:100%;resize:none}html.decks.edit .sidebar-panel .settings .unit.text{position:relative}html.decks.edit .sidebar-panel .settings .unit.text .text-prefix{position:absolute;left:10px;top:10px;color:#999;cursor:default}html.decks.edit .sidebar-panel .settings .unit.description{margin-top:15px}html.decks.edit .sidebar-panel .settings .unit label{display:block;margin-bottom:10px}html.decks.edit .sidebar-panel .settings .toggles{margin:20px 0}html.decks.edit .sidebar-panel .settings .toggles .sl-checkbox{display:inline-block;width:47%;margin:0 8px 10px 0}html.decks.edit .sidebar-panel .settings .autoslide select{width:47%}html.decks.edit .sidebar-panel .settings .unit.slug small{color:#999;font-style:italic;margin-bottom:10px}html.decks.edit[data-visibility=all] .sidebar-panel .settings .unit.slug input,html.decks.edit[data-visibility=team] .sidebar-panel .settings .unit.slug input{background:#eee}html.decks.edit .sidebar-panel .share{width:520px;-webkit-transform:translateX(-520px);-ms-transform:translateX(-520px);transform:translateX(-520px)}html.decks.edit .sidebar-panel .share .decksharer .url input{padding-left:6px;padding-right:6px}html.decks.edit .sidebar-panel .style{width:700px;-webkit-transform:translateX(-700px);-ms-transform:translateX(-700px);transform:translateX(-700px)}html.decks.edit .sidebar-panel .style footer .edit-style{float:left}html.decks.edit .projector .slide-options{position:absolute;width:36px;left:50%;top:50%;margin-left:480px;margin-top:-350px;font-size:15px;z-index:20;-webkit-perspective:600px;perspective:600px}html.decks.edit .projector .slide-options .overflow-warning{width:36px;height:36px;line-height:36px;color:#fff;vertical-align:middle;background:red;text-align:center}html.decks.edit .projector .slide-options ul{position:relative;right:0;margin:0;overflow:hidden}html.decks.edit .projector .slide-options li{width:36px;height:36px;line-height:36px;list-style:none;color:#fff;vertical-align:middle;background:rgba(20,20,20,0.8);cursor:pointer;opacity:0.5}html.decks.edit .projector .slide-options li:hover{opacity:1}html.decks.edit .projector .slide-options li.disabled{display:none}html.decks.edit .projector .slide-options li .icon{position:relative;left:10px}html.decks.edit .projector .slide-options .background-image-menu{position:absolute;right:100%;width:144px;height:144px;visibility:hidden;-webkit-transition:visibility 0.3s ease;transition:visibility 0.3s ease;pointer-events:none}html.decks.edit .projector .slide-options .background-image-menu .inner{position:absolute;width:100%;height:100%;left:0;top:0;background:rgba(20,20,20,0.6);opacity:0;overflow:hidden;-webkit-transition:all 0.3s ease;transition:all 0.3s ease;-webkit-transform-origin:100% 0%;-ms-transform-origin:100% 0%;transform-origin:100% 0%;-webkit-transform:rotateY(-90deg);transform:rotateY(-90deg)}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input,html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output,html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress{position:absolute;display:inline-block;width:144px;height:144px;top:0;left:144px;opacity:0;-webkit-transition:all 0.3s ease;transition:all 0.3s ease}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input .label,html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .label,html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress .label{color:#fff;font-size:12px}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input{text-align:center;left:0;opacity:1;-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input:hover{background-color:rgba(0,0,0,0.2)}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input .icon{display:block;font-size:50px;color:#fff;margin:30px 0 10px}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input input[type=file]{position:absolute;width:100%;height:100%;left:0;top:0;opacity:0;z-index:1;cursor:pointer}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress{visibility:hidden;text-align:center}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress .spinner{margin-top:-26px}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress .label{position:absolute;width:100%;left:0;top:50%;margin-top:16px}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output{background-color:#444;visibility:hidden}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .thumbnail{position:absolute;width:144px;height:144px;left:0;top:0;z-index:1;opacity:0.3;box-shadow:0 0 1px rgba(0,0,0,0.4);background-position:50% 50%}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .background-image-options{position:absolute;width:144px;left:0;bottom:0;z-index:2;padding:10px}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .button,html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .sl-select{width:100%;margin-top:5px;color:#fff;background-color:rgba(0,0,0,0.7);font-weight:bold;font-size:12px;text-align:left;border:1px solid #111}html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .button:hover,html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .sl-select:hover{background-color:rgba(0,0,0,0.9)}html.decks.edit .projector .slide-options .background-image-menu.immediate .upload-input,html.decks.edit .projector .slide-options .background-image-menu.immediate .upload-output,html.decks.edit .projector .slide-options .background-image-menu.immediate .upload-progress{-webkit-transition:none;transition:none}html.decks.edit .projector .slide-options .background-image-menu[data-state="uploading"] .upload-progress{left:0;opacity:1;visibility:visible}html.decks.edit .projector .slide-options .background-image-menu[data-state="uploading"] .upload-input{left:-144px;opacity:0;visibility:hidden}html.decks.edit .projector .slide-options .background-image-menu[data-state="uploaded"] .upload-input,html.decks.edit .projector .slide-options .background-image-menu[data-state="uploaded"] .upload-progress{left:-144px;opacity:0;visibility:hidden}html.decks.edit .projector .slide-options .background-image-menu[data-state="uploaded"] .upload-output{left:0;opacity:1;visibility:visible}html.decks.edit .projector .slide-options .background-image-menu.show{visibility:visible;pointer-events:auto}html.decks.edit .projector .slide-options .background-image-menu.show .inner{visibility:visible;opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}html.decks.edit .toolbars{position:absolute;top:0;left:70px;width:170px;height:100%;z-index:10;background:#333333;border-right:1px solid #222;border-left:1px solid #222;visibility:hidden;-webkit-transition:all 0.25s ease;transition:all 0.25s ease}html.decks.edit .toolbars.visible{visibility:visible}html.decks.edit .toolbars .toolbars-inner{position:absolute;top:0;right:0;bottom:52px;left:0;overflow:hidden;text-align:left;color:#fff;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transition:all 0.2s ease;transition:all 0.2s ease}html.decks.edit .toolbars .toolbars-scroller{width:100%;height:100%;position:relative;display:inline-block;margin:0 auto;vertical-align:top;-webkit-transition:-webkit-transform 0.2s ease;transition:transform 0.2s ease}html.decks.edit .toolbars .toolbars-footer{position:absolute;height:52px;width:100%;left:0;bottom:0;padding:7px 12px;background:#333333;border-top:1px solid #111;text-align:right}html.decks.edit .toolbars .toolbars-footer .option{display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;border:2px solid transparent;border-radius:2px;cursor:pointer;font-size:14px;color:#fff;vertical-align:top;-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit .toolbars .toolbars-footer .option:hover{border-color:rgba(255,255,255,0.4)}html.decks.edit .toolbars .toolbars-footer .label{display:inline-block;padding:0 6px;line-height:38px;vertical-align:top;color:#666;font-size:12px;float:left;cursor:default}html.decks.edit .toolbars .toolbar{position:absolute;width:100%;height:100%;left:0;top:0;overflow:hidden;font-size:14px;color:#fff;opacity:0;left:-170px;-webkit-transition:opacity 0.2s ease;transition:opacity 0.2s ease}html.decks.edit .toolbars .toolbar .toolbar-list{position:absolute;top:0;right:0;bottom:0;left:0;overflow-y:auto;overflow-x:hidden;padding:12px;-webkit-overflow-scrolling:touch;-ms-overflow-style:-ms-autohiding-scrollbar}html.decks.edit .toolbars .toolbar.visible{opacity:1}html.decks.edit .toolbars .toolbar-add-block-option{width:80%;margin:0 auto;padding:20px 10px;text-align:center;color:#fff;border:2px solid transparent;cursor:pointer;font-size:12px;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none}html.decks.edit .toolbars .toolbar-add-block-option .toolbar-add-block-option-icon{display:block;font-size:2em;pointer-events:none}html.decks.edit .toolbars .toolbar-add-block-option .toolbar-add-block-option-icon.i-divide{font-size:3em;height:0.75em;line-height:0.75em}html.decks.edit .toolbars .toolbar-add-block-option .toolbar-add-block-option-label{display:block;font-size:1em;margin-top:1.5em;pointer-events:none}html.decks.edit .toolbars .toolbar-add-block-option:hover{border-color:rgba(255,255,255,0.4)}html.decks.edit .toolbars .toolbar-add-snippet-option{margin:0 auto;padding:10px 5px;color:#fff;border:1px solid transparent;cursor:pointer;font-size:12px;line-height:1.4}html.decks.edit .toolbars .toolbar-add-snippet-option+.toolbar-add-snippet-option{border-top:1px solid #444}html.decks.edit .toolbars .toolbar-add-snippet-option:hover{border-color:rgba(255,255,255,0.4)}html.decks.edit .toolbars .toolbar-option{display:block;position:relative;height:auto;margin-bottom:15px;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none}html.decks.edit .toolbars .toolbar-option .toolbar-option-label{position:relative;margin-bottom:6px;font-size:11px;font-weight:normal;text-transform:uppercase;color:#ddd;cursor:default}html.decks.edit .toolbars .toolbar-option .toolbar-option-help{position:absolute;right:0;top:0;padding:0 5px;background-color:#333333;color:#ddd}html.decks.edit .toolbars .toolbar-divider{height:1px;width:100%;padding:0;background-color:#444}html.decks.edit .toolbars .toolbar-group{margin-bottom:15px}html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger{width:100%;height:30px;line-height:28px;color:#ddd;font-size:11px;text-transform:uppercase;cursor:pointer;clear:both}html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger .label{float:left}html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger .checkbox{position:relative;width:16px;height:16px;top:6px;border:1px solid #555;text-align:center;font-size:14px;line-height:0.8;float:right;color:rgba(0,0,0,0)}html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger:hover .checkbox{border-color:#999}html.decks.edit .toolbars .toolbar-group .toolbar-group-options{position:relative;background:#3f3f3f;margin-left:-12px;width:168px;visibility:hidden;overflow:hidden;opacity:0;-webkit-transition:all 0.3s cubic-bezier(0.3, 0.9, 0.135, 1);transition:all 0.3s cubic-bezier(0.3, 0.9, 0.135, 1)}html.decks.edit .toolbars .toolbar-group .toolbar-group-options:before{content:'';position:absolute;height:0px;width:0px;left:50%;right:auto;top:-1px;bottom:auto;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-left:-6px;border-bottom-width:0;border-top-color:#333333}html.decks.edit .toolbars .toolbar-group .toolbar-group-options-inner{border-top:1px solid #292929;border-bottom:1px solid #292929;padding:12px 12px 0 12px}html.decks.edit .toolbars .toolbar-group.expanded .toolbar-group-trigger .checkbox{border-color:transparent;color:inherit}html.decks.edit .toolbars .toolbar-group.expanded .toolbar-group-options{visibility:visible;opacity:1}html.decks.edit .toolbars .toolbar-button{padding:6px 8px;text-align:left;cursor:pointer;border:1px solid #292929;border-radius:2px;background:#4e4e4e}html.decks.edit .toolbars .toolbar-button:hover{background:#5a5a5a}html.decks.edit .toolbars .toolbar-button:active{background:#505050}html.decks.edit .toolbars .toolbar-image{overflow:hidden}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner{position:relative;width:100%;height:130px;background-size:cover;background-color:#4e4e4e;background-repeat:no-repeat;background-position:50% 50%}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-placeholder{position:absolute;width:100%;height:100%;left:0;top:0;opacity:0.4;background-image:url(https://slides.com/assets/editor/image-placeholder-white-transparent-500x500-b9131772dce915b8ee5647d9fd4bd9bf.png);background-size:contain;background-repeat:no-repeat;background-position:50% -18px}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-progress{position:absolute;width:100%;height:100%;left:0;top:0;z-index:4;background:rgba(0,0,0,0.6)}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-input{position:absolute;width:100%;height:100%;left:0;top:0;opacity:0;cursor:pointer;z-index:2}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-label{position:absolute;left:50%;bottom:10px;width:80px;height:28px;line-height:28px;margin-left:-40px;color:#fff;background:#333;border-radius:20px;text-align:center;font-size:12px}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-label:hover{background:#000}html.decks.edit .toolbars .toolbar-image .toolbar-image-url{position:absolute;right:5px;top:5px;width:28px;height:28px;line-height:28px;color:#fff;background:#333;border-radius:20px;text-align:center;font-size:12px;z-index:3;opacity:0;cursor:pointer;-webkit-transition:opacity 0.15s ease;transition:opacity 0.15s ease}html.decks.edit .toolbars .toolbar-image .toolbar-image-url:hover{background:#000}html.decks.edit .toolbars .toolbar-image .toolbar-image-inner:hover .toolbar-image-url{opacity:1}html.decks.edit .toolbars .toolbar-range .range{position:relative;height:30px;width:100%;background:#4e4e4e;border:1px solid #292929;cursor:col-resize}html.decks.edit .toolbars .toolbar-range .range .range-progress{height:100%;background:rgba(255,255,255,0.6);-webkit-transition:background 0.15s ease;transition:background 0.15s ease}html.decks.edit .toolbars .toolbar-range .range .range-numeric{position:absolute;left:0;top:0;height:28px;padding:0 6px;line-height:28px;color:#fff;text-shadow:0px 0px 1px #000}html.decks.edit .toolbars .toolbar-range .range:hover .range-progress,html.decks.edit .toolbars .toolbar-range .range.is-scrubbing .range-progress{background:rgba(255,255,255,0.8)}html.decks.edit .toolbars .toolbar-stepper .stepper{position:relative;width:100%;height:30px;background:#4e4e4e;border:1px solid #292929;cursor:col-resize}html.decks.edit .toolbars .toolbar-stepper .stepper .stepper-number{width:100%;height:28px;line-height:28px;padding:0 6px;color:#fff;background:transparent;border:0;outline:0;outline-offset:0;cursor:col-resize}html.decks.edit .toolbars .toolbar-stepper .stepper .stepper-number:focus{outline:1px solid #1baee1;cursor:text}html.decks.edit .toolbars .toolbar-radio .toolbar-radio-inner{background:#4e4e4e;border:1px solid #292929}html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item{display:inline-block;padding:6px 8px;cursor:pointer;text-align:center}html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item:hover{background:#5a5a5a}html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item:active{background:#505050}html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item.selected{background:#888}html.decks.edit .toolbars .toolbar-radio[data-number-of-items="3"] .toolbar-radio-item{width:33%}html.decks.edit .toolbars .toolbar-radio[data-number-of-items="4"] .toolbar-radio-item{width:25%}html.decks.edit .toolbars .toolbar-radio[data-number-of-items="5"] .toolbar-radio-item{width:20%}html.decks.edit .toolbars .toolbar-checkbox{height:30px;cursor:pointer;clear:both}html.decks.edit .toolbars .toolbar-checkbox .toolbar-option-label{float:left;line-height:28px;cursor:pointer}html.decks.edit .toolbars .toolbar-checkbox .checkbox{position:relative;width:16px;height:16px;top:6px;border:1px solid #555;text-align:center;font-size:14px;line-height:0.8;float:right;color:rgba(0,0,0,0)}html.decks.edit .toolbars .toolbar-checkbox:hover .checkbox{border-color:#999}html.decks.edit .toolbars .toolbar-checkbox.checked .checkbox{border-color:transparent;color:inherit}html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item{display:inline-block;padding:6px 8px;cursor:pointer;text-align:center;background:#4e4e4e;border:1px solid #292929;border-radius:2px}html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item:hover{background:#5a5a5a}html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item:active{background:#505050}html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item+.toolbar-multi-item{margin-left:4%}html.decks.edit .toolbars .toolbar-multi[data-number-of-items="2"] .toolbar-multi-item{width:48%}html.decks.edit .toolbars .toolbar-multi[data-number-of-items="3"] .toolbar-multi-item{width:30.5%}html.decks.edit .toolbars .toolbar-multi[data-number-of-items="4"] .toolbar-multi-item{width:23.5%}html.decks.edit .toolbars .toolbar-multi[data-number-of-items="4"] .toolbar-multi-item+.toolbar-multi-item{margin-left:2%}html.decks.edit .toolbars .toolbar-select .toolbar-select-trigger{width:100%;height:30px;line-height:30px;padding:0 28px 0 6px;color:#fff;background-color:#4e4e4e;border:1px solid #292929;box-shadow:none;cursor:pointer;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFJJREFUeNpi/P//P8NAACaGAQKjFo9aPCgs/g/F5MqTbTEjkgXYLEVWQ/WgxmY5yZaSG8eMWIKWkV6JixEHm2jAQkHCZBzNx6MWj1o8KCwGCDAAWoINJoeeYR0AAAAASUVORK5CYII=);background-repeat:no-repeat;background-position:right 50%;-webkit-transition:opacity 0.15s ease;transition:opacity 0.15s ease}html.decks.edit .toolbars .toolbar-select .toolbar-select-trigger:hover{background-color:rgba(255,255,255,0.2)}html.decks.edit .toolbars .toolbar-select[data-option-type="shape-type"] .toolbar-select-trigger{width:100%;height:auto;padding:15px;line-height:1;text-align:center;background-image:none}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger{position:relative;width:100%;height:30px;border:1px solid #292929;cursor:pointer}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger.transparent{background-image:url(https://slides.com/assets/transparent-pattern-10x10-53700830c8479f2e936e243cc3dbbc9a.png);background-repeat:repeat}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-trigger-inner{position:absolute;width:100%;height:100%;left:0;top:0;z-index:1}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-reset{position:absolute;right:0;top:0;padding:7px;z-index:2;color:#fff;opacity:0.3;background-color:rgba(0,0,0,0.2)}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-reset:hover{background-color:rgba(0,0,0,0.3)}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-reset:active{background-color:rgba(0,0,0,0.5)}html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger:hover .toolbar-color-reset{opacity:1}html.decks.edit .toolbars .toolbar-text .toolbar-text-input{width:100%;max-width:100%;min-width:100%;height:30px;padding:4px;background:#4e4e4e;border-radius:0;border:1px solid #292929;color:#fff;-webkit-appearance:none}html.decks.edit .toolbars .toolbar-text .toolbar-text-input:focus{outline:0;border-color:#1baee1}html.decks.edit .toolbars .toolbar-text textarea.toolbar-text-input{height:90px;resize:none}html.decks.edit .toolbars .toolbar-text .expand-button{position:absolute;right:1px;bottom:1px;padding:4px;font-size:12px;color:#fff;background-color:#4e4e4e;cursor:pointer}html.decks.edit .toolbars .toolbar-panel{position:absolute;top:0;left:0;margin-left:9px;color:#222;background-color:#eee;font-size:14px;z-index:2;box-shadow:0px 2px 10px rgba(0,0,0,0.3)}html.decks.edit .toolbars .toolbar-panel .toolbar-panel-arrow{position:absolute;left:-6px}html.decks.edit .toolbars .toolbar-panel .toolbar-panel-arrow:before{content:'';position:absolute;height:0px;width:0px;left:auto;right:auto;top:auto;bottom:auto;border-style:solid;border-width:6px;border-color:transparent;-webkit-transform:rotate(360deg);margin-top:-6px;border-left-width:0;border-right-color:#eeeeee}html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-panel-content{overflow:auto;padding:1px;-webkit-overflow-scrolling:touch}html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item{min-height:30px;line-height:28px;padding:0 10px;cursor:pointer;border:1px solid transparent}html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item:hover{background-color:#ddd}html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item.selected{color:#fff;cursor:default;background-color:#1baee1}html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item.focused{border-color:#1baee1}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-panel-content{overflow:auto;padding:1px;-webkit-overflow-scrolling:touch}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item{display:inline-block;width:25%;height:61px;padding:14px;cursor:pointer;border:1px solid transparent}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item:hover{background-color:#ddd}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected{color:#fff;cursor:default;background-color:#1baee1}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected path,html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected rect,html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected circle,html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected ellipse,html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected polygon{fill:#ffffff}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.focused{border-color:#1baee1}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-attribution{display:block;width:100%;padding:10px;border-top:1px solid #ccc;text-align:right}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-attribution a{color:#444}html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-attribution a:hover{color:#000}html.decks.edit.touch-editor .toolbar-image .toolbar-image-url{opacity:1}html.decks.edit.touch-editor .toolbar-option-help{display:none}html.decks.edit .cke,html.decks.edit .cke .cke_top{border:0;border-radius:0}html.decks.edit .cke.cke_panel{border:1px solid #ddd}html.decks.edit .cke_dialog_background_cover{background-color:#000 !important;opacity:0.7 !important}html.decks.edit .cke_dialog_ui_input_text{box-shadow:none}html.decks.edit .cke .cke_combopanel{width:250px}html.decks.edit.touch-editor .cke .cke_combo,html.decks.edit.touch-editor .cke .cke_button{-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit .sl-block-grid{position:absolute;width:100%;height:100%;left:0;top:0;z-index:0}html.decks.edit .sl-block-grid .sl-block-grid-inner{position:absolute;top:0;left:0}html.decks.edit .sl-block-guides{position:absolute;width:100%;height:100%;left:0;top:0;z-index:255}html.decks.edit .sl-block-guides .guide-h,html.decks.edit .sl-block-guides .guide-v{position:absolute;background:#dcdc00;opacity:0.5;-webkit-transition:opacity 0.15s ease;transition:opacity 0.15s ease}html.decks.edit .sl-block-guides .guide-h.show,html.decks.edit .sl-block-guides .guide-v.show{opacity:1}html.decks.edit .sl-block-guides .guide-h:before,html.decks.edit .sl-block-guides .guide-h:after,html.decks.edit .sl-block-guides .guide-v:before,html.decks.edit .sl-block-guides .guide-v:after{content:'';display:block;position:absolute;width:5px;height:5px;background:#dcdc00;border-radius:5px}html.decks.edit .sl-block-guides .guide-h{left:0;height:1px;width:100%}html.decks.edit .sl-block-guides .guide-h:before{left:-2.5px;top:-2.5px}html.decks.edit .sl-block-guides .guide-h:after{right:-2.5px;top:-2.5px}html.decks.edit .sl-block-guides .guide-v{top:0;height:100%;width:1px}html.decks.edit .sl-block-guides .guide-v:before{left:-2.5px;top:-2.5px}html.decks.edit .sl-block-guides .guide-v:after{left:-2.5px;bottom:-2.5px}html.decks.edit .sl-block-selection{position:absolute;z-index:255;background:rgba(27,174,225,0.2);border:1px solid rgba(255,255,255,0.3)}html.decks.edit{overflow:hidden;background:#fff}html.decks.edit body{height:100%;min-width:1220px;font-size:36px;overflow:hidden;background:#fff}html.decks.edit .page-wrapper{position:relative;width:100%;height:100%;overflow:hidden;padding-left:240px}html.decks.edit .page-wrapper>header{font-size:16px;margin:0}html.decks.edit .projector{position:relative;width:100%;height:100%;overflow:hidden}html.decks.edit .projector .reveal-viewport{width:100%;height:100%;padding:0;overflow:hidden}html.decks.edit .projector .reveal-viewport .reveal{position:relative;overflow:visible;z-index:10}html.decks.edit .projector .add-horizontal-slide,html.decks.edit .projector .add-vertical-slide{position:absolute;width:46px;height:46px;z-index:10;opacity:0;cursor:pointer;background:rgba(0,0,0,0.4);border-radius:50%;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-transition:all 0.25s ease;transition:all 0.25s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit .projector .add-horizontal-slide.show:hover,html.decks.edit .projector .add-vertical-slide.show:hover{opacity:1;background:rgba(0,0,0,0.9)}html.decks.edit .projector .add-horizontal-slide .icon,html.decks.edit .projector .add-vertical-slide .icon{position:absolute;top:50%;left:50%;font-size:24px;margin-left:-12px;margin-top:-12px;color:white}html.decks.edit .projector .add-horizontal-slide{position:fixed;right:-60px;top:50%;margin-top:-23px}html.decks.edit .projector .add-horizontal-slide.show{opacity:0.3;right:10px}html.decks.edit .projector .add-vertical-slide{bottom:-60px;left:50%;margin-left:-23px}html.decks.edit .projector .add-vertical-slide.show{opacity:0.3;bottom:10px}html.decks.edit.rtl .add-horizontal-slide{right:auto !important;left:180px}html.decks.edit.rtl .add-horizontal-slide.show{left:250px}html.decks.edit .reveal .arrange-controls{position:absolute;width:100%;height:100%;left:0;top:0;z-index:30;opacity:0.1;color:#fff;-webkit-transition:opacity 0.3s ease;transition:opacity 0.3s ease;-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit .reveal .arrange-controls div{display:none;position:absolute;width:200px;height:200px;line-height:200px;font-size:200px;cursor:pointer;opacity:0.7;text-shadow:0px 0px 50px rgba(0,0,0,0.4);-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit .reveal .arrange-controls div:hover{opacity:1}html.decks.edit .reveal .arrange-controls div.move-left{display:block;left:0;top:50%;margin-top:-100px;margin-left:30px}html.decks.edit .reveal .arrange-controls div.move-right{display:block;right:0;top:50%;margin-top:-100px;margin-right:30px}html.decks.edit .reveal .arrange-controls div.move-up{left:50%;top:0;margin-left:-100px;margin-top:30px}html.decks.edit .reveal .arrange-controls div.move-down{left:50%;bottom:0;margin-left:-100px;margin-bottom:30px}html.decks.edit .reveal .arrange-controls div.merge-left,html.decks.edit .reveal .arrange-controls div.merge-right{width:90px;height:90px;line-height:90px;bottom:50px;font-size:90px;opacity:0;display:block}html.decks.edit .reveal .arrange-controls div.merge-left{left:50px}html.decks.edit .reveal .arrange-controls div.merge-right{right:50px}html.decks.edit .reveal .slides section.present>.arrange-controls{opacity:0.1}html.decks.edit .reveal .slides section:hover>.arrange-controls{opacity:1}html.decks.edit .reveal .slides section:hover>.arrange-controls .merge-left,html.decks.edit .reveal .slides section:hover>.arrange-controls .merge-right{opacity:0.3}html.decks.edit .reveal .slides section:hover>.arrange-controls .merge-left:hover,html.decks.edit .reveal .slides section:hover>.arrange-controls .merge-right:hover{opacity:1}html.decks.edit .reveal .slides>section>section .arrange-controls .move-left,html.decks.edit .reveal .slides>section>section .arrange-controls .move-right{display:none}html.decks.edit .reveal .slides>section>section .arrange-controls .move-up,html.decks.edit .reveal .slides>section>section .arrange-controls .move-down{display:block}html.decks.edit .reveal .slides>section>section:not(.past):not(.future) .arrange-controls .move-left,html.decks.edit .reveal .slides>section>section:not(.past):not(.future) .arrange-controls .move-right{display:block}html.decks.edit .reveal .slides>section:first-child>.arrange-controls .move-left,html.decks.edit .reveal .slides>section:first-child>.arrange-controls .merge-left{display:none}html.decks.edit .reveal .slides>section:last-child>.arrange-controls .move-right,html.decks.edit .reveal .slides>section:last-child>.arrange-controls .merge-right{display:none}html.decks.edit .reveal .slides>section>section:first-child>.arrange-controls .move-up{display:none}html.decks.edit .reveal .slides>section>section:last-child>.arrange-controls .move-down{display:none}html.decks.edit .sl-toggle{position:relative;color:#999;padding-top:12px;padding-bottom:12px;background:#2A2A2A;border-radius:0px;text-align:left;font-size:14px;-webkit-transition:none;transition:none}html.decks.edit .sl-toggle:hover{background:#373737;border-color:#444444}html.decks.edit .sl-toggle .state{position:absolute;width:18px;height:18px;top:12px;right:14px;background:#444;border-radius:50%;border:2px solid rgba(120,120,120,0.6);box-shadow:0px 1px 1px rgba(0,0,0,0.2) inset;-webkit-transition:all 0.1s ease;transition:all 0.1s ease}html.decks.edit .sl-toggle.on{color:#eee}html.decks.edit .sl-toggle.on .state{background:#0BE08B;border-color:rgba(255,255,255,0.3);box-shadow:0px 1px 1px rgba(0,0,0,0.2) inset,0px 0px 5px #33973f,0px 0px 5px #81db8c inset}html.decks.edit .preview-controls{position:absolute;top:10px;left:8px;z-index:1000;visibility:hidden;opacity:0;-webkit-transition:all 0.25s ease;transition:all 0.25s ease;-webkit-transform:translateX(50px);-ms-transform:translateX(50px);transform:translateX(50px)}html.decks.edit .preview-controls-button{display:inline-block;width:54px;height:50px;padding:0;background:rgba(0,0,0,0.5);text-align:center}html.decks.edit .preview-controls-button .icon{position:relative;line-height:50px;font-size:20px;-webkit-transition:all 0.15s ease;transition:all 0.15s ease}html.decks.edit .preview-controls-button:hover{background:rgba(0,0,0,0.9)}html.decks.edit .preview-controls-button+.preview-controls-button{margin-left:4px}html.decks.edit.is-editing .reveal section:not(.stack):before{content:'';display:block;border:1px dashed rgba(150,150,150,0.5);-moz-box-sizing:border-box;box-sizing:border-box;position:absolute;width:100%;height:100%;left:0;top:0}html.decks.edit.is-editing[data-deck-contrast="0"] .reveal section:not(.stack):before,html.decks.edit.is-editing[data-deck-contrast="1"] .reveal section:not(.stack):before{border-color:rgba(255,255,255,0.2)}html.decks.edit.is-editing[data-deck-contrast="2"] .reveal section:not(.stack):before,html.decks.edit.is-editing[data-deck-contrast="3"] .reveal section:not(.stack):before,html.decks.edit.is-editing[data-deck-contrast="4"] .reveal section:not(.stack):before{border-color:rgba(255,255,255,0.4)}html.decks.edit.is-editing[data-deck-contrast="5"] .reveal section:not(.stack):before,html.decks.edit.is-editing[data-deck-contrast="6"] .reveal section:not(.stack):before,html.decks.edit.is-editing[data-deck-contrast="7"] .reveal section:not(.stack):before,html.decks.edit.is-editing[data-deck-contrast="8"] .reveal section:not(.stack):before{border-color:rgba(255,255,255,0.4)}html.decks.edit.is-editing .reveal section.overflowing:not(.stack):before{border-color:red}html.decks.edit.hide-projector-overlays .add-horizontal-slide{right:-60px !important;visibility:hidden}html.decks.edit.hide-projector-overlays.rtl .add-horizontal-slide{right:auto;left:-60px !important}html.decks.edit.hide-projector-overlays .add-vertical-slide{bottom:-60px !important}html.decks.edit.hide-projector-overlays .slide-options,html.decks.edit.hide-projector-overlays .sl-block-grid{display:none}html.decks.edit.hide-projector-overlays .toolbars .toolbars-inner{pointer-events:none;opacity:0.6}html.decks.edit .drag-and-drop-instructions{position:fixed;width:100%;height:100%;left:0;top:0;display:none;z-index:1000;background:rgba(0,0,0,0.7);pointer-events:none}html.decks.edit .drag-and-drop-instructions:after{display:block;position:absolute;content:'Drop to insert image';left:50%;top:50%;width:250px;height:60px;line-height:60px;margin-left:-125px;margin-top:-40px;border:1px dashed rgba(255,255,255,0.4);color:#fff;font-size:18px;text-align:center}html.decks.edit.drag-and-drop-over .drag-and-drop-instructions{display:block}html.decks.edit[data-visibility="self"] .hide-when-visibility-self,html.decks.edit[data-visibility="team"] .hide-when-visibility-team{display:none !important}html.decks.edit.touch-editor body{min-width:0 !important}html.decks.edit .not-supported{position:absolute;width:100%;height:100%;left:0;top:0;padding:10%;z-index:10000;color:#fff;background:#111;text-align:center;font-size:20px}html.decks.edit .not-supported a{color:#4195c6}html.decks.edit .not-supported h2,html.decks.edit .not-supported p{max-width:520px;margin-left:auto;margin-right:auto}html.decks.edit .not-supported h2{font-weight:600;font-size:28px}html.decks.edit .not-supported p{line-height:1.3em}html.decks.edit .not-supported .skip{font-size:0.7em;text-decoration:underline;color:#ddd}html.decks.edit .css-editor{display:block;position:absolute;width:500px;height:100%;top:0;padding:0;z-index:110;visibility:hidden;opacity:0;background:whitesmoke;font-size:17px;border-right:1px solid rgba(0,0,0,0.1);-webkit-transform:translateX(-500px);-ms-transform:translateX(-500px);transform:translateX(-500px);-webkit-transition:all 0.3s ease;transition:all 0.3s ease}html.decks.edit .css-editor header{padding:0 20px;font-size:14px;line-height:20px}html.decks.edit .css-editor .contents{position:absolute;top:70px;left:0;bottom:90px;right:0}html.decks.edit .css-editor .contents .editor{height:100%}html.decks.edit .css-editor .contents .error{position:absolute;width:90%;left:5%;bottom:15px;padding:8px 10px;z-index:20;border-radius:4px;visibility:hidden;opacity:0;background:#9e3328;color:#fff;text-align:center;font-family:monospace;font-size:14px;-webkit-transition:all 0.3s ease;transition:all 0.3s ease}html.decks.edit .css-editor .contents .error .line{margin-right:5px;font-weight:bold}html.decks.edit .css-editor .contents .error.visible{visibility:visible;opacity:1}html.decks.edit .css-editor footer{position:absolute;width:100%;bottom:0;padding:20px;text-align:right}html.decks.edit .css-editor footer button+button{margin-left:8px}html.decks.edit .css-editor.visible{-webkit-transform:none;-ms-transform:none;transform:none;visibility:visible;opacity:1}.mode-toolbar{position:absolute;width:100%;top:-65px;z-index:11;-webkit-transition:top 0.25s ease;transition:top 0.25s ease}.mode-toolbar .inner{width:600px;height:45px;margin:0 auto;padding:8px;color:#fff;background:#222222;border-radius:4px;box-shadow:0px 1px 0px #111}.mode-toolbar .inner .description{float:left;margin:0;font-size:14px;cursor:default;line-height:29px}.mode-toolbar .inner .button{float:right;font-size:14px}html.decks.edit:not([data-mode=preview]) .reveal .fragment{visibility:visible;opacity:0.7}html.decks.edit[data-mode=css] .page-wrapper{padding-left:500px !important}html.decks.edit[data-mode=arrange] .slide-options{display:none}html.decks.edit[data-mode=arrange] .reveal{overflow:visible !important}html.decks.edit[data-mode=arrange] .reveal section{cursor:default}html.decks.edit[data-mode=fragment] .mode-toolbar-fragment{top:10px}html.decks.edit[data-mode=fragment] .projector .reveal section{cursor:default}html.decks.edit[data-mode=fragment] .projector .reveal section:not(.stack) .fragment{visibility:visible;opacity:0.5;-webkit-transition:none;transition:none}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay{position:absolute;top:0;left:0;z-index:100;-webkit-tap-highlight-color:rgba(0,0,0,0)}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item{position:absolute;width:100%;height:100%;left:0;top:0;z-index:2;background:rgba(255,255,255,0.02);padding:4px;cursor:pointer;opacity:0.9;outline:1px solid rgba(255,255,255,0.1);-webkit-transform:translateZ(1px);transform:translateZ(1px)}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item:hover{box-shadow:0px 0px 2px rgba(0,0,0,0.45);outline:1px solid rgba(255,255,255,0.3)}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .inner{position:absolute;height:26px;width:26px;top:0;right:0;bottom:0;left:0;margin:auto;opacity:0;text-align:center;-webkit-transform:translateX(30px);-ms-transform:translateX(30px);transform:translateX(30px)}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item{display:inline-block;width:26px;height:26px;line-height:28px;font-size:14px;color:#fff;background:#000;border-radius:26px;vertical-align:top}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-up,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-down{position:absolute;left:0;font-size:12px;display:none;cursor:pointer}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-up:hover,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-down:hover{background:#ddd;color:#000}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-up{top:-26px;border-bottom-left-radius:0;border-bottom-right-radius:0}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-down{bottom:-26px;border-top-left-radius:0;border-top-right-radius:0}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAOklEQVQYV4XMyQ0AIAwDQdwf5dKfUSKBOJxk36NFKyLZkRkHwAjRAjaR6AQSveBDClwoAhtlwFEFDE2H4yNTc2sRaQAAAABJRU5ErkJggg==);background-repeat:repeat;background-clip:content-box;outline:1px solid rgba(255,255,255,0.2)}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active .inner{opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active:hover .controls-item.move-up,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active:hover .controls-item.move-down,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active.show-without-hover .controls-item.move-up,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active.show-without-hover .controls-item.move-down{display:inline-block}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active:hover .controls-item.index,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active.show-without-hover .controls-item.index{border-radius:0}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-hidden{display:none}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay[data-fragments-total="1"] .controls-item.move-up,html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay[data-fragments-total="1"] .controls-item.move-down{display:none !important}html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay[data-fragments-total="1"] .controls-item.index{border-radius:26px !important}html.decks.edit[data-mode=preview] .page-wrapper{padding-left:0 !important}html.decks.edit[data-mode=preview] .reveal{overflow:visible !important}html.decks.edit[data-mode=preview] .reveal .slides section{overflow:visible !important}html.decks.edit[data-mode=preview] .reveal section img{cursor:initial !important}html.decks.edit[data-mode=preview] .reveal section .editing-ui:not(.visible-in-preview){display:none}html.decks.edit[data-mode=preview] .sidebar{-webkit-transform:translateX(-70px) !important;-ms-transform:translateX(-70px) !important;transform:translateX(-70px) !important}html.decks.edit[data-mode=preview] .toolbars{-webkit-transform:translateX(-240px) !important;-ms-transform:translateX(-240px) !important;transform:translateX(-240px) !important}html.decks.edit[data-mode=preview] .preview-controls{visibility:visible;opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}
+.katex {
+    font: normal 1.21em KaTeX_Main;
+    line-height: 1.2;
+    white-space: nowrap
+}
+
+.katex .katex-inner {
+    display: inline-block
+}
+
+.katex .base {
+    display: inline-block
+}
+
+.katex .strut {
+    display: inline-block
+}
+
+.katex .mathit {
+    font-family: KaTeX_Math;
+    font-style: italic
+}
+
+.katex .amsrm {
+    font-family: KaTeX_AMS
+}
+
+.katex .textstyle > .mord + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mord + .mbin {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .mord + .mrel {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mord + .minner {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mop + .mord {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mop + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mop + .mrel {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mop + .minner {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mbin + .mord {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .mbin + .mop {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .mbin + .mopen {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .mbin + .minner {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .mrel + .mord {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mrel + .mop {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mrel + .mopen {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mrel + .minner {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mclose + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mclose + .mbin {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .mclose + .mrel {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .mclose + .minner {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .mord {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .mrel {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .mopen {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .mclose {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .mpunct {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .mpunct + .minner {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .minner + .mord {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .minner + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .minner + .mbin {
+    margin-left: 0.22222em
+}
+
+.katex .textstyle > .minner + .mrel {
+    margin-left: 0.27778em
+}
+
+.katex .textstyle > .minner + .mopen {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .minner + .mpunct {
+    margin-left: 0.16667em
+}
+
+.katex .textstyle > .minner + .minner {
+    margin-left: 0.16667em
+}
+
+.katex .mord + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .mop + .mord {
+    margin-left: 0.16667em
+}
+
+.katex .mop + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .mclose + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .minner + .mop {
+    margin-left: 0.16667em
+}
+
+.katex .reset-textstyle.textstyle {
+    font-size: 1em
+}
+
+.katex .reset-textstyle.scriptstyle {
+    font-size: 0.7em
+}
+
+.katex .reset-textstyle.scriptscriptstyle {
+    font-size: 0.5em
+}
+
+.katex .reset-scriptstyle.textstyle {
+    font-size: 1.42857em
+}
+
+.katex .reset-scriptstyle.scriptstyle {
+    font-size: 1em
+}
+
+.katex .reset-scriptstyle.scriptscriptstyle {
+    font-size: 0.71429em
+}
+
+.katex .reset-scriptscriptstyle.textstyle {
+    font-size: 2em
+}
+
+.katex .reset-scriptscriptstyle.scriptstyle {
+    font-size: 1.4em
+}
+
+.katex .reset-scriptscriptstyle.scriptscriptstyle {
+    font-size: 1em
+}
+
+.katex .style-wrap {
+    position: relative
+}
+
+.katex .vlist {
+    display: inline-block
+}
+
+.katex .vlist > span {
+    display: block;
+    height: 0;
+    position: relative
+}
+
+.katex .vlist > span > span {
+    display: inline-block
+}
+
+.katex .vlist .baseline-fix {
+    display: inline-table;
+    table-layout: fixed
+}
+
+.katex .msupsub {
+    text-align: left
+}
+
+.katex .mfrac > span > span {
+    text-align: center
+}
+
+.katex .mfrac .frac-line {
+    width: 100%
+}
+
+.katex .mfrac .frac-line:before {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    content: "";
+    display: block
+}
+
+.katex .mfrac .frac-line:after {
+    border-bottom-style: solid;
+    border-bottom-width: 0.04em;
+    content: "";
+    display: block;
+    margin-top: -1px
+}
+
+.katex .mspace {
+    display: inline-block
+}
+
+.katex .mspace.negativethinspace {
+    margin-left: -0.16667em
+}
+
+.katex .mspace.thinspace {
+    width: 0.16667em
+}
+
+.katex .mspace.mediumspace {
+    width: 0.22222em
+}
+
+.katex .mspace.thickspace {
+    width: 0.27778em
+}
+
+.katex .mspace.enspace {
+    width: 0.5em
+}
+
+.katex .mspace.quad {
+    width: 1em
+}
+
+.katex .mspace.qquad {
+    width: 2em
+}
+
+.katex .llap, .katex .rlap {
+    width: 0;
+    position: relative
+}
+
+.katex .llap > .inner, .katex .rlap > .inner {
+    position: absolute
+}
+
+.katex .llap > .fix, .katex .rlap > .fix {
+    display: inline-block
+}
+
+.katex .llap > .inner {
+    right: 0
+}
+
+.katex .rlap > .inner {
+    left: 0
+}
+
+.katex .katex-logo .a {
+    font-size: 0.75em;
+    margin-left: -0.32em;
+    position: relative;
+    top: -0.2em
+}
+
+.katex .katex-logo .t {
+    margin-left: -0.23em
+}
+
+.katex .katex-logo .e {
+    margin-left: -0.1667em;
+    position: relative;
+    top: 0.2155em
+}
+
+.katex .katex-logo .x {
+    margin-left: -0.125em
+}
+
+.katex .rule {
+    display: inline-block;
+    border-style: solid
+}
+
+.katex .overline .overline-line {
+    width: 100%
+}
+
+.katex .overline .overline-line:before {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    content: "";
+    display: block
+}
+
+.katex .overline .overline-line:after {
+    border-bottom-style: solid;
+    border-bottom-width: 0.04em;
+    content: "";
+    display: block;
+    margin-top: -1px
+}
+
+.katex .sqrt > .sqrt-sign {
+    position: relative
+}
+
+.katex .sqrt .sqrt-line {
+    width: 100%
+}
+
+.katex .sqrt .sqrt-line:before {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    content: "";
+    display: block
+}
+
+.katex .sqrt .sqrt-line:after {
+    border-bottom-style: solid;
+    border-bottom-width: 0.04em;
+    content: "";
+    display: block;
+    margin-top: -1px
+}
+
+.katex .sizing, .katex .fontsize-ensurer {
+    display: inline-block
+}
+
+.katex .sizing.reset-size1.size1, .katex .fontsize-ensurer.reset-size1.size1 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size1.size2, .katex .fontsize-ensurer.reset-size1.size2 {
+    font-size: 1.4em
+}
+
+.katex .sizing.reset-size1.size3, .katex .fontsize-ensurer.reset-size1.size3 {
+    font-size: 1.6em
+}
+
+.katex .sizing.reset-size1.size4, .katex .fontsize-ensurer.reset-size1.size4 {
+    font-size: 1.8em
+}
+
+.katex .sizing.reset-size1.size5, .katex .fontsize-ensurer.reset-size1.size5 {
+    font-size: 2em
+}
+
+.katex .sizing.reset-size1.size6, .katex .fontsize-ensurer.reset-size1.size6 {
+    font-size: 2.4em
+}
+
+.katex .sizing.reset-size1.size7, .katex .fontsize-ensurer.reset-size1.size7 {
+    font-size: 2.88em
+}
+
+.katex .sizing.reset-size1.size8, .katex .fontsize-ensurer.reset-size1.size8 {
+    font-size: 3.46em
+}
+
+.katex .sizing.reset-size1.size9, .katex .fontsize-ensurer.reset-size1.size9 {
+    font-size: 4.14em
+}
+
+.katex .sizing.reset-size1.size10, .katex .fontsize-ensurer.reset-size1.size10 {
+    font-size: 4.98em
+}
+
+.katex .sizing.reset-size2.size1, .katex .fontsize-ensurer.reset-size2.size1 {
+    font-size: 0.7142857142857143em
+}
+
+.katex .sizing.reset-size2.size2, .katex .fontsize-ensurer.reset-size2.size2 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size2.size3, .katex .fontsize-ensurer.reset-size2.size3 {
+    font-size: 1.142857142857143em
+}
+
+.katex .sizing.reset-size2.size4, .katex .fontsize-ensurer.reset-size2.size4 {
+    font-size: 1.2857142857142858em
+}
+
+.katex .sizing.reset-size2.size5, .katex .fontsize-ensurer.reset-size2.size5 {
+    font-size: 1.4285714285714286em
+}
+
+.katex .sizing.reset-size2.size6, .katex .fontsize-ensurer.reset-size2.size6 {
+    font-size: 1.7142857142857144em
+}
+
+.katex .sizing.reset-size2.size7, .katex .fontsize-ensurer.reset-size2.size7 {
+    font-size: 2.0571428571428574em
+}
+
+.katex .sizing.reset-size2.size8, .katex .fontsize-ensurer.reset-size2.size8 {
+    font-size: 2.4714285714285715em
+}
+
+.katex .sizing.reset-size2.size9, .katex .fontsize-ensurer.reset-size2.size9 {
+    font-size: 2.9571428571428573em
+}
+
+.katex .sizing.reset-size2.size10, .katex .fontsize-ensurer.reset-size2.size10 {
+    font-size: 3.557142857142858em
+}
+
+.katex .sizing.reset-size3.size1, .katex .fontsize-ensurer.reset-size3.size1 {
+    font-size: 0.625em
+}
+
+.katex .sizing.reset-size3.size2, .katex .fontsize-ensurer.reset-size3.size2 {
+    font-size: 0.8749999999999999em
+}
+
+.katex .sizing.reset-size3.size3, .katex .fontsize-ensurer.reset-size3.size3 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size3.size4, .katex .fontsize-ensurer.reset-size3.size4 {
+    font-size: 1.125em
+}
+
+.katex .sizing.reset-size3.size5, .katex .fontsize-ensurer.reset-size3.size5 {
+    font-size: 1.25em
+}
+
+.katex .sizing.reset-size3.size6, .katex .fontsize-ensurer.reset-size3.size6 {
+    font-size: 1.4999999999999998em
+}
+
+.katex .sizing.reset-size3.size7, .katex .fontsize-ensurer.reset-size3.size7 {
+    font-size: 1.7999999999999998em
+}
+
+.katex .sizing.reset-size3.size8, .katex .fontsize-ensurer.reset-size3.size8 {
+    font-size: 2.1624999999999996em
+}
+
+.katex .sizing.reset-size3.size9, .katex .fontsize-ensurer.reset-size3.size9 {
+    font-size: 2.5874999999999995em
+}
+
+.katex .sizing.reset-size3.size10, .katex .fontsize-ensurer.reset-size3.size10 {
+    font-size: 3.1125000000000003em
+}
+
+.katex .sizing.reset-size4.size1, .katex .fontsize-ensurer.reset-size4.size1 {
+    font-size: 0.5555555555555556em
+}
+
+.katex .sizing.reset-size4.size2, .katex .fontsize-ensurer.reset-size4.size2 {
+    font-size: 0.7777777777777777em
+}
+
+.katex .sizing.reset-size4.size3, .katex .fontsize-ensurer.reset-size4.size3 {
+    font-size: 0.888888888888889em
+}
+
+.katex .sizing.reset-size4.size4, .katex .fontsize-ensurer.reset-size4.size4 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size4.size5, .katex .fontsize-ensurer.reset-size4.size5 {
+    font-size: 1.1111111111111112em
+}
+
+.katex .sizing.reset-size4.size6, .katex .fontsize-ensurer.reset-size4.size6 {
+    font-size: 1.3333333333333333em
+}
+
+.katex .sizing.reset-size4.size7, .katex .fontsize-ensurer.reset-size4.size7 {
+    font-size: 1.5999999999999999em
+}
+
+.katex .sizing.reset-size4.size8, .katex .fontsize-ensurer.reset-size4.size8 {
+    font-size: 1.922222222222222em
+}
+
+.katex .sizing.reset-size4.size9, .katex .fontsize-ensurer.reset-size4.size9 {
+    font-size: 2.3em
+}
+
+.katex .sizing.reset-size4.size10, .katex .fontsize-ensurer.reset-size4.size10 {
+    font-size: 2.766666666666667em
+}
+
+.katex .sizing.reset-size5.size1, .katex .fontsize-ensurer.reset-size5.size1 {
+    font-size: 0.5em
+}
+
+.katex .sizing.reset-size5.size2, .katex .fontsize-ensurer.reset-size5.size2 {
+    font-size: 0.7em
+}
+
+.katex .sizing.reset-size5.size3, .katex .fontsize-ensurer.reset-size5.size3 {
+    font-size: 0.8em
+}
+
+.katex .sizing.reset-size5.size4, .katex .fontsize-ensurer.reset-size5.size4 {
+    font-size: 0.9em
+}
+
+.katex .sizing.reset-size5.size5, .katex .fontsize-ensurer.reset-size5.size5 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size5.size6, .katex .fontsize-ensurer.reset-size5.size6 {
+    font-size: 1.2em
+}
+
+.katex .sizing.reset-size5.size7, .katex .fontsize-ensurer.reset-size5.size7 {
+    font-size: 1.44em
+}
+
+.katex .sizing.reset-size5.size8, .katex .fontsize-ensurer.reset-size5.size8 {
+    font-size: 1.73em
+}
+
+.katex .sizing.reset-size5.size9, .katex .fontsize-ensurer.reset-size5.size9 {
+    font-size: 2.07em
+}
+
+.katex .sizing.reset-size5.size10, .katex .fontsize-ensurer.reset-size5.size10 {
+    font-size: 2.49em
+}
+
+.katex .sizing.reset-size6.size1, .katex .fontsize-ensurer.reset-size6.size1 {
+    font-size: 0.4166666666666667em
+}
+
+.katex .sizing.reset-size6.size2, .katex .fontsize-ensurer.reset-size6.size2 {
+    font-size: 0.5833333333333334em
+}
+
+.katex .sizing.reset-size6.size3, .katex .fontsize-ensurer.reset-size6.size3 {
+    font-size: 0.6666666666666667em
+}
+
+.katex .sizing.reset-size6.size4, .katex .fontsize-ensurer.reset-size6.size4 {
+    font-size: 0.75em
+}
+
+.katex .sizing.reset-size6.size5, .katex .fontsize-ensurer.reset-size6.size5 {
+    font-size: 0.8333333333333334em
+}
+
+.katex .sizing.reset-size6.size6, .katex .fontsize-ensurer.reset-size6.size6 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size6.size7, .katex .fontsize-ensurer.reset-size6.size7 {
+    font-size: 1.2em
+}
+
+.katex .sizing.reset-size6.size8, .katex .fontsize-ensurer.reset-size6.size8 {
+    font-size: 1.4416666666666667em
+}
+
+.katex .sizing.reset-size6.size9, .katex .fontsize-ensurer.reset-size6.size9 {
+    font-size: 1.7249999999999999em
+}
+
+.katex .sizing.reset-size6.size10, .katex .fontsize-ensurer.reset-size6.size10 {
+    font-size: 2.075em
+}
+
+.katex .sizing.reset-size7.size1, .katex .fontsize-ensurer.reset-size7.size1 {
+    font-size: 0.3472222222222222em
+}
+
+.katex .sizing.reset-size7.size2, .katex .fontsize-ensurer.reset-size7.size2 {
+    font-size: 0.4861111111111111em
+}
+
+.katex .sizing.reset-size7.size3, .katex .fontsize-ensurer.reset-size7.size3 {
+    font-size: 0.5555555555555556em
+}
+
+.katex .sizing.reset-size7.size4, .katex .fontsize-ensurer.reset-size7.size4 {
+    font-size: 0.625em
+}
+
+.katex .sizing.reset-size7.size5, .katex .fontsize-ensurer.reset-size7.size5 {
+    font-size: 0.6944444444444444em
+}
+
+.katex .sizing.reset-size7.size6, .katex .fontsize-ensurer.reset-size7.size6 {
+    font-size: 0.8333333333333334em
+}
+
+.katex .sizing.reset-size7.size7, .katex .fontsize-ensurer.reset-size7.size7 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size7.size8, .katex .fontsize-ensurer.reset-size7.size8 {
+    font-size: 1.2013888888888888em
+}
+
+.katex .sizing.reset-size7.size9, .katex .fontsize-ensurer.reset-size7.size9 {
+    font-size: 1.4375em
+}
+
+.katex .sizing.reset-size7.size10, .katex .fontsize-ensurer.reset-size7.size10 {
+    font-size: 1.729166666666667em
+}
+
+.katex .sizing.reset-size8.size1, .katex .fontsize-ensurer.reset-size8.size1 {
+    font-size: 0.28901734104046245em
+}
+
+.katex .sizing.reset-size8.size2, .katex .fontsize-ensurer.reset-size8.size2 {
+    font-size: 0.40462427745664736em
+}
+
+.katex .sizing.reset-size8.size3, .katex .fontsize-ensurer.reset-size8.size3 {
+    font-size: 0.46242774566473993em
+}
+
+.katex .sizing.reset-size8.size4, .katex .fontsize-ensurer.reset-size8.size4 {
+    font-size: 0.5202312138728324em
+}
+
+.katex .sizing.reset-size8.size5, .katex .fontsize-ensurer.reset-size8.size5 {
+    font-size: 0.5780346820809249em
+}
+
+.katex .sizing.reset-size8.size6, .katex .fontsize-ensurer.reset-size8.size6 {
+    font-size: 0.6936416184971098em
+}
+
+.katex .sizing.reset-size8.size7, .katex .fontsize-ensurer.reset-size8.size7 {
+    font-size: 0.8323699421965318em
+}
+
+.katex .sizing.reset-size8.size8, .katex .fontsize-ensurer.reset-size8.size8 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size8.size9, .katex .fontsize-ensurer.reset-size8.size9 {
+    font-size: 1.1965317919075145em
+}
+
+.katex .sizing.reset-size8.size10, .katex .fontsize-ensurer.reset-size8.size10 {
+    font-size: 1.4393063583815031em
+}
+
+.katex .sizing.reset-size9.size1, .katex .fontsize-ensurer.reset-size9.size1 {
+    font-size: 0.24154589371980678em
+}
+
+.katex .sizing.reset-size9.size2, .katex .fontsize-ensurer.reset-size9.size2 {
+    font-size: 0.33816425120772947em
+}
+
+.katex .sizing.reset-size9.size3, .katex .fontsize-ensurer.reset-size9.size3 {
+    font-size: 0.38647342995169087em
+}
+
+.katex .sizing.reset-size9.size4, .katex .fontsize-ensurer.reset-size9.size4 {
+    font-size: 0.4347826086956522em
+}
+
+.katex .sizing.reset-size9.size5, .katex .fontsize-ensurer.reset-size9.size5 {
+    font-size: 0.48309178743961356em
+}
+
+.katex .sizing.reset-size9.size6, .katex .fontsize-ensurer.reset-size9.size6 {
+    font-size: 0.5797101449275363em
+}
+
+.katex .sizing.reset-size9.size7, .katex .fontsize-ensurer.reset-size9.size7 {
+    font-size: 0.6956521739130435em
+}
+
+.katex .sizing.reset-size9.size8, .katex .fontsize-ensurer.reset-size9.size8 {
+    font-size: 0.8357487922705314em
+}
+
+.katex .sizing.reset-size9.size9, .katex .fontsize-ensurer.reset-size9.size9 {
+    font-size: 1em
+}
+
+.katex .sizing.reset-size9.size10, .katex .fontsize-ensurer.reset-size9.size10 {
+    font-size: 1.202898550724638em
+}
+
+.katex .sizing.reset-size10.size1, .katex .fontsize-ensurer.reset-size10.size1 {
+    font-size: 0.2008032128514056em
+}
+
+.katex .sizing.reset-size10.size2, .katex .fontsize-ensurer.reset-size10.size2 {
+    font-size: 0.2811244979919678em
+}
+
+.katex .sizing.reset-size10.size3, .katex .fontsize-ensurer.reset-size10.size3 {
+    font-size: 0.321285140562249em
+}
+
+.katex .sizing.reset-size10.size4, .katex .fontsize-ensurer.reset-size10.size4 {
+    font-size: 0.3614457831325301em
+}
+
+.katex .sizing.reset-size10.size5, .katex .fontsize-ensurer.reset-size10.size5 {
+    font-size: 0.4016064257028112em
+}
+
+.katex .sizing.reset-size10.size6, .katex .fontsize-ensurer.reset-size10.size6 {
+    font-size: 0.48192771084337344em
+}
+
+.katex .sizing.reset-size10.size7, .katex .fontsize-ensurer.reset-size10.size7 {
+    font-size: 0.5783132530120482em
+}
+
+.katex .sizing.reset-size10.size8, .katex .fontsize-ensurer.reset-size10.size8 {
+    font-size: 0.6947791164658634em
+}
+
+.katex .sizing.reset-size10.size9, .katex .fontsize-ensurer.reset-size10.size9 {
+    font-size: 0.8313253012048192em
+}
+
+.katex .sizing.reset-size10.size10, .katex .fontsize-ensurer.reset-size10.size10 {
+    font-size: 1em
+}
+
+.katex .delimsizing.size1 {
+    font-family: KaTeX_Size1
+}
+
+.katex .delimsizing.size2 {
+    font-family: KaTeX_Size2
+}
+
+.katex .delimsizing.size3 {
+    font-family: KaTeX_Size3
+}
+
+.katex .delimsizing.size4 {
+    font-family: KaTeX_Size4
+}
+
+.katex .delimsizing.mult .delim-size1 > span {
+    font-family: KaTeX_Size1
+}
+
+.katex .delimsizing.mult .delim-size4 > span {
+    font-family: KaTeX_Size4
+}
+
+.katex .nulldelimiter {
+    display: inline-block;
+    width: 0.12em
+}
+
+.katex .op-symbol {
+    position: relative
+}
+
+.katex .op-symbol.small-op {
+    font-family: KaTeX_Size1
+}
+
+.katex .op-symbol.large-op {
+    font-family: KaTeX_Size2
+}
+
+.katex .op-limits > .vlist > span {
+    text-align: center
+}
+
+.katex .accent > .vlist > span {
+    text-align: center
+}
+
+.katex .accent .accent-body > span {
+    width: 0
+}
+
+.katex .accent .accent-body.accent-vec > span {
+    position: relative;
+    left: 0.326em
+}
+
+@font-face {
+    font-family: 'KaTeX_AMS';
+    src: url(./fonts/katex/KaTeX_AMS-Regular-451e51eb0259d72a37cd3baa470aa32d.eot);
+    src: url(./fonts/katex/KaTeX_AMS-Regular-451e51eb0259d72a37cd3baa470aa32d.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_AMS-Regular-90550e574d551720dda0e0d777eee4b9.woff) format("woff"), url(./fonts/katex/KaTeX_AMS-Regular-1c8fef240ead24089bdbd97229f30dd7.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Caligraphic';
+    src: url(./fonts/katex/KaTeX_Caligraphic-Bold.eot);
+    src: url(./fonts/katex/KaTeX_Caligraphic-Bold.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Caligraphic-Bold.woff) format("woff"), url(./fonts/katex/KaTeX_Caligraphic-Bold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Caligraphic';
+    src: url(./fonts/katex/KaTeX_Caligraphic-Regular.eot);
+    src: url(./fonts/katex/KaTeX_Caligraphic-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Caligraphic-Regular.woff) format("woff"), url(./fonts/katex/KaTeX_Caligraphic-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Fraktur';
+    src: url(./fonts/katex/KaTeX_Fraktur-Bold.eot);
+    src: url(./fonts/katex/KaTeX_Fraktur-Bold.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Fraktur-Bold.woff) format("woff"), url(./fonts/katex/KaTeX_Fraktur-Bold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Fraktur';
+    src: url(./fonts/katex/KaTeX_Fraktur-Regular.eot);
+    src: url(./fonts/katex/KaTeX_Fraktur-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Fraktur-Regular.woff) format("woff"), url(./fonts/katex/KaTeX_Fraktur-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Greek';
+    src: url(./fonts/katex/KaTeX_Greek-Bold.eot);
+    src: url(./fonts/katex/KaTeX_Greek-Bold.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Greek-Bold.woff) format("woff"), url(./fonts/katex/KaTeX_Greek-Bold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Greek';
+    src: url(./fonts/katex/KaTeX_Greek-BoldItalic.eot);
+    src: url(./fonts/katex/KaTeX_Greek-BoldItalic.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Greek-BoldItalic.woff) format("woff"), url(./fonts/katex/KaTeX_Greek-BoldItalic.ttf) format("truetype");
+    font-weight: bold;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'KaTeX_Greek';
+    src: url(./fonts/katex/KaTeX_Greek-Italic.eot);
+    src: url(./fonts/katex/KaTeX_Greek-Italic.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Greek-Italic.woff) format("woff"), url(./fonts/katex/KaTeX_Greek-Italic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'KaTeX_Greek';
+    src: url(./fonts/katex/KaTeX_Greek-Regular.eot);
+    src: url(./fonts/katex/KaTeX_Greek-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Greek-Regular.woff) format("woff"), url(./fonts/katex/KaTeX_Greek-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Main';
+    src: url(./fonts/katex/KaTeX_Main-Bold-53b7d91e5d056b93e611df64ad89730e.eot);
+    src: url(./fonts/katex/KaTeX_Main-Bold-53b7d91e5d056b93e611df64ad89730e.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Main-Bold-1678813aa5cd68c344336d11d653f500.woff) format("woff"), url(./fonts/katex/KaTeX_Main-Bold-8f98e10ccb0730b476523d22071c7409.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Main';
+    src: url(./fonts/katex/KaTeX_Main-Italic-981c7292ff597f98d5a52ca25e91f744.eot);
+    src: url(./fonts/katex/KaTeX_Main-Italic-981c7292ff597f98d5a52ca25e91f744.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Main-Italic-c1d1a360762f08c377998ed08de8031f.woff) format("woff"), url(./fonts/katex/KaTeX_Main-Italic-cf4592eb117424ae245c75aa0a01558e.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'KaTeX_Main';
+    src: url(./fonts/katex/KaTeX_Main-Regular-85505d9833f27cf108d4b52b4f25e816.eot);
+    src: url(./fonts/katex/KaTeX_Main-Regular-85505d9833f27cf108d4b52b4f25e816.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Main-Regular-8c967e29188ac20489b4d93207c3dac1.woff) format("woff"), url(./fonts/katex/KaTeX_Main-Regular-91131cc97ae3001e54314c6d299be56a.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Math';
+    src: url(./fonts/katex/KaTeX_Math-BoldItalic-63e4550c00ed2363cde219adf507317c.eot);
+    src: url(./fonts/katex/KaTeX_Math-BoldItalic-63e4550c00ed2363cde219adf507317c.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Math-BoldItalic-c86e9dcd4258839991da8396311851f5.woff) format("woff"), url(./fonts/katex/KaTeX_Math-BoldItalic-7798353cf37e0fd5bcf770080f731f92.ttf) format("truetype");
+    font-weight: bold;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'KaTeX_Math';
+    src: url(./fonts/katex/KaTeX_Math-Italic-c3615b71b3933fffaa184458650478fc.eot);
+    src: url(./fonts/katex/KaTeX_Math-Italic-c3615b71b3933fffaa184458650478fc.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Math-Italic-aa0ad5cddff652b3e2954a8d838b97c1.woff) format("woff"), url(./fonts/katex/KaTeX_Math-Italic-ac34448c740e81c38ce6dc57fdc99800.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'KaTeX_Math';
+    src: url(./fonts/katex/KaTeX_Math-Regular-c04faa4787f3dfda2348426c02b0754e.eot);
+    src: url(./fonts/katex/KaTeX_Math-Regular-c04faa4787f3dfda2348426c02b0754e.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Math-Regular-1c6079afbda138d090afee2168627edc.woff) format("woff"), url(./fonts/katex/KaTeX_Math-Regular-98428c175a09a1bb106abad30c4ba596.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_SansSerif';
+    src: url(./fonts/katex/KaTeX_SansSerif-Bold.eot);
+    src: url(./fonts/katex/KaTeX_SansSerif-Bold.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_SansSerif-Bold.woff) format("woff"), url(./fonts/katex/KaTeX_SansSerif-Bold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_SansSerif';
+    src: url(./fonts/katex/KaTeX_SansSerif-Italic.eot);
+    src: url(./fonts/katex/KaTeX_SansSerif-Italic.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_SansSerif-Italic.woff) format("woff"), url(./fonts/katex/KaTeX_SansSerif-Italic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic
+}
+
+@font-face {
+    font-family: 'KaTeX_SansSerif';
+    src: url(./fonts/katex/KaTeX_SansSerif-Regular.eot);
+    src: url(./fonts/katex/KaTeX_SansSerif-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_SansSerif-Regular.woff) format("woff"), url(./fonts/katex/KaTeX_SansSerif-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Script';
+    src: url(./fonts/katex/KaTeX_Script-Regular.eot);
+    src: url(./fonts/katex/KaTeX_Script-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Script-Regular.woff) format("woff"), url(./fonts/katex/KaTeX_Script-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Size1';
+    src: url(./fonts/katex/KaTeX_Size1-Regular-659d3ecabbc9ea1f7b26cae3ee738bbb.eot);
+    src: url(./fonts/katex/KaTeX_Size1-Regular-659d3ecabbc9ea1f7b26cae3ee738bbb.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Size1-Regular-4f2debb539c2a4d19a98c7fc52dd3020.woff) format("woff"), url(./fonts/katex/KaTeX_Size1-Regular-c661586995f8ec8efe6005279925639b.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Size2';
+    src: url(./fonts/katex/KaTeX_Size2-Regular-574cd0654fb8e348e567e78106d99110.eot);
+    src: url(./fonts/katex/KaTeX_Size2-Regular-574cd0654fb8e348e567e78106d99110.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Size2-Regular-8a22094cb13773e79f5d59a7ed2e5395.woff) format("woff"), url(./fonts/katex/KaTeX_Size2-Regular-d46cea04b98b43f0985d0fc1ebeac120.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Size3';
+    src: url(./fonts/katex/KaTeX_Size3-Regular-f6572bf4bedf950347e7088002c3ddeb.eot);
+    src: url(./fonts/katex/KaTeX_Size3-Regular-f6572bf4bedf950347e7088002c3ddeb.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Size3-Regular-526f0a348feabb4244512f5c5620e5eb.woff) format("woff"), url(./fonts/katex/KaTeX_Size3-Regular-1b6cdd783f8154890d3b4cc278fcac65.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Size4';
+    src: url(./fonts/katex/KaTeX_Size4-Regular-15a317b1a992d5481acf3c6d0be9ba7a.eot);
+    src: url(./fonts/katex/KaTeX_Size4-Regular-15a317b1a992d5481acf3c6d0be9ba7a.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Size4-Regular-c18e1da4a83bb42d440df825d7a188de.woff) format("woff"), url(./fonts/katex/KaTeX_Size4-Regular-7ac8bcdbe67223d0e10523cb2c277c4d.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'KaTeX_Typewriter';
+    src: url(./fonts/katex/KaTeX_Typewriter-Regular.eot);
+    src: url(./fonts/katex/KaTeX_Typewriter-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/katex/KaTeX_Typewriter-Regular.woff) format("woff"), url(./fonts/katex/KaTeX_Typewriter-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+.sl-colorpicker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background-color: #eeeeee;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3)
+}
+
+.sl-colorpicker .sl-colorpicker-spectrum {
+    width: 270px;
+    background: transparent;
+    border: 0
+}
+
+.sl-colorpicker .sl-colorpicker-spectrum:after {
+    display: none
+}
+
+.sl-colorpicker .sl-colorpicker-buttons {
+    padding: 0 15px 15px 15px;
+    font-size: 16px;
+    text-align: right
+}
+
+.sl-colorpicker .sl-colorpicker-buttons .button {
+    margin-left: 10px
+}
+
+.sl-colorpicker .sl-colorpicker-arrow {
+    position: absolute
+}
+
+.sl-colorpicker[data-alignment="t"] .sl-colorpicker-arrow:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-left: -6px;
+    border-bottom-width: 0;
+    border-top-color: #eeeeee
+}
+
+.sl-colorpicker[data-alignment="r"] .sl-colorpicker-arrow:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-top: -6px;
+    border-left-width: 0;
+    border-right-color: #eeeeee
+}
+
+.sl-colorpicker[data-alignment="b"] .sl-colorpicker-arrow:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-left: -6px;
+    border-top-width: 0;
+    border-bottom-color: #eeeeee
+}
+
+.sl-colorpicker[data-alignment="l"] .sl-colorpicker-arrow:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-top: -6px;
+    border-right-width: 0;
+    border-left-color: #eeeeee
+}
+
+.sl-colorpicker .sp-palette-container {
+    min-width: 240px;
+    padding: 15px;
+    margin: 0 0 15px 0;
+    border: 0;
+    border-bottom: 1px solid #bbb
+}
+
+.sl-colorpicker .sp-picker-container {
+    width: 240px;
+    padding: 0 15px 15px 15px;
+    margin: 0
+}
+
+.sl-colorpicker .sp-picker-container .sp-input-container {
+    width: 170px
+}
+
+.sl-colorpicker .sp-palette {
+    max-width: none
+}
+
+.sl-colorpicker .sp-top {
+    margin-bottom: 6px
+}
+
+.sl-colorpicker .sp-alpha-enabled .sp-top {
+    margin-bottom: 18px
+}
+
+.sl-colorpicker .sp-palette .sp-thumb-el {
+    width: 20px;
+    height: 20px
+}
+
+.sl-colorpicker .sp-palette-row-selection {
+    border-top: 1px solid #CCC;
+    padding-top: 10px;
+    margin-top: 10px
+}
+
+.sl-prompt.editor-settings .inner {
+    min-width: 260px
+}
+
+html.decks.edit .sidebar {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 0;
+    z-index: 102;
+    background: #222;
+    font-size: 17px;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease
+}
+
+html.decks.edit .sidebar .primary .button:not(:hover), html.decks.edit .sidebar .secondary .button:not(.active):not(:hover) {
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease
+}
+
+html.decks.edit .sidebar.has-active-panel .primary .button:not(:hover), html.decks.edit .sidebar.has-active-panel .secondary .button:not(.active):not(:hover) {
+    opacity: 0.4
+}
+
+html.decks.edit .sidebar .primary .button, html.decks.edit .sidebar .secondary .button {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #eee;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: left;
+    line-height: initial;
+    background: #444;
+    -webkit-transition: background 0.12s ease;
+    transition: background 0.12s ease;
+    -webkit-font-smoothing: initial
+}
+
+html.decks.edit .sidebar .primary .button:hover, html.decks.edit .sidebar .secondary .button:hover {
+    background: #515151
+}
+
+html.decks.edit .sidebar .primary {
+    width: 100%;
+    padding: 6px 8px 6px 8px;
+    border-bottom: 1px solid #333
+}
+
+html.decks.edit .sidebar .primary .divider {
+    margin-bottom: 0
+}
+
+html.decks.edit .sidebar .primary .button {
+    display: inline-block;
+    height: 50px;
+    padding: 0;
+    margin-bottom: 6px;
+    background: #40cb90;
+    text-align: center
+}
+
+html.decks.edit .sidebar .primary .button:hover {
+    background: #68d6a7
+}
+
+html.decks.edit .sidebar .primary .button:focus {
+    outline: 0
+}
+
+html.decks.edit .sidebar .primary .button.disabled {
+    background: #666666;
+    cursor: default;
+    opacity: 1
+}
+
+html.decks.edit .sidebar .primary .button.disabled .icon {
+    color: #999999
+}
+
+html.decks.edit .sidebar .primary .button .icon {
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    line-height: 50px;
+    font-size: 26px;
+    text-align: center
+}
+
+html.decks.edit .sidebar .primary .button .spinner {
+    position: absolute;
+    margin-left: -13px;
+    margin-top: -13px
+}
+
+html.decks.edit .sidebar .primary .save .check, html.decks.edit .sidebar .primary .save .spinner {
+    display: none
+}
+
+html.decks.edit .sidebar .primary .save.is-saved .check {
+    display: inline-block
+}
+
+html.decks.edit .sidebar .primary .save.is-saved .spinner, html.decks.edit .sidebar .primary .save.is-saved .download {
+    display: none
+}
+
+html.decks.edit .sidebar .primary .save.is-saving .spinner {
+    display: block
+}
+
+html.decks.edit .sidebar .primary .save.is-saving .check, html.decks.edit .sidebar .primary .save.is-saving .download {
+    display: none
+}
+
+html.decks.edit .sidebar .primary .undo {
+    background: #666666
+}
+
+html.decks.edit .sidebar .primary .undo .icon {
+    font-size: 22px
+}
+
+html.decks.edit .sidebar .primary .undo:not(.disabled):hover {
+    background: gray
+}
+
+html.decks.edit .sidebar .secondary {
+    position: relative;
+    overflow: auto;
+    padding: 0 0 8px 0;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+html.decks.edit .sidebar .secondary .button {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0px;
+    margin: 0;
+    overflow: hidden;
+    outline: 0;
+    text-align: center;
+    -webkit-transition: none;
+    transition: none
+}
+
+html.decks.edit .sidebar .secondary .button:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: auto;
+    right: -1px;
+    top: 50%;
+    bottom: auto;
+    border-style: solid;
+    border-width: 8px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-top: -8px;
+    border-left-width: 0;
+    border-right-color: whitesmoke
+}
+
+html.decks.edit .sidebar .secondary .button:before {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px)
+}
+
+html.decks.edit .sidebar .secondary .button .icon, html.decks.edit .sidebar .secondary .button .close {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 50px;
+    font-size: 17px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease
+}
+
+html.decks.edit .sidebar .secondary .button .close {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5)
+}
+
+html.decks.edit .sidebar .secondary .button.short {
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+html.decks.edit .sidebar .secondary .button.active:not(.no-arrow):before {
+    opacity: 1;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+}
+
+html.decks.edit .sidebar .secondary .button.active .icon {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5)
+}
+
+html.decks.edit .sidebar .secondary .button.active .close {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}
+
+html.decks.edit .sidebar .secondary .button.active, html.decks.edit .sidebar .secondary .button:hover {
+    background: #333
+}
+
+html.decks.edit .sidebar .secondary .button + .button {
+    border-top: 1px solid #2a2a2a
+}
+
+html.decks.edit .sidebar .secondary .button.gopro {
+    display: none
+}
+
+html.decks.edit .sidebar .secondary .button.more-options {
+    cursor: default
+}
+
+html.decks.edit .sidebar .secondary .button .more-options-dot {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
+    margin: 3px auto;
+    background-color: #fff
+}
+
+html.decks.edit .sidebar .secondary .sl-toggle {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-top: 0
+}
+
+html.decks.edit .sidebar .divider {
+    border-bottom: 1px solid #333;
+    margin: 10px 0
+}
+
+html.decks.edit .sidebar .scroll-shadow-top, html.decks.edit .sidebar .scroll-shadow-bottom {
+    position: absolute;
+    left: 0;
+    height: 15px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background-repeat: repeat-x;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yNSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)
+}
+
+html.decks.edit .sidebar .scroll-shadow-top {
+    -webkit-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1)
+}
+
+html.decks.edit.is-new .sidebar .button.share, html.decks.edit.is-new .sidebar .button.export, html.decks.edit.is-new .sidebar .button.revisions, html.decks.edit.is-new .sidebar .button.more-options {
+    display: none
+}
+
+html.decks.edit[data-account=free] .sidebar .button.publish {
+    opacity: 0.4 !important
+}
+
+html.decks.edit[data-account=free] .sidebar .button.publish:hover {
+    background: transparent !important
+}
+
+html.decks.edit[data-account=free] .sidebar .button.gopro {
+    display: block
+}
+
+html.decks.edit .sidebar-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 70px;
+    top: 0;
+    z-index: 101;
+    visibility: hidden;
+    line-height: 1.5;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease
+}
+
+html.decks.edit .sidebar-panel.visible {
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.4)
+}
+
+html.decks.edit .sidebar-panel section {
+    position: absolute;
+    width: 500px;
+    height: 100%;
+    padding: 40px;
+    padding-top: 0;
+    top: 0;
+    z-index: 4;
+    background: whitesmoke;
+    color: #222;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    overflow: hidden;
+    -webkit-transition: all 0.5s cubic-bezier(0.3, 0.9, 0.135, 1);
+    transition: all 0.5s cubic-bezier(0.3, 0.9, 0.135, 1);
+    -webkit-transform: translateX(-600px);
+    -ms-transform: translateX(-600px);
+    transform: translateX(-600px)
+}
+
+html.decks.edit .sidebar-panel section.visible {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}
+
+html.decks.edit .sidebar-panel section h2 {
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 14px
+}
+
+html.decks.edit .sidebar-panel section h3 {
+    font-size: 16px;
+    font-weight: 600
+}
+
+html.decks.edit .sidebar-panel section textarea, html.decks.edit .sidebar-panel section input[type=text] {
+    background-color: #fff
+}
+
+html.decks.edit .sidebar-panel section .panel-body {
+    position: relative;
+    overflow: auto;
+    padding-top: 30px;
+    -webkit-overflow-scrolling: touch
+}
+
+html.decks.edit .sidebar-panel section .panel-footer {
+    position: relative;
+    height: 50px;
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: right;
+    border-top: 1px solid #ccc
+}
+
+html.decks.edit .sidebar-panel section .panel-footer button + button {
+    margin-left: 8px
+}
+
+html.decks.edit .sidebar-panel section .panel-info {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    line-height: 23px;
+    border-radius: 25px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.4
+}
+
+html.decks.edit .sidebar-panel section .panel-info:hover {
+    opacity: 1
+}
+
+html.decks.edit .sidebar-panel section h2 .panel-info {
+    top: -2px;
+    right: 0
+}
+
+html.decks.edit .sidebar-panel section .panel-footer .panel-info {
+    top: 30px
+}
+
+html.decks.edit .sidebar-panel section.overflowing {
+    padding: 0
+}
+
+html.decks.edit .sidebar-panel section.overflowing .panel-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    padding: 40px;
+    padding-top: 30px
+}
+
+html.decks.edit .sidebar-panel section.overflowing .panel-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px
+}
+
+html.decks.edit .sidebar-panel section.overflowing .panel-footer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    height: 15px;
+    width: 100%;
+    opacity: 0.4;
+    background-repeat: repeat-x;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yNSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)
+}
+
+html.decks.edit .sidebar-panel section .sl-select:not(.outline) {
+    display: block;
+    margin: 6px 0
+}
+
+html.decks.edit .sidebar-panel section p {
+    font-size: 14px;
+    margin-top: 0.5em
+}
+
+html.decks.edit.touch-editor .panel-info {
+    display: none
+}
+
+html.decks.edit .sidebar-panel .export h2 {
+    margin-bottom: 0
+}
+
+html.decks.edit .sidebar-panel .export ol li {
+    margin-bottom: 5px
+}
+
+html.decks.edit .sidebar-panel .export textarea {
+    width: 100%;
+    height: 80px;
+    padding: 5px;
+    resize: none;
+    margin: 10px 0
+}
+
+html.decks.edit .sidebar-panel .export .section {
+    margin-bottom: 40px
+}
+
+html.decks.edit .sidebar-panel .export .section.dropbox {
+    height: 124px
+}
+
+html.decks.edit .sidebar-panel .export .section.download-pdf .previous-pdf {
+    margin-top: 15px
+}
+
+html.decks.edit .sidebar-panel .export .section.download-pdf .previous-pdf a {
+    font-weight: bold
+}
+
+html.decks.edit .sidebar-panel .export button + button {
+    margin-left: 10px
+}
+
+html.decks.edit[data-account=free] .sidebar-panel .export .section.dropbox, html.decks.edit[data-account=free] .sidebar-panel .export .section.download-pdf {
+    display: none
+}
+
+html.decks.edit .sidebar-panel .import button + button {
+    margin-left: 10px
+}
+
+html.decks.edit .sidebar-panel .import .section + .section {
+    margin-top: 25px
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-input {
+    width: 100%;
+    height: 180px;
+    padding: 5px;
+    margin-bottom: 15px;
+    resize: none
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status {
+    position: relative;
+    width: 100%;
+    padding-left: 58px;
+    height: 0;
+    line-height: 46px;
+    overflow: hidden;
+    border-radius: 2px;
+    color: #fff;
+    -webkit-transition: height 0.2s ease;
+    transition: height 0.2s ease
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status .icon {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status .text {
+    vertical-align: middle
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status .proceed {
+    display: none;
+    float: right;
+    margin: 6px
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status.visible {
+    height: 46px
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="error"] {
+    background: #e43434
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="error"]:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: 23px;
+    right: initial;
+    top: initial;
+    bottom: 100%;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-left: -6px;
+    border-top-width: 0;
+    border-bottom-color: #ca1b1b
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="error"] .icon {
+    background-color: #ca1b1b
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"] {
+    background: #42b165
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"]:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: 23px;
+    right: initial;
+    top: initial;
+    bottom: 100%;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-left: -6px;
+    border-top-width: 0;
+    border-bottom-color: #348c50
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"] .icon {
+    background-color: #348c50
+}
+
+html.decks.edit .sidebar-panel .import-from-reveal .import-status[data-state="success"] .proceed {
+    display: inline-block
+}
+
+html.decks.edit .sidebar-panel .import-from-file .import-browse-button {
+    position: relative
+}
+
+html.decks.edit .sidebar-panel .import-from-file .import-browse-button input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 5;
+    cursor: pointer
+}
+
+html.decks.edit .import-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 110;
+    opacity: 0;
+    -webkit-transition: opacity 0.15s ease 0.1s;
+    transition: opacity 0.15s ease 0.1s
+}
+
+html.decks.edit .import-overlay .import-overlay-inner {
+    -webkit-transition: -webkit-transform 0.15s ease 0.1s;
+    transition: transform 0.15s ease 0.1s;
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95)
+}
+
+html.decks.edit .import-overlay.visible {
+    opacity: 1
+}
+
+html.decks.edit .import-overlay.visible .import-overlay-inner {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}
+
+html.decks.edit .import-overlay:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle
+}
+
+html.decks.edit .import-overlay .import-overlay-inner {
+    display: inline-block;
+    position: relative;
+    width: 410px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 2px;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 1.4
+}
+
+html.decks.edit .import-overlay .import-overlay-inner .import-overlay-body {
+    padding: 15px 0
+}
+
+html.decks.edit .import-overlay .import-overlay-inner .import-overlay-body p {
+    margin: 0
+}
+
+html.decks.edit .import-overlay .import-overlay-inner .import-overlay-footer {
+    text-align: right
+}
+
+html.decks.edit .import-overlay .import-overlay-inner .import-overlay-footer button + button {
+    margin-left: 10px
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #1baee1
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000;
+    line-height: 48px;
+    padding-left: 10px
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-spinner {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin: -16px 0 0 0;
+    z-index: 3
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-inner {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #1baee1;
+    z-index: 2;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="processing"] .progress-inner .progress-text {
+    color: #fff
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] {
+    width: 645px
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview {
+    position: relative;
+    width: 100%;
+    max-height: 340px;
+    margin: 20px 0;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview .preview-slide {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 134px;
+    margin: 1.666%;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    cursor: pointer
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview .preview-slide-excluded-overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAOklEQVQYV4XMyQ0AIAwDQdwf5dKfUSKBOJxk36NFKyLZkRkHwAjRAjaR6AQSveBDClwoAhtlwFEFDE2H4yNTc2sRaQAAAABJRU5ErkJggg==);
+    background-repeat: repeat;
+    background-clip: content-box;
+    background-color: rgba(255, 255, 255, 0.6)
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .preview .preview-slide-excluded-overlay .icon {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -45px;
+    font-size: 90px;
+    vertical-align: top;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.15)
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .options {
+    text-align: left;
+    margin-bottom: 20px
+}
+
+html.decks.edit .import-overlay .import-overlay-inner[data-state="finished"] .options .sl-checkbox {
+    margin-bottom: 6px
+}
+
+html.decks.edit .sidebar-panel .revisions .version-list {
+    display: none;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+html.decks.edit .sidebar-panel .revisions .version-list li {
+    position: relative;
+    padding: 22px 0;
+    cursor: default;
+    line-height: 1
+}
+
+html.decks.edit .sidebar-panel .revisions .version-list li + li {
+    border-top: 1px solid rgba(255, 255, 255, 0.05)
+}
+
+html.decks.edit .sidebar-panel .revisions .version-list li .de-em {
+    color: #999;
+    margin-left: 5px
+}
+
+html.decks.edit .sidebar-panel .revisions .version-list li .actions {
+    position: absolute;
+    right: 0;
+    top: 13px
+}
+
+html.decks.edit .sidebar-panel .revisions .version-list li .actions .button {
+    margin-left: 8px;
+    font-size: 16px;
+    -webkit-transition: none;
+    transition: none
+}
+
+html.decks.edit .sidebar-panel .revisions .empty, html.decks.edit .sidebar-panel .revisions .error, html.decks.edit .sidebar-panel .revisions .loading {
+    display: none;
+    padding: 22px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+html.decks.edit .sidebar-panel .revisions .loading {
+    text-align: center
+}
+
+html.decks.edit .sidebar-panel .revisions .loading .spinner {
+    display: inline-block
+}
+
+html.decks.edit .sidebar-panel .revisions[data-state=populated] .version-list {
+    display: block
+}
+
+html.decks.edit .sidebar-panel .revisions[data-state=loading] .loading {
+    display: block
+}
+
+html.decks.edit .sidebar-panel .revisions[data-state=empty] .empty {
+    display: block
+}
+
+html.decks.edit .sidebar-panel .revisions[data-state=error] .error {
+    display: block
+}
+
+html.decks.edit .sidebar-panel .settings input[type=text] {
+    width: 100%;
+    margin-bottom: 8px
+}
+
+html.decks.edit .sidebar-panel .settings input[type=text].xl {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+html.decks.edit .sidebar-panel .settings textarea {
+    width: 100%;
+    margin-bottom: 4px;
+    font-size: 100%;
+    resize: none
+}
+
+html.decks.edit .sidebar-panel .settings .unit.text {
+    position: relative
+}
+
+html.decks.edit .sidebar-panel .settings .unit.text .text-prefix {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #999;
+    cursor: default
+}
+
+html.decks.edit .sidebar-panel .settings .unit.description {
+    margin-top: 15px
+}
+
+html.decks.edit .sidebar-panel .settings .unit label {
+    display: block;
+    margin-bottom: 10px
+}
+
+html.decks.edit .sidebar-panel .settings .toggles {
+    margin: 20px 0
+}
+
+html.decks.edit .sidebar-panel .settings .toggles .sl-checkbox {
+    display: inline-block;
+    width: 47%;
+    margin: 0 8px 10px 0
+}
+
+html.decks.edit .sidebar-panel .settings .autoslide select {
+    width: 47%
+}
+
+html.decks.edit .sidebar-panel .settings .unit.slug small {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 10px
+}
+
+html.decks.edit[data-visibility=all] .sidebar-panel .settings .unit.slug input, html.decks.edit[data-visibility=team] .sidebar-panel .settings .unit.slug input {
+    background: #eee
+}
+
+html.decks.edit .sidebar-panel .share {
+    width: 520px;
+    -webkit-transform: translateX(-520px);
+    -ms-transform: translateX(-520px);
+    transform: translateX(-520px)
+}
+
+html.decks.edit .sidebar-panel .share .decksharer .url input {
+    padding-left: 6px;
+    padding-right: 6px
+}
+
+html.decks.edit .sidebar-panel .style {
+    width: 700px;
+    -webkit-transform: translateX(-700px);
+    -ms-transform: translateX(-700px);
+    transform: translateX(-700px)
+}
+
+html.decks.edit .sidebar-panel .style footer .edit-style {
+    float: left
+}
+
+html.decks.edit .projector .slide-options {
+    position: absolute;
+    width: 36px;
+    left: 50%;
+    top: 50%;
+    margin-left: 480px;
+    margin-top: -350px;
+    font-size: 15px;
+    z-index: 20;
+    -webkit-perspective: 600px;
+    perspective: 600px
+}
+
+html.decks.edit .projector .slide-options .overflow-warning {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    vertical-align: middle;
+    background: red;
+    text-align: center
+}
+
+html.decks.edit .projector .slide-options ul {
+    position: relative;
+    right: 0;
+    margin: 0;
+    overflow: hidden
+}
+
+html.decks.edit .projector .slide-options li {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    list-style: none;
+    color: #fff;
+    vertical-align: middle;
+    background: rgba(20, 20, 20, 0.8);
+    cursor: pointer;
+    opacity: 0.5
+}
+
+html.decks.edit .projector .slide-options li:hover {
+    opacity: 1
+}
+
+html.decks.edit .projector .slide-options li.disabled {
+    display: none
+}
+
+html.decks.edit .projector .slide-options li .icon {
+    position: relative;
+    left: 10px
+}
+
+html.decks.edit .projector .slide-options .background-image-menu {
+    position: absolute;
+    right: 100%;
+    width: 144px;
+    height: 144px;
+    visibility: hidden;
+    -webkit-transition: visibility 0.3s ease;
+    transition: visibility 0.3s ease;
+    pointer-events: none
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(20, 20, 20, 0.6);
+    opacity: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg)
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input, html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output, html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress {
+    position: absolute;
+    display: inline-block;
+    width: 144px;
+    height: 144px;
+    top: 0;
+    left: 144px;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input .label, html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .label, html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress .label {
+    color: #fff;
+    font-size: 12px
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input {
+    text-align: center;
+    left: 0;
+    opacity: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input:hover {
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input .icon {
+    display: block;
+    font-size: 50px;
+    color: #fff;
+    margin: 30px 0 10px
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-input input[type=file] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress {
+    visibility: hidden;
+    text-align: center
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress .spinner {
+    margin-top: -26px
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-progress .label {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    margin-top: 16px
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output {
+    background-color: #444;
+    visibility: hidden
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .thumbnail {
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    opacity: 0.3;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+    background-position: 50% 50%
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .background-image-options {
+    position: absolute;
+    width: 144px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 10px
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .button, html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .sl-select {
+    width: 100%;
+    margin-top: 5px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    border: 1px solid #111
+}
+
+html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .button:hover, html.decks.edit .projector .slide-options .background-image-menu .inner .upload-output .sl-select:hover {
+    background-color: rgba(0, 0, 0, 0.9)
+}
+
+html.decks.edit .projector .slide-options .background-image-menu.immediate .upload-input, html.decks.edit .projector .slide-options .background-image-menu.immediate .upload-output, html.decks.edit .projector .slide-options .background-image-menu.immediate .upload-progress {
+    -webkit-transition: none;
+    transition: none
+}
+
+html.decks.edit .projector .slide-options .background-image-menu[data-state="uploading"] .upload-progress {
+    left: 0;
+    opacity: 1;
+    visibility: visible
+}
+
+html.decks.edit .projector .slide-options .background-image-menu[data-state="uploading"] .upload-input {
+    left: -144px;
+    opacity: 0;
+    visibility: hidden
+}
+
+html.decks.edit .projector .slide-options .background-image-menu[data-state="uploaded"] .upload-input, html.decks.edit .projector .slide-options .background-image-menu[data-state="uploaded"] .upload-progress {
+    left: -144px;
+    opacity: 0;
+    visibility: hidden
+}
+
+html.decks.edit .projector .slide-options .background-image-menu[data-state="uploaded"] .upload-output {
+    left: 0;
+    opacity: 1;
+    visibility: visible
+}
+
+html.decks.edit .projector .slide-options .background-image-menu.show {
+    visibility: visible;
+    pointer-events: auto
+}
+
+html.decks.edit .projector .slide-options .background-image-menu.show .inner {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}
+
+html.decks.edit .toolbars {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    width: 170px;
+    height: 100%;
+    z-index: 10;
+    background: #333333;
+    border-right: 1px solid #222;
+    border-left: 1px solid #222;
+    visibility: hidden;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease
+}
+
+html.decks.edit .toolbars.visible {
+    visibility: visible
+}
+
+html.decks.edit .toolbars .toolbars-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 52px;
+    left: 0;
+    overflow: hidden;
+    text-align: left;
+    color: #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease
+}
+
+html.decks.edit .toolbars .toolbars-scroller {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+    -webkit-transition: -webkit-transform 0.2s ease;
+    transition: transform 0.2s ease
+}
+
+html.decks.edit .toolbars .toolbars-footer {
+    position: absolute;
+    height: 52px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 7px 12px;
+    background: #333333;
+    border-top: 1px solid #111;
+    text-align: right
+}
+
+html.decks.edit .toolbars .toolbars-footer .option {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    vertical-align: top;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .toolbars .toolbars-footer .option:hover {
+    border-color: rgba(255, 255, 255, 0.4)
+}
+
+html.decks.edit .toolbars .toolbars-footer .label {
+    display: inline-block;
+    padding: 0 6px;
+    line-height: 38px;
+    vertical-align: top;
+    color: #666;
+    font-size: 12px;
+    float: left;
+    cursor: default
+}
+
+html.decks.edit .toolbars .toolbar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    font-size: 14px;
+    color: #fff;
+    opacity: 0;
+    left: -170px;
+    -webkit-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease
+}
+
+html.decks.edit .toolbars .toolbar .toolbar-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+html.decks.edit .toolbars .toolbar.visible {
+    opacity: 1
+}
+
+html.decks.edit .toolbars .toolbar-add-block-option {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 10px;
+    text-align: center;
+    color: #fff;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none
+}
+
+html.decks.edit .toolbars .toolbar-add-block-option .toolbar-add-block-option-icon {
+    display: block;
+    font-size: 2em;
+    pointer-events: none
+}
+
+html.decks.edit .toolbars .toolbar-add-block-option .toolbar-add-block-option-icon.i-divide {
+    font-size: 3em;
+    height: 0.75em;
+    line-height: 0.75em
+}
+
+html.decks.edit .toolbars .toolbar-add-block-option .toolbar-add-block-option-label {
+    display: block;
+    font-size: 1em;
+    margin-top: 1.5em;
+    pointer-events: none
+}
+
+html.decks.edit .toolbars .toolbar-add-block-option:hover {
+    border-color: rgba(255, 255, 255, 0.4)
+}
+
+html.decks.edit .toolbars .toolbar-add-snippet-option {
+    margin: 0 auto;
+    padding: 10px 5px;
+    color: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1.4
+}
+
+html.decks.edit .toolbars .toolbar-add-snippet-option + .toolbar-add-snippet-option {
+    border-top: 1px solid #444
+}
+
+html.decks.edit .toolbars .toolbar-add-snippet-option:hover {
+    border-color: rgba(255, 255, 255, 0.4)
+}
+
+html.decks.edit .toolbars .toolbar-option {
+    display: block;
+    position: relative;
+    height: auto;
+    margin-bottom: 15px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none
+}
+
+html.decks.edit .toolbars .toolbar-option .toolbar-option-label {
+    position: relative;
+    margin-bottom: 6px;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #ddd;
+    cursor: default
+}
+
+html.decks.edit .toolbars .toolbar-option .toolbar-option-help {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 5px;
+    background-color: #333333;
+    color: #ddd
+}
+
+html.decks.edit .toolbars .toolbar-divider {
+    height: 1px;
+    width: 100%;
+    padding: 0;
+    background-color: #444
+}
+
+html.decks.edit .toolbars .toolbar-group {
+    margin-bottom: 15px
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger {
+    width: 100%;
+    height: 30px;
+    line-height: 28px;
+    color: #ddd;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+    clear: both
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger .label {
+    float: left
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger .checkbox {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    top: 6px;
+    border: 1px solid #555;
+    text-align: center;
+    font-size: 14px;
+    line-height: 0.8;
+    float: right;
+    color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-trigger:hover .checkbox {
+    border-color: #999
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-options {
+    position: relative;
+    background: #3f3f3f;
+    margin-left: -12px;
+    width: 168px;
+    visibility: hidden;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s cubic-bezier(0.3, 0.9, 0.135, 1);
+    transition: all 0.3s cubic-bezier(0.3, 0.9, 0.135, 1)
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-options:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: 50%;
+    right: auto;
+    top: -1px;
+    bottom: auto;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-left: -6px;
+    border-bottom-width: 0;
+    border-top-color: #333333
+}
+
+html.decks.edit .toolbars .toolbar-group .toolbar-group-options-inner {
+    border-top: 1px solid #292929;
+    border-bottom: 1px solid #292929;
+    padding: 12px 12px 0 12px
+}
+
+html.decks.edit .toolbars .toolbar-group.expanded .toolbar-group-trigger .checkbox {
+    border-color: transparent;
+    color: inherit
+}
+
+html.decks.edit .toolbars .toolbar-group.expanded .toolbar-group-options {
+    visibility: visible;
+    opacity: 1
+}
+
+html.decks.edit .toolbars .toolbar-button {
+    padding: 6px 8px;
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid #292929;
+    border-radius: 2px;
+    background: #4e4e4e
+}
+
+html.decks.edit .toolbars .toolbar-button:hover {
+    background: #5a5a5a
+}
+
+html.decks.edit .toolbars .toolbar-button:active {
+    background: #505050
+}
+
+html.decks.edit .toolbars .toolbar-image {
+    overflow: hidden
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    background-size: cover;
+    background-color: #4e4e4e;
+    background-repeat: no-repeat;
+    background-position: 50% 50%
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.4;
+    background-image: url(./fonts/editor/image-placeholder-white-transparent-500x500-b9131772dce915b8ee5647d9fd4bd9bf.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% -18px
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.6)
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-label {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    margin-left: -40px;
+    color: #fff;
+    background: #333;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner .toolbar-image-label:hover {
+    background: #000
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-url {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    color: #fff;
+    background: #333;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-url:hover {
+    background: #000
+}
+
+html.decks.edit .toolbars .toolbar-image .toolbar-image-inner:hover .toolbar-image-url {
+    opacity: 1
+}
+
+html.decks.edit .toolbars .toolbar-range .range {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    background: #4e4e4e;
+    border: 1px solid #292929;
+    cursor: col-resize
+}
+
+html.decks.edit .toolbars .toolbar-range .range .range-progress {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-transition: background 0.15s ease;
+    transition: background 0.15s ease
+}
+
+html.decks.edit .toolbars .toolbar-range .range .range-numeric {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 28px;
+    padding: 0 6px;
+    line-height: 28px;
+    color: #fff;
+    text-shadow: 0px 0px 1px #000
+}
+
+html.decks.edit .toolbars .toolbar-range .range:hover .range-progress, html.decks.edit .toolbars .toolbar-range .range.is-scrubbing .range-progress {
+    background: rgba(255, 255, 255, 0.8)
+}
+
+html.decks.edit .toolbars .toolbar-stepper .stepper {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: #4e4e4e;
+    border: 1px solid #292929;
+    cursor: col-resize
+}
+
+html.decks.edit .toolbars .toolbar-stepper .stepper .stepper-number {
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 6px;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    outline-offset: 0;
+    cursor: col-resize
+}
+
+html.decks.edit .toolbars .toolbar-stepper .stepper .stepper-number:focus {
+    outline: 1px solid #1baee1;
+    cursor: text
+}
+
+html.decks.edit .toolbars .toolbar-radio .toolbar-radio-inner {
+    background: #4e4e4e;
+    border: 1px solid #292929
+}
+
+html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item {
+    display: inline-block;
+    padding: 6px 8px;
+    cursor: pointer;
+    text-align: center
+}
+
+html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item:hover {
+    background: #5a5a5a
+}
+
+html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item:active {
+    background: #505050
+}
+
+html.decks.edit .toolbars .toolbar-radio .toolbar-radio-item.selected {
+    background: #888
+}
+
+html.decks.edit .toolbars .toolbar-radio[data-number-of-items="3"] .toolbar-radio-item {
+    width: 33%
+}
+
+html.decks.edit .toolbars .toolbar-radio[data-number-of-items="4"] .toolbar-radio-item {
+    width: 25%
+}
+
+html.decks.edit .toolbars .toolbar-radio[data-number-of-items="5"] .toolbar-radio-item {
+    width: 20%
+}
+
+html.decks.edit .toolbars .toolbar-checkbox {
+    height: 30px;
+    cursor: pointer;
+    clear: both
+}
+
+html.decks.edit .toolbars .toolbar-checkbox .toolbar-option-label {
+    float: left;
+    line-height: 28px;
+    cursor: pointer
+}
+
+html.decks.edit .toolbars .toolbar-checkbox .checkbox {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    top: 6px;
+    border: 1px solid #555;
+    text-align: center;
+    font-size: 14px;
+    line-height: 0.8;
+    float: right;
+    color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .toolbars .toolbar-checkbox:hover .checkbox {
+    border-color: #999
+}
+
+html.decks.edit .toolbars .toolbar-checkbox.checked .checkbox {
+    border-color: transparent;
+    color: inherit
+}
+
+html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item {
+    display: inline-block;
+    padding: 6px 8px;
+    cursor: pointer;
+    text-align: center;
+    background: #4e4e4e;
+    border: 1px solid #292929;
+    border-radius: 2px
+}
+
+html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item:hover {
+    background: #5a5a5a
+}
+
+html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item:active {
+    background: #505050
+}
+
+html.decks.edit .toolbars .toolbar-multi .toolbar-multi-item + .toolbar-multi-item {
+    margin-left: 4%
+}
+
+html.decks.edit .toolbars .toolbar-multi[data-number-of-items="2"] .toolbar-multi-item {
+    width: 48%
+}
+
+html.decks.edit .toolbars .toolbar-multi[data-number-of-items="3"] .toolbar-multi-item {
+    width: 30.5%
+}
+
+html.decks.edit .toolbars .toolbar-multi[data-number-of-items="4"] .toolbar-multi-item {
+    width: 23.5%
+}
+
+html.decks.edit .toolbars .toolbar-multi[data-number-of-items="4"] .toolbar-multi-item + .toolbar-multi-item {
+    margin-left: 2%
+}
+
+html.decks.edit .toolbars .toolbar-select .toolbar-select-trigger {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 28px 0 6px;
+    color: #fff;
+    background-color: #4e4e4e;
+    border: 1px solid #292929;
+    box-shadow: none;
+    cursor: pointer;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFJJREFUeNpi/P//P8NAACaGAQKjFo9aPCgs/g/F5MqTbTEjkgXYLEVWQ/WgxmY5yZaSG8eMWIKWkV6JixEHm2jAQkHCZBzNx6MWj1o8KCwGCDAAWoINJoeeYR0AAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-position: right 50%;
+    -webkit-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease
+}
+
+html.decks.edit .toolbars .toolbar-select .toolbar-select-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.2)
+}
+
+html.decks.edit .toolbars .toolbar-select[data-option-type="shape-type"] .toolbar-select-trigger {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    line-height: 1;
+    text-align: center;
+    background-image: none
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #292929;
+    cursor: pointer
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger.transparent {
+    background-image: url(./fonts/transparent-pattern-10x10-53700830c8479f2e936e243cc3dbbc9a.png);
+    background-repeat: repeat
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-trigger-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-reset {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 7px;
+    z-index: 2;
+    color: #fff;
+    opacity: 0.3;
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-reset:hover {
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger .toolbar-color-reset:active {
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+html.decks.edit .toolbars .toolbar-color .toolbar-color-trigger:hover .toolbar-color-reset {
+    opacity: 1
+}
+
+html.decks.edit .toolbars .toolbar-text .toolbar-text-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 30px;
+    padding: 4px;
+    background: #4e4e4e;
+    border-radius: 0;
+    border: 1px solid #292929;
+    color: #fff;
+    -webkit-appearance: none
+}
+
+html.decks.edit .toolbars .toolbar-text .toolbar-text-input:focus {
+    outline: 0;
+    border-color: #1baee1
+}
+
+html.decks.edit .toolbars .toolbar-text textarea.toolbar-text-input {
+    height: 90px;
+    resize: none
+}
+
+html.decks.edit .toolbars .toolbar-text .expand-button {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    padding: 4px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #4e4e4e;
+    cursor: pointer
+}
+
+html.decks.edit .toolbars .toolbar-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 9px;
+    color: #222;
+    background-color: #eee;
+    font-size: 14px;
+    z-index: 2;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3)
+}
+
+html.decks.edit .toolbars .toolbar-panel .toolbar-panel-arrow {
+    position: absolute;
+    left: -6px
+}
+
+html.decks.edit .toolbars .toolbar-panel .toolbar-panel-arrow:before {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+    -webkit-transform: rotate(360deg);
+    margin-top: -6px;
+    border-left-width: 0;
+    border-right-color: #eeeeee
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-panel-content {
+    overflow: auto;
+    padding: 1px;
+    -webkit-overflow-scrolling: touch
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item {
+    min-height: 30px;
+    line-height: 28px;
+    padding: 0 10px;
+    cursor: pointer;
+    border: 1px solid transparent
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item:hover {
+    background-color: #ddd
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item.selected {
+    color: #fff;
+    cursor: default;
+    background-color: #1baee1
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="select"] .toolbar-select-item.focused {
+    border-color: #1baee1
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-panel-content {
+    overflow: auto;
+    padding: 1px;
+    -webkit-overflow-scrolling: touch
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item {
+    display: inline-block;
+    width: 25%;
+    height: 61px;
+    padding: 14px;
+    cursor: pointer;
+    border: 1px solid transparent
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item:hover {
+    background-color: #ddd
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected {
+    color: #fff;
+    cursor: default;
+    background-color: #1baee1
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected path, html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected rect, html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected circle, html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected ellipse, html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.selected polygon {
+    fill: #ffffff
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-item.focused {
+    border-color: #1baee1
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-attribution {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: right
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-attribution a {
+    color: #444
+}
+
+html.decks.edit .toolbars .toolbar-panel[data-panel-type="shape-type"] .toolbar-select-attribution a:hover {
+    color: #000
+}
+
+html.decks.edit.touch-editor .toolbar-image .toolbar-image-url {
+    opacity: 1
+}
+
+html.decks.edit.touch-editor .toolbar-option-help {
+    display: none
+}
+
+html.decks.edit .cke, html.decks.edit .cke .cke_top {
+    border: 0;
+    border-radius: 0
+}
+
+html.decks.edit .cke.cke_panel {
+    border: 1px solid #ddd
+}
+
+html.decks.edit .cke_dialog_background_cover {
+    background-color: #000 !important;
+    opacity: 0.7 !important
+}
+
+html.decks.edit .cke_dialog_ui_input_text {
+    box-shadow: none
+}
+
+html.decks.edit .cke .cke_combopanel {
+    width: 250px
+}
+
+html.decks.edit.touch-editor .cke .cke_combo, html.decks.edit.touch-editor .cke .cke_button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .sl-block-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0
+}
+
+html.decks.edit .sl-block-grid .sl-block-grid-inner {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+html.decks.edit .sl-block-guides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 255
+}
+
+html.decks.edit .sl-block-guides .guide-h, html.decks.edit .sl-block-guides .guide-v {
+    position: absolute;
+    background: #dcdc00;
+    opacity: 0.5;
+    -webkit-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease
+}
+
+html.decks.edit .sl-block-guides .guide-h.show, html.decks.edit .sl-block-guides .guide-v.show {
+    opacity: 1
+}
+
+html.decks.edit .sl-block-guides .guide-h:before, html.decks.edit .sl-block-guides .guide-h:after, html.decks.edit .sl-block-guides .guide-v:before, html.decks.edit .sl-block-guides .guide-v:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #dcdc00;
+    border-radius: 5px
+}
+
+html.decks.edit .sl-block-guides .guide-h {
+    left: 0;
+    height: 1px;
+    width: 100%
+}
+
+html.decks.edit .sl-block-guides .guide-h:before {
+    left: -2.5px;
+    top: -2.5px
+}
+
+html.decks.edit .sl-block-guides .guide-h:after {
+    right: -2.5px;
+    top: -2.5px
+}
+
+html.decks.edit .sl-block-guides .guide-v {
+    top: 0;
+    height: 100%;
+    width: 1px
+}
+
+html.decks.edit .sl-block-guides .guide-v:before {
+    left: -2.5px;
+    top: -2.5px
+}
+
+html.decks.edit .sl-block-guides .guide-v:after {
+    left: -2.5px;
+    bottom: -2.5px
+}
+
+html.decks.edit .sl-block-selection {
+    position: absolute;
+    z-index: 255;
+    background: rgba(27, 174, 225, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+html.decks.edit {
+    overflow: hidden;
+    background: #fff
+}
+
+html.decks.edit body {
+    height: 100%;
+    min-width: 1220px;
+    font-size: 36px;
+    overflow: hidden;
+    background: #fff
+}
+
+html.decks.edit .page-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 240px
+}
+
+html.decks.edit .page-wrapper > header {
+    font-size: 16px;
+    margin: 0
+}
+
+html.decks.edit .projector {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden
+}
+
+html.decks.edit .projector .reveal-viewport {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: hidden
+}
+
+html.decks.edit .projector .reveal-viewport .reveal {
+    position: relative;
+    overflow: visible;
+    z-index: 10
+}
+
+html.decks.edit .projector .add-horizontal-slide, html.decks.edit .projector .add-vertical-slide {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    z-index: 10;
+    opacity: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .projector .add-horizontal-slide.show:hover, html.decks.edit .projector .add-vertical-slide.show:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.9)
+}
+
+html.decks.edit .projector .add-horizontal-slide .icon, html.decks.edit .projector .add-vertical-slide .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    color: white
+}
+
+html.decks.edit .projector .add-horizontal-slide {
+    position: fixed;
+    right: -60px;
+    top: 50%;
+    margin-top: -23px
+}
+
+html.decks.edit .projector .add-horizontal-slide.show {
+    opacity: 0.3;
+    right: 10px
+}
+
+html.decks.edit .projector .add-vertical-slide {
+    bottom: -60px;
+    left: 50%;
+    margin-left: -23px
+}
+
+html.decks.edit .projector .add-vertical-slide.show {
+    opacity: 0.3;
+    bottom: 10px
+}
+
+html.decks.edit.rtl .add-horizontal-slide {
+    right: auto !important;
+    left: 180px
+}
+
+html.decks.edit.rtl .add-horizontal-slide.show {
+    left: 250px
+}
+
+html.decks.edit .reveal .arrange-controls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 30;
+    opacity: 0.1;
+    color: #fff;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .reveal .arrange-controls div {
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 200px;
+    cursor: pointer;
+    opacity: 0.7;
+    text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit .reveal .arrange-controls div:hover {
+    opacity: 1
+}
+
+html.decks.edit .reveal .arrange-controls div.move-left {
+    display: block;
+    left: 0;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: 30px
+}
+
+html.decks.edit .reveal .arrange-controls div.move-right {
+    display: block;
+    right: 0;
+    top: 50%;
+    margin-top: -100px;
+    margin-right: 30px
+}
+
+html.decks.edit .reveal .arrange-controls div.move-up {
+    left: 50%;
+    top: 0;
+    margin-left: -100px;
+    margin-top: 30px
+}
+
+html.decks.edit .reveal .arrange-controls div.move-down {
+    left: 50%;
+    bottom: 0;
+    margin-left: -100px;
+    margin-bottom: 30px
+}
+
+html.decks.edit .reveal .arrange-controls div.merge-left, html.decks.edit .reveal .arrange-controls div.merge-right {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    bottom: 50px;
+    font-size: 90px;
+    opacity: 0;
+    display: block
+}
+
+html.decks.edit .reveal .arrange-controls div.merge-left {
+    left: 50px
+}
+
+html.decks.edit .reveal .arrange-controls div.merge-right {
+    right: 50px
+}
+
+html.decks.edit .reveal .slides section.present > .arrange-controls {
+    opacity: 0.1
+}
+
+html.decks.edit .reveal .slides section:hover > .arrange-controls {
+    opacity: 1
+}
+
+html.decks.edit .reveal .slides section:hover > .arrange-controls .merge-left, html.decks.edit .reveal .slides section:hover > .arrange-controls .merge-right {
+    opacity: 0.3
+}
+
+html.decks.edit .reveal .slides section:hover > .arrange-controls .merge-left:hover, html.decks.edit .reveal .slides section:hover > .arrange-controls .merge-right:hover {
+    opacity: 1
+}
+
+html.decks.edit .reveal .slides > section > section .arrange-controls .move-left, html.decks.edit .reveal .slides > section > section .arrange-controls .move-right {
+    display: none
+}
+
+html.decks.edit .reveal .slides > section > section .arrange-controls .move-up, html.decks.edit .reveal .slides > section > section .arrange-controls .move-down {
+    display: block
+}
+
+html.decks.edit .reveal .slides > section > section:not(.past):not(.future) .arrange-controls .move-left, html.decks.edit .reveal .slides > section > section:not(.past):not(.future) .arrange-controls .move-right {
+    display: block
+}
+
+html.decks.edit .reveal .slides > section:first-child > .arrange-controls .move-left, html.decks.edit .reveal .slides > section:first-child > .arrange-controls .merge-left {
+    display: none
+}
+
+html.decks.edit .reveal .slides > section:last-child > .arrange-controls .move-right, html.decks.edit .reveal .slides > section:last-child > .arrange-controls .merge-right {
+    display: none
+}
+
+html.decks.edit .reveal .slides > section > section:first-child > .arrange-controls .move-up {
+    display: none
+}
+
+html.decks.edit .reveal .slides > section > section:last-child > .arrange-controls .move-down {
+    display: none
+}
+
+html.decks.edit .sl-toggle {
+    position: relative;
+    color: #999;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #2A2A2A;
+    border-radius: 0px;
+    text-align: left;
+    font-size: 14px;
+    -webkit-transition: none;
+    transition: none
+}
+
+html.decks.edit .sl-toggle:hover {
+    background: #373737;
+    border-color: #444444
+}
+
+html.decks.edit .sl-toggle .state {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 12px;
+    right: 14px;
+    background: #444;
+    border-radius: 50%;
+    border: 2px solid rgba(120, 120, 120, 0.6);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease
+}
+
+html.decks.edit .sl-toggle.on {
+    color: #eee
+}
+
+html.decks.edit .sl-toggle.on .state {
+    background: #0BE08B;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2) inset, 0px 0px 5px #33973f, 0px 0px 5px #81db8c inset
+}
+
+html.decks.edit .preview-controls {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px)
+}
+
+html.decks.edit .preview-controls-button {
+    display: inline-block;
+    width: 54px;
+    height: 50px;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center
+}
+
+html.decks.edit .preview-controls-button .icon {
+    position: relative;
+    line-height: 50px;
+    font-size: 20px;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease
+}
+
+html.decks.edit .preview-controls-button:hover {
+    background: rgba(0, 0, 0, 0.9)
+}
+
+html.decks.edit .preview-controls-button + .preview-controls-button {
+    margin-left: 4px
+}
+
+html.decks.edit.is-editing .reveal section:not(.stack):before {
+    content: '';
+    display: block;
+    border: 1px dashed rgba(150, 150, 150, 0.5);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+
+html.decks.edit.is-editing[data-deck-contrast="0"] .reveal section:not(.stack):before, html.decks.edit.is-editing[data-deck-contrast="1"] .reveal section:not(.stack):before {
+    border-color: rgba(255, 255, 255, 0.2)
+}
+
+html.decks.edit.is-editing[data-deck-contrast="2"] .reveal section:not(.stack):before, html.decks.edit.is-editing[data-deck-contrast="3"] .reveal section:not(.stack):before, html.decks.edit.is-editing[data-deck-contrast="4"] .reveal section:not(.stack):before {
+    border-color: rgba(255, 255, 255, 0.4)
+}
+
+html.decks.edit.is-editing[data-deck-contrast="5"] .reveal section:not(.stack):before, html.decks.edit.is-editing[data-deck-contrast="6"] .reveal section:not(.stack):before, html.decks.edit.is-editing[data-deck-contrast="7"] .reveal section:not(.stack):before, html.decks.edit.is-editing[data-deck-contrast="8"] .reveal section:not(.stack):before {
+    border-color: rgba(255, 255, 255, 0.4)
+}
+
+html.decks.edit.is-editing .reveal section.overflowing:not(.stack):before {
+    border-color: red
+}
+
+html.decks.edit.hide-projector-overlays .add-horizontal-slide {
+    right: -60px !important;
+    visibility: hidden
+}
+
+html.decks.edit.hide-projector-overlays.rtl .add-horizontal-slide {
+    right: auto;
+    left: -60px !important
+}
+
+html.decks.edit.hide-projector-overlays .add-vertical-slide {
+    bottom: -60px !important
+}
+
+html.decks.edit.hide-projector-overlays .slide-options, html.decks.edit.hide-projector-overlays .sl-block-grid {
+    display: none
+}
+
+html.decks.edit.hide-projector-overlays .toolbars .toolbars-inner {
+    pointer-events: none;
+    opacity: 0.6
+}
+
+html.decks.edit .drag-and-drop-instructions {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none
+}
+
+html.decks.edit .drag-and-drop-instructions:after {
+    display: block;
+    position: absolute;
+    content: 'Drop to insert image';
+    left: 50%;
+    top: 50%;
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    margin-left: -125px;
+    margin-top: -40px;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-size: 18px;
+    text-align: center
+}
+
+html.decks.edit.drag-and-drop-over .drag-and-drop-instructions {
+    display: block
+}
+
+html.decks.edit[data-visibility="self"] .hide-when-visibility-self, html.decks.edit[data-visibility="team"] .hide-when-visibility-team {
+    display: none !important
+}
+
+html.decks.edit.touch-editor body {
+    min-width: 0 !important
+}
+
+html.decks.edit .not-supported {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 10%;
+    z-index: 10000;
+    color: #fff;
+    background: #111;
+    text-align: center;
+    font-size: 20px
+}
+
+html.decks.edit .not-supported a {
+    color: #4195c6
+}
+
+html.decks.edit .not-supported h2, html.decks.edit .not-supported p {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+html.decks.edit .not-supported h2 {
+    font-weight: 600;
+    font-size: 28px
+}
+
+html.decks.edit .not-supported p {
+    line-height: 1.3em
+}
+
+html.decks.edit .not-supported .skip {
+    font-size: 0.7em;
+    text-decoration: underline;
+    color: #ddd
+}
+
+html.decks.edit .css-editor {
+    display: block;
+    position: absolute;
+    width: 500px;
+    height: 100%;
+    top: 0;
+    padding: 0;
+    z-index: 110;
+    visibility: hidden;
+    opacity: 0;
+    background: whitesmoke;
+    font-size: 17px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-transform: translateX(-500px);
+    -ms-transform: translateX(-500px);
+    transform: translateX(-500px);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease
+}
+
+html.decks.edit .css-editor header {
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 20px
+}
+
+html.decks.edit .css-editor .contents {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    bottom: 90px;
+    right: 0
+}
+
+html.decks.edit .css-editor .contents .editor {
+    height: 100%
+}
+
+html.decks.edit .css-editor .contents .error {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: 15px;
+    padding: 8px 10px;
+    z-index: 20;
+    border-radius: 4px;
+    visibility: hidden;
+    opacity: 0;
+    background: #9e3328;
+    color: #fff;
+    text-align: center;
+    font-family: monospace;
+    font-size: 14px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease
+}
+
+html.decks.edit .css-editor .contents .error .line {
+    margin-right: 5px;
+    font-weight: bold
+}
+
+html.decks.edit .css-editor .contents .error.visible {
+    visibility: visible;
+    opacity: 1
+}
+
+html.decks.edit .css-editor footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 20px;
+    text-align: right
+}
+
+html.decks.edit .css-editor footer button + button {
+    margin-left: 8px
+}
+
+html.decks.edit .css-editor.visible {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    visibility: visible;
+    opacity: 1
+}
+
+.mode-toolbar {
+    position: absolute;
+    width: 100%;
+    top: -65px;
+    z-index: 11;
+    -webkit-transition: top 0.25s ease;
+    transition: top 0.25s ease
+}
+
+.mode-toolbar .inner {
+    width: 600px;
+    height: 45px;
+    margin: 0 auto;
+    padding: 8px;
+    color: #fff;
+    background: #222222;
+    border-radius: 4px;
+    box-shadow: 0px 1px 0px #111
+}
+
+.mode-toolbar .inner .description {
+    float: left;
+    margin: 0;
+    font-size: 14px;
+    cursor: default;
+    line-height: 29px
+}
+
+.mode-toolbar .inner .button {
+    float: right;
+    font-size: 14px
+}
+
+html.decks.edit:not([data-mode=preview]) .reveal .fragment {
+    visibility: visible;
+    opacity: 0.7
+}
+
+html.decks.edit[data-mode=css] .page-wrapper {
+    padding-left: 500px !important
+}
+
+html.decks.edit[data-mode=arrange] .slide-options {
+    display: none
+}
+
+html.decks.edit[data-mode=arrange] .reveal {
+    overflow: visible !important
+}
+
+html.decks.edit[data-mode=arrange] .reveal section {
+    cursor: default
+}
+
+html.decks.edit[data-mode=fragment] .mode-toolbar-fragment {
+    top: 10px
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal section {
+    cursor: default
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal section:not(.stack) .fragment {
+    visibility: visible;
+    opacity: 0.5;
+    -webkit-transition: none;
+    transition: none
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 4px;
+    cursor: pointer;
+    opacity: 0.9;
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-transform: translateZ(1px);
+    transform: translateZ(1px)
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item:hover {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.45);
+    outline: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .inner {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    text-align: center;
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px)
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 28px;
+    font-size: 14px;
+    color: #fff;
+    background: #000;
+    border-radius: 26px;
+    vertical-align: top
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-up, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-down {
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    display: none;
+    cursor: pointer
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-up:hover, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-down:hover {
+    background: #ddd;
+    color: #000
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-up {
+    top: -26px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item .controls-item.move-down {
+    bottom: -26px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAOklEQVQYV4XMyQ0AIAwDQdwf5dKfUSKBOJxk36NFKyLZkRkHwAjRAjaR6AQSveBDClwoAhtlwFEFDE2H4yNTc2sRaQAAAABJRU5ErkJggg==);
+    background-repeat: repeat;
+    background-clip: content-box;
+    outline: 1px solid rgba(255, 255, 255, 0.2)
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active .inner {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active:hover .controls-item.move-up, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active:hover .controls-item.move-down, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active.show-without-hover .controls-item.move-up, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active.show-without-hover .controls-item.move-down {
+    display: inline-block
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active:hover .controls-item.index, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-active.show-without-hover .controls-item.index {
+    border-radius: 0
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay .fragment-overlay-item.is-hidden {
+    display: none
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay[data-fragments-total="1"] .controls-item.move-up, html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay[data-fragments-total="1"] .controls-item.move-down {
+    display: none !important
+}
+
+html.decks.edit[data-mode=fragment] .projector .reveal .fragment-overlay[data-fragments-total="1"] .controls-item.index {
+    border-radius: 26px !important
+}
+
+html.decks.edit[data-mode=preview] .page-wrapper {
+    padding-left: 0 !important
+}
+
+html.decks.edit[data-mode=preview] .reveal {
+    overflow: visible !important
+}
+
+html.decks.edit[data-mode=preview] .reveal .slides section {
+    overflow: visible !important
+}
+
+html.decks.edit[data-mode=preview] .reveal section img {
+    cursor: initial !important
+}
+
+html.decks.edit[data-mode=preview] .reveal section .editing-ui:not(.visible-in-preview) {
+    display: none
+}
+
+html.decks.edit[data-mode=preview] .sidebar {
+    -webkit-transform: translateX(-70px) !important;
+    -ms-transform: translateX(-70px) !important;
+    transform: translateX(-70px) !important
+}
+
+html.decks.edit[data-mode=preview] .toolbars {
+    -webkit-transform: translateX(-240px) !important;
+    -ms-transform: translateX(-240px) !important;
+    transform: translateX(-240px) !important
+}
+
+html.decks.edit[data-mode=preview] .preview-controls {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none
+}

@@ -5,14 +5,23 @@ doctype html
 
 html(lang="en")
  +head(title, "no-token")
-   link(rel="stylesheet" href="stylesheets/reveal.min.css")
    link#theme(rel="stylesheet" href="#")
    if test.test_on == 'true'
      script(type="text/javascript").
        $(function(){
           $('#theme')[0].href='/stylesheets/sky.css';
        });
+     script(type="text/javascript").
+       $(function(){
+         $("button.toEdit").on('click',function(){
+           $("#before_edit")[0].innerHTML="Prepare for Edit!";
+
+         });
+       });
+
  body
+
+   button.toEdit Start Edit!
    if test.test_on == 'true'
      div#test
        p Database test: #{test.test_db}
@@ -22,6 +31,7 @@ html(lang="en")
        input(type='file', id='file1', name='file1')
        br
        button(type='submit', id='btn1', name='btn1') upload
+     div#before_edit
    else
       p Not Testing!
 
