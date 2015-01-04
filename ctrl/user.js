@@ -8,11 +8,16 @@ var crypto = require('crypto');
 /*
  * 构造函数
  * @param user 包含用于构造用户object的初始属性
+ * @param noHash 是否对密码作hash
  */
-function User(user) {
+function User(user, noHash) {
 	this._id = user._id;
     this.name = user.name;
-	this.password = crypto.createHash('md5').update(user.password).digest('base64');
+	if (noHash) { 
+		this.password = user.password;
+	} else {
+		this.password = crypto.createHash('md5').update(user.password).digest('base64');
+	}
 	this.email = user.email;
 	this.regtime = user.regtime;
 }
@@ -45,6 +50,37 @@ User.prototype.createUser = function createUser(callback) {
 		});
 	});
 };
+
+/*
+ * 检查用户名密码
+ * @param callback 回调函数。参数为错误信息、登陆成功的用户对象。
+ */
+User.prototype.checkPassword = function checkPassword(callback) {
+	var query = {
+		name: this.name,
+		password: this.password
+	}
+	mongodb.open(function(err, db) {
+		if (err) {
+			return callback(err);
+		}
+		db.collection('users', function(err, collection) {
+			if (err) {
+				mongodb.close();
+				return callback(err);
+			}
+			collection.findOne(query, function(err, doc) {
+				mongodb.close();
+				if (doc) {
+					var user = new User(doc, 1);
+					return callback(err, user);
+				} else {
+					return callback(err, null);
+				}
+			});
+		});
+	});	
+}
 
 /*
  * 通过用户名获得用户object

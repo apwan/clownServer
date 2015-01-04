@@ -16,6 +16,8 @@
     "socket.io": "~1.2.1",
     "formidable":"~1.0.16",
     "mongodb":"~1.4.26",
-    "crypto":"~0.0.3"
+    "crypto":"~0.0.3",
+	"connect-mongo": ">= 0.1.7",
+	"express-session": "~1.0.4"
   }
 }

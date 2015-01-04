@@ -4,5 +4,6 @@
 
 module.exports = {
 	db: 'clown',
-	host: 'scoreur.net'
+	host: 'scoreur.net',
+	cookieSecret: 'hahaha'
 };
