@@ -4,5 +4,5 @@
 
 module.exports = {
 	db: 'clown',
-	host: 'localhost'
+	host: 'scoreur.net'
 };

@@ -30,14 +30,11 @@ router.post('/reg', function(req, res){
 				reJson.errmsg = '用户名已存在';
 				res.send(JSON.stringify(reJson));
 			} else {
-			    //res.send(JSON.stringify(reJson));
-				//return;
 				var newUser = new User({
 					name: req.body['username'],
 					email: req.body['email'],
 					password: req.body['password']
 				});
-				
 				newUser.createUser(function (err, userT) {
 					if (err) {
 						reJson.success = 0;
@@ -49,11 +46,9 @@ router.post('/reg', function(req, res){
 						res.send(JSON.stringify(reJson));
 					}
 				});
-				
 			}
 		});
 	}
-    //res.send('This is the first test module.');
 });
 
 router.get('/reg', function(req, res){

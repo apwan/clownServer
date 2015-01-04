@@ -3,6 +3,7 @@
  */
 
 var mongodb = require('./db').database;
+var crypto = require('crypto');
 
 /*
  * 构造函数
@@ -11,7 +12,7 @@ var mongodb = require('./db').database;
 function User(user) {
 	this._id = user._id;
     this.name = user.name;
-	this.password = user.password;
+	this.password = crypto.createHash('md5').update(user.password).digest('base64');
 	this.email = user.email;
 	this.regtime = user.regtime;
 }
@@ -25,7 +26,7 @@ User.prototype.createUser = function createUser(callback) {
 		name: this.name,
 		password: this.password,
 		email: this.email,
-		regtime: (new Date()).getDay()
+		regtime: new Date().getTime()
 	}
 	mongodb.open(function(err, db) {
 		if (err) {
