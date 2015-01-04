@@ -1,4 +1,5 @@
-window.Modernizr = function(t, e, n) {
+window.Modernizr = function(t, e, n) 
+{ // First Level
     function i(t) {
         b.cssText = t
     }
@@ -31,6 +32,7 @@ window.Modernizr = function(t, e, n) {
         var i = t.charAt(0).toUpperCase() + t.slice(1), s = (t + " " + T.join(i + " ") + i).split(" ");
         return o(e, "string") || o(e, "undefined") ? a(s, e) : (s = (t + " " + w.join(i + " ") + i).split(" "), l(s, e, n))
     }
+
     var u, d, h, p = "2.6.2", f = {}, m = !0, g = e.documentElement, v = "modernizr", y = e.createElement(v), b = y.style, S = ({}.toString, " -webkit- -moz- -o- -ms- ".split(" ")), E = "Webkit Moz O ms", T = E.split(" "), w = E.toLowerCase().split(" "), _ = {svg: "http://www.w3.org/2000/svg"}, k = {}, L = [], C = L.slice, x = function(t, n, i, s) {
         var o, r, a, l, c = e.createElement("div"), u = e.body, d = u || e.createElement("body");
         if (parseInt(i, 10))
@@ -38,6 +40,7 @@ window.Modernizr = function(t, e, n) {
                 a = e.createElement("div"), a.id = s ? s[i] : v + (i + 1), c.appendChild(a);
         return o = ["&#173;", '<style id="s', v, '">', t, "</style>"].join(""), c.id = v, (u ? c : d).innerHTML += o, d.appendChild(c), u || (d.style.background = "", d.style.overflow = "hidden", l = g.style.overflow, g.style.overflow = "hidden", g.appendChild(d)), r = n(c, t), u ? c.parentNode.removeChild(c) : (d.parentNode.removeChild(d), g.style.overflow = l), !!r
     }, A = {}.hasOwnProperty;
+
     h = o(A, "undefined") || o(A.call, "undefined") ? function(t, e) {
         return e in t && o(t.constructor.prototype[e], "undefined")
     } : function(t, e) {
@@ -76,7 +79,8 @@ window.Modernizr = function(t, e, n) {
         return !!c("transform")
     }, k.csstransforms3d = function() {
         var t = !!c("perspective");
-        return t && "webkitPerspective" in g.style && x("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}", function(e) {
+        return t && "webkitPerspective" in g.style && x("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}",
+            function(e) {
             t = 9 === e.offsetLeft && 3 === e.offsetHeight
         }), t
     }, k.csstransitions = function() {
@@ -92,6 +96,8 @@ window.Modernizr = function(t, e, n) {
     }, k.svg = function() {
         return !!e.createElementNS && !!e.createElementNS(_.svg, "svg").createSVGRect
     };
+
+
     for (var I in k)
         h(k, I) && (d = I.toLowerCase(), f[d] = k[I](), L.push((f[d] ? "" : "no-") + d));
     return f.addTest = function(t, e) {
@@ -107,7 +113,7 @@ window.Modernizr = function(t, e, n) {
     }, i(""), y = u = null, f._version = p, f._prefixes = S, f._domPrefixes = w, f._cssomPrefixes = T, f.testProp = function(t) {
         return a([t])
     }, f.testAllProps = c, f.testStyles = x, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (m ? " mz-js mz-" + L.join(" mz-") : ""), f
-}(this, this.document), function(t, e) {
+}(this, this.document), function(t, e) { // Second Level
     function n(t, e) {
         var n = t.createElement("p"), i = t.getElementsByTagName("head")[0] || t.documentElement;
         return n.innerHTML = "x<style>" + e + "</style>", i.insertBefore(n.lastChild, i.firstChild)
@@ -194,6 +200,7 @@ window.Modernizr = function(t, e, n) {
             h(o), clearTimeout(r._removeSheetTimer), r._removeSheetTimer = setTimeout(e, 500)
         }), t.printShived = !0, t)
     }
+
     var f, m, g = t.html5 || {}, v = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i, y = /^<|^(?:a|b|button|code|div|fieldset|form|h1|h2|h3|h4|h5|h6|i|iframe|img|input|label|li|link|ol|option|p|param|q|script|select|span|strong|style|table|tbody|td|textarea|tfoot|th|thead|tr|ul)$/i, b = "_html5shiv", S = 0, E = {};
     !function() {
         try {
@@ -214,12 +221,12 @@ window.Modernizr = function(t, e, n) {
         return "undefined" != typeof e.namespaces && "undefined" != typeof e.parentWindow && "undefined" != typeof n.applyElement && "undefined" != typeof n.removeNode && "undefined" != typeof t.attachEvent
     }();
     T.type += " print", T.shivPrint = p, p(e)
-}(this, document), Modernizr.addTest("fullscreen", function() {
+}(this, document), Modernizr.addTest("fullscreen", function() { // Third Level
     for (var t = 0; t < Modernizr._domPrefixes.length; t++)
         if (document[Modernizr._domPrefixes[t].toLowerCase() + "CancelFullScreen"])
             return !0;
     return !!document.cancelFullScreen || !1
-}), function(t, e) {
+}), function(t, e) { // Fourth Level
     "object" == typeof module && "object" == typeof module.exports ? module.exports = t.document ? e(t, !0) : function(t) {
         if (!t.document)
             throw new Error("jQuery requires a window with a document");
@@ -2686,7 +2693,7 @@ window.Modernizr = function(t, e, n) {
     return se.noConflict = function(e) {
         return t.$ === se && (t.$ = ri), e && t.jQuery === se && (t.jQuery = oi), se
     }, typeof e === we && (t.jQuery = t.$ = se), se
-}), function(t, e) {
+}), function(t, e) { // Fifth Level
     t.rails !== e && t.error("jquery-ujs has already been loaded!");
     var n, i = t(document);
     t.rails = n = {linkClickSelector: "a[data-confirm], a[data-method], a[data-remote], a[data-disable-with], a[data-disable]",buttonClickSelector: "button[data-remote]:not(form button), button[data-confirm]:not(form button)",inputChangeSelector: "select[data-remote], input[data-remote], textarea[data-remote]",formSubmitSelector: "form",formInputClickSelector: "form input[type=submit], form input[type=image], form button[type=submit], form button:not([type]), input[type=submit][form], input[type=image][form], button[type=submit][form], button[form]:not([type])",disableSelector: "input[data-disable-with]:enabled, button[data-disable-with]:enabled, textarea[data-disable-with]:enabled, input[data-disable]:enabled, button[data-disable]:enabled, textarea[data-disable]:enabled",enableSelector: "input[data-disable-with]:disabled, button[data-disable-with]:disabled, textarea[data-disable-with]:disabled, input[data-disable]:disabled, button[data-disable]:disabled, textarea[data-disable]:disabled",requiredInputSelector: "input[name][required]:not([disabled]),textarea[name][required]:not([disabled])",fileInputSelector: "input[type=file]",linkDisableSelector: "a[data-disable-with], a[data-disable]",buttonDisableSelector: "button[data-remote][data-disable-with], button[data-remote][data-disable]",CSRFProtection: function(e) {
@@ -2831,7 +2838,7 @@ window.Modernizr = function(t, e, n) {
     }), t(function() {
         n.refreshCSRFTokens()
     }))
-}(jQuery), function(t) {
+}(jQuery), function(t) { // Sixth Level
     t.extend({debounce: function(t, e, n, i) {
             3 == arguments.length && "boolean" != typeof n && (i = n, n = !1);
             var s;
@@ -2849,7 +2856,8 @@ window.Modernizr = function(t, e, n) {
                 }()
             }
         }})
-}(jQuery), jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing, {def: "easeOutQuad",swing: function(t, e, n, i, s) {
+}(jQuery), jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing, 
+    {def: "easeOutQuad",swing: function(t, e, n, i, s) {
         return jQuery.easing[jQuery.easing.def](t, e, n, i, s)
     },easeInQuad: function(t, e, n, i, s) {
         return i * (e /= s) * e + n
@@ -6870,7 +6878,7 @@ var CryptoJS = CryptoJS || function(t, e) {
     }, e.prototype.sqlmin = function(t) {
         return t.replace(/\s{1,}/g, " ").replace(/\s{1,}\(/, "(").replace(/\s{1,}\)/, ")")
     }, window.vkbeautify = new e
-}(), window.SL = function(t) {
+}(), window.SL = function(t) { // GLOBAL: SL
     t = t.split(".");
     for (var e = SL; t.length; ) {
         var n = t.shift();

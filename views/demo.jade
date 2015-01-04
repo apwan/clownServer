@@ -12,7 +12,8 @@ html(lang="en")
    body
       //+ projector()
       .reveal
-         + slide_sample_3(title)
+         .slides
+            + slide_sample_3(title)
 
       script(src=socket_src)
       script(src=reveal_src)

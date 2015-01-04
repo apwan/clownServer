@@ -1,35 +1,18 @@
 include basic
 
-mixin gheader(hrefs, user)
-  header.global-header
-    .wrapper
-      h1.logo-animation Welcom, #{user}
-        a.symbol(href=hrefs[0])
-          .box-1
-          .box-2
-          .box-3
-        a.word(href=hrefs[1])
-      ul.nav
-        li.nav-item(data-page-id=hrefs[2])
-          a.nav-item-anchor(href=hrefs[3])
-            span.nav-item-label Explore
-        li.nav-item.profile-button
-          a.nav-item-anchor(href=hrefs[4])
-            span.nav-item-label #{user}
-            span.nav-item-burger
-              span.nav-item-burger-1
-              span.nav-item-burger-2
-              span.nav-item-burger-3
 
 
 
 
--var ajax_url = '/tmp/'+slide_id+'.json'
+
+-var ajax_json = '/ajax/'+slide_id+'.json'
+-var ajax_slide = '/html/'+slide_id+'.html'
 doctype html
 html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibility="all")
   +head('CLoWN Online presentation', "40+Zpfyb+b7eRZZkhFV7pLG+NPvXG3YXXH3CG3GZeYQ=")
     script(type="text/javascript").
-       $(ajax_include("#{ajax_url}","user-info","var SLConfig=", " "));
+       $(ajax_include("#{ajax_json}","user-info","var SLConfig=", " "));
+       $(ajax_include("#{ajax_slide}","clown_slide"));
 
   body
     .page-loader
@@ -80,7 +63,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
       //- var subpage = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
       - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
       + projector(subpage)
-          + slide_sample_1
+          //- + slide_sample_1
 
 
     script#user-info(type="text/javascript")

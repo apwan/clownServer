@@ -27,13 +27,34 @@ mixin projector(cfg)
    article.projector
       .reveal-viewport.theme-font-montserrat.theme-color-white-blue
          .reveal
-            if block
-               block
-            else
-               .slide
+            .slides#clown_slide
+               if block
+                  block
+               else
                   section
                      h1 Blank Slide
       .icon.add-horizontal-slide(data-tooltip=cfg.h_tip, data-tooltip-alignment="l", data-tooltip-delay="1500")
          span.icon.i-plus
       .icon.add-vertical-slide(data-tooltip=cfg.v_tip, data-tooltip-alignment="t", data-tooltip-delay="1500")
          span.icon.i-plus
+
+mixin gheader(hrefs, user)
+   header.global-header
+      .wrapper
+         h1.logo-animation Welcom, #{user}
+            a.symbol(href=hrefs[0])
+               .box-1
+               .box-2
+               .box-3
+            a.word(href=hrefs[1])
+         ul.nav
+            li.nav-item(data-page-id=hrefs[2])
+               a.nav-item-anchor(href=hrefs[3])
+                  span.nav-item-label Explore
+            li.nav-item.profile-button
+               a.nav-item-anchor(href=hrefs[4])
+                  span.nav-item-label #{user}
+                  span.nav-item-burger
+                     span.nav-item-burger-1
+                     span.nav-item-burger-2
+                     span.nav-item-burger-3
