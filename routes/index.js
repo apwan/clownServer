@@ -91,15 +91,8 @@ router.use('/test2', test2);
 var setup = function(newServer){
     server = newServer;
     io = require('socket.io')(server);
-
-    io.on('connection', function(socket){
-        socket.on('test', function(data){
-            socket.broadcast.emit('test back', {
-                status: 'success',
-                message: data
-            });
-        });
-    });
+    sc.setIO(io);
+    io.on('connection', sc.onConnection);
     console.log('socket setup');
 };
 exports.init = setup;
