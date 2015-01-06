@@ -18,7 +18,7 @@ var sc = {
     /**
      * 存储每个房间当前用户
      */
-    showArray = {};
+    showArray: {},
 
 	/**
 	 *
@@ -28,6 +28,14 @@ var sc = {
 		io = newIO;
 	},
 
+	/**
+	 * 向房间广播某个消息
+	 * @param {string} roomId - id of the room
+	 * @param {string} sig - signal to be broadcasted
+	 */
+	broadcastToRoom: function(roomId, sig) {
+		io.to(roomId).emit(sig);
+	},
 
     /**
      * 客户端与服务器建立socket长连接时调用
@@ -41,7 +49,7 @@ var sc = {
 
     	// 加入展示房间
     	socket.on('slide watch', function(data) {
-    		if (data.presId) {
+    		if (data.presId && presId in showArray) {
     			// 设置变量
     			socket.username = data.username;
     			presId = data.presId;
@@ -55,7 +63,6 @@ var sc = {
     				showArray[presId] = {};
     				showArray[presId].numUsers = 0;
     				showArray[presId].usernameArr = {};
-    				showArray[presId].active = true;
     			}
     			showArray[presId].usernameArr[socket.username] = (new Date()).getTime();
     			++showArray[presId].numUsers;
@@ -77,7 +84,7 @@ var sc = {
    				// 删除此用户
    				delete showArray[presId].usernameArray[socket.username];
    				-- showArray[presId].numUsers;
-				if (showArray[presId].numUsers == 0 && !showArray[presId].active) {
+				if (showArray[presId].numUsers == 0) {
 					delete showArray[presId];
 				}
 
@@ -97,10 +104,7 @@ var sc = {
    			});
    		});
 
-   		// 结束展示(展示者的socket发来end show)
-   		socket.on('end show', function() {
-   			showArray[presId].active = false;
-   		});
+
     }
 }
 

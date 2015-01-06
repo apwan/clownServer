@@ -1,48 +1,55 @@
 $(function() {
+
+	var UserShowObj = {};
+
 	// JQuery 获取前端组件
-	var $forwardBtn = $('.forwardBtn');
-	var $backwardBtn = $('.backwardBtn');
-	var $upwardBtn = $('.upwardBtn');
-	var $downwardBtn = $('.downwardBtn');
-	var $overviewBtn = $('.overviewBtn');
+	var $window = $(window);
+	// 结束展示按钮
 	var $endShowBtn = $('.endShowBtn');
+	// 开始展示按钮
+	var $startShowBtn = $('.startShowBtn');
+	// 输入slideId
+	var $slideIdInput = $('.slideIdInput');
+	// 展示区域
+	var $showArea = $('.slides');
 
-	// 数据
-	var nowState = null;
-	var jsonUrl = null;
-	var showId = null;
+	/**
+	 * 开始一个展示
+	 */
+	$startShowBtn.click() {
+		var slideId = $slideIdInput.val();
+		$.post('/ajax/slide-show', {
+			slideId: slideId,
+			command: 'start'
+		}, function (data) {
+			if (data.success == 0) {
+				// 展示错误信息
+				alert(data.errStr);
+			}
+			else {
+				UserShowObj.presId = data.presId;
+				// 设置内容
+				showArea.html(data.contents);
+				$('.presIdText').html(data.presId);
+				// 初始化reveal
+				Reveal.initialize(
+        			{
+          				controls: true,
+          				progress: true,
+          				history: true,
+          				center: true,
+          				slideNumber: true,
 
-	function sendChangeState(newState) {
-		var params = {
-			'showId': showId,
-			'passwd': passwd,
-			'state': newState
-		};
-		$.post('/slide-change/', params, function(data, status) {
-			// 展示改变后的slides
+          				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          				transition: Reveal.getQueryHash().transition || 'default' 
+        		});
+        		//调用sendChangeState
+				Reveal.addEventListener('slidechanged', sendChangeState);
+				Reveal.addEventListener('overviewshown', sendChangeState);
+				Reveal.addEventListener('overviewhidden', sendChangeState);
+			}
 		});
 	};
-
-	// 设置newState,并调用sendChangeState
-	$forwardBtn.click(function() {
-
-	});
-
-	$backwardBtn.click(function() {
-
-	});
-
-	$upwardBtn.click(function() {
-
-	});
-
-	$downwardBtn.click(function() {
-
-	});
-
-	$overviewBtn.click(function() {
-
-	});
 
 	/**
 	 * 结束展示
@@ -50,11 +57,21 @@ $(function() {
 	 * @function
 	 */
 	$endShowBtn.click(function() {
-		var params = {
+		$.post('/ajax/slide-show/', {
 			'command': 'end',
-			'showId': showId,
-			'passwd': passwd
-		};
-		post('/slide-show/', params);
+			'presId': UserShowObj.presId,
+		});
 	});
+
+
+	function sendChangeState() {
+		console.log('hi');
+		var params = {
+			'showId': UserShowObj.presId,
+			'state': Reveal.getState(),
+			'passwd': UserShowObj.passwd
+		};
+		$.post('/ajax/slide-change/', params);
+	};
+
 });

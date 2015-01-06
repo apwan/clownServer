@@ -52,7 +52,7 @@ function PresState.getPresStateById = function getPresStateById(id, callback) {
 		}
 		db.collection('presstate', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err);
 			}
 			collection.findOne({_id: id, active: 1}, function(err, doc) {
@@ -80,7 +80,7 @@ function PresState.updatePresStateById = function updatePresStateById(id, newDat
 		}
 		db.collection('presstate', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err);
 			}
 			collection.update({_id: id, active: 1}, {$set: {data: newData}}, {safe: true}, function(err, result) {
@@ -103,7 +103,7 @@ function PresState.deletePresStateById = function deletePresStateById(id, callba
 		}
 		db.collection('presstate', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err);
 			}
 			collection.update({_id: id, active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {

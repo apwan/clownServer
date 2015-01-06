@@ -1,16 +1,71 @@
 $(function() {
+
+	var COLORS = [
+	    '#e21400', '#91580f', '#f8a700', '#f78b00',
+	    '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
+	    '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
+  	];
+
+  	var UserWatchObj = {};
 	// jQuery获取组件名字
+	var $window = $(window);
+	// 展示区
+	var $showArea = $('.slides');
+	// 输入区域
+	var $inputMessage = $('.inputMessage');
+	// 聊天区
+	var $messages = $('.messages');
+	// 开始展示按钮
+	var $presIdInput = $('.presIdInput');
+	var $startWatchBtn = $('.startWatchBtn');
 
+	$startWatchBtn.click(function () {
+		var presId = $presIdInput.val();
+		$.get('/ajax/slide-watch', {
+			presId: presId
+		}, function (data) {
+			if (data.success == 0) {
+				// 展示错误信息
+				alert(data.errStr);
+			}
+			else {
+				UserWatchObj.presId = presId;
+				UserWatchObj.username = data.username;
+				$.get('/ajax/slide-watch', {
+					presId: presId,
+					command: 'contents'
+				}, function (data) {
+					if (data.success == 0) {
+						//展示错误信息
+						alert(data.errStr);
+					}
+					else {
+						// 动态的设置contents
+						showArea.html(data.contents);
+						Reveal.initialize(
+        					{
+          						controls: true,
+          						progress: true,
+          						history: true,
+          						center: true,
+          						slideNumber: true,
 
-	var socket = io(); //创建socket
-	//socket.emit('slide watch', {'showId': });
+          						theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          						transition: Reveal.getQueryHash().transition || 'default' 
+        				});
+        				//创建并设置socket
+						var socket = io(); 
+						setupSocket(socket);
+						socket.emit('slide watch', {'presId': UserWatchObj.presId,
+									'username': UserWatchObj.username
+									});
 
-	/**
-	 * 此展示对应的json文件
-	 * @name jsonUrl
-	 * @type {string}
-	 */
-	var jsonUrl = null;
+					}
+				});
+			}
+		});
+	});
+
 
 	/**
 	 * 标志是否连接到聊天室
@@ -19,87 +74,175 @@ $(function() {
 	 */
 	var connected = false;
 
-
-	/**
-	 * socket接收到'slide change'时, Ajax获取最新json文件
-	 * 解析并切换客户端slides
-	 * @function
-	 * @name onSlideChange
-	 * @todo 客户端解析json文件切换slides
+	/** 
+	 * 绑定所有socket事件
+	 * @param socket - socket实例
 	 */
-	socket.on('slide change', function(jUrl) {
-		// 第一次slide change会告知客户端此展示的json url
-		if (jUrl) {
-			jsonUrl = jUrl;
-		}
-		if (jsonUrl) {
-			getShowState(jsonUrl, function(response) {
+	function setupSocket(socket) {
 
+		/**
+		 * socket接收到'slide change'时, Ajax获取最新json文件
+		 * 解析并切换客户端slides
+		 * @function
+		 * @name onSlideChange
+		 */
+		socket.on('slide change', function() {
+			$.get('slide-watch', {
+					command: 'newstate',
+					presId: UserWatchObj.presId
+				}, function(data) {
+					if (data.success != 1) {
+						// 获取最新展示状态错误
+						alert('获取最新展示状态失败');
+					}
+					else {
+						var newState = data.data.state;
+						if (newState != null && newState != {})
+							Reveal.setState(newState.state);
+				}
 			});
-		}
-	});
+		});
 
-	/**
-	 * socket接收到'show end'时, 通知用户展示已结束	
-	 * @function
-	 * @name onShowEnd
-	 * @todo 还啥都没写
-	 */
-	socket.on('show end', function() {
+		/**
+		 * socket接收到'show end'时, 通知用户展示已结束	
+		 * @function
+		 * @name onShowEnd
+		 * @todo 告诉用户展示完毕
+		 */
+		socket.on('show end', function() {
+			alert('show end');
+		});
 
-	});
+		/**
+		 * socket接收到'login'时, 通知用户已加入聊天室	
+		 * @function
+		 * @name onLogin
+		 * @todo 展示欢迎信息
+		 */
+		socket.on('login', function(data) {
+			connected = true;
+			var message = "Welcome to the chat room!";
+			addLog(message);
+		});
 
-	/**
-	 * socket接收到'login'时, 通知用户已加入聊天室	
-	 * @function
-	 * @name onLogin
-	 * @todo 展示欢迎信息
-	 */
-	socket.on('login', function(data) {
-		connected = true;
-		var message = "Welcome toe the chat room!";
+		/**
+		 * socket接收到'show end'时, 通知用户展示已结束	
+		 * @function
+		 * @name onShowEnd
+		 */
+		socket.on('new message', function(data) {
+			addChatMessage(data.username, data.message);
+		});
 
-	});
+		/**
+		 * socket接收到'user joined'时, 通知其他用户某用户已加入	
+		 * @function
+		 * @name onUserJoined
+		 */
+		socket.on('user joined', function(data) {
+			var message = data.username + " join the chat room.";
+			addLog(message);
+		});
 
-	/**
-	 * socket接收到'show end'时, 通知用户展示已结束	
-	 * @function
-	 * @name onShowEnd
-	 * @todo 前端前端！
-	 */
-	socket.on('new message', function(data) {
-		addChatMessage(data.username, data.message);
-	});
+		/**
+		 * socket接收到'user left'时, 通知其他用户某用户已退出	
+		 * @function
+		 * @name onUserLeft
+		 */
+		socket.on('user left', function(data) {
+			var message = data.username + " left the chat room.";
+			addLog(message);
+		});
 
-	/**
-	 * socket接收到'user joined'时, 通知其他用户某用户已加入	
-	 * @function
-	 * @name onUserJoined
-	 * @todo 前端前端！
-	 */
-	socket.on('user joined', function(data) {
-		message = data.username + " join the chat room.";
-	});
+		/**
+		 * 将特定用户的发言显示进聊天区
+		 * @name addChatMessage
+		 * @function
+		 * @param {string} username - 发言用户名
+		 * @param {string} message - 发言内容
+		 */
+		function addChatMessage(username, message) {
+			var $usernameDiv = $('<span class="username" />')
+				.text(username)
+				.css('color', getUsernameColor(username));
+			var $messageBodyDiv = $('<span class="messageBody">')
+	      		.text(message);
+	      	var $messageDiv = $('<li class="message"/>')
+	      			.data('username', username)
+	      			.append($usernameDiv, $messageBodyDiv);
+	      	$messages.append($messageDiv);
+	      	// scroll to bottom
+	      	$messages[0].scrollTop = $messages[0].scrollHeight;
+		};
 
-	/**
-	 * socket接收到'user left'时, 通知其他用户某用户已退出	
-	 * @function
-	 * @name onUserLeft
-	 * @todo 前端前端！
-	 */
-	socket.on('user left', function(data) {
-		message = data.username + " left the chat room.";
-	});
+		/**
+		 * 将特定日志加到聊天区
+		 * @name addChatMessage
+		 * @function
+		 * @param {string} message - 日志内容
+		 */
+		function addLog(message) {
+			var $messageDiv = $('<li>').addClass('log').text(message);
+			$messages.append($messageDiv);
+	      	$messages[0].scrollTop = $messages[0].scrollHeight;
+		};
 
-	/**
-	 * 将特定用户的发言显示进聊天区
-	 * @name addChatMessage
-	 * @function
-	 * @param {string} username - 发言用户名
-	 * @param {string} message - 发言内容
-	 * @todo 啥都没写
-	 */
-	function addChatMessage(username, message) {
+		/**
+		 * 键盘事件
+		 */
+		$window.keydown(function (event) {
+		    // Auto-focus the current input when a key is typed
+		    if (!(event.ctrlKey || event.metaKey || event.altKey)) {
+		      $inputMessage.focus();
+		    }
+		    // When the client hits ENTER on their keyboard
+		    if (event.which === 13) {
+		        sendMessage();
+		    }
+		});
 
-	};
+		/**
+		 * 发送消息
+		 * @name sendMessage
+		 * @function
+		 */
+		function sendMessage() {
+			var message = $inputMessage.val();
+			// 防止markup被injected
+			message = cleanInput(message);
+			if (message && connected) {
+				$inputMessage.val('');
+				// 发送给服务器
+				socket.emit('new message', message);
+			}
+		};
+
+
+		/**
+		 * 防止markup injected
+		 * @name cleanInput
+		 * @function
+		 */
+		function cleanInput (input) {
+	    	return $('<div/>').text(input).text();
+	  	};
+
+
+	  	/**
+	  	 * 计算某个用户名的颜色
+	  	 * @name getUsernameColor
+		 * @function
+		 * @param {string} username - 用户名
+	  	 */
+	  	function getUsernameColor (username) {
+	    	// Compute hash code
+	    	var hash = 7;
+	    	for (var i = 0; i < username.length; i++) {
+	       		hash = username.charCodeAt(i) + (hash << 5) - hash;
+	    	}
+	    	// Calculate color
+	    	var index = Math.abs(hash % COLORS.length);
+	    	return COLORS[index];
+	  	}
+  }
 });
