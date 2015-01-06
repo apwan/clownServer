@@ -1,5 +1,6 @@
 //
    Created by WuYijie on 12/28/14.
+
 mixin sec_settings
    section.settings
       .panel-body.sl-form
@@ -39,13 +40,14 @@ mixin sec_style
       footer.panel-footer
          button.button.cancel.grey.xl Cancel
          button.button.save.xl OK
+
 mixin sec_export
    section.export
       .panel-body.sl-form
          .section.promotion
             h2 PDF and Dropbox Sync
             p
-               | With a Pro account you can export your deck to PDF. It"s also possible to automatically sync your work to Dropbox, giving you full offline access.
+               | With a Pro account you can export your deck to PDF.
             a.button.l.upgrade-button(href="#", target="_blank") Upgrade to Pro
          .section.download-html
             h2 Export to HTML
@@ -64,13 +66,14 @@ mixin sec_export
             textarea.deck-html-contents(readonly="")
       footer.panel-footer
          button.button.close.xl.grey Close
+
 mixin sec_import
    section.import
       .panel-body.sl-form
          .section.import-from-file
-            h2 Import PDF
+            h2 Import From ppt/keynote
             p
-               | Upload a PDF document to import all contained pages as separate slides. Imported content is converted to images.
+               | Slides are converted to meet reveal format.
             .import-browse-button.button.disabled.l Loading...
          .section.import-from-reveal
             h2 Import from reveal.js
@@ -85,6 +88,7 @@ mixin sec_import
                button.button.outline.white.l.proceed Import
       footer.panel-footer
          button.button.close.xl.grey Close
+
 mixin sec_share
    section.share
       .panel-body.sl-form

@@ -16,7 +16,7 @@ $(function() {
 	/**
 	 * 开始一个展示
 	 */
-	$startShowBtn.click() {
+	$startShowBtn.click(function () {
 		var slideId = $slideIdInput.val();
 		$.post('/ajax/slide-show', {
 			slideId: slideId,
@@ -29,7 +29,7 @@ $(function() {
 			else {
 				UserShowObj.presId = data.presId;
 				// 设置内容
-				showArea.html(data.contents);
+				$showArea.html(data.contents);
 				$('.presIdText').html(data.presId);
 				// 初始化reveal
 				Reveal.initialize(
@@ -49,7 +49,7 @@ $(function() {
 				Reveal.addEventListener('overviewhidden', sendChangeState);
 			}
 		});
-	};
+	});
 
 	/**
 	 * 结束展示

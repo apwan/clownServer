@@ -18,7 +18,14 @@ router.get('/', function (req, res) {
     if(req.query.user && req.query.slide){
         var info = {
             username: req.query.user,
-            slide_id: req.query.slide
+            slide_id: req.query.slide,
+            secbtns: {
+                shown: true,
+                publish:['Visibility','i-unlock-stroke'], settings:['Settings','i-cog'], style:['style','i-brush'],
+                arrange:['Arrange slides','i-layers'], revisions:['Revision history','i-clock'], import:['Import','i-cloud-upload'],
+                export:['Export','i-cloud-download'], share:['Share','i-share'], about:['About', 'i-star']
+            }
+
         };
         res.render('edit', info);
     }else{
@@ -36,13 +43,7 @@ router.get('/', function (req, res) {
 
 });
 router.get('/edit', function (req, res) {
-
-    var info = {
-        username: 'Guest',
-        slide_id: '303028'
-    };
-    res.render('edit', info);
-
+    res.redirect('/?user=Guest&slide=303028');
 
 
 });
@@ -88,6 +89,8 @@ router.post('/upload', function (req, res) {
 router.use('/test1', test1);
 router.use('/test2', test2);
 
+
+// set up io
 var setup = function(newServer){
     server = newServer;
     io = require('socket.io')(server);

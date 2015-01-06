@@ -1,18 +1,20 @@
 include basic
 
-
-
-
-
-
+//- the url to get slide config information
 -var ajax_json = '/ajax/'+slide_id+'.json'
+//- the url to get slide deck data
 -var ajax_slide = '/html/'+slide_id+'.html'
+
+//- document start here
 doctype html
 html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibility="all")
+  //- common head part with required js/css, etc
+      params: tile,token
   +head('CLoWN Online presentation', "40+Zpfyb+b7eRZZkhFV7pLG+NPvXG3YXXH3CG3GZeYQ=")
     script(type="text/javascript").
        $(ajax_include("#{ajax_json}","user-info","var SLConfig=", " "));
        $(ajax_include("#{ajax_slide}","clown_slide"));
+
 
   body
     .page-loader
@@ -20,6 +22,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
         p.page-loader-message Loading editor
         .page-loader-spinner.spinner
     .page-wrapper
+      //- use for both audience and presenter
       .preview-controls
         button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
           span.icon.i-pen-alt2
@@ -35,29 +38,37 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
             span.icon.download.i-disk
             span.icon.check.i-checkmark
             span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
-        .secondary
-          - var btn2nd = {publish:['Visibility','i-unlock-stroke'], settings:['Settings','i-cog'], style:['style','i-brush'], arrange:['Arrange slides','i-layers'], revisions:['Revision history','i-clock'], import:['Import','i-cloud-upload'], export:['Export','i-cloud-download'], share:['Share','i-share'], about:['About', 'i-star']}
-          - each val, key in btn2nd
-             button.button(class=key, data-tooltip=val[0], data-tooltip-alignment="r")
-                span.icon(class=val[1])
-                span.close.icon.i-x
+        //- editor panel, disabled for audience
+        if secbtns.shown == true
+           .secondary
+              - each val, key in secbtns
+                button.button(class=key, data-tooltip=val[0], data-tooltip-alignment="r")
+                   span.icon(class=val[1])
+                   span.close.icon.i-x
 
-          button.button.more-options
-            span.more-options-dot
-            span.more-options-dot
-            span.more-options-dot
+              button.button.more-options
+                span.more-options-dot
+                span.more-options-dot
+                span.more-options-dot
         .scroll-shadow-top
         .scroll-shadow-bottom
         - var hrefs = ['/','/','explore','/users','/'+username]
         + gheader(hrefs, username)
-      include sections
-      .sidebar-panel
-        + sec_settings
-        + sec_style
-        + sec_export
-        + sec_import
-        + sec_share
-        + sec_import
+      if secbtns.shown == true
+         include sections
+         .sidebar-panel
+           if secbtns.settings
+              + sec_settings
+           if secbtns.style
+              + sec_style
+           if secbtns.export
+              + sec_export
+           if secbtns.import
+              + sec_import
+           if secbtns.share
+              + sec_share
+           if secbtns.import
+              + sec_import
 
       include sample_slide
       //- var subpage = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
