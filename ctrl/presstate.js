@@ -11,8 +11,13 @@
 }
  */
  
- var mongodb = require('./db').database;
- 
+var mongodb = require('./db').database;
+
+/*
+ * 创建展示状态，并插入数据库。
+ * @param data 展示状态信息。
+ * @param callback 回调函数。参数为错误信息、插入返回的状态id。
+ */ 
 function PresState.createPresState = function createPresState(data, callback) {
  	var presState = {
 		data: data,
@@ -34,7 +39,12 @@ function PresState.createPresState = function createPresState(data, callback) {
 		});
 	});
 }
- 
+
+/*
+ * 通过id获得展示状态信息。
+ * @param id 展示状态id。
+ * @param callback 回调函数。参数为错误信息、状态展示信息。
+ */ 
 function PresState.getPresStateById = function getPresStateById(id, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
@@ -56,7 +66,13 @@ function PresState.getPresStateById = function getPresStateById(id, callback) {
 		});
 	});
 }
- 
+
+/*
+ * 更新展示状态。
+ * @param id 展示状态id
+ * @param data 展示状态信息。
+ * @param callback 回调函数。更新后的展示状态信息。
+ */ 
 function PresState.updatePresStateById = function updatePresStateById(id, newData, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
@@ -69,12 +85,17 @@ function PresState.updatePresStateById = function updatePresStateById(id, newDat
 			}
 			collection.update({_id: id, active: 1}, {$set: {data: newData}}, {safe: true}, function(err, result) {
 				mongodb.close();
-				return callback(err, result);
+				return callback(err, result.data);
 			});
 		});
 	});	
 }
 
+/*
+ * 根据id删除展示状态。
+ * @param id 展示状态id。
+ * @param callback 回调函数。参数为错误信息、删除返回的object。
+ */ 
 function PresState.deletePresStateById = function deletePresStateById(id, callback) {
 	mongodb.open(function(err, db) {
 		if (err) {
