@@ -91,7 +91,7 @@ router.post('/slide-show/', function slideShow(req, res) {
          if (err && !presId) {
             console.log('error when creating presentation state');
             return res.send(JSON.stringify({
-               success: 0,
+               success: 0
             }));
          }
          urlParts = {
