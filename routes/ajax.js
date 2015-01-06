@@ -106,7 +106,8 @@ router.post('/slide-show/', function slideShow(req, res) {
          return res.send(JSON.stringify({
             success: 1,
             presId: presId,
-            watchUrl: url.format(urlParts);
+            watchUrl: url.format(urlParts)
+
          }));
       });
    }

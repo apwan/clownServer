@@ -18,7 +18,7 @@ var sc = {
     /**
      * 存储每个房间当前用户
      */
-    showArray = {},
+    showArray : {},
 
 	/**
 	 *
