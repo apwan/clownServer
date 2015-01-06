@@ -8,7 +8,7 @@ var server = null;
 
 // require server control
 var db = require('../ctrl/db').db;
-var sc = require('../ctrl/sc').sc;
+var sc = require('../ctrl/sc');
 var test1 = require('../test/test1');
 var test2 = require('../test/test2');
 
