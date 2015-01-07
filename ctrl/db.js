@@ -2,15 +2,20 @@
  * Created by Wu Yijie on 12/26/14.
  */
 
-var settings = require('./settings');
+
 var Db = require('mongodb').Db;
 var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
-
+var Slide = require('./slide');
+var User = require('./user');
+var Resource = require('./resource');
 
 
 var db = {
-	database: new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT), {safe:false}),
+	guest: null,
+	sample_slide: null,
+	sample_resource: null,
+	database: null,
 	clearDB: function(callback) {
 		var collectionList = ['users', 'slides', 'resources'];
 		for (var i = 0; i < collectionList; i++) {
@@ -20,8 +25,22 @@ var db = {
 				}
 			});
 		}
+		console.log('database cleared');
 
 	},
+
+	init: function(settings){
+        // the order?
+		this.database = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT), {safe:false});
+		//this.clearDB();
+		this.guest = new User({_id:'20150001', name:'guest',password:'', email:'guest@scoreur.net', regtime:''}, true, this.database);
+		this.sample_slide = new Slide({_id:'20150001', name:'sample_slide',creator:'guest',createtime:'201501010000'},
+			this.database);
+		this.sample_resource = new Resource({_id:'20150001', name:'sample_image',creator:'guest',createtime:'201501010100'},
+			this.database);
+
+	},
+
 
 	saveSlide: function(req, res){
 		//console.log(req.body["deck[data]"]);
