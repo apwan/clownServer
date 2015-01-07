@@ -43,7 +43,7 @@ html(lang="en")
 
 
 
-      - each val in ['front/application', 'front/editor-v2', 'lib/reveal.min','front/ckeditor']
+      - each val in ['lib/modern', 'lib/application', 'front/SL', 'front/editor-v2', 'lib/reveal.min','front/ckeditor']
          script(defer="defer", src='/javascripts/'+val+'.js')
       script#socket-info(type="text/javascript",src=socket_src)
       script(src="/javascripts/showing.js")
