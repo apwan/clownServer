@@ -1,47 +1,60 @@
 /**
  * Created by lzn on 12/28/14.
+ *
+ * This file can only be called from db.js
  */
  
-var mongodb = require('./db').database;
 var ObjectID = require('mongodb').ObjectID; 
-var fs = require('fs');
 
-function Slide(slide) {
+var fs = require('fs');
+var database = null;
+
+function Slide(slide, database_instance) {
 	this._id = slide._id;
 	this.name = slide.name;
 	this.creator = slide.creator;
 	this.createtime = slide.createtime;
-	this.captcha = slide.captcha;
+	// why need captcha?
+	//this.captcha = slide.captcha;
 	this.active = slide.active;
+	// the database instance storing this slide
+	if(database_instance){
+		if(database == null) {
+			database = database_instance;
+			console.log('init db instance for Slide');
+		}
+	}
+
 }
+
 
 Slide.prototype.createSlide = function createSlide(content, callback) {
 	var slide = {
 		name: this.name,
 		creator: this.creator,
 		createtime: this.createtime,
-		captcha: this.captcha,
+		//captcha: this.captcha,
 		active: this.active
-	}
-	if (!slide.active) slide.active = 1;
-	mongodb.open(function(err, db) {
+	};
+	if (!slide.active) slide.active = 1; // use true/false
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mongodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.insert(slide, {safe: true}, function(err, slideT) {
 				slideT = slideT[0];
 				if (err) {
-					mongodb.close();
+					database.close();
 					return callback(err);
 				}
 				var dir = './public/slides/' + slideT._id;
 				fs.writeFile(dir, content, function(err) {
-					mongodb.close();
+					database.close();
 					return callback(err);
 				});
 			})
@@ -51,17 +64,18 @@ Slide.prototype.createSlide = function createSlide(content, callback) {
 
 Slide.getSlideById = function getSlideById(id, callback) {
 	var dir = './public/slides/' + id;
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mongodb.close();
+
+				database.close();
 				return callback(err);
 			}
 			collection.findOne({_id: new ObjectID(id), active: 1}, function(err, doc) {
-				mongodb.close();
+				database.close();
 				if (doc) {
 					fs.readFile(dir, function(err, data) {
 						if (err) {
@@ -81,19 +95,19 @@ Slide.getSlideById = function getSlideById(id, callback) {
 
 Slide.getContentById = function getContentById(id, callback) {
 	var dir ='./public/slides/' + id;
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
 				console.log(err);
-				mongodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.findOne({_id: new ObjectID(id), active: 1}, function(err, doc) {
 				console.log('doc: ' + JSON.stringify(doc));
-				mongodb.close();
+				database.close();
 				if (doc) {
 					fs.readFile(dir, {
 						encoding: 'utf8'
@@ -115,17 +129,17 @@ Slide.getContentById = function getContentById(id, callback) {
 }
 
 Slide.getIdListByCreator = function getSlideListByCreator(creator, callback) {
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mongodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.find({creator: creator, active: 1}).toArray(function(err, docs) {
-				mongodb.close();
+				database.close();
 				return callback(err, docs);
 			});
 		});
@@ -133,17 +147,18 @@ Slide.getIdListByCreator = function getSlideListByCreator(creator, callback) {
 }
 
 Slide.deleteSlideById = function deleteSlideById(id, callback) {
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mongodb.close();
+
+				database.close();
 				return callback(err);
 			}
 			collection.update({_id: new ObjectID(id), active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {
-				mongodb.close();
+				database.close();
 				return callback(err, result);
 			});
 		});

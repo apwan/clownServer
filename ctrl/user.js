@@ -2,7 +2,7 @@
  * Created by lzn on 12/28/14.
  */
 
-var mongodb = require('./db').database;
+var database = null;
 var crypto = require('crypto');
 
 /*
@@ -10,7 +10,7 @@ var crypto = require('crypto');
  * @param user 包含用于构造用户object的初始属性
  * @param noHash 是否对密码作hash
  */
-function User(user, noHash) {
+function User(user, noHash, database_instance) {
 	this._id = user._id;
     this.name = user.name;
 	if (noHash) { 
@@ -20,6 +20,13 @@ function User(user, noHash) {
 	}
 	this.email = user.email;
 	this.regtime = user.regtime;
+	if(database_instance){
+		if(database == null){
+			database = database_instance;
+			console.log('init db instance for User');
+		}
+	}
+
 }
 
 /*
@@ -32,19 +39,19 @@ User.prototype.createUser = function createUser(callback) {
 		password: this.password,
 		email: this.email,
 		regtime: new Date().getTime()
-	}
-	mongodb.open(function(err, db) {
+	};
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('users', function(err, collection) {
 			if (err) {
-				mongodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.ensureIndex('name', {unique: true});
 			collection.insert(user, {safe: true}, function(err, userT) {
-				mongodb.close();
+				database.close();
 				return callback(err, userT);
 			})
 		});
@@ -60,17 +67,17 @@ User.prototype.checkPassword = function checkPassword(callback) {
 		name: this.name,
 		password: this.password
 	}
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('users', function(err, collection) {
 			if (err) {
-				mongodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.findOne(query, function(err, doc) {
-				mongodb.close();
+				database.close();
 				if (doc) {
 					var user = new User(doc, 1);
 					return callback(err, user);
@@ -88,17 +95,17 @@ User.prototype.checkPassword = function checkPassword(callback) {
  * @param callback 回调函数。参数为：错误信息、用户object。
  */
 User.getUserByName = function (username, callback) {
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('users', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.findOne({name: username}, function(err, doc) {
-				mongodb.close();
+				database.close();
 				if (doc) {
 					var user = new User(doc);
 					return callback(err, user);
@@ -116,17 +123,17 @@ User.getUserByName = function (username, callback) {
  * @param callback 回调函数。参数为：错误信息、结果object。
  */
 User.deleteUserByName = function (username, callback) {
-	mongodb.open(function(err, db) {
+	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('users', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				database.close();
 				return callback(err);
 			}
 			collection.deleteMany({name: username}, function(err, result) {
-				mongodb.close();
+				database.close();
 				if (err) {
 					return callback(err);
 				} else {
