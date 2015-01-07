@@ -3,6 +3,8 @@
  */
  
 var mongodb = require('./db').database;
+var ObjectID = require('mongodb').ObjectID; 
+var fs = require('fs');
 
 function Slide(slide) {
 	this._id = slide._id;
@@ -32,13 +34,14 @@ Slide.prototype.createSlide = function createSlide(content, callback) {
 				return callback(err);
 			}
 			collection.insert(slide, {safe: true}, function(err, slideT) {
+				slideT = slideT[0];
 				if (err) {
-					mogodb.close();
+					mongodb.close();
 					return callback(err);
 				}
-				var dir = __dirname + '/public/slides/' + slideT._id;
+				var dir = './public/slides/' + slideT._id;
 				fs.writeFile(dir, content, function(err) {
-					mogodb.close();
+					mongodb.close();
 					return callback(err);
 				});
 			})
@@ -47,47 +50,66 @@ Slide.prototype.createSlide = function createSlide(content, callback) {
 }
 
 Slide.getSlideById = function getSlideById(id, callback) {
+	var dir = './public/slides/' + id;
 	mongodb.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err);
 			}
-			collection.findOne({_id: id, active: 1}, function(err, doc) {
+			collection.findOne({_id: new ObjectID(id), active: 1}, function(err, doc) {
 				mongodb.close();
 				if (doc) {
-					var slide = new Slide(doc);
-					return callback(err, slide);
+					fs.readFile(dir, function(err, data) {
+						if (err) {
+							return callback(err);
+						} else {
+							return callback(err, data);
+						}
+					});
 				} else {
-					return callback(err, null);
+					return callback(err);
 				}
 			});
 		});
 	});
+
 }
 
 Slide.getContentById = function getContentById(id, callback) {
-	var dir = __dirname + '/public/slides/' + id;
-	mogodb.open(function(err, db) {
+	var dir ='./public/slides/' + id;
+	mongodb.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
-		collection.findOne({_id: id, active: 1}, function(err, doc) {
-			mogodb.close();
-			if (doc) {
-				fs.readFile(dir, function(err, data) {
-					if (err) {
-						return callback(err);
-					} else {
-						return callback(err, data);
-					}
-				});
-			} else {
+		db.collection('slides', function(err, collection) {
+			if (err) {
+				console.log(err);
+				mongodb.close();
 				return callback(err);
 			}
+			collection.findOne({_id: new ObjectID(id), active: 1}, function(err, doc) {
+				console.log('doc: ' + JSON.stringify(doc));
+				mongodb.close();
+				if (doc) {
+					fs.readFile(dir, {
+						encoding: 'utf8'
+					},
+						function(err, data) {
+						if (err) {
+							return callback(err);
+						} else {
+							console.log('data' + JSON.stringify(data));
+							return callback(err, data);
+						}
+					});
+				} else {
+					return callback(err);
+				}
+			});
 		});
 	});
 }
@@ -99,7 +121,7 @@ Slide.getIdListByCreator = function getSlideListByCreator(creator, callback) {
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err);
 			}
 			collection.find({creator: creator, active: 1}).toArray(function(err, docs) {
@@ -117,10 +139,10 @@ Slide.deleteSlideById = function deleteSlideById(id, callback) {
 		}
 		db.collection('slides', function(err, collection) {
 			if (err) {
-				mogodb.close();
+				mongodb.close();
 				return callback(err);
 			}
-			collection.update({_id: id, active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {
+			collection.update({_id: new ObjectID(id), active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {
 				mongodb.close();
 				return callback(err, result);
 			});

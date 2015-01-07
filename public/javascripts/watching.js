@@ -41,12 +41,12 @@ $(function() {
 					}
 					else {
 						// 动态的设置contents
-						showArea.html(data.contents);
+						$showArea.prepend(data.contents);
 						Reveal.initialize(
         					{
           						controls: true,
           						progress: true,
-          						history: true,
+          						history: false,
           						center: true,
           						slideNumber: true,
 
@@ -87,20 +87,22 @@ $(function() {
 		 * @name onSlideChange
 		 */
 		socket.on('slide change', function() {
-			$.get('slide-watch', {
+			$.get('/ajax/slide-watch', {
 					command: 'newstate',
 					presId: UserWatchObj.presId
-				}, function(data) {
-					if (data.success != 1) {
+				}, function(res) {
+					if (res.success != 1) {
 						// 获取最新展示状态错误
 						alert('获取最新展示状态失败');
 					}
 					else {
-						var newState = data.data.state;
-						if (newState != null && newState != {})
-							Reveal.setState(newState.state);
-				}
-			});
+						var newState = res.data.state;
+						console.log(newState);
+						if (newState)
+							Reveal.setState(JSON.parse(newState));
+					}
+
+				});
 		});
 
 		/**

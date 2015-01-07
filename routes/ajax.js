@@ -42,8 +42,9 @@ router.post('/*/thumbnails.json', function(req, res){
 /**
  * 从数据库中取出展示状态并返回
  */
-router.get('/stream.json', function(req, res){
-   var presId = url.parse(req.url, true).query.presId;
+/*router.get('/stream.json', function(req, res){
+   var presId = req.query.presId;
+   console.log('ajax get stream.json: ', presId);
    presstate.getPresStateById(presId, function(err, data) {
       if (err) {
          console.log('error when getting presentation state ' + reqBody.presId);
@@ -67,7 +68,7 @@ router.get('/stream.json', function(req, res){
       }
    });
 });
-
+*/
 
 router.put('/*.json', function(req, res){
    //console.log(req.body["deck[data]"]);
@@ -104,7 +105,7 @@ router.post('/slide-show/', function slideShow(req, res) {
    if (reqBody.command == 'start') {
       var now = (new Date()).getTime();
       // 新建展示
-      slidedb.getSlideById(reqBody.slideId, function(err, contents) {
+      slidedb.getContentById(reqBody.slideId, function(err, contents) {
          if (err || !contents) {
             return res.send({
                success: 0,
@@ -114,7 +115,7 @@ router.post('/slide-show/', function slideShow(req, res) {
          presstate.createPresState({'slideId': reqBody.slideId,
                                  'startTime': now,
                                  'lastChangeTime': now,
-                                 'state': {}
+                                 'state': '{}'
                                  }, function (err, presId) {
             if (err && !presId) {
                console.log('error when creating presentation state');
@@ -128,13 +129,13 @@ router.post('/slide-show/', function slideShow(req, res) {
                      'host': 'localhost:3000',
                      'pathname': '/ajax/slide-watch',
                      'query': {
-                        'presId': presId
+                        'presId': presId.toString()
                         }
                      };
 
             return res.send({
                success: 1,
-               presId: presId,
+               presId: presId.toString(),
                watchUrl: url.format(urlParts),
                contents: contents
             });
@@ -143,7 +144,7 @@ router.post('/slide-show/', function slideShow(req, res) {
    }
    else if (reqBody.command == 'end') {
       // broadcast to this show room
-      io.to(reqBody.presId).emit('show end');
+      sc.broadcastToRoom(reqBody.presId, 'show end');
       presstate.deletePresStateById(reqBody.presId, function (err, data) {
          if (err) {
             console.log('erorr when deleting presentation state');
@@ -193,6 +194,7 @@ router.post('/slide-change/', function slideChange(req, res) {
             }
             else {
                // 广播切换slides信息
+               console.log('成功更新展示状态');
                sc.broadcastToRoom(reqBody.presId, 'slide change');
                return res.send({
                   success: 1,
@@ -213,29 +215,16 @@ router.post('/slide-change/', function slideChange(req, res) {
 router.get('/slide-watch', function slideWatch(req, res) {
       console.log('slide watch recv');
       //var presId = url.parse(req.url, true).query.presId；
-      var presId = req.body.presId;
-      var username = req.session.user.name;
-      var command = req.body.command;
-      /*function renderOrSend(resObj) {
-         res.format({
-            'text/html': function() {
-               //跳转方式
-               res.render('watching', resObj);
-            },
-            'application/json': function() {
-               // ajax方式
-               res.send(JSON.stringify(resObj));
-            }
-         });
-      }*/
-      function renderOrSend(resObj) {
-         res.send(resObj);
-      }
-      
+      var presId = req.query.presId;
+      // 从session中得到用户名
+      //var username = req.session.user.name;
+      var username = 'NingXuefei';
+      var command = req.query.command;
+
       presstate.getPresStateById(presId, function (err, data) {
          if (err) {
-            console.log('error when getting presentation state ' + reqBody.presId);
-            renderOrSend({
+            console.log('error when getting presentation state ' + reqBody.presId + ': ' + err);
+            res.send({
                presId: presId,
                success: 0,
                errStr: '数据库端错误',
@@ -244,7 +233,7 @@ router.get('/slide-watch', function slideWatch(req, res) {
          }
          else if (!data) {
             console.log('no active presentation state found ' + reqBody.presId);
-            renderOrSend({
+            res.send({
                presId: presId,
                success: 0,
                errStr: '不存在当前展示',
@@ -254,9 +243,9 @@ router.get('/slide-watch', function slideWatch(req, res) {
          else {
             if (command == "contents") {
                // 获取内容
-               slidedb.getSlideById(data.slideId, function(err, contents) {
+               slidedb.getContentById(data.slideId, function(err, contents) {
                   if (err || !contents) {
-                     res.send({
+                     return res.send({
                         success: 0,
                         errStr: '获取内容失败'
                      });
@@ -275,7 +264,7 @@ router.get('/slide-watch', function slideWatch(req, res) {
                });
             }
             else {
-               renderOrSend({
+               res.send({
                   presId: presId,
                   success: 1,
                   username: username

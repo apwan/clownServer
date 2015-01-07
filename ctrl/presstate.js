@@ -12,6 +12,7 @@
  */
  
 var mongodb = require('./db').database;
+var ObjectID = require('mongodb').ObjectID; 
 var PresState = {
 	/*
 	 * 创建展示状态，并插入数据库。
@@ -34,6 +35,7 @@ var PresState = {
 				}
 				collection.insert(presState, {safe: true}, function(err, presStateT) {
 					mongodb.close();
+					presStateT = presStateT[0];
 					return callback(err, presStateT._id);
 				})
 			});
@@ -46,6 +48,7 @@ var PresState = {
 	 * @param callback 回调函数。参数为错误信息、状态展示信息。
 	 */ 
 	getPresStateById : function getPresStateById(id, callback) {
+		console.log('call getPresStateById');
 		mongodb.open(function(err, db) {
 			if (err) {
 				return callback(err);
@@ -55,7 +58,7 @@ var PresState = {
 					mogodb.close();
 					return callback(err);
 				}
-				collection.findOne({_id: id, active: 1}, function(err, doc) {
+				collection.findOne({_id: new ObjectID(id), active: 1}, function(err, doc) {
 					mongodb.close();
 					if (doc) {
 						return callback(err, doc.data);
@@ -83,7 +86,7 @@ var PresState = {
 					mogodb.close();
 					return callback(err);
 				}
-				collection.update({_id: id, active: 1}, {$set: {data: newData}}, {safe: true}, function(err, result) {
+				collection.update({_id: new ObjectID(id), active: 1}, {$set: {data: newData}}, {safe: true}, function(err, result) {
 					mongodb.close();
 					return callback(err, result.data);
 				});
@@ -106,7 +109,7 @@ var PresState = {
 					mogodb.close();
 					return callback(err);
 				}
-				collection.update({_id: id, active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {
+				collection.update({_id: new ObjectID(id), active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {
 					mongodb.close();
 					return callback(err, result);
 				});

@@ -3,6 +3,7 @@
  */
  
 var mongodb = require('./db').database;
+var ObjectID = require('mongodb').ObjectID; 
 
 function Resource(resource) {
 	this._id = resource._id;
@@ -28,12 +29,13 @@ Resource.prototype.createResource = function createResource(content, callback) {
 			}
 			collection.insert(resource, {safe: true}, function(err, resourceT) {
 				if (err) {
-					mogodb.close();
+					mongodb.close();
 					return callback(err);
 				}
-				var dir = __dirname + '/public/resources/' + resourceT._id;
+				resourceT = resourceT[0];
+				var dir = './public/resources/' + resourceT._id;
 				fs.writeFile(dir, content, function(err) {
-					mogodb.close();
+					mongodb.close();
 					return callback(err);
 				});
 			})
@@ -43,12 +45,12 @@ Resource.prototype.createResource = function createResource(content, callback) {
 
 Resource.getContentById = function getContentById(id, callback) {
 	var dir = __dirname + '/public/resources/' + id;
-	mogodb.open(function(err, db) {
+	mongodb.open(function(err, db) {
 		if (err) {
 			return callback(err);
 		}
-		collection.findOne({_id: id}, function(err, doc) {
-			mogodb.close();
+		collection.findOne({_id: new ObjectID(id)}, function(err, doc) {
+			mongodb.close();
 			if (doc) {
 				fs.readFile(dir, function(err, data) {
 					if (err) {

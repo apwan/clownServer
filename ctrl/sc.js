@@ -50,7 +50,7 @@ var sc = {
 
     	// 加入展示房间
     	socket.on('slide watch', function(data) {
-    		if (data.presId && presId in showArray) {
+    		if (data.presId) {
     			// 设置变量
     			socket.username = data.username;
     			presId = data.presId;
@@ -60,39 +60,39 @@ var sc = {
     			// 第一次同步
     			socket.emit('slide change');
     			// 加入聊天室
-    			if (!(presId in showArray)) {
-    				showArray[presId] = {};
-    				showArray[presId].numUsers = 0;
-    				showArray[presId].usernameArr = {};
+    			if (!(presId in sc.showArray)) {
+    				sc.showArray[presId] = {};
+    				sc.showArray[presId].numUsers = 0;
+    				sc.showArray[presId].usernameArr = {};
     			}
-    			showArray[presId].usernameArr[socket.username] = (new Date()).getTime();
-    			++showArray[presId].numUsers;
+    			sc.showArray[presId].usernameArr[socket.username] = (new Date()).getTime();
+    			++sc.showArray[presId].numUsers;
     			
     			socket.emit('login', {
-    				numUsers: showArray[presId].numUsers
+    				numUsers: sc.showArray[presId].numUsers
     			});
     			// 广播当前聊天室新成员加入
     			io.to(data.presId).emit('user joined', {
     				username: socket.username,
-    				numUsers: showArray[presId].numUsers
+    				numUsers: sc.showArray[presId].numUsers
     			});
     		}
     	});
 
     	// 用户退出展示房间
    		socket.on('disconnect', function() {
-   			if (addedUser) {
+   			if (addedUser && sc.showArray[presId].usernameArr[socket.username]) {
    				// 删除此用户
-   				delete showArray[presId].usernameArray[socket.username];
-   				-- showArray[presId].numUsers;
-				if (showArray[presId].numUsers == 0) {
-					delete showArray[presId];
+   				delete sc.showArray[presId].usernameArr[socket.username];
+   				-- sc.showArray[presId].numUsers;
+				if (sc.showArray[presId].numUsers == 0) {
+					delete sc.showArray[presId];
 				}
 
    				// 广播当前聊天室成员退出
    				io.to(presId).emit('user left', {
    					username: socket.username,
-   					numUsers: showArray[presId].numUsers
+   					numUsers: sc.showArray[presId].numUsers
    				})
    			}
    		});
