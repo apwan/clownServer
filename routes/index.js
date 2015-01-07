@@ -25,6 +25,7 @@ router.get('/', function (req, res) {
                 sections: true
 
             },
+            // buttons for editor: Tooltip, icon
             secbtns: {
                 publish:['Visibility','i-unlock-stroke'], settings:['Settings','i-cog'], style:['style','i-brush'],
                 arrange:['Arrange slides','i-layers'], revisions:['Revision history','i-clock'], import:['Import','i-cloud-upload'],
@@ -52,44 +53,9 @@ router.get('/edit', function (req, res) {
 
 
 });
-router.post('/upload', function (req, res) {
-    var form = formidable.IncomingForm();
+router.post('/upload', db.saveUploadFile);
 
-    form.uploadDir = 'public/tmp/';
-    form.keepExtensions = true;
-    form.maxFieldsSize = 2 * 1024 * 1024;
-    //console.log('new formidable', form);
-    //return res.redirect('/');
 
-    var post = {},
-        file = {};
-    form
-        .on('error', function (err) {
-            console.log(err); //各种错误
-        })
-        //POST 普通数据 不包含文件 field 表单name value 表单value
-        .on('field', function (field, value) {
-            if (form.type == 'multipart') {  //有文件上传时 enctype="multipart/form-data"
-                if (field in post) { //同名表单 checkbox 返回array 同get处理
-                    if (util.isArray(post[field]) === false) {
-                        post[field] = [post[field]];
-                    }
-                    post[field].push(value);
-                    return;
-                }
-            }
-            post[field] = value;
-        })
-        .on('file', function (field, file) { //上传文件
-            file[field] = file;
-        });
-    console.log(file.path);
-    res.status(typeof(req.body)).send(file.path);
-    form.parse(req);
-    //fs.rename(file.path, form.uploadDir + '/' + file.filename);
-
-    //console.log(req);
-});
 
 router.use('/test1', test1);
 router.use('/test2', test2);

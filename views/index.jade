@@ -17,6 +17,10 @@ html(lang="en")
            $("#before_edit")[0].innerHTML="Prepare for Edit!";
 
          });
+         $("button.toUpload").on('click', function(){
+             $("#test_upload").submit();
+             //$("#before_edit")[0].innerHTML= $("input#file1")[0].value;
+         });
        });
 
  body
@@ -34,9 +38,10 @@ html(lang="en")
                   p Image Test:
                   img(src="/users/img" width="200" hight="200")
                   form#test_upload(action='/upload', method='post', enctype='multipart/form-data')
+
                       input(type='file', id='file1', name='file1')
                       br
-                      button#btn1(type='submit', name='btn1') upload
+                  button.toUpload#btn1(name='btn1') upload
                   div#before_edit
        section
           section

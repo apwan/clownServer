@@ -10,7 +10,8 @@ var Slide = require('./slide');
 var User = require('./user');
 var Resource = require('./resource');
 var PresState = require('./presstate');
-
+var fs = require('fs');
+var formidable = require('formidable');
 
 
 var db = {
@@ -54,6 +55,46 @@ var db = {
 		//TODO: insert to database
 
 		res.send('ok');
+	},
+	//TODO: change to saving upload resource in database
+	saveUploadFile: function (req, res) {
+		var form = formidable.IncomingForm();
+
+		form.uploadDir = 'public/tmp/';
+		form.keepExtensions = true;
+		form.maxFieldsSize = 2 * 1024 * 1024;
+
+		console.log('new formidable', form);
+
+		//return res.redirect('/');
+
+		form.
+			on('progress', function (byteReceived, byteExpected) {
+
+			}).
+			on('field', function (name, value) {
+				//console.log(name, value);
+
+			}).
+			on('fileBegin', function (name, file) {
+				console.log('new file', name);
+				var newPath = 'public/tmp/newfile';
+				file.path = newPath;
+
+
+				console.log('filepath:', file.path);
+
+
+			}).
+			on('file', function (name, file) {
+
+			}).
+			on('err', function (err) {
+
+			});
+		form.parse(req);
+
+		return res.redirect('/');
 	},
 
 
