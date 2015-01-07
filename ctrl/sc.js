@@ -9,10 +9,9 @@ var presstate = require('./presstate');
  */
 var sc = {
 
-
-    version: '0.0.0',
+    io: null,
     test: function(){
-        return 'socket' + this.version;
+        return 'socket testing';
     },
 
     /**
@@ -102,6 +101,9 @@ var sc = {
    			showArray[presId].active = false;
    		});
     }
-}
+};
+
 
 module.exports = sc;
+
+console.log('Socket Module Loading Successful!');

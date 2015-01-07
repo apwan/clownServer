@@ -17,15 +17,19 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
 
 
   body
-    .page-loader
-      .page-loader-inner
-        p.page-loader-message Loading editor
-        .page-loader-spinner.spinner
+    if uses.loader
+      .page-loader
+         .page-loader-inner
+           p.page-loader-message Loading editor
+           .page-loader-spinner.spinner
+
     .page-wrapper
       //- use for both audience and presenter
       .preview-controls
-        button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
-          span.icon.i-pen-alt2
+        if uses.resume
+          button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
+            span.icon.i-pen-alt2
+
         a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
           span.icon.i-new-window
       .sidebar
@@ -39,7 +43,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
             span.icon.check.i-checkmark
             span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
         //- editor panel, disabled for audience
-        if secbtns.shown == true
+        if uses.sections
            .secondary
               - each val, key in secbtns
                 button.button(class=key, data-tooltip=val[0], data-tooltip-alignment="r")
@@ -54,7 +58,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
         .scroll-shadow-bottom
         - var hrefs = ['/','/','explore','/users','/'+username]
         + gheader(hrefs, username)
-      if secbtns.shown == true
+      if uses.sections == true
          include sections
          .sidebar-panel
            if secbtns.settings
