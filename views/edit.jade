@@ -1,9 +1,9 @@
 include basic
 
 //- the url to get slide config information
--var ajax_json = '/ajax/'+slide_id+'.json'
+-var ajax_cfg = '/'+slide_id+'.json'
 //- the url to get slide deck data
--var ajax_slide = '/html/'+slide_id+'.html'
+-var ajax_slide_data = '/html/'+slide_id+'.html'
 
 //- document start here
 doctype html
@@ -12,8 +12,8 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
       params: tile,token
   +head('CLoWN Online presentation', "40+Zpfyb+b7eRZZkhFV7pLG+NPvXG3YXXH3CG3GZeYQ=")
     script(type="text/javascript").
-       $(ajax_include("#{ajax_json}","user-info","var SLConfig=", " "));
-       $(ajax_include("#{ajax_slide}","clown_slide"));
+       $(ajax_include(ajax_loader.base+ajax_loader.urls.cfg+"#{ajax_cfg}","user-info","var SLConfig=", " "));
+       $(ajax_include("#{ajax_slide_data}","clown_slide"));
 
 
   body

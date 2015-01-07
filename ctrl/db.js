@@ -22,6 +22,28 @@ var db = {
 		}
 
 	},
+
+	saveSlide: function(req, res){
+		//console.log(req.body["deck[data]"]);
+		var slide_id = req.params[0];
+		var slide_data = req.body["deck[data]"];
+		console.log(slide_id);
+
+		//TODO: insert to database
+
+		res.send('ok');
+	},
+
+
+
+
+
+
+
+
+
+
+
 	test: function(){
 		return settings.host;
 	}

@@ -5,5 +5,9 @@
 module.exports = {
 	db: 'clown',
 	host: 'scoreur.net',
-	cookieSecret: 'hahaha'
+	cookieSecret: 'hahaha',
+    urls: {
+		cfg:'/cfg', data:'/data', save:'/save',
+		view:'/slide-watch', pres:'/slide-change', prof:'/prof'
+	}
 };
