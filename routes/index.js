@@ -19,8 +19,13 @@ router.get('/', function (req, res) {
         var info = {
             username: req.query.user,
             slide_id: req.query.slide,
+            uses:{
+                loader: true,
+                resume: true,
+                sections: true
+
+            },
             secbtns: {
-                shown: true,
                 publish:['Visibility','i-unlock-stroke'], settings:['Settings','i-cog'], style:['style','i-brush'],
                 arrange:['Arrange slides','i-layers'], revisions:['Revision history','i-clock'], import:['Import','i-cloud-upload'],
                 export:['Export','i-cloud-download'], share:['Share','i-share'], about:['About', 'i-star']

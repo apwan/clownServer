@@ -21,6 +21,11 @@ mixin head(title,token)
          block
       else
 
+mixin plainhead(title)
+   head
+      meta(charset='utf-8')
+      script(src = "javascripts/jquery.min.js")
+
 //- eg. cfg = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
     eg. cfg = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
 mixin projector(cfg)
