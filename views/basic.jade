@@ -63,3 +63,31 @@ mixin gheader(hrefs, user)
                      span.nav-item-burger-1
                      span.nav-item-burger-2
                      span.nav-item-burger-3
+
+mixin sidebar(uses, secbtns)
+   .sidebar
+      .primary
+         button.button.preview(data-tooltip-delay="500", data-tooltip-alignment="r")
+            span.icon.i-eye
+         button.button.undo(data-tooltip-delay="500", data-tooltip-alignment="r")
+            span.icon.i-undo
+         button.button.save.disabled.is-saved(data-tooltip-delay="500", data-tooltip-alignment="r")
+            span.icon.download.i-disk
+            span.icon.check.i-checkmark
+            span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
+
+      if uses.sections
+         .secondary
+            - each val, key in secbtns
+               button.button(class=key, data-tooltip=val[0], data-tooltip-alignment="r")
+                  span.icon(class=val[1])
+                  span.close.icon.i-x
+
+            button.button.more-options
+               span.more-options-dot
+               span.more-options-dot
+               span.more-options-dot
+      .scroll-shadow-top
+      .scroll-shadow-bottom
+      if block
+         block

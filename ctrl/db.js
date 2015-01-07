@@ -67,7 +67,7 @@ var db = {
 
 
 	test: function(){
-		return settings.host;
+		return 'ok';
 	}
 
 };

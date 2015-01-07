@@ -15,7 +15,7 @@ function Slide(slide, database_instance) {
 	this.creator = slide.creator;
 	this.createtime = slide.createtime;
 	// why need captcha?
-	//this.captcha = slide.captcha;
+	this.captcha = slide.captcha;
 	this.active = slide.active;
 	// the database instance storing this slide
 	if(database_instance){
@@ -33,7 +33,7 @@ Slide.prototype.createSlide = function createSlide(content, callback) {
 		name: this.name,
 		creator: this.creator,
 		createtime: this.createtime,
-		//captcha: this.captcha,
+		captcha: this.captcha,
 		active: this.active
 	};
 	if (!slide.active) slide.active = 1; // use true/false

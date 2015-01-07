@@ -32,32 +32,11 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
 
         a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
           span.icon.i-new-window
-      .sidebar
-        .primary
-          button.button.preview(data-tooltip-delay="500", data-tooltip-alignment="r")
-            span.icon.i-eye
-          button.button.undo(data-tooltip-delay="500", data-tooltip-alignment="r")
-            span.icon.i-undo
-          button.button.save.disabled.is-saved(data-tooltip-delay="500", data-tooltip-alignment="r")
-            span.icon.download.i-disk
-            span.icon.check.i-checkmark
-            span.spinner.centered(data-spinner-radius="7", data-spinner-length="4", data-spinner-width="2", data-spinner-color="#bbbbbb")
-        //- editor panel, disabled for audience
-        if uses.sections
-           .secondary
-              - each val, key in secbtns
-                button.button(class=key, data-tooltip=val[0], data-tooltip-alignment="r")
-                   span.icon(class=val[1])
-                   span.close.icon.i-x
 
-              button.button.more-options
-                span.more-options-dot
-                span.more-options-dot
-                span.more-options-dot
-        .scroll-shadow-top
-        .scroll-shadow-bottom
-        - var hrefs = ['/','/','explore','/users','/'+username]
-        + gheader(hrefs, username)
+      - var hrefs = ['/','/','explore','/users','/'+username]
+      + sidebar(uses, secbtns)
+          + gheader(hrefs, username)
+
       if uses.sections == true
          include sections
          .sidebar-panel
@@ -80,9 +59,12 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
       + projector(subpage)
           //- + slide_sample_1
 
-
+    //- dynamic loading info
     script#user-info(type="text/javascript")
-    - each val in ['front/application', 'front/editor-v2', 'lib/reveal.min','front/ckeditor', '/front/last']
+    script#socket-info(type="text/javascript")
+    //- application
+    - each val in ['front/application', 'front/editor-v2', 'lib/reveal.min','front/ckeditor', 'front/last']
        script(defer="defer", src='javascripts/'+val+'.js')
+
 
 

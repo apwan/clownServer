@@ -1,25 +1,18 @@
 //
   Created by Foxfi Ning
+
+include basic
+include sample_slide
+
 doctype html
 html(lang="en")
-  head
-    title=pageTitle
-    script(src=jquery_src)
-    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui")
-    link(rel="stylesheet" href="/stylesheets/reveal.min.css")  
+  + head(title, 'no-token')
     link(rel="stylesheet" href="/stylesheets/sky.css" id="theme")
 
   body
-    article.projector
-        .reveal-viewport.theme-font-montserrat.theme-color-white-blue
-          .reveal
-            .slides
-              section.has-dark-background(data-background-image="https://s3.amazonaws.com/media-p.slid.es/uploads/chenwenxiao/images/900107/background.jpg", data-background-color="#9900ff", data-id="1a0a655fbb26117bc93e1355eb7e84d5")
-              section
-        .icon.add-horizontal-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="l", data-tooltip-delay="1500")
-          span.icon.i-plus
-        .icon.add-vertical-slide(data-tooltip="Add new slide<br>(Hold shift for blank)", data-tooltip-alignment="t", data-tooltip-delay="1500")
-          span.icon.i-plus
+    - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
+    + projector(subpage)
+       + slide_sample_1
     
 
           
@@ -31,11 +24,9 @@ html(lang="en")
       button(class="endShowBtn") 结束展示
 
 
-    script(src=reveal_src)
-    script(src=head_src)
-    script(src="/javascripts/front/application.js")
-    script(src="/javascripts/utils.js")
-    script(src=socket_src)
+    - each val in ['front/application', 'front/editor-v2', 'lib/reveal.min','front/ckeditor']
+       script(defer="defer", src='/javascripts/'+val+'.js')
+    script#socket-info(type="text/javascript",src=socket_src)
     script(src="/javascripts/showing.js")
 
 

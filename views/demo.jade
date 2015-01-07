@@ -10,22 +10,44 @@ html(lang="en")
       link(rel="stylesheet" href="stylesheets/sky.css" id="theme")
 
    body
-      //+ projector()
-      .reveal
-         .slides
-            + slide_sample_3(title)
+      if uses.loader == true
+         .page-loader
+            .page-loader-inner
+               p.page-loader-message Loading editor
+               .page-loader-spinner.spinner
 
-      script(src=socket_src)
-      script(src=reveal_src)
-      script(src=head_src)
-      script(type="text/javascript").
-         Reveal.initialize(
-              {
-                 controls: true,
-                 progress: true,
-                 history: true,
-                 center: true
-              });
+      .page-wrapper
+         //- use for both audience and presenter
+         .preview-controls
+            if uses.resume
+               button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
+                  span.icon.i-pen-alt2
+
+            a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
+               span.icon.i-new-window
+         .show-ctrl
+            p.presIdText
+            p 输入slideId:
+            input.slideIdInput
+            button.startShowBtn 开始展示
+            button.endShowBtn 结束展示
+
+         - var hrefs = ['/','/','explore','/users','/'+username]
+         + sidebar(uses, secbtns)
+            + gheader(hrefs, username)
+      - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
+      + projector(subpage)
+         + slide_sample_3('Demo')
+
+
+
+
+
+      - each val in ['front/application', 'front/editor-v2', 'lib/reveal.min','front/ckeditor']
+         script(defer="defer", src='/javascripts/'+val+'.js')
+      script#socket-info(type="text/javascript",src=socket_src)
+      script(src="/javascripts/showing.js")
+
 
 
 
