@@ -42,6 +42,7 @@ var sc = {
     	// 加入展示房间
     	socket.on('slide watch', function(data) {
     		if (data.presId) {
+				var showArray = this.showArray;
     			// 设置变量
     			socket.username = data.username;
     			presId = data.presId;
@@ -74,6 +75,7 @@ var sc = {
     	// 用户退出展示房间
    		socket.on('disconnect', function() {
    			if (addedUser) {
+				var showArray = this.showArray;
    				// 删除此用户
    				delete showArray[presId].usernameArray[socket.username];
    				-- showArray[presId].numUsers;
@@ -99,7 +101,7 @@ var sc = {
 
    		// 结束展示(展示者的socket发来end show)
    		socket.on('end show', function() {
-   			showArray[presId].active = false;
+   			this.showArray[presId].active = false;
    		});
     },
 	/**
@@ -110,12 +112,11 @@ var sc = {
 	 */
 	slideShow: function (req, res) {
 		console.log('slide show post recv');
-		var reqBody = req.body;
-		if (reqBody.command == 'start') {
+		if (req.body.command == 'start') {
 			var now = (new Date()).getTime();
 			// 新建展示
 			presstate.createPresState({
-				'slideId': reqBody.slideId,
+				'slideId': req.body.slideId,
 				'startTime': now,
 				'lastChangeTime': now,
 				'state': {}
@@ -143,10 +144,10 @@ var sc = {
 				}));
 			});
 		}
-		else if (reqBody.command == 'end') {
+		else if (req.body.command == 'end') {
 			// broadcast to this show room
-			io.to(reqBody.presId).emit('show end');
-			presstate.deletePresStateById(reqBody.presId, function (err, data) {
+			io.to(req.body.presId).emit('show end');
+			presstate.deletePresStateById(req.body.presId, function (err, data) {
 				if (err) {
 					console.log('erorr when deleting presentation state');
 				}
@@ -160,35 +161,34 @@ var sc = {
 	 */
 	slideChange: function(req, res) {
 		console.log('slide change recv');
-		var reqBody = req.body;
-		presstate.getPresStateById(reqBody.presId, function (err, data) {
+		presstate.getPresStateById(req.body.presId, function (err, data) {
 			if (err) {
-				console.log('error when getting presentation state ' + reqBody.presId);
+				console.log('error when getting presentation state ' + req.body.presId);
 				res.send(JSON.stringify({
 					success: 0,
 					errStr: '数据库端错误'
 				}));
 			}
 			else if (!data) {
-				console.log('no active presentation state found ' + reqBody.presId);
+				console.log('no active presentation state found ' + req.body.presId);
 				res.send(JSON.stringify({
 					success: 0,
 					errStr: '不存在当前展示'
 				}));
 			}
 			else {
-				presstate.updatePresStateById(reqBody.presId, {
+				presstate.updatePresStateById(req.body.presId, {
 					'slideId': data.slideId,
 					'startTime': data.startTime,
 					'lastChangeTime': (new Date()).getTime(),
-					'state': reqBody.newState
+					'state': req.body.newState
 				}, function (err, data) {
 					if (err) {
 						console.log('error when updating presentation state');
 					}
 					else {
 						// 广播切换slides信息
-						io.to(reqBody.presId).emit('slide change');
+						io.to(req.body.presId).emit('slide change');
 						res.send(JSON.stringify({
 							success: 1,
 							data: data
@@ -230,7 +230,7 @@ var sc = {
 
 		presstate.getPresStateById(query.presId, function (err, data) {
 			if (err) {
-				console.log('error when getting presentation state ' + reqBody.presId);
+				console.log('error when getting presentation state ' + req.body.presId);
 				renderOrSend({
 					success: 0,
 					errStr: '数据库端错误',
@@ -238,7 +238,7 @@ var sc = {
 				});
 			}
 			else if (!data) {
-				console.log('no active presentation state found ' + reqBody.presId);
+				console.log('no active presentation state found ' + req.body.presId);
 				renderOrSend({
 					success: 0,
 					errStr: '不存在当前展示',

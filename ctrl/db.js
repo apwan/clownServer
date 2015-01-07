@@ -9,6 +9,8 @@ var Server = require('mongodb').Server;
 var Slide = require('./slide');
 var User = require('./user');
 var Resource = require('./resource');
+var PresState = require('./presstate');
+
 
 
 var db = {
@@ -28,7 +30,7 @@ var db = {
 		console.log('database cleared');
 
 	},
-
+    // initialize database module
 	init: function(settings){
         // the order?
 		this.database = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT), {safe:false});
@@ -38,6 +40,7 @@ var db = {
 			this.database);
 		this.sample_resource = new Resource({_id:'20150001', name:'sample_image',creator:'guest',createtime:'201501010100'},
 			this.database);
+		PresState.setDb(this.database);
 
 	},
 

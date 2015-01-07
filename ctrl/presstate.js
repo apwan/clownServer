@@ -11,8 +11,11 @@
 }
  */
  
-var mongodb = require('./db').database;
+var database = null;
 var PresState = {
+	setDb: function(newDb){
+		database = newDb;
+	},
 	/*
 	 * 创建展示状态，并插入数据库。
 	 * @param data 展示状态信息。
@@ -22,18 +25,18 @@ var PresState = {
 		var presState = {
 			data: data,
 			active: 1
-		}
-		mongodb.open(function(err, db) {
+		};
+		database.open(function(err, db) {
 			if (err) {
 				return callback(err);
 			}
 			db.collection('presstate', function(err, collection) {
 				if (err) {
-					mongodb.close();
+					database.close();
 					return callback(err);
 				}
 				collection.insert(presState, {safe: true}, function(err, presStateT) {
-					mongodb.close();
+					database.close();
 					return callback(err, presStateT._id);
 				})
 			});
@@ -46,17 +49,17 @@ var PresState = {
 	 * @param callback 回调函数。参数为错误信息、状态展示信息。
 	 */ 
 	getPresStateById : function getPresStateById(id, callback) {
-		mongodb.open(function(err, db) {
+		database.open(function(err, db) {
 			if (err) {
 				return callback(err);
 			}
 			db.collection('presstate', function(err, collection) {
 				if (err) {
-					mogodb.close();
+					database.close();
 					return callback(err);
 				}
 				collection.findOne({_id: id, active: 1}, function(err, doc) {
-					mongodb.close();
+					database.close();
 					if (doc) {
 						return callback(err, doc.data);
 					} else {
@@ -74,17 +77,17 @@ var PresState = {
 	 * @param callback 回调函数。更新后的展示状态信息。
 	 */ 
 	updatePresStateById : function updatePresStateById(id, newData, callback) {
-		mongodb.open(function(err, db) {
+		database.open(function(err, db) {
 			if (err) {
 				return callback(err);
 			}
 			db.collection('presstate', function(err, collection) {
 				if (err) {
-					mogodb.close();
+					database.close();
 					return callback(err);
 				}
 				collection.update({_id: id, active: 1}, {$set: {data: newData}}, {safe: true}, function(err, result) {
-					mongodb.close();
+					database.close();
 					return callback(err, result.data);
 				});
 			});
@@ -97,17 +100,17 @@ var PresState = {
 	 * @param callback 回调函数。参数为错误信息、删除返回的object。
 	 */ 
 	deletePresStateById : function deletePresStateById(id, callback) {
-		mongodb.open(function(err, db) {
+		database.open(function(err, db) {
 			if (err) {
 				return callback(err);
 			}
 			db.collection('presstate', function(err, collection) {
 				if (err) {
-					mogodb.close();
+					database.close();
 					return callback(err);
 				}
 				collection.update({_id: id, active: 1}, {$set: {active: 0}}, {safe: true}, function(err, result) {
-					mongodb.close();
+					database.close();
 					return callback(err, result);
 				});
 			});
