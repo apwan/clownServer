@@ -1,4 +1,4 @@
-window.Modernizr = function(t, e, n) 
+window.Modernizr = function(t, e, n)
 { // First Level
     function i(t) {
         b.cssText = t
@@ -1678,6 +1678,18 @@ window.Modernizr = function(t, e, n)
             var o, r, a, l, c, u, d, h, p, f, m, g = se._data(t);
             if (g) {
                 for (n.handler && (l = n, n = l.handler, s = l.selector), n.guid || (n.guid = se.guid++), (r = g.events) || (r = g.events = {}), (u = g.handle) || (u = g.handle = function(t) {
+                    if (document.activeElement.className == 'button preview') {
+                        console.log('shutdown preview successfully');
+                        //return 0;
+                    }
+                    if (document.activeElement.className == 'button share') {
+                        console.log('shutdown share successfully');
+                        //return 0;
+                    }
+                    if (document.activeElement.className == 'button preview-controls-button preview-controls-external grey l') {
+                        console.log('shutdown preview-controls successfully');
+                        //return 0;
+                    }
                     return typeof se === we || t && se.event.triggered === t.type ? void 0 : se.event.dispatch.apply(u.elem, arguments)
                 }, u.elem = t), e = (e || "").match(be) || [""], a = e.length; a--; )
                     o = Oe.exec(e[a]) || [], p = m = o[1], f = (o[2] || "").split(".").sort(), p && (c = se.event.special[p] || {}, p = (s ? c.delegateType : c.bindType) || p, c = se.event.special[p] || {}, d = se.extend({type: p,origType: m,data: i,handler: n,guid: n.guid,selector: s,needsContext: s && se.expr.match.needsContext.test(s),namespace: f.join(".")}, l), (h = r[p]) || (h = r[p] = [], h.delegateCount = 0, c.setup && c.setup.call(t, i, f, u) !== !1 || (t.addEventListener ? t.addEventListener(p, u, !1) : t.attachEvent && t.attachEvent("on" + p, u))), c.add && (c.add.call(t, d), d.handler.guid || (d.handler.guid = n.guid)), s ? h.splice(h.delegateCount++, 0, d) : h.push(d), se.event.global[p] = !0);
@@ -2856,7 +2868,7 @@ window.Modernizr = function(t, e, n)
                 }()
             }
         }})
-}(jQuery), jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing, 
+}(jQuery), jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing,
     {def: "easeOutQuad",swing: function(t, e, n, i, s) {
         return jQuery.easing[jQuery.easing.def](t, e, n, i, s)
     },easeInQuad: function(t, e, n, i, s) {
