@@ -15,6 +15,7 @@ var database = null;
 var PresState = {
 	setDb: function(newDb){
 		database = newDb;
+		console.log('database for presstate');
 	},
 	/*
 	 * 创建展示状态，并插入数据库。
