@@ -113,7 +113,9 @@ window.Modernizr = function(t, e, n)
     }, i(""), y = u = null, f._version = p, f._prefixes = S, f._domPrefixes = w, f._cssomPrefixes = T, f.testProp = function(t) {
         return a([t])
     }, f.testAllProps = c, f.testStyles = x, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (m ? " mz-js mz-" + L.join(" mz-") : ""), f
-}(this, this.document), function(t, e) { // Second Level
+}(this, this.document), 
+
+function(t, e) { 
     function n(t, e) {
         var n = t.createElement("p"), i = t.getElementsByTagName("head")[0] || t.documentElement;
         return n.innerHTML = "x<style>" + e + "</style>", i.insertBefore(n.lastChild, i.firstChild)
@@ -221,12 +223,16 @@ window.Modernizr = function(t, e, n)
         return "undefined" != typeof e.namespaces && "undefined" != typeof e.parentWindow && "undefined" != typeof n.applyElement && "undefined" != typeof n.removeNode && "undefined" != typeof t.attachEvent
     }();
     T.type += " print", T.shivPrint = p, p(e)
-}(this, document), Modernizr.addTest("fullscreen", function() { // Third Level
+}(this, document), 
+
+Modernizr.addTest("fullscreen", function() { 
     for (var t = 0; t < Modernizr._domPrefixes.length; t++)
         if (document[Modernizr._domPrefixes[t].toLowerCase() + "CancelFullScreen"])
             return !0;
     return !!document.cancelFullScreen || !1
-}), function(t, e) { // Fourth Level
+}), 
+
+function(t, e) { 
     "object" == typeof module && "object" == typeof module.exports ? module.exports = t.document ? e(t, !0) : function(t) {
         if (!t.document)
             throw new Error("jQuery requires a window with a document");
@@ -2705,7 +2711,8 @@ window.Modernizr = function(t, e, n)
     return se.noConflict = function(e) {
         return t.$ === se && (t.$ = ri), e && t.jQuery === se && (t.jQuery = oi), se
     }, typeof e === we && (t.jQuery = t.$ = se), se
-}), function(t, e) { // Fifth Level
+}), 
+function(t, e) { 
     t.rails !== e && t.error("jquery-ujs has already been loaded!");
     var n, i = t(document);
     t.rails = n = {linkClickSelector: "a[data-confirm], a[data-method], a[data-remote], a[data-disable-with], a[data-disable]",buttonClickSelector: "button[data-remote]:not(form button), button[data-confirm]:not(form button)",inputChangeSelector: "select[data-remote], input[data-remote], textarea[data-remote]",formSubmitSelector: "form",formInputClickSelector: "form input[type=submit], form input[type=image], form button[type=submit], form button:not([type]), input[type=submit][form], input[type=image][form], button[type=submit][form], button[form]:not([type])",disableSelector: "input[data-disable-with]:enabled, button[data-disable-with]:enabled, textarea[data-disable-with]:enabled, input[data-disable]:enabled, button[data-disable]:enabled, textarea[data-disable]:enabled",enableSelector: "input[data-disable-with]:disabled, button[data-disable-with]:disabled, textarea[data-disable-with]:disabled, input[data-disable]:disabled, button[data-disable]:disabled, textarea[data-disable]:disabled",requiredInputSelector: "input[name][required]:not([disabled]),textarea[name][required]:not([disabled])",fileInputSelector: "input[type=file]",linkDisableSelector: "a[data-disable-with], a[data-disable]",buttonDisableSelector: "button[data-remote][data-disable-with], button[data-remote][data-disable]",CSRFProtection: function(e) {
@@ -2850,7 +2857,8 @@ window.Modernizr = function(t, e, n)
     }), t(function() {
         n.refreshCSRFTokens()
     }))
-}(jQuery), function(t) { // Sixth Level
+}(jQuery), 
+function(t) { 
     t.extend({debounce: function(t, e, n, i) {
             3 == arguments.length && "boolean" != typeof n && (i = n, n = !1);
             var s;
@@ -2868,8 +2876,11 @@ window.Modernizr = function(t, e, n)
                 }()
             }
         }})
-}(jQuery), jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing,
-    {def: "easeOutQuad",swing: function(t, e, n, i, s) {
+}(jQuery), 
+
+jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing,
+{def: "easeOutQuad",
+    swing: function(t, e, n, i, s) {
         return jQuery.easing[jQuery.easing.def](t, e, n, i, s)
     },easeInQuad: function(t, e, n, i, s) {
         return i * (e /= s) * e + n
@@ -2961,7 +2972,9 @@ window.Modernizr = function(t, e, n)
         return (e /= s) < 1 / 2.75 ? 7.5625 * i * e * e + n : 2 / 2.75 > e ? i * (7.5625 * (e -= 1.5 / 2.75) * e + .75) + n : 2.5 / 2.75 > e ? i * (7.5625 * (e -= 2.25 / 2.75) * e + .9375) + n : i * (7.5625 * (e -= 2.625 / 2.75) * e + .984375) + n
     },easeInOutBounce: function(t, e, n, i, s) {
         return s / 2 > e ? .5 * jQuery.easing.easeInBounce(t, 2 * e, 0, i, s) + n : .5 * jQuery.easing.easeOutBounce(t, 2 * e - s, 0, i, s) + .5 * i + n
-    }}), function() {
+    }
+}), 
+function() {
     var t, e, n, i, s, o, r, a, l, c, u, d, h, p, f, m, g, v, y, b = [].slice, S = [].indexOf || function(t) {
         for (var e = 0, n = this.length; n > e; e++)
             if (e in this && this[e] === t)
@@ -3062,7 +3075,8 @@ window.Modernizr = function(t, e, n)
         var n, i, s, o;
         return (n = e(t)) ? (s = n.length[n.length.length - 1], t = t.replace(/\D/g, ""), t = t.slice(0, +s + 1 || 9e9), n.format.global ? null != (o = t.match(n.format)) ? o.join(" ") : void 0 : (i = n.format.exec(t), null != i && i.shift(), null != i ? i.join(" ") : void 0)) : t
     }
-}.call(this), function(t) {
+}.call(this), 
+function(t) {
     t.fn.changeElementType = function(e) {
         var n = {};
         t.each(this[0].attributes, function(t, e) {
@@ -3071,7 +3085,9 @@ window.Modernizr = function(t, e, n)
             return t("<" + e + "/>", n).append(t(this).contents())
         })
     }
-}(jQuery), function(t, e, n) {
+}(jQuery), 
+
+function(t, e, n) {
     "function" == typeof define && define.amd ? define(["jquery"], function(i) {
         return n(i, t, e), i.mobile
     }) : n(t.jQuery, t, e)
@@ -3193,7 +3209,9 @@ window.Modernizr = function(t, e, n)
                 }
         }, !0)
     }(t, e, n)
-}), function() {
+}), 
+
+function() {
     var t = !1, e = /xyz/.test(function() {
     }) ? /\b_super\b/ : /.*/;
     this.Class = function() {
@@ -3216,7 +3234,9 @@ window.Modernizr = function(t, e, n)
             }(r, n[r]) : n[r];
         return i.prototype = o, i.constructor = i, i.extend = arguments.callee, i
     }
-}(), function(t) {
+}(), 
+
+function(t) {
     "function" == typeof define ? define(function() {
         t()
     }) : t()
@@ -3443,7 +3463,9 @@ window.Modernizr = function(t, e, n)
             return String(this).replace(m, "").replace(g, "")
         }
     }
-}), "undefined" == typeof document || "classList" in document.createElement("a") || !function(t) {
+}), 
+
+"undefined" == typeof document || "classList" in document.createElement("a") || !function(t) {
     var e = "classList", n = "prototype", i = (t.HTMLElement || t.Element)[n], s = Object, o = String[n].trim || function() {
         return this.replace(/^\s+|\s+$/g, "")
     }, r = Array[n].indexOf || function(t) {
@@ -3491,7 +3513,10 @@ window.Modernizr = function(t, e, n)
         }
     } else
         s[n].__defineGetter__ && i.__defineGetter__(e, d)
-}(self), function(t) {
+}(self), 
+
+
+function(t) {
     function e() {
         p || (p = !0, l(m, function(t) {
             d(t)
@@ -3621,7 +3646,10 @@ window.Modernizr = function(t, e, n)
             t()
         })
     }, 300)
-}(document), function(t) {
+}(document), 
+
+
+function(t) {
     function e(t, e, n, i, s) {
         this._listener = e, this._isOnce = n, this.context = i, this._signal = t, this._priority = s || 0
     }
@@ -3695,6 +3723,8 @@ window.Modernizr = function(t, e, n)
             return "[Signal active: " + this.active + " numListeners: " + this.getNumListeners() + "]"
         }}, t.signals = n
 }(window || global || this);
+
+
 var JSON;
 JSON || (JSON = {}), function() {
     "use strict";
@@ -3765,7 +3795,9 @@ JSON || (JSON = {}), function() {
             return j = eval("(" + text + ")"), "function" == typeof reviver ? walk({"": j}, "") : j;
         throw new SyntaxError("JSON.parse")
     })
-}(), function(t) {
+}(), 
+
+function(t) {
     function e(t, e) {
         return function(n) {
             return l(t.call(this, n), e)
@@ -4345,7 +4377,9 @@ JSON || (JSON = {}), function() {
         }}), F && (module.exports = $), "undefined" == typeof ender && (this.moment = $), "function" == typeof define && define.amd && define("moment", [], function() {
         return $
     })
-}.call(this), function(t, e) {
+}.call(this), 
+
+function(t, e) {
     "object" == typeof exports ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : t.Spinner = e()
 }(this, function() {
     "use strict";
@@ -4419,8 +4453,10 @@ JSON || (JSON = {}), function() {
     var c, u = ["webkit", "Moz", "ms", "O"], d = {}, h = function() {
         var n = t("style", {type: "text/css"});
         return e(document.getElementsByTagName("head")[0], n), n.sheet || n.styleSheet
-    }(), p = {lines: 12,length: 7,width: 5,radius: 10,rotate: 0,corners: 1,color: "#000",direction: 1,speed: 1,trail: 100,opacity: .25,fps: 20,zIndex: 2e9,className: "spinner",top: "auto",left: "auto",position: "relative"};
-    a.defaults = {}, o(a.prototype, {spin: function(e) {
+    }(), 
+    p = {lines: 12,length: 7,width: 5,radius: 10,rotate: 0,corners: 1,color: "#000",direction: 1,speed: 1,trail: 100,opacity: .25,fps: 20,zIndex: 2e9,className: "spinner",top: "auto",left: "auto",position: "relative"};
+    a.defaults = {}, o(a.prototype, 
+        {spin: function(e) {
             this.stop();
             var n, i, o = this, a = o.opts, l = o.el = s(t(0, {className: a.className}), {position: a.position,width: 0,zIndex: a.zIndex}), u = a.radius + a.length + a.width;
             if (e && (e.insertBefore(l, e.firstChild || null), i = r(e), n = r(l), s(l, {left: ("auto" == a.left ? i.x - n.x + (e.offsetWidth >> 1) : parseInt(a.left, 10) + u) + "px",top: ("auto" == a.top ? i.y - n.y + (e.offsetHeight >> 1) : parseInt(a.top, 10) + u) + "px"})), l.setAttribute("role", "progressbar"), o.lines(l, o.opts), !c) {
@@ -4445,10 +4481,12 @@ JSON || (JSON = {}), function() {
             return i
         },opacity: function(t, e, n) {
             e < t.childNodes.length && (t.childNodes[e].style.opacity = n)
-        }});
+        }
+    });
     var f = s(t("group"), {behavior: "url(#default#VML)"});
     return !i(f, "transform") && f.adj ? l() : c = i(f, "animation"), a
-}), function(t, e) {
+}), 
+function(t, e) {
     "object" == typeof exports ? module.exports = e() : "function" == typeof define && define.amd ? define(["spin"], e) : t.Ladda = e(t.Spinner)
 }(this, function(t) {
     "use strict";
@@ -4515,7 +4553,9 @@ JSON || (JSON = {}), function() {
     }
     var r = [];
     return {bind: n,create: e,stopAll: i}
-}), function(t, e) {
+}), 
+
+function(t, e) {
     function n(t, e, n) {
         return t.addEventListener ? void t.addEventListener(e, n, !1) : void t.attachEvent("on" + e, n)
     }
@@ -4648,7 +4688,9 @@ JSON || (JSON = {}), function() {
             return (" " + e.className + " ").indexOf(" mousetrap ") > -1 ? !1 : "INPUT" == e.tagName || "SELECT" == e.tagName || "TEXTAREA" == e.tagName || e.isContentEditable
         },handleKey: d};
     t.Mousetrap = O, "function" == typeof define && define.amd && define(O)
-}(window, document), function(t, e, n, i) {
+}(window, document), 
+
+function(t, e, n, i) {
     "use strict";
     function s(t, e, n) {
         return setTimeout(u(t, n), e)
@@ -4919,13 +4961,20 @@ JSON || (JSON = {}), function() {
         var i = e.createEvent("Event");
         i.initEvent(t, !0, !0), i.gesture = n, n.target.dispatchEvent(i)
     }
+
+/*
+
+*/
+
     var le = ["", "webkit", "moz", "MS", "ms", "o"], ce = e.createElement("div"), ue = "function", de = Math.round, he = Math.abs, pe = Date.now, fe = 1, me = /mobile|tablet|ip(ad|hone|od)|android/i, ge = "ontouchstart" in t, ve = E(t, "PointerEvent") !== i, ye = ge && me.test(navigator.userAgent), be = "touch", Se = "pen", Ee = "mouse", Te = "kinect", we = 25, _e = 1, ke = 2, Le = 4, Ce = 8, xe = 1, Ae = 2, Ie = 4, De = 8, Me = 16, Re = Ae | Ie, Ne = De | Me, Oe = Re | Ne, Pe = ["x", "y"], $e = ["clientX", "clientY"];
-    _.prototype = {handler: function() {
-        },init: function() {
+    _.prototype = {
+        handler: function() {},
+        init: function() {
             this.evEl && p(this.element, this.evEl, this.domHandler), this.evTarget && p(this.target, this.evTarget, this.domHandler), this.evWin && p(w(this.element), this.evWin, this.domHandler)
         },destroy: function() {
             this.evEl && f(this.element, this.evEl, this.domHandler), this.evTarget && f(this.target, this.evTarget, this.domHandler), this.evWin && f(w(this.element), this.evWin, this.domHandler)
-        }};
+        }
+    };
     var je = {mousedown: _e,mousemove: ke,mouseup: Le}, Ue = "mousedown", He = "mousemove mouseup";
     c(j, _, {handler: function(t) {
             var e = je[t.type];
@@ -4959,7 +5008,10 @@ JSON || (JSON = {}), function() {
             this.touch.destroy(), this.mouse.destroy()
         }});
     var Je = E(ce.style, "touchAction"), Ke = Je !== i, Ze = "compute", Qe = "auto", tn = "manipulation", en = "none", nn = "pan-x", sn = "pan-y";
-    W.prototype = {set: function(t) {
+
+//*************
+    W.prototype = {
+        set: function(t) {
             t == Ze && (t = this.compute()), Ke && (this.manager.element.style[Je] = t), this.actions = t.toLowerCase().trim()
         },update: function() {
             this.set(this.manager.options.touchAction)
@@ -4978,9 +5030,12 @@ JSON || (JSON = {}), function() {
             }
         },preventSrc: function(t) {
             this.manager.session.prevented = !0, t.preventDefault()
-        }};
+        }
+    };
+
     var on = 1, rn = 2, an = 4, ln = 8, cn = ln, un = 16, dn = 32;
-    X.prototype = {defaults: {},set: function(t) {
+    X.prototype = {defaults: {},
+        set: function(t) {
             return a(this.options, t), this.manager && this.manager.touchAction.update(), this
         },recognizeWith: function(t) {
             if (o(t, "recognizeWith", this))
@@ -5107,9 +5162,13 @@ JSON || (JSON = {}), function() {
             clearTimeout(this._timer)
         },emit: function() {
             this.state == cn && (this._input.tapCount = this.count, this.manager.emit(this.options.event, this._input))
-        }}), se.VERSION = "2.0.4", se.defaults = {domEvents: !1,touchAction: Ze,enable: !0,inputTarget: null,inputClass: null,preset: [[ee, {enable: !1}], [Q, {enable: !1}, ["rotate"]], [ne, {direction: Re}], [Z, {direction: Re}, ["swipe"]], [ie], [ie, {event: "doubletap",taps: 2}, ["tap"]], [te]],cssProps: {userSelect: "none",touchSelect: "none",touchCallout: "none",contentZooming: "none",userDrag: "none",tapHighlightColor: "rgba(0,0,0,0)"}};
+    }
+}), 
+se.VERSION = "2.0.4", se.defaults = {domEvents: !1,touchAction: Ze,enable: !0,inputTarget: null,inputClass: null,preset: [[ee, {enable: !1}], [Q, {enable: !1}, ["rotate"]], [ne, {direction: Re}], [Z, {direction: Re}, ["swipe"]], [ie], [ie, {event: "doubletap",taps: 2}, ["tap"]], [te]],cssProps: {userSelect: "none",touchSelect: "none",touchCallout: "none",contentZooming: "none",userDrag: "none",tapHighlightColor: "rgba(0,0,0,0)"}};
+    
     var hn = 1, pn = 2;
-    oe.prototype = {set: function(t) {
+    oe.prototype = {
+        set: function(t) {
             return a(this.options, t), t.touchAction && this.touchAction.update(), t.inputTarget && (this.input.destroy(), this.input.target = t.inputTarget, this.input.init()), this
         },stop: function(t) {
             this.session.stopped = t ? pn : hn
@@ -5161,11 +5220,18 @@ JSON || (JSON = {}), function() {
             }
         },destroy: function() {
             this.element && re(this, !1), this.handlers = {}, this.session = {}, this.input.destroy(), this.element = null
-        }}, a(se, {INPUT_START: _e,INPUT_MOVE: ke,INPUT_END: Le,INPUT_CANCEL: Ce,STATE_POSSIBLE: on,STATE_BEGAN: rn,STATE_CHANGED: an,STATE_ENDED: ln,STATE_RECOGNIZED: cn,STATE_CANCELLED: un,STATE_FAILED: dn,DIRECTION_NONE: xe,DIRECTION_LEFT: Ae,DIRECTION_RIGHT: Ie,DIRECTION_UP: De,DIRECTION_DOWN: Me,DIRECTION_HORIZONTAL: Re,DIRECTION_VERTICAL: Ne,DIRECTION_ALL: Oe,Manager: oe,Input: _,TouchAction: W,TouchInput: F,MouseInput: j,PointerEventInput: U,TouchMouseInput: V,SingleTouchInput: H,Recognizer: X,AttrRecognizer: K,Tap: ie,Pan: Z,Swipe: ne,Pinch: Q,Rotate: ee,Press: te,on: p,off: f,each: r,merge: l,extend: a,inherit: c,bindFn: u,prefixed: E}), typeof define == ue && define.amd ? define(function() {
-        return se
-    }) : "undefined" != typeof module && module.exports ? module.exports = se : t[n] = se
+        }
+    }, 
+    a(se, {INPUT_START: _e,INPUT_MOVE: ke,INPUT_END: Le,INPUT_CANCEL: Ce,STATE_POSSIBLE: on,STATE_BEGAN: rn,STATE_CHANGED: an,STATE_ENDED: ln,STATE_RECOGNIZED: cn,STATE_CANCELLED: un,STATE_FAILED: dn,DIRECTION_NONE: xe,DIRECTION_LEFT: Ae,DIRECTION_RIGHT: Ie,DIRECTION_UP: De,DIRECTION_DOWN: Me,DIRECTION_HORIZONTAL: Re,DIRECTION_VERTICAL: Ne,DIRECTION_ALL: Oe,Manager: oe,Input: _,TouchAction: W,TouchInput: F,MouseInput: j,PointerEventInput: U,TouchMouseInput: V,SingleTouchInput: H,Recognizer: X,AttrRecognizer: K,Tap: ie,Pan: Z,Swipe: ne,Pinch: Q,Rotate: ee,Press: te,on: p,off: f,each: r,merge: l,extend: a,inherit: c,bindFn: u,prefixed: E}), 
+    typeof define == ue && define.amd ? define(function() { return se}) : "undefined" != typeof module && module.exports ? module.exports = se : t[n] = se
+
+
 }(window, document, "Hammer");
+
+
+// set up io
 var io = "undefined" == typeof module ? {} : module.exports;
+
 !function() {
     if (function(t, e) {
         var n = t;
@@ -5175,7 +5241,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
             var a = {host: r.host,secure: "https" == r.protocol,port: r.port || ("https" == r.protocol ? 443 : 80),query: r.query || ""};
             return n.util.merge(a, i), (a["force new connection"] || !n.sockets[s]) && (o = new n.Socket(a)), !a["force new connection"] && o && (n.sockets[s] = o), o = o || n.sockets[s], o.of(r.path.length > 1 ? r.path : "")
         }
-    }("object" == typeof module ? module.exports : this.io = {}, this), function(t, e) {
+    }("object" == typeof module ? module.exports : this.io = {}, this), 
+    function(t, e) {
         var n = t.util = {}, i = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/, s = ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"];
         n.parseUri = function(t) {
             for (var e = i.exec(t || ""), n = {}, o = 14; o--; )
@@ -5250,7 +5317,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
             }
             return void 0 != t.withCredentials
         }(), n.ua.webkit = "undefined" != typeof navigator && /webkit/i.test(navigator.userAgent), n.ua.iDevice = "undefined" != typeof navigator && /iPad|iPhone|iPod/i.test(navigator.userAgent)
-    }("undefined" != typeof io ? io : module.exports, this), function(t, e) {
+    }("undefined" != typeof io ? io : module.exports, this), 
+    function(t, e) {
         function n() {
         }
         t.EventEmitter = n, n.prototype.on = function(t, n) {
@@ -5298,7 +5366,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
             }
             return !0
         }
-    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), function(exports, nativeJSON) {
+    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), 
+    function(exports, nativeJSON) {
         function f(t) {
             return 10 > t ? "0" + t : t
         }
@@ -5366,7 +5435,10 @@ var io = "undefined" == typeof module ? {} : module.exports;
                 return j = eval("(" + text + ")"), "function" == typeof reviver ? walk({"": j}, "") : j;
             throw new SyntaxError("JSON.parse")
         }
-    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof JSON ? JSON : void 0), function(t, e) {
+    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof JSON ? JSON : void 0), 
+
+
+    function(t, e) {
         var n = t.parser = {}, i = n.packets = ["disconnect", "connect", "heartbeat", "message", "json", "event", "ack", "error", "noop"], s = n.reasons = ["transport not supported", "client not handshaken", "unauthorized"], o = n.advice = ["reconnect"], r = e.JSON, a = e.util.indexOf;
         n.encodePacket = function(t) {
             var e = a(i, t.type), n = t.id || "", l = t.endpoint || "", c = t.ack, u = null;
@@ -5454,7 +5526,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
             }
             return [n.decodePacket(t)]
         }
-    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), function(t, e) {
+    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), 
+    function(t, e) {
         function n(t, e) {
             this.socket = t, this.sessid = e
         }
@@ -5499,7 +5572,10 @@ var io = "undefined" == typeof module ? {} : module.exports;
         }, n.prototype.ready = function(t, e) {
             e.call(this)
         }
-    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), function(t, e, n) {
+    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), 
+
+
+    function(t, e, n) {
         function i(t) {
             if (this.options = {port: 80,secure: !1,document: "document" in n ? document : !1,resource: "socket.io",transports: e.transports,"connect timeout": 1e4,"try multiple transports": !0,reconnect: !0,"reconnection delay": 500,"reconnection limit": 1 / 0,"reopen delay": 3e3,"max reconnection attempts": 10,"sync disconnect on unload": !1,"auto connect": !0,"flash policy port": 10843,manualFlush: !1}, e.util.merge(this.options, t), this.connected = !1, this.open = !1, this.connecting = !1, this.reconnecting = !1, this.namespaces = {}, this.buffer = [], this.doBuffer = !1, this.options["sync disconnect on unload"] && (!this.isXDomain() || e.util.ua.hasCORS)) {
                 var i = this;
@@ -5609,7 +5685,9 @@ var io = "undefined" == typeof module ? {} : module.exports;
             var n = this, i = this.options["max reconnection attempts"], s = this.options["try multiple transports"], o = this.options["reconnection limit"];
             this.options["try multiple transports"] = !1, this.reconnectionTimer = setTimeout(e, this.reconnectionDelay), this.on("connect", e)
         }
-    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), function(t, e) {
+    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), 
+
+    function(t, e) {
         function n(t, e) {
             this.socket = t, this.name = e || "", this.flags = {}, this.json = new i(this, "json"), this.ackPackets = 0, this.acks = {}
         }
@@ -5660,7 +5738,9 @@ var io = "undefined" == typeof module ? {} : module.exports;
         }, i.prototype.emit = function() {
             this.namespace.flags[this.name] = !0, this.namespace.emit.apply(this.namespace, arguments)
         }
-    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), function(t, e, n) {
+    }("undefined" != typeof io ? io : module.exports, "undefined" != typeof io ? io : module.parent.exports), 
+
+    function(t, e, n) {
         function i() {
             e.Transport.apply(this, arguments)
         }
@@ -5697,7 +5777,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
         }, i.xdomainCheck = function() {
             return !0
         }, e.transports.push("websocket")
-    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), function(t, e) {
+    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), 
+    function(t, e) {
         function n() {
             e.Transport.websocket.apply(this, arguments)
         }
@@ -5726,7 +5807,15 @@ var io = "undefined" == typeof module ? {} : module.exports;
             return !0
         }, "undefined" != typeof window && (WEB_SOCKET_DISABLE_AUTO_INITIALIZATION = !0), e.transports.push("flashsocket")
     }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports), "undefined" != typeof window)
-        var swfobject = function() {
+        
+
+/**
+
+*/
+
+
+
+    var swfobject = function() { 
             function t() {
                 if (!z) {
                     try {
@@ -5868,6 +5957,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
                         var a = "";
                         for (var l in e)
                             e[l] != Object.prototype[l] && (a += '<param name="' + l + '" value="' + e[l] + '" />');
+
+                        // set object id
                         s.outerHTML = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"' + o + ">" + a + "</object>", B[B.length] = t.id, i = m(t.id)
                     } else {
                         var c = g(A);
@@ -5939,8 +6030,10 @@ var io = "undefined" == typeof module ? {} : module.exports;
                 var e = /[\\\"<>\.;]/, n = null != e.exec(t);
                 return n && typeof encodeURIComponent != x ? encodeURIComponent(t) : t
             }
+
             {
-                var T, w, _, k, L, C, x = "undefined", A = "object", I = "Shockwave Flash", D = "ShockwaveFlash.ShockwaveFlash", M = "application/x-shockwave-flash", R = "SWFObjectExprInst", N = "onreadystatechange", O = window, P = document, $ = navigator, j = !1, U = [i], H = [], B = [], F = [], z = !1, V = !1, W = !0, Y = function() {
+                var T, w, _, k, L, C, x = "undefined", A = "object", I = "Shockwave Flash", D = "ShockwaveFlash.ShockwaveFlash", M = "application/x-shockwave-flash", R = "SWFObjectExprInst", N = "onreadystatechange", O = window, P = document, $ = navigator, j = !1, U = [i], H = [], B = [], F = [], z = !1, V = !1, W = !0, 
+                Y = function() {
                     var t = typeof P.getElementById != x && typeof P.getElementsByTagName != x && typeof P.createElement != x, e = $.userAgent.toLowerCase(), n = $.platform.toLowerCase(), i = /win/.test(n ? n : e), s = /mac/.test(n ? n : e), o = /webkit/.test(e) ? parseFloat(e.replace(/^.*webkit\/(\d+(\.\d+)?).*$/, "$1")) : !1, r = !1, a = [0, 0, 0], l = null;
                     if (typeof $.plugins != x && typeof $.plugins[I] == A)
                         l = $.plugins[I].description, l && (typeof $.mimeTypes == x || !$.mimeTypes[M] || !!$.mimeTypes[M].enabledPlugin) && (j = !0, r = !1, l = l.replace(/^.*\s+(\S+\s+\S+$)/, "$1"), a[0] = parseInt(l.replace(/^(.*)\..*$/, "$1"), 10), a[1] = parseInt(l.replace(/^.*\.(.*)\s.*$/, "$1"), 10), a[2] = /[a-zA-Z]/.test(l) ? parseInt(l.replace(/^.*[a-zA-Z]+(.*)$/, "$1"), 10) : 0);
@@ -5948,10 +6041,10 @@ var io = "undefined" == typeof module ? {} : module.exports;
                         try {
                             var c = new (window[["Active"].concat("Object").join("X")])(D);
                             c && (l = c.GetVariable("$version"), l && (r = !0, l = l.split(" ")[1].split(","), a = [parseInt(l[0], 10), parseInt(l[1], 10), parseInt(l[2], 10)]))
-                        } catch (u) {
-                        }
+                        } catch (u) {}
                     return {w3: t,pv: a,wk: o,ie: r,win: i,mac: s}
                 }();
+
                 !function() {
                     Y.w3 && ((typeof P.readyState != x && "complete" == P.readyState || typeof P.readyState == x && (P.getElementsByTagName("body")[0] || P.body)) && t(), z || (typeof P.addEventListener != x && P.addEventListener("DOMContentLoaded", t, !1), Y.ie && Y.win && (P.attachEvent(N, function() {
                         "complete" == P.readyState && (P.detachEvent(N, arguments.callee), t())
@@ -5967,7 +6060,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
                     }()), Y.wk && function() {
                         return z ? void 0 : /loaded|complete/.test(P.readyState) ? void t() : void setTimeout(arguments.callee, 0)
                     }(), n(t)))
-                }(), function() {
+                }(), 
+                function() {
                     Y.ie && Y.win && window.attachEvent("onunload", function() {
                         for (var t = F.length, e = 0; t > e; e++)
                             F[e][0].detachEvent(F[e][1], F[e][2]);
@@ -6043,14 +6137,15 @@ var io = "undefined" == typeof module ? {} : module.exports;
                         var t = m(R);
                         t && T && (t.parentNode.replaceChild(T, t), w && (S(w, !0), Y.ie && Y.win && (T.style.display = "block")), _ && _(k)), V = !1
                     }
-                }}
-        }();
+                }
+            }
+        }();  // get swfobject
+
     !function() {
         if ("undefined" != typeof window && !window.WebSocket) {
             var t = window.console;
-            return t && t.log && t.error || (t = {log: function() {
-                },error: function() {
-                }}), swfobject.hasFlashPlayerVersion("10.0.0") ? ("file:" == location.protocol && t.error("WARNING: web-socket-js doesn't work in file:///... URL unless you set Flash Security Settings properly. Open the page via Web server i.e. http://..."), WebSocket = function(t, e, n, i, s) {
+            return t && t.log && t.error || (t = {log: function() {},error: function() {}}), 
+            swfobject.hasFlashPlayerVersion("10.0.0") ? ("file:" == location.protocol && t.error("WARNING: web-socket-js doesn't work in file:///... URL unless you set Flash Security Settings properly. Open the page via Web server i.e. http://..."), WebSocket = function(t, e, n, i, s) {
                 var o = this;
                 o.__id = WebSocket.__nextId++, WebSocket.__instances[o.__id] = o, o.readyState = WebSocket.CONNECTING, o.bufferedAmount = 0, o.__events = {}, e ? "string" == typeof e && (e = [e]) : e = [], setTimeout(function() {
                     WebSocket.__addTask(function() {
@@ -6152,7 +6247,9 @@ var io = "undefined" == typeof module ? {} : module.exports;
                 WebSocket.__initialize()
             })), void 0) : void t.error("Flash Player >= 10.0.0 is required.")
         }
-    }(), function(t, e, n) {
+    }(), 
+
+    function(t, e, n) {
         function i(t) {
             t && (e.Transport.apply(this, arguments), this.sendBuffer = [])
         }
@@ -6198,7 +6295,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
         }, i.xdomainCheck = function(t) {
             return i.check(t, !0)
         }
-    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), function(t, e) {
+    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), 
+    function(t, e) {
         function n() {
             e.Transport.XHR.apply(this, arguments)
         }
@@ -6238,7 +6336,9 @@ var io = "undefined" == typeof module ? {} : module.exports;
         }, n.xdomainCheck = function() {
             return !1
         }, e.transports.push("htmlfile")
-    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports), function(t, e, n) {
+    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports), 
+
+    function(t, e, n) {
         function i() {
             e.Transport.XHR.apply(this, arguments)
         }
@@ -6278,7 +6378,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
                 n.call(i)
             })
         }, e.transports.push("xhr-polling")
-    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), function(t, e, n) {
+    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), 
+    function(t, e, n) {
         function i() {
             e.Transport["xhr-polling"].apply(this, arguments), this.index = e.j.length;
             var t = this;
@@ -6335,10 +6436,13 @@ var io = "undefined" == typeof module ? {} : module.exports;
         }, i.xdomainCheck = function() {
             return !0
         }, e.transports.push("jsonp-polling")
-    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), "function" == typeof define && define.amd && define([], function() {
+    }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports, this), 
+    "function" == typeof define && define.amd && define([], function() {
         return io
     })
 }();
+
+// CryptoJS module
 var CryptoJS = CryptoJS || function(t, e) {
     var n = {}, i = n.lib = {}, s = function() {
     }, o = i.Base = {extend: function(t) {
@@ -6448,6 +6552,8 @@ var CryptoJS = CryptoJS || function(t, e) {
     var h = n.algo = {};
     return n
 }(Math);
+
+
 !function(t) {
     function e(t, e, n, i, s, o, r) {
         return t = t + (e & n | ~e & i) + s + r, (t << o | t >>> 32 - o) + e
@@ -6483,7 +6589,11 @@ var CryptoJS = CryptoJS || function(t, e) {
             var t = l.clone.call(this);
             return t._hash = this._hash.clone(), t
         }}), o.MD5 = l._createHelper(r), o.HmacMD5 = l._createHmacHelper(r)
-}(Math), function() {
+}(Math), 
+
+
+
+function() {
     function t(t) {
         var n = {r: 0,g: 0,b: 0}, s = 1, r = !1, a = !1;
         return "string" == typeof t && (t = M(t)), "object" == typeof t && (t.hasOwnProperty("r") && t.hasOwnProperty("g") && t.hasOwnProperty("b") ? (n = e(t.r, t.g, t.b), r = !0, a = "%" === String(t.r).substr(-1) ? "prgb" : "rgb") : t.hasOwnProperty("h") && t.hasOwnProperty("s") && t.hasOwnProperty("v") ? (t.s = A(t.s), t.v = A(t.v), n = o(t.h, t.s, t.v), r = !0, a = "hsv") : t.hasOwnProperty("h") && t.hasOwnProperty("s") && t.hasOwnProperty("l") && (t.s = A(t.s), t.l = A(t.l), n = i(t.h, t.s, t.l), r = !0, a = "hsl"), t.hasOwnProperty("a") && (s = t.a)), s = T(s), {ok: r,format: t.format || a,r: j(255, U(n.r, 0)),g: j(255, U(n.g, 0)),b: j(255, U(n.b, 0)),a: s}
@@ -6801,7 +6911,9 @@ var CryptoJS = CryptoJS || function(t, e) {
     "undefined" != typeof module && module.exports ? module.exports = B : "function" == typeof define && define.amd ? define(function() {
         return B
     }) : window.tinycolor = B
-}(), function() {
+}(), 
+
+function() {
     function t(t) {
         var e = "    ";
         if (isNaN(parseInt(t)))
@@ -6890,14 +7002,19 @@ var CryptoJS = CryptoJS || function(t, e) {
     }, e.prototype.sqlmin = function(t) {
         return t.replace(/\s{1,}/g, " ").replace(/\s{1,}\(/, "(").replace(/\s{1,}\)/, ")")
     }, window.vkbeautify = new e
-}(), window.SL = function(t) { // GLOBAL: SL
+}(), 
+
+
+window.SL = function(t) { // GLOBAL: SL
     t = t.split(".");
     for (var e = SL; t.length; ) {
         var n = t.shift();
         e[n] || (e[n] = {}), e = e[n]
     }
     return e
-}, $(function() {
+}, 
+
+$(function() {
     function t() {
         e(), SL.settings.init(), SL.keyboard.init(), SL.pointer.init(), SL.warnings.init(), "undefined" == typeof SLConfig && (window.SLConfig = {}), n(), i(), s()
     }
@@ -6919,15 +7036,21 @@ var CryptoJS = CryptoJS || function(t, e) {
             var t = document.createElement("script");
             t.type = "text/javascript", t.async = !0, t.src = "https://apis.google.com/js/plusone.js";
             var e = document.getElementsByTagName("script")[0];
-            e.parentNode.insertBefore(t, e)
+            e.parentNode.insertBefore(t, e) //insert plusone.js before all scripts
         }
     }
     function s() {
         var t = $("html");
-        SL.util.hideAddressBar(), t.hasClass("home index") && (SL.view = new SL.views.home.Index), SL.view = t.hasClass("home explore") ? new SL.views.home.Explore : t.hasClass("users show") ? new SL.views.users.Show : t.hasClass("decks show") ? new SL.views.decks.Show : t.hasClass("decks edit") ? new SL.editor.Editor : t.hasClass("decks edit-requires-upgrade") ? new SL.views.decks.EditRequiresUpgrade : t.hasClass("decks embed") ? new SL.views.decks.Embed : t.is(".decks.live-client") ? new SL.views.decks.LiveClient : t.is(".decks.live-server") ? new SL.views.decks.LiveServer : t.hasClass("decks speaker") ? new SL.views.decks.Speaker : t.hasClass("decks fullscreen") ? new SL.views.decks.Fullscreen : t.hasClass("teams-subscriptions-show") ? new SL.views.teams.subscriptions.Show : t.hasClass("registrations") && (t.hasClass("edit") || t.hasClass("update")) ? new SL.views.devise.Edit : t.hasClass("registrations") || t.hasClass("team_registrations") || t.hasClass("sessions") || t.hasClass("passwords") ? new SL.views.devise.All : t.hasClass("subscriptions new") || t.hasClass("subscriptions edit") ? new SL.views.subscriptions.New : t.hasClass("subscriptions show") ? new SL.views.subscriptions.Show : t.hasClass("subscriptions edit_period") ? new SL.views.subscriptions.EditPeriod : t.hasClass("teams-signup") ? new SL.views.teams.New : t.hasClass("teams edit") ? new SL.views.teams.teams.Edit : t.hasClass("teams edit_members") ? new SL.views.teams.teams.EditMembers : t.hasClass("teams show") ? new SL.views.teams.teams.Show : t.hasClass("themes edit") ? new SL.views.themes.Edit : t.hasClass("themes preview") ? new SL.views.themes.Preview : t.hasClass("pricing") ? new SL.views.statik.Pricing : t.hasClass("static") ? new SL.views.statik.All : new SL.views.Base, Placement.sync()
+        // short for consecutive if/elseif's
+        SL.util.hideAddressBar(), t.hasClass("home index") && (SL.view = new SL.views.home.Index), SL.view = t.hasClass("home explore") ? new SL.views.home.Explore : t.hasClass("users show") ? new SL.views.users.Show : t.hasClass("decks show") ? new SL.views.decks.Show : t.hasClass("decks edit") ? new SL.editor.Editor : t.hasClass("decks edit-requires-upgrade") ? new SL.views.decks.EditRequiresUpgrade : t.hasClass("decks embed") ? new SL.views.decks.Embed : t.is(".decks.live-client") ? new SL.views.decks.LiveClient : t.is(".decks.live-server") ? new SL.views.decks.LiveServer : t.hasClass("decks speaker") ? new SL.views.decks.Speaker : t.hasClass("decks fullscreen") ? new SL.views.decks.Fullscreen : t.hasClass("teams-subscriptions-show") ? new SL.views.teams.subscriptions.Show : t.hasClass("registrations") && (t.hasClass("edit") || t.hasClass("update")) ? new SL.views.devise.Edit : t.hasClass("registrations") || t.hasClass("team_registrations") || t.hasClass("sessions") || t.hasClass("passwords") ? new SL.views.devise.All : t.hasClass("subscriptions new") || t.hasClass("subscriptions edit") ? new SL.views.subscriptions.New : t.hasClass("subscriptions show") ? new SL.views.subscriptions.Show : t.hasClass("subscriptions edit_period") ? new SL.views.subscriptions.EditPeriod : t.hasClass("teams-signup") ? new SL.views.teams.New : t.hasClass("teams edit") ? new SL.views.teams.teams.Edit : t.hasClass("teams edit_members") ? new SL.views.teams.teams.EditMembers : t.hasClass("teams show") ? new SL.views.teams.teams.Show : t.hasClass("themes edit") ? new SL.views.themes.Edit : t.hasClass("themes preview") ? new SL.views.themes.Preview : t.hasClass("pricing") ? new SL.views.statik.Pricing : t.hasClass("static") ? new SL.views.statik.All : new SL.views.Base, 
+        Placement.sync()
     }
     setTimeout(t, 1)
-}), SL("models").Collection = Class.extend({init: function(t, e) {
+}), 
+
+
+SL("models").Collection = Class.extend({
+    init: function(t, e) {
         if (this.data = t || [], this.factory = e, this.changed = new signals.Signal, "function" == typeof this.factory) {
             var n = this.data;
             this.data = [];
@@ -7015,7 +7138,10 @@ var CryptoJS = CryptoJS || function(t, e) {
         return this.data.map(t)
     },forEach: function(t) {
         return this.data.forEach(t)
-    }}), SL("models").Model = Class.extend({init: function(t) {
+    }}), 
+
+SL("models").Model = Class.extend(
+    {init: function(t) {
         this.data = t || {}
     },set: function(t, e) {
         this.data[t] = e
@@ -7031,7 +7157,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         return !!e || e === !1 || 0 === e
     },toJSON: function() {
         return JSON.parse(JSON.stringify(this.data))
-    }}), SL("models").Customer = SL.models.Model.extend({init: function(t) {
+    }}), 
+
+    SL("models").Customer = SL.models.Model.extend({init: function(t) {
         this._super(t)
     },isTrial: function() {
         return "trialing" === this.get("subscription.status")
@@ -7043,7 +7171,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         return (parseFloat(this.get("next_charge_amount")) / 100).toFixed(2)
     },clone: function() {
         return new SL.models.Customer(JSON.parse(JSON.stringify(this.data)))
-    }}), SL("models").Deck = SL.models.Model.extend({init: function(t) {
+    }}), 
+
+    SL("models").Deck = SL.models.Model.extend({init: function(t) {
         this.data = t || {}, $.extend(this, this.data), this.user_settings = new SL.models.UserSettings(this.data.user.settings)
     },isPro: function() {
         return this.data.user ? !!this.data.user.pro : !1
@@ -7058,7 +7188,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         return this.isPrivate() && (e += "?token=" + this.get("access_token")), e
     },clone: function() {
         return new SL.models.Deck(JSON.parse(JSON.stringify(this.data)))
-    }}), SL("models").Deck.VISIBILITY_SELF = "self", SL("models").Deck.VISIBILITY_TEAM = "team", SL("models").Deck.VISIBILITY_ALL = "all", SL("models").Team = SL.models.Model.extend({init: function(t) {
+    }}), 
+
+    SL("models").Deck.VISIBILITY_SELF = "self", SL("models").Deck.VISIBILITY_TEAM = "team", SL("models").Deck.VISIBILITY_ALL = "all", SL("models").Team = SL.models.Model.extend({init: function(t) {
         if (this._super(t), "object" == typeof this.data.themes)
             for (var e = 0, n = this.data.themes.length; n > e; e++)
                 this.data.themes[e] = new SL.models.Theme(this.data.themes[e]);
@@ -7068,9 +7200,13 @@ var CryptoJS = CryptoJS || function(t, e) {
         return t && t.size() > 0
     },clone: function() {
         return new SL.models.Team(JSON.parse(JSON.stringify(this.data)))
-    }}), SL("models").Template = SL.models.Model.extend({init: function(t) {
+    }}), 
+
+    SL("models").Template = SL.models.Model.extend({init: function(t) {
         this._super(t)
-    }}), SL("models").ThemeSnippet = SL.models.Model.extend({init: function(t) {
+    }}), 
+
+    SL("models").ThemeSnippet = SL.models.Model.extend({init: function(t) {
         this._super(t), this.has("title") || this.set("title", ""), this.has("template") || this.set("template", "")
     },templatize: function(t) {
         var e = this.get("template");
@@ -7096,7 +7232,12 @@ var CryptoJS = CryptoJS || function(t, e) {
         return t ? t.indexOf(SL.models.ThemeSnippet.TEMPLATE_SELECTION_TAG) > -1 : !1
     },isEmpty: function() {
         return !this.get("title") && !this.get("template")
-    }}), SL.models.ThemeSnippet.TEMPLATE_VARIABLE_OPENER = "{{", SL.models.ThemeSnippet.TEMPLATE_VARIABLE_CLOSER = "}}", SL.models.ThemeSnippet.TEMPLATE_VARIABLE_DIVIDER = "::", SL.models.ThemeSnippet.TEMPLATE_VARIABLE_REGEX = /\{\{.*?\}\}/gi, SL.models.ThemeSnippet.TEMPLATE_SELECTION_TAG = "{{selection}}", SL("models").Theme = SL.models.Model.extend({init: function(t) {
+    }
+}), 
+SL.models.ThemeSnippet.TEMPLATE_VARIABLE_OPENER = "{{", SL.models.ThemeSnippet.TEMPLATE_VARIABLE_CLOSER = "}}", SL.models.ThemeSnippet.TEMPLATE_VARIABLE_DIVIDER = "::", SL.models.ThemeSnippet.TEMPLATE_VARIABLE_REGEX = /\{\{.*?\}\}/gi, SL.models.ThemeSnippet.TEMPLATE_SELECTION_TAG = "{{selection}}", 
+// extension
+SL("models").Theme = SL.models.Model.extend({
+    init: function(t) {
         if (this._super(t), this.has("name") || this.set("name", "Untitled"), this.has("font") || this.set("font", SL.config.DEFAULT_THEME_FONT), this.has("color") || this.set("color", SL.config.DEFAULT_THEME_COLOR), this.has("transition") || this.set("transition", SL.config.DEFAULT_THEME_TRANSITION), this.has("background_transition") || this.set("background_transition", SL.config.DEFAULT_THEME_BACKGROUND_TRANSITION), "string" == typeof this.data.snippets && this.data.snippets.length > 0)
             try {
                 this.data.snippets = JSON.parse(this.data.snippets)
@@ -7128,7 +7269,10 @@ var CryptoJS = CryptoJS || function(t, e) {
         return {id: this.get("id"),name: this.get("name"),center: this.get("center"),rolling_links: this.get("rolling_links"),font: this.get("font"),color: this.get("color"),transition: this.get("transition"),background_transition: this.get("background_transition"),html: this.get("html"),less: this.get("less"),css: this.get("css"),js: this.get("js"),snippets: JSON.stringify(this.get("snippets").toJSON()),palette: this.get("palette").join(",")}
     }}), SL("models").Theme.fromDeck = function(t) {
     return new SL.models.Theme({id: t.theme_id,name: "",center: t.center,rolling_links: t.rolling_links,font: t.theme_font,color: t.theme_color,transition: t.transition,background_transition: t.background_transition,snippets: "",palette: []})
-}, SL("models").UserSettings = SL.models.Model.extend({init: function(t) {
+}, 
+
+SL("models").UserSettings = SL.models.Model.extend({
+    init: function(t) {
         this._super(t), this.has("present_controls") || this.set("present_controls", SL.config.PRESENT_CONTROLS_DEFAULT), this.has("present_upsizing") || this.set("present_upsizing", SL.config.PRESENT_UPSIZING_DEFAULT)
     },save: function(t) {
         var e = {user_settings: {}};
@@ -7198,7 +7342,10 @@ var CryptoJS = CryptoJS || function(t, e) {
                         },callback: function() {
                             hljs.initHighlightingOnLoad()
                         }}]};
-            if (SLConfig && SLConfig.deck && (e.autoSlide = SLConfig.deck.auto_slide_interval || 0, e.rollingLinks = SLConfig.deck.rolling_links, e.center = SLConfig.deck.center, e.loop = SLConfig.deck.should_loop, e.rtl = SLConfig.deck.rtl, e.transition = SLConfig.deck.transition || "default", e.backgroundTransition = SLConfig.deck.background_transition), $.extend(e, t), Reveal.initialize(e), Reveal.addEventListener("ready", function() {
+            if (SLConfig && SLConfig.deck && (e.autoSlide = SLConfig.deck.auto_slide_interval || 0, e.rollingLinks = SLConfig.deck.rolling_links, e.center = SLConfig.deck.center, e.loop = SLConfig.deck.should_loop, e.rtl = SLConfig.deck.rtl, e.transition = SLConfig.deck.transition || "default", e.backgroundTransition = SLConfig.deck.background_transition), 
+                $.extend(e, t), 
+                // Reveal listener
+                Reveal.initialize(e), Reveal.addEventListener("ready", function() {
                 window.STATUS = window.STATUS || {}, window.STATUS.REVEAL_IS_READY = !0, $("html").addClass("reveal-is-ready")
             }), t && t.openLinksInTabs && this.openLinksInTabs($(".reveal .slides")), t && t.trackEvents && Reveal.isReady() && Reveal.getTotalSlides() > 2) {
                 var n = [];
@@ -7212,6 +7359,7 @@ var CryptoJS = CryptoJS || function(t, e) {
     },openLinksInTabs: function(t) {
         t && t.find("a").each(function() {
             var t = $(this), e = t.attr("href");
+            // regex  /gi = global, case-insensitive, /m=multi-line
             /^#/gi.test(e) === !0 ? t.removeAttr("target") : /http|www/gi.test(e) ? t.attr("target", "_blank") : t.attr("target", "_top")
         })
     },openPopupWindow: function(t, e, n, i) {
@@ -7238,6 +7386,7 @@ var CryptoJS = CryptoJS || function(t, e) {
     },getRevealSlidesBounds: function(t) {
         var e = $(".reveal .slides"), n = e.offset(), i = Reveal.getScale(), s = n.left * i, o = n.top * i;
         if (t) {
+            // adjust projector
             var r = $(".projector").offset();
             r && (s -= r.left, o -= r.top)
         }
@@ -7436,6 +7585,7 @@ var CryptoJS = CryptoJS || function(t, e) {
             }
         })
     },createDeckThumbnail: function(t) {
+        // thumbnail here!
         var t = {DECK_URL: t.user.username + "/" + t.slug,DECK_VIEWS: "number" == typeof t.view_count ? t.view_count : "N/A",DECK_THUMB_URL: t.thumbnail_url || SL.config.DEFAULT_DECK_THUMBNAIL,USER_URL: "/" + t.user.username,USER_NAME: t.user.name || t.user.username,USER_THUMB_URL: t.user.thumbnail_url || SL.config.DEFAULT_USER_THUMBNAIL}, e = SL.config.DECK_THUMBNAIL_TEMPLATE;
         for (var n in t)
             e = e.replace("{{" + n + "}}", t[n]);
@@ -7471,15 +7621,26 @@ var CryptoJS = CryptoJS || function(t, e) {
         return SL.util.color.getContrast(SL.util.deck.getBackgroundColor())
     },getBackgroundBrightness: function() {
         return SL.util.color.getBrightness(SL.util.deck.getBackgroundColor())
-    }}, SL.util.color = {getContrast: function(t) {
+    }
+}, 
+
+SL.util.color = {
+    getContrast: function(t) {
         var e = window.tinycolor(t).toRgb(), n = (299 * e.r + 587 * e.g + 114 * e.b) / 1e3;
         return n / 255
     },getBrightness: function(t) {
         var e = window.tinycolor(t).toRgb(), n = e.r / 255 * .3 + e.g / 255 * .59 + (e.b / 255 + .11);
         return n / 2
-    }}, SL.util.anim = {collapseListItem: function(t, e, n) {
+    }
+}, 
+SL.util.anim = {
+    collapseListItem: function(t, e, n) {
         t = $(t), t.addClass("no-transition"), t.css({overflow: "hidden"}), t.animate({opacity: 0,height: 0,minHeight: 0,paddingTop: 0,paddingBottom: 0,marginTop: 0,marginBottom: 0}, {duration: n || 500,complete: e})
-    }}, SL.util.selection = {moveCursorToEnd: function(t) {
+    }
+}, 
+    
+SL.util.selection = {
+    moveCursorToEnd: function(t) {
         if (t) {
             t.focus();
             var e = document.createRange();
@@ -7510,7 +7671,15 @@ var CryptoJS = CryptoJS || function(t, e) {
             }
         }
         return ""
-    }}, "undefined" != typeof window.Spinner && "undefined" != typeof SL.util && SL.util.html.generateSpinners(), SL.analytics = {CATEGORY_OTHER: "other",CATEGORY_EDITOR: "editor",CATEGORY_THEMING: "theming",CATEGORY_PRESENTING: "presenting",_track: function(t, e, n) {
+    }
+}, 
+
+
+"undefined" != typeof window.Spinner && "undefined" != typeof SL.util && SL.util.html.generateSpinners(), 
+
+SL.analytics = {
+    CATEGORY_OTHER: "other",CATEGORY_EDITOR: "editor",CATEGORY_THEMING: "theming",CATEGORY_PRESENTING: "presenting",
+    _track: function(t, e, n) {
         "undefined" != typeof window.ga && ga("send", "event", t, e, n)
     },track: function(t, e) {
         this._track(SL.analytics.CATEGORY_OTHER, t, e)
@@ -7590,13 +7759,24 @@ var CryptoJS = CryptoJS || function(t, e) {
         return this.keyupConsumers.forEach(function(n) {
             n(t) || (e = !0)
         }), e ? (t.preventDefault(), t.stopImmediatePropagation(), !1) : void 0
-    }}, SL.locale = {GENERIC_ERROR: ["Oops, something went wrong", "We ran into an unexpected error", "Something's wong, can you try that again?"],WARN_UNSAVED_CHANGES: "You have unsaved changes, save first?",CLOSE: "Close",PREVIOUS: "Previous",NEXT: "Next",DECK_SAVE_SUCCESS: "Saved successfully",DECK_SAVE_ERROR: "Failed to save",NEW_SLIDE_TITLE: "Title",LEAVE_UNSAVED_DECK: "You will lose your unsaved changes.",LEAVE_UNSAVED_THEME: "You will lose your unsaved changes.",REMOVE_PRO_CONFIRM: "After the end of the current billing cycle your account will be downgraded from Pro to the Free plan.",REMOVE_PRO_SUCCESS: "Subscription canceled",DECK_RESTORE_CONFIRM: "Are you sure you want to revert to this version from {#time}?",DECK_DELETE_CONFIRM: 'Are you sure you want to delete "{#title}"?',DECK_DELETE_SUCCESS: "Deck deleted",DECK_DELETE_ERROR: "Failed to delete",DECK_VISIBILITY_CHANGE_SELF: '<div><span class="icon i-lock-stroke"></span></div><h3>Private</h3><p>Only visible to you</p>',DECK_VISIBILITY_CHANGE_TEAM: '<div><span class="icon i-users"></span></div><h3>Internal</h3><p>Visible to your team</p>',DECK_VISIBILITY_CHANGE_ALL: '<div><span class="icon i-globe"></span></div><h3>Public</h3><p>Visible to the world</p>',DECK_VISIBILITY_CHANGED_SELF: "Your deck is now private",DECK_VISIBILITY_CHANGED_TEAM: "Your deck is now internal",DECK_VISIBILITY_CHANGED_ALL: "Your deck is now public",DECK_VISIBILITY_CHANGED_ERROR: "Failed to change visibility",DECK_EDIT_INVALID_TITLE: "Please enter a valid title",DECK_EDIT_INVALID_SLUG: "Please enter a valid URL",DECK_DELETE_SLIDE_CONFIRM: "Are you sure you want to remove this slide?",DECK_IMPORT_HTML_CONFIRM: "All existing content will be replaced, continue?",EXPORT_PDF_BUTTON: "Download PDF",EXPORT_PDF_BUTTON_WORKING: "Creating PDF...",EXPORT_PDF_ERROR: "An error occured while exporting your PDF.",DECKSHARER_URL_TITLE: "Link",DECKSHARER_EMBED_TITLE: "Embed",DECKSHARER_PRIVATE_URL_NOTICE: 'This deck is private but can be shared using the secret link above. To publicly share or embed your deck, please publish it first. <a href="http://help.slides.com/knowledgebase/articles/405987-privacy" target="_blank">More info.</a>',FORM_ERROR_REQUIRED: "Required",FORM_ERROR_USERNAME_TAKEN: ["That one's already taken :(", "Sorry, that's taken too"],FORM_ERROR_ORGANIZATION_SLUG_TAKEN: ["That one's already taken :(", "Sorry, that's taken too"],BILLING_DETAILS_ERROR: "An error occured while fetching your billing details, please try again.",BILLING_DETAILS_NOHISTORY: "You haven't made any payments yet.",THEME_CREATE: "New theme",THEME_CREATE_ERROR: "Failed to create theme",THEME_SAVE_SUCCESS: "Theme saved",THEME_SAVE_ERROR: "Failed to save theme",THEME_REMOVE_CONFIRM: "Are you sure you want to delete this theme?",THEME_REMOVE_SUCCESS: "Theme removed successfully",THEME_REMOVE_ERROR: "Failed to remove theme",THEME_LIST_LOAD_ERROR: "Failed to load themes",THEME_LIST_EMPTY: 'You haven\'t created any themes yet. <a href="#" class="create-theme-button">Create one now</a>.',THEME_CSS_DESCRIPTION: "This editor supports LESS or plain CSS input. All selectors are prefixed with .reveal when saved to avoid style spillover.",THEME_HTML_DESCRIPTION: "HTML is inserted into the presentation container, meaning it lives separately from individual slides. This makes it great for things like a company logo which is constantly visible on top of the presentation.",THEME_JS_DESCRIPTION: "Scripts will be executed when a deck that uses this theme is loaded.",THEME_DEFAULT_SAVE_SUCCESS: "Default theme was changed",THEME_DEFAULT_SAVE_ERROR: "Failed to change default theme",THEME_DELETE_TOOLTIP: "Delete",THEME_EDIT_TOOLTIP: "Edit",THEME_MAKE_DEFAULT_TOOLTIP: "Make this the default theme",THEME_IS_DEFAULT_TOOLTIP: "This is the default theme",THEME_SNIPPET_DELETE_CONFIRM: "Are you sure you want to delete this snippet?",TEMPLATE_LOAD_ERROR: "Failed to load slide templates",TEMPLATE_CREATE_ERROR: "Failed to save template",TEMPLATE_DELETE_CONFIRM: "Are you sure you want to delete this template?",ORG_USERS_REMOVE_CONFIRM: 'Delete "{#name}" and all of their decks?',ORG_USERS_REMOVE_SUCCESS: "User removed successfully",ORG_USERS_REMOVE_ERROR: "Failed to remove user",ORG_USERS_INVITE_SEND_SUCCESS: "Invite email sent",ORG_USERS_INVITE_SEND_ERROR: "Failed to send invite email",ORG_USERS_LIST_EMPTY: "Couldn't find any members of this team.",ORG_USERS_LIST_LOAD_ERROR: "Failed to load user list",SEARCH_PAGINATION_PAGE: "Page",SEARCH_NO_RESULTS_FOR: 'No results for "{#term}"',SEARCH_SERVER_ERROR: "Failed to fetch search results",SEARCH_NO_TERM_ERROR: "Please enter a search term",counter: {},get: function(t, e) {
+    }
+}, 
+
+
+
+SL.locale = {
+    GENERIC_ERROR: ["Oops, something went wrong", "We ran into an unexpected error", "Something's wong, can you try that again?"],
+    WARN_UNSAVED_CHANGES: "You have unsaved changes, save first?",CLOSE: "Close",PREVIOUS: "Previous",NEXT: "Next",DECK_SAVE_SUCCESS: "Saved successfully",DECK_SAVE_ERROR: "Failed to save",NEW_SLIDE_TITLE: "Title",LEAVE_UNSAVED_DECK: "You will lose your unsaved changes.",LEAVE_UNSAVED_THEME: "You will lose your unsaved changes.",REMOVE_PRO_CONFIRM: "After the end of the current billing cycle your account will be downgraded from Pro to the Free plan.",REMOVE_PRO_SUCCESS: "Subscription canceled",DECK_RESTORE_CONFIRM: "Are you sure you want to revert to this version from {#time}?",DECK_DELETE_CONFIRM: 'Are you sure you want to delete "{#title}"?',DECK_DELETE_SUCCESS: "Deck deleted",DECK_DELETE_ERROR: "Failed to delete",DECK_VISIBILITY_CHANGE_SELF: '<div><span class="icon i-lock-stroke"></span></div><h3>Private</h3><p>Only visible to you</p>',DECK_VISIBILITY_CHANGE_TEAM: '<div><span class="icon i-users"></span></div><h3>Internal</h3><p>Visible to your team</p>',DECK_VISIBILITY_CHANGE_ALL: '<div><span class="icon i-globe"></span></div><h3>Public</h3><p>Visible to the world</p>',DECK_VISIBILITY_CHANGED_SELF: "Your deck is now private",DECK_VISIBILITY_CHANGED_TEAM: "Your deck is now internal",DECK_VISIBILITY_CHANGED_ALL: "Your deck is now public",DECK_VISIBILITY_CHANGED_ERROR: "Failed to change visibility",DECK_EDIT_INVALID_TITLE: "Please enter a valid title",DECK_EDIT_INVALID_SLUG: "Please enter a valid URL",DECK_DELETE_SLIDE_CONFIRM: "Are you sure you want to remove this slide?",DECK_IMPORT_HTML_CONFIRM: "All existing content will be replaced, continue?",EXPORT_PDF_BUTTON: "Download PDF",EXPORT_PDF_BUTTON_WORKING: "Creating PDF...",EXPORT_PDF_ERROR: "An error occured while exporting your PDF.",DECKSHARER_URL_TITLE: "Link",DECKSHARER_EMBED_TITLE: "Embed",DECKSHARER_PRIVATE_URL_NOTICE: 'This deck is private but can be shared using the secret link above. To publicly share or embed your deck, please publish it first. <a href="http://help.slides.com/knowledgebase/articles/405987-privacy" target="_blank">More info.</a>',FORM_ERROR_REQUIRED: "Required",FORM_ERROR_USERNAME_TAKEN: ["That one's already taken :(", "Sorry, that's taken too"],FORM_ERROR_ORGANIZATION_SLUG_TAKEN: ["That one's already taken :(", "Sorry, that's taken too"],BILLING_DETAILS_ERROR: "An error occured while fetching your billing details, please try again.",BILLING_DETAILS_NOHISTORY: "You haven't made any payments yet.",THEME_CREATE: "New theme",THEME_CREATE_ERROR: "Failed to create theme",THEME_SAVE_SUCCESS: "Theme saved",THEME_SAVE_ERROR: "Failed to save theme",THEME_REMOVE_CONFIRM: "Are you sure you want to delete this theme?",THEME_REMOVE_SUCCESS: "Theme removed successfully",THEME_REMOVE_ERROR: "Failed to remove theme",THEME_LIST_LOAD_ERROR: "Failed to load themes",THEME_LIST_EMPTY: 'You haven\'t created any themes yet. <a href="#" class="create-theme-button">Create one now</a>.',THEME_CSS_DESCRIPTION: "This editor supports LESS or plain CSS input. All selectors are prefixed with .reveal when saved to avoid style spillover.",THEME_HTML_DESCRIPTION: "HTML is inserted into the presentation container, meaning it lives separately from individual slides. This makes it great for things like a company logo which is constantly visible on top of the presentation.",THEME_JS_DESCRIPTION: "Scripts will be executed when a deck that uses this theme is loaded.",THEME_DEFAULT_SAVE_SUCCESS: "Default theme was changed",THEME_DEFAULT_SAVE_ERROR: "Failed to change default theme",THEME_DELETE_TOOLTIP: "Delete",THEME_EDIT_TOOLTIP: "Edit",THEME_MAKE_DEFAULT_TOOLTIP: "Make this the default theme",THEME_IS_DEFAULT_TOOLTIP: "This is the default theme",THEME_SNIPPET_DELETE_CONFIRM: "Are you sure you want to delete this snippet?",TEMPLATE_LOAD_ERROR: "Failed to load slide templates",TEMPLATE_CREATE_ERROR: "Failed to save template",TEMPLATE_DELETE_CONFIRM: "Are you sure you want to delete this template?",ORG_USERS_REMOVE_CONFIRM: 'Delete "{#name}" and all of their decks?',ORG_USERS_REMOVE_SUCCESS: "User removed successfully",ORG_USERS_REMOVE_ERROR: "Failed to remove user",ORG_USERS_INVITE_SEND_SUCCESS: "Invite email sent",ORG_USERS_INVITE_SEND_ERROR: "Failed to send invite email",ORG_USERS_LIST_EMPTY: "Couldn't find any members of this team.",ORG_USERS_LIST_LOAD_ERROR: "Failed to load user list",SEARCH_PAGINATION_PAGE: "Page",SEARCH_NO_RESULTS_FOR: 'No results for "{#term}"',SEARCH_SERVER_ERROR: "Failed to fetch search results",SEARCH_NO_TERM_ERROR: "Please enter a search term",
+    counter: {},
+    get: function(t, e) {
         var n = SL.locale[t];
         if ("object" == typeof n && n.length && (this.counter[t] = "number" == typeof this.counter[t] ? (this.counter[t] + 1) % n.length : 0, n = n[this.counter[t]]), "object" == typeof e)
             for (var i in e)
                 n = n.replace("{#" + i + "}", e[i]);
         return "string" == typeof n ? n : ""
-    }}, function(t) {
+    }
+}, 
+function(t) { // t = window,  imediately
     var e = {};
     e.sync = function() {
         $("[data-placement]").each(function() {
@@ -7616,7 +7796,11 @@ var CryptoJS = CryptoJS || function(t, e) {
             t.css({left: (n - s) / 2,top: (i - o) / 2})
         }
     }, e.sync(), $(t).on("resize", e.sync), t.Placement = e
-}(window), SL.pointer = {down: !1,downTimeout: -1,init: function() {
+}(window), 
+
+
+SL.pointer = {down: !1,downTimeout: -1,
+    init: function() {
         $(document).on("mousedown", this.onMouseDown.bind(this)), $(document).on("mouseleave", this.onMouseLeave.bind(this)), $(document).on("mouseup", this.onMouseUp.bind(this))
     },isDown: function() {
         return this.down
@@ -7764,7 +7948,15 @@ var CryptoJS = CryptoJS || function(t, e) {
     },symbol: function(t) {
         var e = document.createElementNS(SL.util.svg.NAMESPACE, "g"), n = SL.util.svg.SYMBOLS[t];
         return n && (e.innerSVG = SL.util.svg.SYMBOLS[t]), e
-    }}, SL.warnings = {STORAGE_KEY: "slides-last-warning-id",MESSAGE_ID: 23,init: function() {
+    }
+}, 
+
+
+
+
+SL.warnings = {
+    STORAGE_KEY: "slides-last-warning-id",MESSAGE_ID: 23,
+    init: function() {
         this.showMessage()
     },showMessage: function() {
         if (this.hasMessage() && !this.hasExpired() && SL.util.user.isLoggedIn() && Modernizr.localstorage) {
@@ -7780,7 +7972,13 @@ var CryptoJS = CryptoJS || function(t, e) {
         return !!this.MESSAGE_TEXT
     },hasExpired: function() {
         return this.MESSAGE_EXPIRY ? moment().diff(moment(this.MESSAGE_EXPIRY)) > 0 : !1
-    }}, SL("helpers").FileUploader = Class.extend({init: function(t) {
+    }
+}, 
+
+
+// For file upload!!
+SL("helpers").FileUploader = Class.extend({
+    init: function(t) {
         if (this.options = $.extend({external: !1,method: "POST"}, t), "undefined" == typeof this.options.file || "undefined" == typeof this.options.service)
             throw "File and service must be defined for FileUploader task.";
         this.timeout = -1, this.uploading = !1, this.onUploadSuccess = this.onUploadSuccess.bind(this), this.onUploadProgress = this.onUploadProgress.bind(this), this.onUploadError = this.onUploadError.bind(this), this.failed = new signals.Signal, this.succeeded = new signals.Signal, this.progressed = new signals.Signal
@@ -7814,7 +8012,11 @@ var CryptoJS = CryptoJS || function(t, e) {
         var t = function() {
         };
         this.xhr.onload = t, this.xhr.onerror = t, this.xhr.upload.onprogress = t, this.xhr.abort(), this.succeeded.dispose(), this.progressed.dispose(), this.failed.dispose()
-    }}), SL.helpers.Fullscreen = {enter: function(t) {
+    }
+}), 
+
+SL.helpers.Fullscreen = {
+    enter: function(t) {
         t = t || document.body;
         var e = t.requestFullScreen || t.webkitRequestFullscreen || t.webkitRequestFullScreen || t.mozRequestFullScreen || t.msRequestFullscreen;
         e && e.apply(t)
@@ -7827,7 +8029,11 @@ var CryptoJS = CryptoJS || function(t, e) {
         return !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled)
     },isActive: function() {
         return !!(document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement)
-    }}, SL("helpers").ImageUploader = Class.extend({init: function(t) {
+    }
+}, 
+
+SL("helpers").ImageUploader = Class.extend({
+    init: function(t) {
         this.options = $.extend({service: SL.config.AJAX_IMAGE_UPLOAD,timeout: 9e4}, t), this.onUploadSuccess = this.onUploadSuccess.bind(this), this.onUploadProgress = this.onUploadProgress.bind(this), this.onUploadError = this.onUploadError.bind(this), this.progressed = new signals.Signal, this.succeeded = new signals.Signal, this.failed = new signals.Signal
     },upload: function(t, e) {
         return t && t.type.match(/image.*/) ? "number" == typeof t.size && t.size / 1024 > SL.config.MAX_IMAGE_UPLOAD_SIZE.maxsize ? void SL.notify("No more than " + Math.round(MAX_IMAGE_UPLOAD_SIZE / 1e3) + "mb please", "negative") : (this.fileUploader && this.fileUploader.destroy(), this.fileUploader = new SL.helpers.FileUploader({file: t,filename: e || this.options.filename,service: this.options.service,timeout: this.options.timeout}), this.fileUploader.succeeded.add(this.onUploadSuccess), this.fileUploader.progressed.add(this.onUploadProgress), this.fileUploader.failed.add(this.onUploadError), void this.fileUploader.upload()) : void SL.notify("Only image files, please")
@@ -7841,12 +8047,18 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.failed.dispatch(), this.fileUploader.destroy(), this.fileUploader = null
     },destroy: function() {
         this.succeeded.dispose(), this.progressed.dispose(), this.failed.dispose(), this.fileUploader && this.fileUploader.destroy()
-    }}), SL.helpers.PageLoader = {show: function(t) {
+    }
+}), 
+SL.helpers.PageLoader = {
+    show: function(t) {
         var e = $(".page-loader");
         0 === e.length && (e = $(['<div class="page-loader">', '<div class="page-loader-inner">', '<p class="page-loader-message"></p>', '<div class="page-loader-spinner spinner"></div>', "</div>", "</div>"].join("")).appendTo(document.body)), t && e.find(".page-loader-message").html(t), e.addClass("visible")
     },hide: function() {
         $(".page-loader").removeClass("visible")
-    }}, SL("helpers").PollJob = Class.extend({init: function(t) {
+    }
+}, 
+SL("helpers").PollJob = Class.extend({
+    init: function(t) {
         this.options = $.extend({interval: 1e3,timeout: Number.MAX_VALUE,retries: Number.MAX_VALUE}, t), this.interval = -1, this.running = !1, this.poll = this.poll.bind(this), this.ended = new signals.Signal, this.polled = new signals.Signal
     },start: function() {
         this.running = !0, this.pollStart = Date.now(), this.pollTimes = 0, clearInterval(this.interval), this.interval = setInterval(this.poll, this.options.interval)
@@ -7854,7 +8066,10 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.running = !1, clearInterval(this.interval)
     },poll: function() {
         this.pollTimes++, Date.now() - this.pollStart > this.options.timeout || this.pollTimes > this.options.retries ? (this.stop(), this.ended.dispatch()) : this.polled.dispatch()
-    }}), SL("helpers").StreamEditor = Class.extend({init: function(t) {
+    }
+}), 
+SL("helpers").StreamEditor = Class.extend({
+    init: function(t) {
         this.options = $.extend({}, t), this.statusChanged = new signals.Signal, this.messageReceived = new signals.Signal, this.socketIsDisconnected = !1, this.debugMode = !!SL.util.getQuery().debug
     },connect: function() {
         var t = SL.config.STREAM_ENGINE_HOST + "/" + SL.config.STREAM_ENGINE_EDITOR_NAMESPACE;
@@ -7878,7 +8093,11 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.socket.emit("subscribe", {deck_id: this.options.deckID}), this.socketIsDisconnected === !0 && (this.socketIsDisconnected = !1, this.log("socket connection regained"), this.setStatus(SL.helpers.StreamEditor.STATUS_NONE))
     },onSocketDisconnected: function() {
         this.socketIsDisconnected === !1 && (this.socketIsDisconnected = !0, this.log("socket connection lost"), this.setStatus(SL.helpers.StreamEditor.STATUS_CONNECTION_LOST))
-    }}), SL.helpers.StreamEditor.STATUS_NONE = "", SL.helpers.StreamEditor.STATUS_CONNECTION_LOST = "connection_lost", SL("helpers").StreamLive = Class.extend({init: function(t) {
+    }
+}), 
+SL.helpers.StreamEditor.STATUS_NONE = "", SL.helpers.StreamEditor.STATUS_CONNECTION_LOST = "connection_lost", 
+SL("helpers").StreamLive = Class.extend({
+    init: function(t) {
         this.options = $.extend({reveal: window.Reveal,subscriber: !0,publisher: !1,publisherID: Date.now() + "-" + Math.round(1e6 * Math.random()),deckID: SL.current_deck.get("id")}, t), this.ready = new signals.Signal, this.stateChanged = new signals.Signal, this.statusChanged = new signals.Signal, this.subscribersChanged = new signals.Signal, this.socketIsDisconnected = !1, this.debugMode = !!SL.util.getQuery().debug
     },connect: function() {
         this.options.publisher ? this.setupPublisher() : this.setupSubscriber()
@@ -7935,7 +8154,12 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.socket.emit("subscribe", {deck_id: this.options.deckID,publisher: this.options.publisher}), this.socketIsDisconnected === !0 && (this.socketIsDisconnected = !1, this.log("socket connection regained"), this.setStatus(SL.helpers.StreamLive.STATUS_NONE))
     },onSocketDisconnected: function() {
         this.socketIsDisconnected === !1 && (this.socketIsDisconnected = !0, this.log("socket connection lost"), this.setStatus(SL.helpers.StreamLive.STATUS_CONNECTION_LOST))
-    }}), SL.helpers.StreamLive.CONNECTION_RETRY_INTERVAL = 2e4, SL.helpers.StreamLive.STATUS_NONE = "", SL.helpers.StreamLive.STATUS_CONNECTION_LOST = "connection_lost", SL.helpers.StreamLive.STATUS_WAITING_FOR_PUBLISHER = "waiting_for_publisher", SL.helpers.ThemeController = {paint: function(t, e) {
+    }
+}), 
+SL.helpers.StreamLive.CONNECTION_RETRY_INTERVAL = 2e4, SL.helpers.StreamLive.STATUS_NONE = "", SL.helpers.StreamLive.STATUS_CONNECTION_LOST = "connection_lost", SL.helpers.StreamLive.STATUS_WAITING_FOR_PUBLISHER = "waiting_for_publisher", 
+// reveal theme control
+SL.helpers.ThemeController = {
+    paint: function(t, e) {
         e = e || {};
         var n = $(".reveal-viewport");
         if (0 === n.length || "undefined" == typeof window.Reveal)
@@ -8122,7 +8346,10 @@ var CryptoJS = CryptoJS || function(t, e) {
             var e = t.clientY;
             e > 0 && (20 > e && !this.isMouseOver ? (this.domElement.addClass("show"), this.isMouseOver = !0) : e > 80 && this.isMouseOver && 0 === $(t.target).parents(".global-header").length && (this.domElement.removeClass("show"), this.isMouseOver = !1))
         }
-    }}), SL("components").Kudos = function() {
+    }
+}), 
+
+SL("components").Kudos = function() {
     function t() {
         $("[data-kudos-value][data-kudos-id]").each(function(t, e) {
             var n = e.getAttribute("data-kudos-id");
@@ -8161,7 +8388,9 @@ var CryptoJS = CryptoJS || function(t, e) {
     }
     var r = {};
     t()
-}(), SL("components").Menu = Class.extend({init: function(t) {
+}(), 
+SL("components").Menu = Class.extend({
+    init: function(t) {
         this.config = $.extend({alignment: "auto",anchorSpacing: 10,minWidth: 0,offsetX: 0,offsetY: 0,options: [],showOnHover: !1}, t), this.config.anchor = $(this.config.anchor), this.show = this.show.bind(this), this.hide = this.hide.bind(this), this.layout = this.layout.bind(this), this.toggle = this.toggle.bind(this), this.onMouseOver = this.onMouseOver.bind(this), this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this), this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this), this.onDocumentKeydown = this.onDocumentKeydown.bind(this), this.destroyed = new signals.Signal, this.render(), this.renderList(), this.config.anchor.length && (/(iphone|ipod|ipad|android|windows\sphone)/gi.test(navigator.userAgent) ? (this.config.anchor.addClass("menu-show-on-touch"), this.config.anchor.on("touchstart pointerdown", function(t) {
             t.preventDefault(), this.toggle()
         }.bind(this)), this.config.anchor.on("click", function(t) {
@@ -8256,7 +8485,14 @@ var CryptoJS = CryptoJS || function(t, e) {
     },paint: function() {
         var t = Math.min(Math.max(this.value / this.total, 0), 1) || 0;
         this.labelElement.text(this.value + " / " + this.total + " " + this.unit), this.progressElement.width(100 * t + "%"), 0 === this.total ? this.domElement.attr("data-state", "invalid") : t > .9 ? this.domElement.attr("data-state", "negative") : t > .7 ? this.domElement.attr("data-state", "warning") : this.domElement.attr("data-state", "positive")
-    }}), SL.modal = function() {
+    }
+}), 
+
+/**
+*  This control the side panel and sections
+*
+*/
+SL.modal = function() {
     function t() {
         $(['<div class="inner edit-html">', "<h3>Edit HTML</h3>", '<div id="ace-html" class="editor"></div>', "<footer>", '<button class="button grey negative close xl">Cancel</button>', '<button class="button save-changes xl">OK</button>', "</footer>", "</div>"].join("")).appendTo(a);
         this.htmlEditor && "function" == typeof this.htmlEditor.destroy && (this.htmlEditor.destroy(), this.htmlEditor = null);
@@ -8312,13 +8548,15 @@ var CryptoJS = CryptoJS || function(t, e) {
         t.css({left: Math.max((window.innerWidth - t.outerWidth()) / 2, 10),top: Math.max((window.innerHeight - t.outerHeight()) / 2, 10)})
     }
     var a = $('<div id="modal">').appendTo(document.body), l = $('<div id="modal-cover">').appendTo(document.body), c = $('<div id="modal-background">').appendTo(document.body), u = null, d = null;
+    // add event listeners
     return $(document).on("keyup", function(t) {
         27 === t.keyCode && SL.modal.isOpen() && SL.modal.close()
     }), a.add(l).on("click", function(t) {
         t.target === this && SL.modal.close()
     }), a.on("click", ".close", function() {
         SL.modal.close()
-    }), {open: function(o, l) {
+    }), 
+    {open: function(o, l) {
             switch (a.find(">.inner").remove(), u = o, o) {
                 case "edit-html":
                     t(l);
@@ -8347,7 +8585,11 @@ var CryptoJS = CryptoJS || function(t, e) {
             var e = $("html").hasClass("modal-open");
             return e && t && (e = a.find("." + t).hasClass("visible")), e
         }}
-}(), SL.notify = function(t, e) {
+}(), // running imediately
+
+
+
+SL.notify = function(t, e) {
     function n() {
         i(), a = setTimeout(function() {
             o.addClass("no-transition").fadeOut(600, s)
@@ -8366,7 +8608,11 @@ var CryptoJS = CryptoJS || function(t, e) {
     return setTimeout(function() {
         o.addClass("show"), e.autoHide && n()
     }, 1), {domElement: o,destroy: s,destroyed: r}
-}, SL("components").Prompt = Class.extend({init: function(t) {
+}, 
+
+
+SL("components").Prompt = Class.extend({
+    init: function(t) {
         this.config = $.extend({type: "custom",data: null,anchor: null,title: null,optional: !0,alignment: "auto",offsetX: 0,offsetY: 0,className: null,confirmLabel: "OK",cancelLabel: "Cancel"}, t), this.onBackgroundClicked = this.onBackgroundClicked.bind(this), this.onDocumentKeydown = this.onDocumentKeydown.bind(this), this.onPromptCancelClick = this.onPromptCancelClick.bind(this), this.onPromptConfirmClick = this.onPromptConfirmClick.bind(this), this.onInputChanged = this.onInputChanged.bind(this), this.layout = this.layout.bind(this), this.confirmed = new signals.Signal, this.canceled = new signals.Signal, this.destroyed = new signals.Signal, this.render()
     },render: function() {
         this.domElement = $('<div class="sl-prompt" data-type="' + this.config.type + '">'), this.innerElement = $('<div class="inner">').appendTo(this.domElement), this.arrowElement = $('<div class="arrow">').appendTo(this.innerElement), this.config.title && (this.titleElement = $('<h3 class="title">').html(this.config.title).appendTo(this.innerElement)), this.config.className && this.domElement.addClass(this.config.className), this.config.html && this.innerElement.append(this.config.html), "select" === this.config.type ? this.renderSelect() : "list" === this.config.type ? (this.renderList(), this.renderButtons(!this.config.multiselect, this.config.multiselect)) : "input" === this.config.type && (this.renderInput(), this.renderButtons())
@@ -8485,7 +8731,10 @@ var CryptoJS = CryptoJS || function(t, e) {
     }}), SL.prompt = function(t) {
     var e = new SL.components.Prompt(t);
     return e.show(), e
-}, SL("components").Resizer = Class.extend({init: function(t, e) {
+}, 
+
+SL("components").Resizer = Class.extend({
+    init: function(t, e) {
         this.domElement = $(t), this.revealElement = this.domElement.closest(".reveal"), this.options = $.extend({padding: 10,preserveAspectRatio: !1,useOverlay: !1}, e), this.mouse = {x: 0,y: 0}, this.mouseStart = {x: 0,y: 0}, this.origin = {x: 0,y: 0,width: 0,height: 0}, this.resizing = !1, this.domElement.length ? (this.onAnchorMouseDown = this.onAnchorMouseDown.bind(this), this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this), this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this), this.onElementDrop = this.onElementDrop.bind(this), this.layout = this.layout.bind(this), this.build(), this.bind(), this.layout()) : console.warn("Resizer: invalid resize target.")
     },build: function() {
         this.options.useOverlay && (this.overlay = $('<div class="editing-ui resizer-overlay"></div>').appendTo(document.body).hide()), this.anchorN = $('<div class="editing-ui resizer-anchor" data-direction="n"></div>').appendTo(document.body), this.anchorE = $('<div class="editing-ui resizer-anchor" data-direction="e"></div>').appendTo(document.body), this.anchorS = $('<div class="editing-ui resizer-anchor" data-direction="s"></div>').appendTo(document.body), this.anchorW = $('<div class="editing-ui resizer-anchor" data-direction="w"></div>').appendTo(document.body)
@@ -8553,7 +8802,10 @@ var CryptoJS = CryptoJS || function(t, e) {
         setTimeout(this.layout, 1)
     },destroy: function() {
         this.destroyed || (this.destroyed = !0, this.resizeStarted.dispose(), this.resizeUpdated.dispose(), this.resizeEnded.dispose(), $(document).off("mousemove", this.onDocumentMouseMove), $(document).off("mouseup", this.onDocumentMouseUp), $(document).off("keyup", this.layout), $(document).off("mouseup", this.layout), $(document).off("mousewheel", this.layout), $(document).off("DOMMouseScroll", this.layout), $(window).off("resize", this.layout), this.revealElement.off("drop", this.onElementDrop), this.getAnchors().off("mousedown", this.onAnchorMouseDown), this.anchorN.remove(), this.anchorE.remove(), this.anchorS.remove(), this.anchorW.remove(), this.overlay && this.overlay.remove())
-    }}), SL.components.Resizer.delegateOnHover = function(t, e, n) {
+    }
+}), 
+
+SL.components.Resizer.delegateOnHover = function(t, e, n) {
     function i() {
         c && (c.destroy(), c = null, $(document).off("mousemove", r), $(document).off("mouseup", a))
     }
@@ -8593,7 +8845,10 @@ var CryptoJS = CryptoJS || function(t, e) {
         },destroy: function() {
             i(), d.dispose(), t.undelegate(e, "mouseover", o)
         }}
-}, SL("components").ScrollShadow = Class.extend({init: function(t) {
+}, 
+
+SL("components").ScrollShadow = Class.extend({
+    init: function(t) {
         this.options = $.extend({threshold: 20,shadowSize: 10}, t), this.bind(), this.render(), this.layout()
     },bind: function() {
         this.layout = this.layout.bind(this), this.sync = this.sync.bind(this), $(window).on("resize", this.layout), this.options.contentElement.on("scroll", this.sync)
@@ -8607,7 +8862,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.shadowTop.css({opacity: o ? r : 0,top: e}), this.shadowBottom.css({opacity: o ? 1 - r : 0,bottom: t})
     },destroy: function() {
         $(window).off("resize", this.layout), this.options.contentElement.off("scroll", this.sync), this.options = null
-    }}), SL("components").Search = Class.extend({init: function(t) {
+}}), 
+SL("components").Search = Class.extend({
+    init: function(t) {
         this.config = t, this.searchForm = $(".search .search-form"), this.searchFormInput = this.searchForm.find(".search-term"), this.searchFormSubmit = this.searchForm.find(".search-submit"), this.searchResults = $(".search .search-results"), this.searchResultsHeader = this.searchResults.find("header"), this.searchResultsTitle = this.searchResults.find(".search-results-title"), this.searchResultsSorting = this.searchResults.find(".search-results-sorting"), this.searchResultsList = this.searchResults.find("ul"), this.searchFormLoader = Ladda.create(this.searchFormSubmit.get(0)), this.bind(), this.checkQuery()
     },bind: function() {
         this.searchForm.on("submit", this.onSearchFormSubmit.bind(this)), this.searchResultsSorting.find("input[type=radio]").on("click", this.onSearchSortingChange.bind(this))
@@ -8647,7 +8904,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         return this.search(), t.preventDefault(), !1
     },onSearchSortingChange: function() {
         this.sort(this.searchResultsSorting.find("input[type=radio]:checked").val())
-    }}), SL("components").TemplatesPage = Class.extend({init: function(t) {
+    }}), 
+SL("components").TemplatesPage = Class.extend({
+    init: function(t) {
         this.options = t || {}, this.templateSelected = new signals.Signal, this.render()
     },render: function() {
         this.domElement = $('<div class="page" data-page-id="' + this.options.id + '">'), this.bodyElement = $('<div class="page-body">').appendTo(this.domElement), this.isEditable() && (this.domElement.addClass("has-footer"), this.footerElement = $('<div class="page-footer">').appendTo(this.domElement), this.addTemplateButton = $(['<div class="add-new-template ladda-button" data-style="zoom-out" data-spinner-color="#222" data-spinner-size="32">', '<span class="icon i-plus"></span>', "<span>Save current slide</span>", "</div>"].join("")), this.addTemplateButton.appendTo(this.footerElement), this.addTemplateButton.on("click", this.onTemplateCreateClicked.bind(this)), this.addTemplateButtonLoader = Ladda.create(this.addTemplateButton.get(0))), this.options.templates.forEach(this.renderTemplate.bind(this))
@@ -8704,7 +8963,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         }).fail(function() {
             this.addTemplateButtonLoader.stop(), SL.notify(SL.locale.get("TEMPLATE_CREATE_ERROR"), "negative")
         }), !1
-    }}), SL("components").Templates = Class.extend({init: function(t) {
+    }}), 
+SL("components").Templates = Class.extend({
+    init: function(t) {
         this.options = $.extend({alignment: "",width: 450,height: 730,arrowSize: 8}, t), this.pages = [], SL.templates.getUserTemplates(), SL.templates.getTeamTemplates(), this.render(), this.bind()
     },render: function() {
         this.domElement = $('<div class="sl-templates">'), this.innerElement = $('<div class="sl-templates-inner">').appendTo(this.domElement), this.headerElement = $('<div class="sl-templates-header">').appendTo(this.innerElement), this.bodyElement = $('<div class="sl-templates-body">').appendTo(this.innerElement), this.domElement.data("instance", this)
@@ -8871,7 +9132,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         t.preventDefault(), this.theme.set("background_transition", $(t.currentTarget).data("background-transition")), this.updateSelection(), this.applySelection(), SL.analytics.trackTheming("Background transition option selected", this.theme.get("background_transition")), this.changed.dispatch()
     },destroy: function() {
         this.changed.dispose(), this.domElement.remove(), this.theme = null, this.config = null
-    }}), SL.tooltip = function() {
+    }}), 
+
+SL.tooltip = function() {
     function t() {
         r = $("<div>").addClass("sl-tooltip"), a = $('<p class="sl-tooltip-inner">').appendTo(r), l = $('<div class="sl-tooltip-arrow">').appendTo(r), c = $('<div class="sl-tooltip-arrow-fill">').appendTo(l), e()
     }
@@ -8950,7 +9213,9 @@ var CryptoJS = CryptoJS || function(t, e) {
             var i = {};
             "undefined" != typeof e && (i["data-tooltip"] = e), "number" == typeof n.delay && (i["data-tooltip-delay"] = n.delay), "string" == typeof n.alignment && (i["data-tooltip-alignment"] = n.alignment), $(t).attr(i)
         }}
-}(), SL("components").Tutorial = Class.extend({init: function(t) {
+}(), 
+SL("components").Tutorial = Class.extend({
+    init: function(t) {
         this.options = $.extend({steps: []}, t), this.options.steps.forEach(function(t) {
             "undefined" == typeof t.backwards && (t.backwards = function() {
             }), "undefined" == typeof t.forwards && (t.forwards = function() {
@@ -9200,11 +9465,21 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.syncPresentationControls(), Reveal.layout()
     },onStartPresentationClicked: function() {
         $("html").addClass("presentation-started")
-    }}), SL("views.decks").Show = SL.views.Base.extend({init: function() {
+    }}), 
+
+/** side panel controlling
+*
+*
+*/
+SL("views.decks").Show = SL.views.Base.extend({
+    init: function() {
         this._super(), this.summaryBubble = $(".summary-bubble"), SL.util.setupReveal({history: !0,embedded: !0,pause: !1,margin: .1,openLinksInTabs: !0,trackEvents: !0}), this.setupDisqus(), this.showSummaryTimeout = setTimeout(this.showSummary.bind(this), 1e3), this.hideSummaryTimeout = setTimeout(this.hideSummary.bind(this), 8e3), $("header .deck-promotion").length && $("header").addClass("extra-wide"), Modernizr.fullscreen === !1 && $(".deck-options .fullscreen-button").hide(), this.bind(), this.layout()
     },bind: function() {
-        this.editButton = $(".deck-options .edit-button"), this.editButtonOriginalLink = this.editButton.attr("href"), $(".deck-options .fork-button").on("click", this.onForkClicked.bind(this)), $(".deck-options .share-button").on("click", this.onShareClicked.bind(this)), $(".deck-options .comment-button").on("click", this.onCommentsClicked.bind(this)), $(".deck-options .fullscreen-button").on("click", this.onFullScreenClicked.bind(this)), this.visibilityButton = $(".deck-options .visibility-button"), this.visibilityButton.on("click", this.onVisibilityClicked.bind(this)), $(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange", Reveal.layout), this.onWindowScroll = $.debounce(this.onWindowScroll, 200), $(window).on("resize", this.layout.bind(this)), $(window).on("scroll", this.onWindowScroll.bind(this)), this.hideSummary = this.hideSummary.bind(this), Reveal.addEventListener("slidechanged", this.onSlideChanged.bind(this)), Reveal.addEventListener("fragmentshown", this.hideSummary), Reveal.addEventListener("fragmenthidden", this.hideSummary), this.summaryBubble.on("click", this.hideSummary)
-    },setupDisqus: function() {
+        this.editButton = $(".deck-options .edit-button"), this.editButtonOriginalLink = this.editButton.attr("href"), $(".deck-options .fork-button").on("click", this.onForkClicked.bind(this)), $(".deck-options .share-button").on("click", this.onShareClicked.bind(this)), $(".deck-options .comment-button").on("click", this.onCommentsClicked.bind(this)), $(".deck-options .fullscreen-button").on("click", this.onFullScreenClicked.bind(this)), this.visibilityButton = $(".deck-options .visibility-button"), this.visibilityButton.on("click", this.onVisibilityClicked.bind(this)), $(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange", Reveal.layout), this.onWindowScroll = $.debounce(this.onWindowScroll, 200), $(window).on("resize", this.layout.bind(this)), $(window).on("scroll", this.onWindowScroll.bind(this)), this.hideSummary = this.hideSummary.bind(this), 
+        Reveal.addEventListener("slidechanged", this.onSlideChanged.bind(this)), Reveal.addEventListener("fragmentshown", this.hideSummary), Reveal.addEventListener("fragmenthidden", this.hideSummary), this.summaryBubble.on("click", this.hideSummary)
+    },
+    // no need for this comment module
+    setupDisqus: function() {
         if ($("#disqus_thread").length) {
             {
                 var t = window.disqus_shortname = "slidesapp";
@@ -9262,7 +9537,10 @@ var CryptoJS = CryptoJS || function(t, e) {
         t.indexh && (e += "/" + t.indexh, t.indexv && (e += "/" + t.indexv)), this.editButton.attr("href", this.editButtonOriginalLink + e)
     },onWindowScroll: function() {
         $(window).scrollTop() > 10 && this.hideSummary()
-    }}), SL("views.decks").Speaker = SL.views.Base.extend({init: function() {
+    }}), 
+
+SL("views.decks").Speaker = SL.views.Base.extend({
+    init: function() {
         this._super(), this.notesElement = $(".speaker-controls .notes"), this.notesValue = $(".speaker-controls .notes .value"), this.timeElement = $(".speaker-controls .time"), this.timeTimerValue = $(".speaker-controls .time .timer-value"), this.timeClockValue = $(".speaker-controls .time .clock-value"), this.subscribersElement = $(".speaker-controls .subscribers"), this.subscribersValue = $(".speaker-controls .subscribers .subscribers-value"), this.currentElement = $(".current-slide"), this.upcomingElement = $(".upcoming-slide"), this.upcomingFrame = $(".upcoming-slide iframe"), this.upcomingFrame.length ? (this.upcomingFrame.on("load", this.onUpcomingFrameLoaded.bind(this)), this.upcomingFrame.attr("src", this.upcomingFrame.attr("data-src"))) : this.setup(), SL.helpers.PageLoader.show()
     },setup: function() {
         Reveal.addEventListener("ready", function() {
@@ -9364,7 +9642,11 @@ var CryptoJS = CryptoJS || function(t, e) {
                         Ladda.create(t.get(0)).start()
             }.bind(this))
         }
-    }}), SL("views.devise").Edit = SL.views.devise.All.extend({init: function() {
+    }
+}), 
+
+SL("views.devise").Edit = SL.views.devise.All.extend({
+    init: function() {
         this._super(), $(".delete-account-toggle").on("click", this.onDeleteAccountToggleClicked.bind(this)), $(".delete-profile-photo").on("click", this.onDeleteProfilePhotoClicked.bind(this)), $("#user_email").on("change keyup", this.onEmailChanged.bind(this)), $("#user_password").on("change keyup", this.onNewPasswordChanged.bind(this)), this.undoAutoFill()
     },undoAutoFill: function() {
         if (navigator.userAgent.toLowerCase().indexOf("chrome") >= 0)
@@ -9392,9 +9674,14 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.updatePasswordVerification()
     },onNewPasswordChanged: function() {
         this.updatePasswordVerification()
-    }}), SL("views.home").Explore = SL.views.Base.extend({init: function() {
+    }}), 
+SL("views.home").Explore = SL.views.Base.extend({
+    init: function() {
         this._super(), new SL.components.Search({url: SL.config.AJAX_SEARCH})
-    }}), SL("views.home").Index = SL.views.Base.extend({MARQUEE_MIN_HEIGHT: 600,init: function() {
+    }}), 
+SL("views.home").Index = SL.views.Base.extend({
+    MARQUEE_MIN_HEIGHT: 600,
+    init: function() {
         this._super(), this.sharingElement = $(".marquee .sharing"), this.learnMoreButton = $(".marquee .description-cta-secondary"), this.scrollPromotion = $(".marquee .scroll-promotion"), this.scrollPromotionArrow = $(".marquee .scroll-promotion-arrow"), this.backgroundElement = $(".marquee .marquee-background"), this.setupBackground(), this.setupVideo(), this.bind(), this.startScrollPromotion()
     },setupBackground: function() {
         this.backgroundImage = $("<img>", {src: SL.config.ASSET_URLS["homepage-background.jpg"],load: this.onBackgroundLoaded.bind(this)})
@@ -9456,11 +9743,15 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.updateFeatureAnimations()
     },onWindowScroll: function() {
         this.updateFeatureAnimations(), this.scrollPromotionInterval && this.stopScrollPromotion(), this.trackScrolling()
-    }}), SL("views.statik").All = SL.views.Base.extend({init: function() {
+    }}), 
+SL("views.statik").All = SL.views.Base.extend({
+    init: function() {
         this._super(), $("img.click-to-expand").on("click", function() {
             $(this).toggleClass("expanded")
         })
-    }}), SL("views.statik").Pricing = SL.views.statik.All.extend({init: function() {
+    }}), 
+SL("views.statik").Pricing = SL.views.statik.All.extend({
+    init: function() {
         this._super(), $(".tier").each(this.setupTier.bind(this))
     },setupTier: function(t, e) {
         var e = $(e), n = e.find(".cta a");
@@ -9471,9 +9762,13 @@ var CryptoJS = CryptoJS || function(t, e) {
         }), e.on("mouseleave", function() {
             e.removeClass("hover")
         }))
-    }}), SL("views.subscriptions").EditPeriod = SL.views.Base.extend({init: function() {
+    }}), 
+SL("views.subscriptions").EditPeriod = SL.views.Base.extend({
+    init: function() {
         this._super(), Ladda.bind($("#payment-form button[type=submit]").get(0))
-    }}), SL("views.subscriptions").New = SL.views.Base.extend({init: function() {
+    }}), 
+SL("views.subscriptions").New = SL.views.Base.extend({
+    init: function() {
         this._super(), this.onFormSubmit = this.onFormSubmit.bind(this), this.onStripeResponse = this.onStripeResponse.bind(this), this.formElement = $("#payment-form"), this.formElement.on("submit", this.onFormSubmit), this.formSubmitButton = this.formElement.find("button[type=submit]"), this.formSubmitLoader = Ladda.create(this.formSubmitButton.get(0)), $("#stripe-card-number").payment("formatCardNumber"), $("#stripe-card-cvc").payment("formatCardCVC"), $("#stripe-month").payment("restrictNumeric"), $("#stripe-year").payment("restrictNumeric"), SL.util.device.supportedByEditor() || $(".column").prepend("<section class=\"critical-error\"><h2>Not supported</h2><p>It looks like you're using a browser which isn't suported by the Slides editor. Please make sure to try the editor before upgrading.</p></section>"), $("html").hasClass("subscriptions new") && ($('input[name="subscription[billing_period]"]').on("change", this.syncSubmitButton.bind(this)), this.syncSubmitButton())
     },syncSubmitButton: function() {
         var t = this.formElement.find('input[name="subscription[billing_period]"]:checked'), e = t.attr("data-period-value"), n = t.attr("data-dollar-value"), i = this.formElement.find(".devise-note");
@@ -9487,7 +9782,9 @@ var CryptoJS = CryptoJS || function(t, e) {
             var n = e.id;
             this.formElement.find('input[name="subscription[token]"]').remove(), this.formElement.append($('<input type="hidden" name="subscription[token]" />').val(n)), this.formElement.get(0).submit()
         }
-    }}), SL("views.subscriptions").Show = SL.views.Base.extend({DOTTED_CARD_PREFIX: "&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; ",init: function() {
+    }}), 
+SL("views.subscriptions").Show = SL.views.Base.extend({DOTTED_CARD_PREFIX: "&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; ",
+    init: function() {
         this._super(), this.strings = {CONFIRM_UNSUBSCRIBE_ACTION: "Unsubscribe",CONFIRM_UNSUBSCRIBE_DESCRIPTION: SL.locale.get("REMOVE_PRO_CONFIRM")}, this.load()
     },bindLadda: function() {
         $(".column section .ladda-button").each(function(t, e) {
@@ -9558,7 +9855,9 @@ var CryptoJS = CryptoJS || function(t, e) {
         }).always(function() {
             this.emailNotificationXHR = null
         })
-    }}), SL("views.teams").New = SL.views.Base.extend({init: function() {
+    }}), 
+SL("views.teams").New = SL.views.Base.extend({
+    init: function() {
         this._super(), this.formElement = $("#payment-form"), this.formSubmitButton = this.formElement.find("button[type=submit]"), this.formSubmitLoader = Ladda.create(this.formSubmitButton.get(0)), this.bind(), this.summarize()
     },bind: function() {
         this.summarize = this.summarize.bind(this), this.formElement.on("keydown", this.onFormKeyDown.bind(this)), this.formSubmitButton.on("click", this.onFormSubmitClicked.bind(this)), this.formElement.find("#team-name").on("input", this.onTeamNameChange.bind(this)), this.formElement.find('input[name="billing-period"]').on("change", this.summarize), $("#stripe-card-number").payment("formatCardNumber"), $("#stripe-card-cvc").payment("formatCardCVC"), $("#stripe-month").payment("restrictNumeric"), $("#stripe-year").payment("restrictNumeric"), this.formElement.find(".unit[data-validate], .unit[data-required]").each(function(t, e) {
@@ -9613,7 +9912,7 @@ var CryptoJS = CryptoJS || function(t, e) {
         }
         this.cancelButton = $(".billing-details .cancel-subscription"), this.cancelButton.length && (this.cancelButton.on("click", this.onCancelSubscriptionClicked.bind(this)), this.cancelLoader = Ladda.create(this.cancelButton.get(0)))
     },onCancelSubscriptionSuccess: function() {
-        SL.notify("Subscription canceled"), window.location = "http://slides.com"
+        SL.notify("Subscription canceled"), window.location = "http://clown.scoreur.net"
     }}), SL("views.teams.teams").Edit = SL.views.Base.extend({init: function() {
         this._super(), this.render()
     },render: function() {
@@ -9634,7 +9933,10 @@ var CryptoJS = CryptoJS || function(t, e) {
                 }.bind(this))
             }
         }
-    }}), SL("views.teams.teams").EditMembers = SL.views.Base.extend({init: function() {
+    }
+}), 
+SL("views.teams.teams").EditMembers = SL.views.Base.extend({
+    init: function() {
         this._super(), this.domElement = $("section.users"), this.load()
     },bindLadda: function() {
         $(".column section .ladda-button").each(function(t, e) {
@@ -9977,11 +10279,17 @@ var CryptoJS = CryptoJS || function(t, e) {
                 i.shiftRight(i.find(n)), this.changed.dispatch(), this.syncSnippetOrder()
             }
         }
-    }}), SL("views.themes.edit").Panel = Class.extend({PAGES: [{name: "Settings",id: "settings",factory: "renderSettings"}, {name: "CSS",id: "css",factory: "renderCSS"}, {name: "HTML",id: "html",factory: "renderHTML"}, {name: "JS",id: "js",factory: "renderJS",condition: function() {
+    }}), 
+
+SL("views.themes.edit").Panel = Class.extend({
+    PAGES: [{name: "Settings",id: "settings",factory: "renderSettings"}, {name: "CSS",id: "css",factory: "renderCSS"}, {name: "HTML",id: "html",factory: "renderHTML"}, 
+    {name: "JS",id: "js",factory: "renderJS",condition: function() {
                 return SL.current_team.get("allow_scripts")
-            }}, {name: "Palette",id: "palette",factory: "renderPalette",condition: function() {
+            }
+    }, {name: "Palette",id: "palette",factory: "renderPalette",condition: function() {
                 return this.editor.VERSION > 1
-            }}, {name: "Snippets",id: "snippets",factory: "renderSnippets"}],init: function(t, e, n) {
+            }
+    }, {name: "Snippets",id: "snippets",factory: "renderSnippets"}],init: function(t, e, n) {
         this.editor = t, this.theme = e.clone(), this.themeOptionsConfig = n, this.previewTimeout = -1, this.destroyed = new signals.Signal, this.updatePreview = this.updatePreview.bind(this), this.paintPreview = this.paintPreview.bind(this), this.render(), this.bind(), this.showPage("settings"), this.paintPreview(), this.savedJSON = JSON.stringify(this.theme.toJSON()), this.checkUnsavedChanges()
     },render: function() {
         this.domElement = $('<div class="panel">'), this.domElement.appendTo(this.editor.editorInnerElement), this.pagesElement = $('<div class="pages">'), this.pagesElement.appendTo(this.domElement), this.renderHeader(), this.renderPages()
@@ -10027,7 +10335,8 @@ var CryptoJS = CryptoJS || function(t, e) {
     },bind: function() {
         this.onDocumentKeyDown = this.onDocumentKeyDown.bind(this), $(document).on("keydown", this.onDocumentKeyDown)
     },showPage: function(t) {
-        this.domElement.find(".page").removeClass("past present future"), this.domElement.find('.page[data-page-id="' + t + '"]').addClass("present"), this.domElement.find('.page[data-page-id="' + t + '"]').prevAll().addClass("past"), this.domElement.find('.page[data-page-id="' + t + '"]').nextAll().addClass("future"), this.domElement.find(".panel-header .page-tab").removeClass("selected"), this.domElement.find('.panel-header .page-tab[data-page-id="' + t + '"]').addClass("selected"), "css" === t && this.cssEditor ? this.cssEditor.focus() : "html" === t && this.htmlEditor ? this.htmlEditor.focus() : "js" === t && this.jsEditor ? this.jsEditor.focus() : "palette" === t && this.palette && this.palette.refresh(), setTimeout(function() {
+        this.domElement.find(".page").removeClass("past present future"), this.domElement.find('.page[data-page-id="' + t + '"]').addClass("present"), this.domElement.find('.page[data-page-id="' + t + '"]').prevAll().addClass("past"), this.domElement.find('.page[data-page-id="' + t + '"]').nextAll().addClass("future"), this.domElement.find(".panel-header .page-tab").removeClass("selected"), this.domElement.find('.panel-header .page-tab[data-page-id="' + t + '"]').addClass("selected"), "css" === t && this.cssEditor ? this.cssEditor.focus() : "html" === t && this.htmlEditor ? this.htmlEditor.focus() : "js" === t && this.jsEditor ? this.jsEditor.focus() : "palette" === t && this.palette && this.palette.refresh(), 
+        setTimeout(function() {
             this.domElement.find(".page").addClass("transition")
         }.bind(this), 1), this.resetScrollPosition()
     },resetScrollPosition: function() {
@@ -10104,9 +10413,14 @@ var CryptoJS = CryptoJS || function(t, e) {
         this.isDestroyed || (this.isDestroyed = !0, clearTimeout(this.previewTimeout), this.destroyed.dispatch(), this.destroyed.dispose(), $(document).off("keydown", this.onDocumentKeyDown), setTimeout(function() {
             this.cssEditor && (this.cssEditor.destroy(), this.cssEditor = null), this.htmlEditor && (this.htmlEditor.destroy(), this.htmlEditor = null), this.jsEditor && (this.jsEditor.destroy(), this.jsEditor = null), this.palette && (this.palette.destroy(), this.palette = null), this.snippets && (this.snippets.destroy(), this.snippets = null), this.themeOptions.destroy(), this.domElement.remove()
         }.bind(this), 500))
-    }}), SL("views.themes").Preview = SL.views.Base.extend({init: function() {
+    }}), 
+
+SL("views.themes").Preview = SL.views.Base.extend({
+    init: function() {
         this._super(), SL.util.setupReveal({openLinksInTabs: !0}), window.parent !== window.self && window.parent.postMessage({type: "theme-preview-ready"}, window.location.origin)
-    }}), SL("views.users").Show = SL.views.Base.extend({init: function() {
+}}), 
+SL("views.users").Show = SL.views.Base.extend({
+    init: function() {
         this._super(), $(".decks .deck").each(function(t, e) {
             e = $(e), e.find(".edit").on("vclick", this.onEditClicked.bind(this, e)), e.find(".share").on("vclick", this.onShareClicked.bind(this, e)), e.find(".fork").on("vclick", this.onForkClicked.bind(this, e)), e.find(".clone").on("vclick", this.onCloneClicked.bind(this, e)), e.find(".delete").on("vclick", this.onDeleteClicked.bind(this, e)), e.find(".lock-icon").on("vclick", this.onVisibilityClicked.bind(this, e)), e.find(".visibility").on("vclick", this.onVisibilityClicked.bind(this, e)), e.hasClass("is-owner") && (e.find(".deck-title-value").attr({"data-tooltip": "Click to edit","data-tooltip-alignment": "l","data-tooltip-delay": 200}), e.find(".deck-title-value").on("click", this.onDeckTitleClicked.bind(this, e)), e.find(".deck-description-value").attr({"data-tooltip": "Click to edit","data-tooltip-alignment": "l","data-tooltip-delay": 200}), e.find(".deck-description-value").on("click", this.onDeckDescriptionClicked.bind(this, e)))
         }.bind(this)), $(".decks .deck .ladda-button").each(function(t, e) {
@@ -10193,7 +10507,8 @@ var CryptoJS = CryptoJS || function(t, e) {
     },onDeckTitleClicked: function(t) {
         var e = t.find(".deck-title-value"), n = SL.prompt({anchor: e,title: "Edit deck title",type: "input",confirmLabel: "Save",data: {value: e.text(),placeholder: "Deck title...",maxlength: SL.config.DECK_TITLE_MAXLENGTH,width: 400,confirmBeforeDiscard: !0}});
         return n.confirmed.add(function(n) {
-            n && "" !== n.trim() ? (e.text(n), $.ajax({url: SL.config.AJAX_UPDATE_DECK(this.getDeckData(t).id),type: "PUT",context: this,data: {deck: {title: n}}}).fail(function() {
+            n && "" !== n.trim() ? (e.text(n), $.ajax({url: SL.config.AJAX_UPDATE_DECK(this.getDeckData(t).id),
+                type: "PUT",context: this,data: {deck: {title: n}}}).fail(function() {
                 SL.notify("An error occured while saving your deck title", "negative")
             })) : SL.notify("Title can't be empty", "negative")
         }.bind(this)), !1
