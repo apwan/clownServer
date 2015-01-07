@@ -52,6 +52,7 @@ var sc = {
     	// 加入展示房间
     	socket.on('slide watch', function(data) {
     		if (data.presId) {
+				var showArray = this.showArray;
     			// 设置变量
     			socket.username = data.username;
     			presId = data.presId;
@@ -105,8 +106,6 @@ var sc = {
    				message: data
    			});
    		});
-
-
 
     },
 
@@ -240,6 +239,7 @@ var sc = {
          }
       });
   },
+
 
 
   /**
