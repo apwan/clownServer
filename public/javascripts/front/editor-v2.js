@@ -6908,7 +6908,10 @@
     t.isDark = !0, t.cssClass = "ace-monokai", t.cssText = ".ace-monokai .ace_gutter {background: #222222;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai .ace_scroller {background-color: #191919}.ace-monokai .ace_text-layer {color: #F8F8F2}.ace-monokai .ace_cursor {border-left: 2px solid #F8F8F0}.ace-monokai .ace_overwrite-cursors .ace_cursor {border-left: 0px;border-bottom: 1px solid #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;border-radius: 2px}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_markup.ace_underline {text-decoration: underline}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNQ11D6z7Bq1ar/ABCKBG6g04U2AAAAAElFTkSuQmCC) right repeat-y}";
     var i = e("../lib/dom");
     i.importCssString(t.cssText, t.cssClass)
-}), function(e, t, i) {
+}), 
+
+
+function(e, t, i) {
     "use strict";
     function n(e, i, n, o) {
         for (var r = [], s = 0; s < e.length; s++) {
@@ -7425,7 +7428,8 @@
             var n = t(e);
             this._r = n.r, this._g = n.g, this._b = n.b, this._a = n.a, this._roundA = $(100 * this._a) / 100, this._format = i.format || n.format, this._gradientType = i.gradientType, this._r < 1 && (this._r = $(this._r)), this._g < 1 && (this._g = $(this._g)), this._b < 1 && (this._b = $(this._b)), this._ok = n.ok, this._tc_id = N++
         };
-        U.prototype = {isDark: function() {
+        U.prototype = {
+            isDark: function() {
                 return this.getBrightness() < 128
             },isLight: function() {
                 return !this.isDark()
@@ -7513,7 +7517,9 @@
                 return this._applyCombination(v, arguments)
             },tetrad: function() {
                 return this._applyCombination(b, arguments)
-            }}, U.fromRatio = function(e, t) {
+            }
+        }, 
+        U.fromRatio = function(e, t) {
             if ("object" == typeof e) {
                 var i = {};
                 for (var n in e)
@@ -7521,38 +7527,56 @@
                 e = i
             }
             return U(e, t)
-        }, U.equals = function(e, t) {
+        }, 
+        U.equals = function(e, t) {
             return e && t ? U(e).toRgbString() == U(t).toRgbString() : !1
-        }, U.random = function() {
+        }, 
+        U.random = function() {
             return U.fromRatio({r: H(),g: H(),b: H()})
-        }, U.mix = function(e, t, i) {
+        }, 
+        U.mix = function(e, t, i) {
             i = 0 === i ? 0 : i || 50;
             var n, o = U(e).toRgb(), r = U(t).toRgb(), s = i / 100, a = 2 * s - 1, l = r.a - o.a;
             n = a * l == -1 ? a : (a + l) / (1 + a * l), n = (n + 1) / 2;
             var c = 1 - n, h = {r: r.r * n + o.r * c,g: r.g * n + o.g * c,b: r.b * n + o.b * c,a: r.a * s + o.a * (1 - s)};
             return U(h)
-        }, U.readability = function(e, t) {
+        }, 
+        U.readability = function(e, t) {
             var i = U(e), n = U(t), o = i.toRgb(), r = n.toRgb(), s = i.getBrightness(), a = n.getBrightness(), l = Math.max(o.r, r.r) - Math.min(o.r, r.r) + Math.max(o.g, r.g) - Math.min(o.g, r.g) + Math.max(o.b, r.b) - Math.min(o.b, r.b);
             return {brightness: Math.abs(s - a),color: l}
-        }, U.isReadable = function(e, t) {
+        }, 
+        U.isReadable = function(e, t) {
             var i = U.readability(e, t);
             return i.brightness > 125 && i.color > 500
-        }, U.mostReadable = function(e, t) {
+        }, 
+        U.mostReadable = function(e, t) {
             for (var i = null, n = 0, o = !1, r = 0; r < t.length; r++) {
                 var s = U.readability(e, t[r]), a = s.brightness > 125 && s.color > 500, l = 3 * (s.brightness / 125) + s.color / 500;
                 (a && !o || a && o && l > n || !a && !o && l > n) && (o = a, n = l, i = U(t[r]))
             }
             return i
         };
-        var q = U.names = {aliceblue: "f0f8ff",antiquewhite: "faebd7",aqua: "0ff",aquamarine: "7fffd4",azure: "f0ffff",beige: "f5f5dc",bisque: "ffe4c4",black: "000",blanchedalmond: "ffebcd",blue: "00f",blueviolet: "8a2be2",brown: "a52a2a",burlywood: "deb887",burntsienna: "ea7e5d",cadetblue: "5f9ea0",chartreuse: "7fff00",chocolate: "d2691e",coral: "ff7f50",cornflowerblue: "6495ed",cornsilk: "fff8dc",crimson: "dc143c",cyan: "0ff",darkblue: "00008b",darkcyan: "008b8b",darkgoldenrod: "b8860b",darkgray: "a9a9a9",darkgreen: "006400",darkgrey: "a9a9a9",darkkhaki: "bdb76b",darkmagenta: "8b008b",darkolivegreen: "556b2f",darkorange: "ff8c00",darkorchid: "9932cc",darkred: "8b0000",darksalmon: "e9967a",darkseagreen: "8fbc8f",darkslateblue: "483d8b",darkslategray: "2f4f4f",darkslategrey: "2f4f4f",darkturquoise: "00ced1",darkviolet: "9400d3",deeppink: "ff1493",deepskyblue: "00bfff",dimgray: "696969",dimgrey: "696969",dodgerblue: "1e90ff",firebrick: "b22222",floralwhite: "fffaf0",forestgreen: "228b22",fuchsia: "f0f",gainsboro: "dcdcdc",ghostwhite: "f8f8ff",gold: "ffd700",goldenrod: "daa520",gray: "808080",green: "008000",greenyellow: "adff2f",grey: "808080",honeydew: "f0fff0",hotpink: "ff69b4",indianred: "cd5c5c",indigo: "4b0082",ivory: "fffff0",khaki: "f0e68c",lavender: "e6e6fa",lavenderblush: "fff0f5",lawngreen: "7cfc00",lemonchiffon: "fffacd",lightblue: "add8e6",lightcoral: "f08080",lightcyan: "e0ffff",lightgoldenrodyellow: "fafad2",lightgray: "d3d3d3",lightgreen: "90ee90",lightgrey: "d3d3d3",lightpink: "ffb6c1",lightsalmon: "ffa07a",lightseagreen: "20b2aa",lightskyblue: "87cefa",lightslategray: "789",lightslategrey: "789",lightsteelblue: "b0c4de",lightyellow: "ffffe0",lime: "0f0",limegreen: "32cd32",linen: "faf0e6",magenta: "f0f",maroon: "800000",mediumaquamarine: "66cdaa",mediumblue: "0000cd",mediumorchid: "ba55d3",mediumpurple: "9370db",mediumseagreen: "3cb371",mediumslateblue: "7b68ee",mediumspringgreen: "00fa9a",mediumturquoise: "48d1cc",mediumvioletred: "c71585",midnightblue: "191970",mintcream: "f5fffa",mistyrose: "ffe4e1",moccasin: "ffe4b5",navajowhite: "ffdead",navy: "000080",oldlace: "fdf5e6",olive: "808000",olivedrab: "6b8e23",orange: "ffa500",orangered: "ff4500",orchid: "da70d6",palegoldenrod: "eee8aa",palegreen: "98fb98",paleturquoise: "afeeee",palevioletred: "db7093",papayawhip: "ffefd5",peachpuff: "ffdab9",peru: "cd853f",pink: "ffc0cb",plum: "dda0dd",powderblue: "b0e0e6",purple: "800080",red: "f00",rosybrown: "bc8f8f",royalblue: "4169e1",saddlebrown: "8b4513",salmon: "fa8072",sandybrown: "f4a460",seagreen: "2e8b57",seashell: "fff5ee",sienna: "a0522d",silver: "c0c0c0",skyblue: "87ceeb",slateblue: "6a5acd",slategray: "708090",slategrey: "708090",snow: "fffafa",springgreen: "00ff7f",steelblue: "4682b4",tan: "d2b48c",teal: "008080",thistle: "d8bfd8",tomato: "ff6347",turquoise: "40e0d0",violet: "ee82ee",wheat: "f5deb3",white: "fff",whitesmoke: "f5f5f5",yellow: "ff0",yellowgreen: "9acd32"}, G = U.hexNames = y(q), V = function() {
+        var q = U.names = {aliceblue: "f0f8ff",antiquewhite: "faebd7",aqua: "0ff",aquamarine: "7fffd4",azure: "f0ffff",beige: "f5f5dc",bisque: "ffe4c4",black: "000",blanchedalmond: "ffebcd",blue: "00f",blueviolet: "8a2be2",brown: "a52a2a",burlywood: "deb887",burntsienna: "ea7e5d",cadetblue: "5f9ea0",chartreuse: "7fff00",chocolate: "d2691e",coral: "ff7f50",cornflowerblue: "6495ed",cornsilk: "fff8dc",crimson: "dc143c",cyan: "0ff",
+            darkblue: "00008b",darkcyan: "008b8b",darkgoldenrod: "b8860b",darkgray: "a9a9a9",darkgreen: "006400",darkgrey: "a9a9a9",darkkhaki: "bdb76b",darkmagenta: "8b008b",darkolivegreen: "556b2f",darkorange: "ff8c00",darkorchid: "9932cc",darkred: "8b0000",darksalmon: "e9967a",darkseagreen: "8fbc8f",darkslateblue: "483d8b",darkslategray: "2f4f4f",darkslategrey: "2f4f4f",darkturquoise: "00ced1",darkviolet: "9400d3",deeppink: "ff1493",deepskyblue: "00bfff",
+            dimgray: "696969",dimgrey: "696969",dodgerblue: "1e90ff",firebrick: "b22222",floralwhite: "fffaf0",forestgreen: "228b22",fuchsia: "f0f",gainsboro: "dcdcdc",ghostwhite: "f8f8ff",gold: "ffd700",goldenrod: "daa520",gray: "808080",green: "008000",greenyellow: "adff2f",grey: "808080",honeydew: "f0fff0",hotpink: "ff69b4",indianred: "cd5c5c",indigo: "4b0082",ivory: "fffff0",khaki: "f0e68c",lavender: "e6e6fa",lavenderblush: "fff0f5",lawngreen: "7cfc00",lemonchiffon: "fffacd",
+            lightblue: "add8e6",lightcoral: "f08080",lightcyan: "e0ffff",lightgoldenrodyellow: "fafad2",lightgray: "d3d3d3",lightgreen: "90ee90",lightgrey: "d3d3d3",lightpink: "ffb6c1",lightsalmon: "ffa07a",lightseagreen: "20b2aa",lightskyblue: "87cefa",lightslategray: "789",lightslategrey: "789",lightsteelblue: "b0c4de",lightyellow: "ffffe0",lime: "0f0",limegreen: "32cd32",linen: "faf0e6",magenta: "f0f",maroon: "800000",
+            mediumaquamarine: "66cdaa",mediumblue: "0000cd",mediumorchid: "ba55d3",mediumpurple: "9370db",mediumseagreen: "3cb371",mediumslateblue: "7b68ee",mediumspringgreen: "00fa9a",mediumturquoise: "48d1cc",mediumvioletred: "c71585",midnightblue: "191970",mintcream: "f5fffa",mistyrose: "ffe4e1",moccasin: "ffe4b5",navajowhite: "ffdead",navy: "000080",oldlace: "fdf5e6",olive: "808000",olivedrab: "6b8e23",
+            orange: "ffa500",orangered: "ff4500",orchid: "da70d6",palegoldenrod: "eee8aa",palegreen: "98fb98",paleturquoise: "afeeee",palevioletred: "db7093",papayawhip: "ffefd5",peachpuff: "ffdab9",peru: "cd853f",pink: "ffc0cb",plum: "dda0dd",powderblue: "b0e0e6",purple: "800080",red: "f00",rosybrown: "bc8f8f",royalblue: "4169e1",saddlebrown: "8b4513",salmon: "fa8072",sandybrown: "f4a460",seagreen: "2e8b57",seashell: "fff5ee",sienna: "a0522d",silver: "c0c0c0",skyblue: "87ceeb",
+            slateblue: "6a5acd",slategray: "708090",slategrey: "708090",snow: "fffafa",springgreen: "00ff7f",steelblue: "4682b4",tan: "d2b48c",teal: "008080",thistle: "d8bfd8",tomato: "ff6347",turquoise: "40e0d0",violet: "ee82ee",wheat: "f5deb3",white: "fff",whitesmoke: "f5f5f5",yellow: "ff0",yellowgreen: "9acd32"
+        }, 
+            G = U.hexNames = y(q), V = function() {
             var e = "[-\\+]?\\d+%?", t = "[-\\+]?\\d*\\.\\d+%?", i = "(?:" + t + ")|(?:" + e + ")", n = "[\\s|\\(]+(" + i + ")[,|\\s]+(" + i + ")[,|\\s]+(" + i + ")\\s*\\)?", o = "[\\s|\\(]+(" + i + ")[,|\\s]+(" + i + ")[,|\\s]+(" + i + ")[,|\\s]+(" + i + ")\\s*\\)?";
             return {rgb: new RegExp("rgb" + n),rgba: new RegExp("rgba" + o),hsl: new RegExp("hsl" + n),hsla: new RegExp("hsla" + o),hsv: new RegExp("hsv" + n),hex3: /^([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,hex6: /^([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,hex8: /^([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/}
         }();
         e.tinycolor = U
-    }(), t(function() {
+    }(), 
+    t(function() {
         t.fn.spectrum.load && t.fn.spectrum.processNativeColorInputs()
     })
-}(window, jQuery), function() {
+}(window, jQuery), 
+
+
+function() {
     var e = !1, t = /xyz/.test(function() {
     }) ? /\b_super\b/ : /.*/;
     this.Class = function() {
@@ -7575,7 +7599,8 @@
             }(s, i[s]) : i[s];
         return n.prototype = r, n.constructor = n, n.extend = arguments.callee, n
     }
-}(), "undefined" == typeof document || "classList" in document.createElement("a") || !function(e) {
+}(), 
+"undefined" == typeof document || "classList" in document.createElement("a") || !function(e) {
     var t = "classList", i = "prototype", n = (e.HTMLElement || e.Element)[i], o = Object, r = String[i].trim || function() {
         return this.replace(/^\s+|\s+$/g, "")
     }, s = Array[i].indexOf || function(e) {
@@ -7624,8 +7649,11 @@
     } else
         o[i].__defineGetter__ && n.__defineGetter__(t, d)
 }(self);
+
+// declaration by assignment
 var skriv = function() {
-    return {actions: {},create: function(e, t) {
+    return {actions: {},
+       create: function(e, t) {
             function i() {
                 k = k.bind(this), v = v.bind(this), b = b.bind(this), w = w.bind(this), C = C.bind(this), y = y.bind(this), n(), o(), s(), F.classList.add("loaded"), F.classList.add("disabled"), F.addEventListener("click", k, !1)
             }
@@ -7744,7 +7772,9 @@ var skriv = function() {
             return i(), B
         }}
 }();
-skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(?:.*?&(?:amp;)?)?v=|\.be\/)([\w\-]+)(?:&(?:amp;)?[\w\?=]*)?/gi,IS_VIMEO_URL: /(www\.)?vimeo\.com\/(\w*\/)*(([a-z]{0,2}-)?\d+)/gi,YOUTUBE_VIDEO_ID: /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/,VIMEO_VIDEO_ID: /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/},getYouTubeID: function(e) {
+
+skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(?:.*?&(?:amp;)?)?v=|\.be\/)([\w\-]+)(?:&(?:amp;)?[\w\?=]*)?/gi,IS_VIMEO_URL: /(www\.)?vimeo\.com\/(\w*\/)*(([a-z]{0,2}-)?\d+)/gi,YOUTUBE_VIDEO_ID: /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/,VIMEO_VIDEO_ID: /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/},
+    getYouTubeID: function(e) {
         if (skriv.util.expressions.IS_YOUTUBE_URL.test(e)) {
             var t = e.match(skriv.util.expressions.YOUTUBE_VIDEO_ID);
             if (t && t.length > 2)
@@ -7809,7 +7839,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         for (var i = null; e && e.parentNode; )
             e.nodeName.toLowerCase() === t.toLowerCase() && (i = e), e = e.parentNode;
         return i
-    }}, skriv.Signal = function() {
+    }
+}, skriv.Signal = function() {
     this.listeners = []
 }, skriv.Signal.prototype.add = function(e) {
     this.listeners.push(e)
@@ -7821,7 +7852,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
     this.listeners.forEach(function(t) {
         t.apply(null, e)
     })
-}, skriv.actions.abstract = Class.extend({init: function(e, t) {
+}, skriv.actions.abstract = Class.extend({
+    init: function(e, t) {
         this.core = e, this.config = t || {}, this.id = this.config.id, this.tags = this.config.tags || [], this.keys = this.config.keys || [], this.clicked = new skriv.Signal, this.build(), this.bind()
     },build: function() {
         this.domElement = document.createElement("div"), this.domElement.classList.add("action"), this.domElement.classList.add(this.id), this.config.name && this.domElement.classList.add(this.config.name), this.buttonElement = document.createElement("button"), this.domElement.appendChild(this.buttonElement), this.iconElement = document.createElement("span"), this.iconElement.className = "icon " + this.id, this.buttonElement.appendChild(this.iconElement)
@@ -7907,7 +7939,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         return this.selectedElement ? this.selectedElement.getAttribute("data-value") : null
     },hasValue: function(e) {
         return !!this.dropdownElement.querySelector('[data-value="' + e + '"]')
-    }}), skriv.actions.align = skriv.actions.dropdown.extend({init: function(e, t) {
+    }
+}), skriv.actions.align = skriv.actions.dropdown.extend({
+    init: function(e, t) {
         t.openOnHover = !0, this.options = [{name: "Left",value: "justifyleft"}, {name: "Center",value: "justifycenter"}, {name: "Right",value: "justifyright"}, {name: "Justify",value: "justifyfull"}], this._super(e, t)
     },build: function() {
         this._super(), this.domElement.style.width = "50px", this.panelElement.style.width = "152px", this.panelElement.classList.add("single-row")
@@ -7921,7 +7955,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         skriv.util.execCommand(e, !1)
     },setValue: function(e, t) {
         this.hasValue(e) && (this.selectedElement = this.dropdownElement.querySelector('[data-value="' + e + '"]'), t || this.trigger())
-    }}), skriv.actions.link = skriv.actions.popout.extend({init: function(e, t) {
+    }
+}), skriv.actions.link = skriv.actions.popout.extend({
+    init: function(e, t) {
         this._super(e, t)
     },build: function() {
         this._super(), this.domElement.classList.add(this.id), this.linkInput = document.createElement("input"), this.linkInput.setAttribute("type", "text"), this.linkInput.setAttribute("placeholder", "http://"), this.panelElement.appendChild(this.linkInput), this.confirmButton = document.createElement("button"), this.confirmButton.classList.add("confirm-button"), this.confirmButton.innerHTML = "OK", this.panelElement.appendChild(this.confirmButton), this.cancelButton = document.createElement("button"), this.cancelButton.classList.add("cancel-button"), this.cancelButton.innerHTML = "Cancel", this.panelElement.appendChild(this.cancelButton), this.panelElement.style.width = "340px"
@@ -7942,14 +7978,19 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         this.close()
     },onKeyDown: function(e) {
         13 === e.keyCode && this.onConfirmClicked(e)
-    }}), skriv.actions.link.PLACEHOLDER = "javascript:link", skriv.actions.unlink = skriv.actions.abstract.extend({init: function(e, t) {
+    }
+}), skriv.actions.link.PLACEHOLDER = "javascript:link", 
+skriv.actions.unlink = skriv.actions.abstract.extend({
+    init: function(e, t) {
         this._super(e, t)
     },trigger: function() {
         var e = skriv.util.getParentOfType(skriv.util.getSelectedElement(), "a");
         e && 0 === skriv.util.getSelectedHTML().length ? skriv.util.unwrap(e) : skriv.util.execCommand("unlink", !1)
     },onClick: function(e) {
         this._super(e), this.trigger()
-    }}), skriv.actions.image = skriv.actions.popout.extend({init: function(e, t) {
+    }
+}), skriv.actions.image = skriv.actions.popout.extend({
+    init: function(e, t) {
         this._super(e, t), this.changeTab("upload")
     },build: function() {
         this._super(), this.domElement.classList.add(this.id), this.panelElement.classList.add("tabbed"), this.tabBar = document.createElement("div"), this.tabBar.className = "tab-bar", this.panelElement.appendChild(this.tabBar), this.uploadTab = document.createElement("button"), this.uploadTab.setAttribute("data-value", "upload"), this.uploadTab.textContent = "Upload", this.tabBar.appendChild(this.uploadTab), this.linkTab = document.createElement("button"), this.linkTab.setAttribute("data-value", "link"), this.linkTab.textContent = "URL", this.tabBar.appendChild(this.linkTab), this.linkSection = document.createElement("div"), this.linkSection.className = "tab-contents link-section", this.panelElement.appendChild(this.linkSection), this.linkInput = document.createElement("input"), this.linkInput.setAttribute("type", "text"), this.linkInput.setAttribute("placeholder", "Image, YouTube or Vimeo URL..."), this.linkSection.appendChild(this.linkInput), this.confirmButton = document.createElement("button"), this.confirmButton.className = "confirm-button", this.confirmButton.innerHTML = "OK", this.linkSection.appendChild(this.confirmButton), this.cancelButton = document.createElement("button"), this.cancelButton.className = "cancel-button", this.cancelButton.innerHTML = "Cancel", this.linkSection.appendChild(this.cancelButton), this.clearElement = document.createElement("div"), this.clearElement.classList.add("clear"), this.linkSection.appendChild(this.clearElement), this.uploadSection = document.createElement("div"), this.uploadSection.className = "tab-contents upload-section", this.panelElement.appendChild(this.uploadSection), this.formElement = document.createElement("div"), this.formElement.className = "file-form", this.uploadSection.appendChild(this.formElement), this.fileInput = document.createElement("input"), this.fileInput.setAttribute("type", "file"), this.formElement.appendChild(this.fileInput), this.browseWrapper = document.createElement("div"), this.browseWrapper.className = "browse", this.formElement.appendChild(this.browseWrapper), this.browseOutput = document.createElement("input"), this.browseOutput.setAttribute("type", "text"), this.browseOutput.setAttribute("readonly", "readonly"), this.browseOutput.setAttribute("disabled", "disabled"), this.browseOutput.setAttribute("placeholder", "Select image file..."), this.browseOutput.className = "browse-output", this.browseWrapper.appendChild(this.browseOutput), this.browseButton = document.createElement("button"), this.browseButton.className = "browse-button confirm-button", this.browseButton.textContent = "Browse", this.browseWrapper.appendChild(this.browseButton), this.browseClear = document.createElement("div"), this.browseClear.className = "clear", this.formElement.appendChild(this.browseClear), this.progressBar = document.createElement("div"), this.progressBar.className = "progress", this.formElement.appendChild(this.progressBar), this.progressBarInner = document.createElement("div"), this.progressBarInner.className = "inner", this.progressBar.appendChild(this.progressBarInner), this.panelElement.style.width = "340px"
@@ -8014,7 +8055,10 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
     },onKeyDown: function(e) {
         13 === e.keyCode && this.onConfirmClicked(e)
     },onMouseDown: function() {
-    }}), skriv.actions.image.PLACEHOLDER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", skriv.actions.foregroundColor = skriv.actions.abstract.extend({init: function(e, t) {
+    }
+}), skriv.actions.image.PLACEHOLDER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", 
+skriv.actions.foregroundColor = skriv.actions.abstract.extend({
+    init: function(e, t) {
         this._super(e, t), this.colorpickerOpen = !1
     },build: function() {
         this._super(), this.domElement.classList.add(this.id), $(this.buttonElement).spectrum({color: "#ECC",showInput: !0,className: "skriv-colorpicker",showAlpha: !!this.config.alpha,showInitial: !0,showPalette: !0,showSelectionPalette: !0,maxPaletteSize: 10,preferredFormat: "hex",localStorageKey: "skriv-colors",cancelText: "Cancel",cancelClassName: "skriv-cancel-button",chooseText: "Confirm",chooseClassName: "skriv-confirm-button",offsetY: 16,show: function() {
@@ -8038,13 +8082,18 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         return this.colorpickerOpen
     },onClick: function(e) {
         this._super(e)
-    }}), skriv.actions.backgroundColor = skriv.actions.foregroundColor.extend({init: function(e, t) {
+    }
+}), 
+skriv.actions.backgroundColor = skriv.actions.foregroundColor.extend({
+    init: function(e, t) {
         t.alpha = !0, this._super(e, t)
     },trigger: function() {
         skriv.util.execCommand("backcolor", !1, this.currentColor)
     },open: function() {
         this._super()
-    }}), skriv.actions.fontFamily = skriv.actions.dropdown.extend({init: function(e, t) {
+    }
+}), skriv.actions.fontFamily = skriv.actions.dropdown.extend({
+    init: function(e, t) {
         t.openOnHover = !0, this.options = [{name: "Arial",value: "arial"}, {name: "Courier New",value: "courier new"}, {name: "Georgia",value: "georgia"}, {name: "Helvetica",value: "helvetica"}, {name: "Impact",value: "impact"}, {name: "Lato",value: "Lato"}, {name: "League Gothic",value: "League Gothic"}, {name: "Times",value: "times new roman"}, {name: "Monospace",value: "monospace"}, {name: "Trebuchet",value: "trebuchet ms"}, {name: "Verdana",value: "verdana"}], this._super(e, t), [].slice.call(this.dropdownElement.querySelectorAll("li")).forEach(function(e) {
             e.style.fontFamily = e.getAttribute("data-value")
         })
@@ -8054,7 +8103,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         e && "function" == typeof window.getComputedStyle && this.setValue(window.getComputedStyle(e).getPropertyValue("font-family").replace(/(,.*)|\'|\"/g, ""), !0)
     },setValue: function(e, t) {
         this._super(e, t), this.selectedElement && (this.buttonElement.style.fontFamily = this.getValue())
-    }}), skriv.actions.fontFormat = skriv.actions.dropdown.extend({init: function(e, t) {
+    }
+}), skriv.actions.fontFormat = skriv.actions.dropdown.extend({
+    init: function(e, t) {
         t.openOnHover = !0, this.options = [{name: "Paragraph",value: "p"}, {name: "Pre",value: "pre"}, {name: "Code",value: "code"}, {name: "Quote",value: "blockquote"}, {name: "Heading 1",value: "h1"}, {name: "Heading 2",value: "h2"}, {name: "Heading 3",value: "h3"}], this._super(e, t)
     },trigger: function() {
         var e = this.getValue();
@@ -8075,7 +8126,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         if (e)
             for (var t = e; t; )
                 this.hasValue(t.nodeName.toLowerCase()) ? (this.setValue(t.nodeName.toLowerCase(), !0), t = null) : t = t.parentNode
-    }}), skriv.actions.fontSize = skriv.actions.dropdown.extend({init: function(e, t) {
+    }
+}), skriv.actions.fontSize = skriv.actions.dropdown.extend({
+    init: function(e, t) {
         t.openOnHover = !0, t.leaveHeader = !0, this.options = [{name: "18px",value: "1"}, {name: "24px",value: "2"}, {name: "32px",value: "3"}, {name: "42px",value: "4"}, {name: "54px",value: "5"}, {name: "72px",value: "6"}, {name: "112px",value: "7"}], this._super(e, t)
     },build: function() {
         this._super(), this.domElement.style.width = "60px", this.panelElement.style.width = "80px", this.buttonElement.textContent = "Size"
@@ -8088,7 +8141,10 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     i[n].removeAttribute("size"), i[n].style.fontSize = t.name
             })
         }.bind(this), 1)
-    }}), function(e) {
+    }
+}), 
+
+function(e) {
     function t(t) {
         return e.less[t.split("/")[1]]
     }
@@ -8272,7 +8328,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         return String(this).replace(/^\s\s*/, "").replace(/\s\s*$/, "")
     });
     var m, f;
-    "object" == typeof environment && "[object Environment]" === {}.toString.call(environment) ? (m = "undefined" == typeof e ? {} : e.less = {}, f = m.tree = {}, m.mode = "rhino") : "undefined" == typeof e ? (m = exports, f = t("./tree"), m.mode = "node") : ("undefined" == typeof e.less && (e.less = {}), m = e.less, f = e.less.tree = {}, m.mode = "browser"), m.Parser = function(e) {
+    "object" == typeof environment && "[object Environment]" === {}.toString.call(environment) ? (m = "undefined" == typeof e ? {} : e.less = {}, f = m.tree = {}, m.mode = "rhino") : "undefined" == typeof e ? (m = exports, f = t("./tree"), m.mode = "node") : ("undefined" == typeof e.less && (e.less = {}), m = e.less, f = e.less.tree = {}, m.mode = "browser"), 
+    m.Parser = function(e) {
         function i() {
             k = S[C], y = w, A = w
         }
@@ -8344,9 +8401,12 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     n.files[r] = o, e && !n.error && (n.error = e), i(e, o, s), 0 === n.queue.length && F(n.error)
                 }, e)
             }};
-        return this.env = e = e || {}, this.optimization = "optimization" in this.env ? this.env.optimization : 1, this.env.filename = this.env.filename || null, x = {imports: D,parse: function(i, n) {
+        return this.env = e = e || {}, this.optimization = "optimization" in this.env ? this.env.optimization : 1, this.env.filename = this.env.filename || null, 
+        x = {imports: D,
+            parse: function(i, n) {
                 var o, r, a, l = null;
-                if (w = C = A = E = 0, b = i.replace(/\r\n/g, "\n"), b = b.replace(/^\uFEFF/, ""), S = function(t) {
+                if (w = C = A = E = 0, b = i.replace(/\r\n/g, "\n"), b = b.replace(/^\uFEFF/, ""), 
+                    S = function(t) {
                     for (var i, n, o, r, s = 0, a = /(?:@\{[\w-]+\}|[^"'`\{\}\/\(\)\\])+/g, c = /\/\*(?:[^*]|\*+[^\/*])*\*+\/|\/\/.*/g, h = /"((?:[^"\\\r\n]|\\.)*)"|'((?:[^'\\\r\n]|\\.)*)'|`((?:[^`]|\\.)*)`/g, d = 0, u = t[0], p = 0; p < b.length; )
                         if (a.lastIndex = p, (i = a.exec(b)) && i.index === p && (p += i[0].length, u.push(i[0])), o = b.charAt(p), c.lastIndex = h.lastIndex = p, (i = h.exec(b)) && i.index === p)
                             p += i[0].length, u.push(i[0]);
@@ -8413,7 +8473,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 this.imports.queue.length > 0 ? F = function(e) {
                     e = l || e, e ? n(e) : n(null, o)
                 } : n(l, o)
-            },parsers: {primary: function() {
+            },
+            parsers: {
+                primary: function() {
                     for (var e, t = []; (e = s(this.mixin.definition) || s(this.rule) || s(this.ruleset) || s(this.mixin.call) || s(this.comment) || s(this.directive)) || s(/^[\s\n]+/) || s(/^;+/); )
                         e && t.push(e);
                     return t
@@ -8473,14 +8535,16 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     },javascript: function() {
                         var e, t, i = w;
                         return "~" === b.charAt(i) && (i++, t = !0), "`" === b.charAt(i) ? (t && s("~"), (e = s(/^`([^`]*)`/)) ? new f.JavaScript(e[1], w, t) : void 0) : void 0
-                    }},variable: function() {
+                    }
+                },variable: function() {
                     var e;
                     return "@" === b.charAt(w) && (e = s(/^(@[\w-]+)\s*:/)) ? e[1] : void 0
                 },shorthand: function() {
                     var e, t;
                     if (h(/^[@\w.%-]+\/[@\w.-]+/))
                         return i(), (e = s(this.entity)) && s("/") && (t = s(this.entity)) ? new f.Shorthand(e, t) : void n()
-                },mixin: {call: function() {
+                },mixin: {
+                    call: function() {
                         var t, o, r, a, d, u, p, g, m, v, C = [], k = [], y = [], E = w, S = b.charAt(w), A = !1;
                         if ("." === S || "#" === S) {
                             for (i(); t = s(/^[#.](?:[\w-]|\\(?:[A-Fa-f0-9]{1,6} ?|[^A-Fa-f0-9]))+/); )
@@ -8525,7 +8589,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                                 return new f.mixin.Definition(e, d, o, c, u);
                             n()
                         }
-                    }},entity: function() {
+                    }
+                },entity: function() {
                     return s(this.entities.literal) || s(this.entities.variable) || s(this.entities.url) || s(this.entities.call) || s(this.entities.keyword) || s(this.entities.javascript) || s(this.comment)
                 },end: function() {
                     return s(";") || h("}")
@@ -8710,12 +8775,16 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 },property: function() {
                     var e;
                     return (e = s(/^(\*?-?[_a-z0-9-]+)\s*:/)) ? e[1] : void 0
-                }}}
-    }, ("browser" === m.mode || "rhino" === m.mode) && (m.Parser.importer = function(e, t, i, n) {
+                }
+            }
+        }
+    }, 
+    ("browser" === m.mode || "rhino" === m.mode) && (m.Parser.importer = function(e, t, i, n) {
         !/^([a-z-]+:)?\//.test(e) && t.length > 0 && (e = t[0] + e), a({href: e,title: e,type: n.mime,contents: n.contents,files: n.files,rootpath: n.rootpath,entryPath: n.entryPath,relativeUrls: n.relativeUrls}, function(e, o, r, s, a, l) {
             e && "function" == typeof n.errback ? n.errback.call(null, l, t, i, n) : i.call(null, e, o, l)
         }, !0)
-    }), function(e) {
+    }), 
+    function(e) {
         function t(t) {
             return e.functions.hsla(t.h, t.s, t.l, t.a)
         }
@@ -8893,9 +8962,17 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 return this.mix(this.rgb(255, 255, 255), e, t)
             },shade: function(e, t) {
                 return this.mix(this.rgb(0, 0, 0), e, t)
-            }}
+            }
+        }
     }(t("./tree")), function(e) {
-        e.colors = {aliceblue: "#f0f8ff",antiquewhite: "#faebd7",aqua: "#00ffff",aquamarine: "#7fffd4",azure: "#f0ffff",beige: "#f5f5dc",bisque: "#ffe4c4",black: "#000000",blanchedalmond: "#ffebcd",blue: "#0000ff",blueviolet: "#8a2be2",brown: "#a52a2a",burlywood: "#deb887",cadetblue: "#5f9ea0",chartreuse: "#7fff00",chocolate: "#d2691e",coral: "#ff7f50",cornflowerblue: "#6495ed",cornsilk: "#fff8dc",crimson: "#dc143c",cyan: "#00ffff",darkblue: "#00008b",darkcyan: "#008b8b",darkgoldenrod: "#b8860b",darkgray: "#a9a9a9",darkgrey: "#a9a9a9",darkgreen: "#006400",darkkhaki: "#bdb76b",darkmagenta: "#8b008b",darkolivegreen: "#556b2f",darkorange: "#ff8c00",darkorchid: "#9932cc",darkred: "#8b0000",darksalmon: "#e9967a",darkseagreen: "#8fbc8f",darkslateblue: "#483d8b",darkslategray: "#2f4f4f",darkslategrey: "#2f4f4f",darkturquoise: "#00ced1",darkviolet: "#9400d3",deeppink: "#ff1493",deepskyblue: "#00bfff",dimgray: "#696969",dimgrey: "#696969",dodgerblue: "#1e90ff",firebrick: "#b22222",floralwhite: "#fffaf0",forestgreen: "#228b22",fuchsia: "#ff00ff",gainsboro: "#dcdcdc",ghostwhite: "#f8f8ff",gold: "#ffd700",goldenrod: "#daa520",gray: "#808080",grey: "#808080",green: "#008000",greenyellow: "#adff2f",honeydew: "#f0fff0",hotpink: "#ff69b4",indianred: "#cd5c5c",indigo: "#4b0082",ivory: "#fffff0",khaki: "#f0e68c",lavender: "#e6e6fa",lavenderblush: "#fff0f5",lawngreen: "#7cfc00",lemonchiffon: "#fffacd",lightblue: "#add8e6",lightcoral: "#f08080",lightcyan: "#e0ffff",lightgoldenrodyellow: "#fafad2",lightgray: "#d3d3d3",lightgrey: "#d3d3d3",lightgreen: "#90ee90",lightpink: "#ffb6c1",lightsalmon: "#ffa07a",lightseagreen: "#20b2aa",lightskyblue: "#87cefa",lightslategray: "#778899",lightslategrey: "#778899",lightsteelblue: "#b0c4de",lightyellow: "#ffffe0",lime: "#00ff00",limegreen: "#32cd32",linen: "#faf0e6",magenta: "#ff00ff",maroon: "#800000",mediumaquamarine: "#66cdaa",mediumblue: "#0000cd",mediumorchid: "#ba55d3",mediumpurple: "#9370d8",mediumseagreen: "#3cb371",mediumslateblue: "#7b68ee",mediumspringgreen: "#00fa9a",mediumturquoise: "#48d1cc",mediumvioletred: "#c71585",midnightblue: "#191970",mintcream: "#f5fffa",mistyrose: "#ffe4e1",moccasin: "#ffe4b5",navajowhite: "#ffdead",navy: "#000080",oldlace: "#fdf5e6",olive: "#808000",olivedrab: "#6b8e23",orange: "#ffa500",orangered: "#ff4500",orchid: "#da70d6",palegoldenrod: "#eee8aa",palegreen: "#98fb98",paleturquoise: "#afeeee",palevioletred: "#d87093",papayawhip: "#ffefd5",peachpuff: "#ffdab9",peru: "#cd853f",pink: "#ffc0cb",plum: "#dda0dd",powderblue: "#b0e0e6",purple: "#800080",red: "#ff0000",rosybrown: "#bc8f8f",royalblue: "#4169e1",saddlebrown: "#8b4513",salmon: "#fa8072",sandybrown: "#f4a460",seagreen: "#2e8b57",seashell: "#fff5ee",sienna: "#a0522d",silver: "#c0c0c0",skyblue: "#87ceeb",slateblue: "#6a5acd",slategray: "#708090",slategrey: "#708090",snow: "#fffafa",springgreen: "#00ff7f",steelblue: "#4682b4",tan: "#d2b48c",teal: "#008080",thistle: "#d8bfd8",tomato: "#ff6347",turquoise: "#40e0d0",violet: "#ee82ee",wheat: "#f5deb3",white: "#ffffff",whitesmoke: "#f5f5f5",yellow: "#ffff00",yellowgreen: "#9acd32"}
+        e.colors = {aliceblue: "#f0f8ff",antiquewhite: "#faebd7",aqua: "#00ffff",aquamarine: "#7fffd4",azure: "#f0ffff",beige: "#f5f5dc",bisque: "#ffe4c4",black: "#000000",blanchedalmond: "#ffebcd",blue: "#0000ff",blueviolet: "#8a2be2",brown: "#a52a2a",burlywood: "#deb887",cadetblue: "#5f9ea0",chartreuse: "#7fff00",chocolate: "#d2691e",coral: "#ff7f50",cornflowerblue: "#6495ed",cornsilk: "#fff8dc",crimson: "#dc143c",cyan: "#00ffff",
+        darkblue: "#00008b",darkcyan: "#008b8b",darkgoldenrod: "#b8860b",darkgray: "#a9a9a9",darkgrey: "#a9a9a9",darkgreen: "#006400",darkkhaki: "#bdb76b",darkmagenta: "#8b008b",darkolivegreen: "#556b2f",darkorange: "#ff8c00",darkorchid: "#9932cc",darkred: "#8b0000",darksalmon: "#e9967a",darkseagreen: "#8fbc8f",darkslateblue: "#483d8b",darkslategray: "#2f4f4f",darkslategrey: "#2f4f4f",darkturquoise: "#00ced1",darkviolet: "#9400d3",
+        deeppink: "#ff1493",deepskyblue: "#00bfff",dimgray: "#696969",dimgrey: "#696969",dodgerblue: "#1e90ff",firebrick: "#b22222",floralwhite: "#fffaf0",forestgreen: "#228b22",fuchsia: "#ff00ff",gainsboro: "#dcdcdc",ghostwhite: "#f8f8ff",gold: "#ffd700",goldenrod: "#daa520",gray: "#808080",grey: "#808080",green: "#008000",greenyellow: "#adff2f",honeydew: "#f0fff0",hotpink: "#ff69b4",indianred: "#cd5c5c",indigo: "#4b0082",ivory: "#fffff0",khaki: "#f0e68c",
+        lavender: "#e6e6fa",lavenderblush: "#fff0f5",lawngreen: "#7cfc00",lemonchiffon: "#fffacd",lightblue: "#add8e6",lightcoral: "#f08080",lightcyan: "#e0ffff",lightgoldenrodyellow: "#fafad2",lightgray: "#d3d3d3",lightgrey: "#d3d3d3",lightgreen: "#90ee90",lightpink: "#ffb6c1",lightsalmon: "#ffa07a",lightseagreen: "#20b2aa",lightskyblue: "#87cefa",lightslategray: "#778899",lightslategrey: "#778899",lightsteelblue: "#b0c4de",lightyellow: "#ffffe0",
+        lime: "#00ff00",limegreen: "#32cd32",linen: "#faf0e6",magenta: "#ff00ff",maroon: "#800000",mediumaquamarine: "#66cdaa",mediumblue: "#0000cd",mediumorchid: "#ba55d3",mediumpurple: "#9370d8",mediumseagreen: "#3cb371",mediumslateblue: "#7b68ee",mediumspringgreen: "#00fa9a",mediumturquoise: "#48d1cc",mediumvioletred: "#c71585",midnightblue: "#191970",mintcream: "#f5fffa",mistyrose: "#ffe4e1",moccasin: "#ffe4b5",navajowhite: "#ffdead",navy: "#000080",oldlace: "#fdf5e6",
+        olive: "#808000",olivedrab: "#6b8e23",orange: "#ffa500",orangered: "#ff4500",orchid: "#da70d6",palegoldenrod: "#eee8aa",palegreen: "#98fb98",paleturquoise: "#afeeee",palevioletred: "#d87093",papayawhip: "#ffefd5",peachpuff: "#ffdab9",peru: "#cd853f",pink: "#ffc0cb",plum: "#dda0dd",powderblue: "#b0e0e6",purple: "#800080",red: "#ff0000",rosybrown: "#bc8f8f",royalblue: "#4169e1",saddlebrown: "#8b4513",salmon: "#fa8072",sandybrown: "#f4a460",seagreen: "#2e8b57",seashell: "#fff5ee",
+        sienna: "#a0522d",silver: "#c0c0c0",skyblue: "#87ceeb",slateblue: "#6a5acd",slategray: "#708090",slategrey: "#708090",snow: "#fffafa",springgreen: "#00ff7f",steelblue: "#4682b4",tan: "#d2b48c",teal: "#008080",thistle: "#d8bfd8",tomato: "#ff6347",turquoise: "#40e0d0",violet: "#ee82ee",wheat: "#f5deb3",white: "#ffffff",whitesmoke: "#f5f5f5",yellow: "#ffff00",yellowgreen: "#9acd32"
+        }
     }(t("./tree")), function(e) {
         e.Alpha = function(e) {
             this.value = e
@@ -8916,7 +8993,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return -1;
                 var t = this.toCSS(), i = e.toCSS();
                 return t === i ? 0 : i > t ? -1 : 1
-            }}
+            }
+        }
     }(t("../tree")), function(e) {
         e.Assignment = function(e, t) {
             this.key = e, this.value = t
@@ -8944,7 +9022,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 }).join(", ") + ")")
             },toCSS: function(e) {
                 return this.eval(e).toCSS()
-            }}
+            }
+        }
     }(t("../tree")), function(e) {
         e.Color = function(e, t) {
             this.rgb = Array.isArray(e) ? e : 6 == e.length ? e.match(/.{2}/g).map(function(e) {
@@ -8952,7 +9031,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
             }) : e.split("").map(function(e) {
                 return parseInt(e + e, 16)
             }), this.alpha = "number" == typeof t ? t : 1
-        }, e.Color.prototype = {eval: function() {
+        }, e.Color.prototype = {
+            eval: function() {
                 return this
             },toCSS: function() {
                 return this.alpha < 1 ? "rgba(" + this.rgb.map(function(e) {
@@ -8991,7 +9071,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 }).join("")
             },compare: function(e) {
                 return e.rgb && e.rgb[0] === this.rgb[0] && e.rgb[1] === this.rgb[1] && e.rgb[2] === this.rgb[2] && e.alpha === this.alpha ? 0 : -1
-            }}
+            }
+        }
     }(t("../tree")), function(e) {
         e.Comment = function(e, t) {
             this.value = e, this.silent = !!t
@@ -9044,7 +9125,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 return new e.Dimension(e.operate(t, this.value, i.value), this.unit || i.unit)
             },compare: function(t) {
                 return t instanceof e.Dimension ? t.value > this.value ? -1 : t.value < this.value ? 1 : t.unit && this.unit !== t.unit ? -1 : 0 : -1
-            }}
+            }
+        }
     }(t("../tree")), function(e) {
         e.Directive = function(t, i) {
             this.name = t, Array.isArray(i) ? (this.ruleset = new e.Ruleset([], i), this.ruleset.allowImports = !0) : this.value = i
@@ -9576,6 +9658,7 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
             }).join(", ") + "]" : e.toCSS(!1)
         }
     }(t("./tree"));
+
     var v = /^(file|chrome(-extension)?|resource|qrc|app):/.test(location.protocol);
     if (m.env = m.env || ("127.0.0.1" == location.hostname || "0.0.0.0" == location.hostname || "localhost" == location.hostname || location.port.length > 0 || v ? "development" : "production"), m.async = m.async || !1, m.fileAsync = m.fileAsync || !1, m.poll = m.poll || (v ? 1e3 : 1500), m.functions)
         for (var b in m.functions)
@@ -9612,7 +9695,10 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
     }, m.refreshStyles = n, m.refresh("development" === m.env), "function" == typeof define && define.amd && define("less", [], function() {
         return m
     })
-}(window), function(e) {
+}(window), 
+
+
+function(e) {
     function t(e, t, o) {
         var r = e.scrollTop;
         e.setSelectionRange ? i(e, t, o) : document.selection && n(e, t, o), e.scrollTop = r
@@ -9688,7 +9774,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
     }, e.fn.tabby.catch_kc = function(e) {
         return e.keyCode ? e.keyCode : e.charCode ? e.charCode : e.which
     }, e.fn.tabby.pressed = {shft: !1,ctrl: !1,alt: !1,last: null}, e.fn.tabby.defaults = {tabString: String.fromCharCode(9)}
-}(jQuery), function(e) {
+}(jQuery), 
+
+function(e) {
     var t;
     return e.event.fix = function(e) {
         return function(t) {
@@ -9709,7 +9797,10 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
             })
         })
     }
-}(jQuery), function() {
+}(jQuery), 
+
+
+function() {
     var e = function(t, i) {
         var n = t.nodeType;
         if (3 == n)
@@ -9748,12 +9839,16 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
             } catch (o) {
                 throw new Error("Error parsing XML string")
             }
-        }}), Object.defineProperty(SVGElement.prototype, "innerSVG", {get: function() {
+        }
+    }), Object.defineProperty(SVGElement.prototype, "innerSVG", {get: function() {
             return this.innerHTML
         },set: function(e) {
             this.innerHTML = e
-        }})
-}(), function(e) {
+        }
+    })
+}(), 
+
+function(e) {
     if ("function" == typeof bootstrap)
         bootstrap("katex", e);
     else if ("object" == typeof exports)
@@ -9789,7 +9884,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
         for (var r = "function" == typeof require && require, s = 0; s < n.length; s++)
             o(n[s]);
         return o
-    }({1: [function(e, t) {
+    }({
+        1: [function(e, t) {
                 var i = e("./src/ParseError"), n = e("./src/buildTree"), o = e("./src/parseTree"), r = e("./src/utils"), s = function(e, t) {
                     r.clearNode(t);
                     var i = o(e), s = n(i).toNode();
@@ -9803,7 +9899,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return n(t).toMarkup()
                 };
                 t.exports = {render: s,renderToString: a,ParseError: i}
-            }, {"./src/ParseError": 4,"./src/buildTree": 8,"./src/parseTree": 13,"./src/utils": 15}],2: [function(e, t) {
+            }, {"./src/ParseError": 4,"./src/buildTree": 8,"./src/parseTree": 13,"./src/utils": 15}],
+        2: [function(e, t) {
                 function i(e) {
                     this._input = e
                 }
@@ -9811,7 +9908,7 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     this.text = e, this.data = t, this.position = i
                 }
                 var o = e("./ParseError"), r = [/^[/|@.""`0-9a-zA-Z]/, /^[*+-]/, /^[=<>:]/, /^[,;]/, /^['\^_{}]/, /^[(\[]/, /^[)\]?!]/, /^~/], s = [/^[a-zA-Z0-9`!@*()-=+\[\]'";:?\/.,]/, /^[{}]/, /^~/], a = /^\s*/, l = /^( +|\\  +)/, c = /^\\(?:[a-zA-Z]+|.)/;
-
+                //" //some trouble
                 i.prototype._innerLex = function(e, t, i) {
                     var r, s = this._input.slice(e);
                     if (i)
@@ -9857,7 +9954,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 }, i.prototype.lex = function(e, t) {
                     return "math" === t ? this._innerLex(e, r, !0) : "text" === t ? this._innerLex(e, s, !1) : "color" === t ? this._innerLexColor(e) : "size" === t ? this._innerLexSize(e) : "whitespace" === t ? this._innerLexWhitespace(e) : void 0
                 }, t.exports = i
-            }, {"./ParseError": 4}],3: [function(e, t) {
+            }, {"./ParseError": 4}],
+        3: [function(e, t) {
                 function i(e, t, i, n, o) {
                     this.style = e, this.color = i, this.size = t, void 0 === n && (n = e), this.parentStyle = n, void 0 === o && (o = t), this.parentSize = o
                 }
@@ -9874,7 +9972,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 i.prototype.getColor = function() {
                     return n[this.color] || this.color
                 }, t.exports = i
-            }, {}],4: [function(e, t) {
+            }, {}],
+        4: [function(e, t) {
                 function i(e, t, n) {
                     var o = "KaTeX parse error: " + e;
                     if (void 0 !== t && void 0 !== n) {
@@ -9888,7 +9987,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return l.name = "ParseError", l.__proto__ = i.prototype, l.position = n, l
                 }
                 i.prototype.__proto__ = Error.prototype, t.exports = i
-            }, {}],5: [function(e, t) {
+            }, {}],
+        5: [function(e, t) {
                 function i(e) {
                     this.lexer = new a(e)
                 }
@@ -10077,7 +10177,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     }
                     return l[t][i.text] ? new r(new o(new n(l[t][i.text].group, i.text, t), i.position), !1) : null
                 }, t.exports = i
-            }, {"./Lexer": 2,"./ParseError": 4,"./functions": 12,"./symbols": 14,"./utils": 15}],6: [function(e, t) {
+            }, {"./Lexer": 2,"./ParseError": 4,"./functions": 12,"./symbols": 14,"./utils": 15}],
+        6: [function(e, t) {
                 function i(e, t, i, n) {
                     this.id = e, this.size = t, this.cramped = n, this.sizeMultiplier = i
                 }
@@ -10098,7 +10199,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                 };
                 var n = 0, o = 1, r = 2, s = 3, a = 4, l = 5, c = 6, h = 7, d = ["displaystyle textstyle", "textstyle", "scriptstyle", "scriptscriptstyle"], u = ["reset-textstyle", "reset-textstyle", "reset-scriptstyle", "reset-scriptscriptstyle"], p = [new i(n, 0, 1, !1), new i(o, 0, 1, !0), new i(r, 1, 1, !1), new i(s, 1, 1, !0), new i(a, 2, .7, !1), new i(l, 2, .7, !0), new i(c, 3, .5, !1), new i(h, 3, .5, !0)], g = [a, l, a, l, c, h, c, h], m = [l, l, l, l, h, h, h, h], f = [r, s, a, l, c, h, c, h], v = [s, s, l, l, h, h, h, h], b = [o, o, s, s, l, l, h, h];
                 t.exports = {DISPLAY: p[n],TEXT: p[r],SCRIPT: p[a],SCRIPTSCRIPT: p[c]}
-            }, {}],7: [function(e, t) {
+            }, {}],
+        7: [function(e, t) {
                 var i = e("./domTree"), n = e("./fontMetrics"), o = e("./symbols"), r = function(e, t, r, s, a) {
                     o[r][e] && o[r][e].replace && (e = o[r][e].replace);
                     var l, c = n.getCharacterMetrics(e, t);
@@ -10158,7 +10260,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return k.height = Math.max(s, k.height), k.depth = Math.max(-r, k.depth), k
                 };
                 t.exports = {makeSymbol: r,mathit: s,mathrm: a,makeSpan: c,makeFragment: h,makeVList: u}
-            }, {"./domTree": 10,"./fontMetrics": 11,"./symbols": 14}],8: [function(e, t) {
+            }, {"./domTree": 10,"./fontMetrics": 11,"./symbols": 14}],
+        8: [function(e, t) {
                 var i = e("./Options"), n = e("./ParseError"), o = e("./Style"), r = e("./buildCommon"), s = e("./delimiter"), a = e("./domTree"), l = e("./fontMetrics"), c = e("./utils"), h = r.makeSpan, d = function(e, t, i) {
                     for (var n = [], o = 0; o < e.length; o++) {
                         var r = e[o];
@@ -10377,7 +10480,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return l
                 };
                 t.exports = C
-            }, {"./Options": 3,"./ParseError": 4,"./Style": 6,"./buildCommon": 7,"./delimiter": 9,"./domTree": 10,"./fontMetrics": 11,"./utils": 15}],9: [function(e, t) {
+            }, {"./Options": 3,"./ParseError": 4,"./Style": 6,"./buildCommon": 7,"./delimiter": 9,"./domTree": 10,"./fontMetrics": 11,"./utils": 15}],
+        9: [function(e, t) {
                 var i = e("./ParseError"), n = e("./Style"), o = e("./buildCommon"), r = e("./fontMetrics"), s = e("./symbols"), a = e("./utils"), l = o.makeSpan, c = function(e, t) {
                     return s.math[e] && s.math[e].replace ? r.getCharacterMetrics(s.math[e].replace, t) : r.getCharacterMetrics(e, t)
                 }, h = function(e, t, i) {
@@ -10459,7 +10563,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return x(e, h, !0, n, o)
                 };
                 t.exports = {sizedDelim: C,customSizedDelim: x,leftRightDelim: F}
-            }, {"./ParseError": 4,"./Style": 6,"./buildCommon": 7,"./fontMetrics": 11,"./symbols": 14,"./utils": 15}],10: [function(e, t) {
+            }, {"./ParseError": 4,"./Style": 6,"./buildCommon": 7,"./fontMetrics": 11,"./symbols": 14,"./utils": 15}],
+
+        10: [function(e, t) {
                 function i(e, t, i, n, o, r) {
                     this.classes = e || [], this.children = t || [], this.height = i || 0, this.depth = n || 0, this.maxFontSize = o || 0, this.style = r || {}
                 }
@@ -10518,7 +10624,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     var o = r.escape(this.value);
                     return e ? (t += ">", t += o, t += "</span>") : o
                 }, t.exports = {span: i,documentFragment: n,symbolNode: o}
-            }, {"./utils": 15}],11: [function(e, t) {
+            }, {"./utils": 15}],
+        11: [function(e, t) {
                 var i = e("./Style"), n = .431, o = 1, r = .677, s = .394, a = .444, l = .686, c = .345, h = .413, d = .363, u = .289, p = .15, g = .247, m = .386, f = .05, v = 2.39, b = 1.01, w = .81, C = .71, k = .25, y = .04, E = .111, S = .166, A = .2, x = .6, F = .1, D = 10, L = {xHeight: n,quad: o,num1: r,num2: s,num3: a,denom1: l,denom2: c,sup1: h,sup2: d,sup3: u,sub1: p,sub2: g,supDrop: m,subDrop: f,axisHeight: k,defaultRuleThickness: y,bigOpSpacing1: E,bigOpSpacing2: S,bigOpSpacing3: A,bigOpSpacing4: x,bigOpSpacing5: F,ptPerEm: D,delim1: v,getDelim2: function(e) {
                         if (e.size === i.TEXT.size)
                             return b;
@@ -10531,7 +10638,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     return B[t][e.charCodeAt(0)]
                 };
                 t.exports = {metrics: L,getCharacterMetrics: T}
-            }, {"./Style": 6}],12: [function(e, t) {
+            }, {"./Style": 6}],
+        12: [function(e, t) {
                 for (var i = e("./utils"), n = e("./ParseError"), o = {"\\sqrt": {numArgs: 1,numOptionalArgs: 1,handler: function(e, t, i, o) {
                             if (null != t)
                                 throw new n("Optional arguments to \\sqrt aren't supported yet", this.lexer, o[1] - 1);
@@ -10548,7 +10656,9 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                             return {type: "rule",shift: t && t.value,width: i.value,height: n.value}
                         }},"\\KaTeX": {numArgs: 0,handler: function() {
                             return {type: "katex"}
-                        }}}, r = {"\\bigl": {type: "open",size: 1},"\\Bigl": {type: "open",size: 2},"\\biggl": {type: "open",size: 3},"\\Biggl": {type: "open",size: 4},"\\bigr": {type: "close",size: 1},"\\Bigr": {type: "close",size: 2},"\\biggr": {type: "close",size: 3},"\\Biggr": {type: "close",size: 4},"\\bigm": {type: "rel",size: 1},"\\Bigm": {type: "rel",size: 2},"\\biggm": {type: "rel",size: 3},"\\Biggm": {type: "rel",size: 4},"\\big": {type: "textord",size: 1},"\\Big": {type: "textord",size: 2},"\\bigg": {type: "textord",size: 3},"\\Bigg": {type: "textord",size: 4}}, s = ["(", ")", "[", "\\lbrack", "]", "\\rbrack", "\\{", "\\lbrace", "\\}", "\\rbrace", "\\lfloor", "\\rfloor", "\\lceil", "\\rceil", "<", ">", "\\langle", "\\rangle", "/", "\\backslash", "|", "\\vert", "\\|", "\\Vert", "\\uparrow", "\\Uparrow", "\\downarrow", "\\Downarrow", "\\updownarrow", "\\Updownarrow", "."], a = [{funcs: ["\\blue", "\\orange", "\\pink", "\\red", "\\green", "\\gray", "\\purple"],data: {numArgs: 1,allowedInText: !0,handler: function(e, t) {
+                        }}}, r = {"\\bigl": {type: "open",size: 1},"\\Bigl": {type: "open",size: 2},"\\biggl": {type: "open",size: 3},"\\Biggl": {type: "open",size: 4},"\\bigr": {type: "close",size: 1},"\\Bigr": {type: "close",size: 2},"\\biggr": {type: "close",size: 3},"\\Biggr": {type: "close",size: 4},"\\bigm": {type: "rel",size: 1},"\\Bigm": {type: "rel",size: 2},"\\biggm": {type: "rel",size: 3},"\\Biggm": {type: "rel",size: 4},
+                        "\\big": {type: "textord",size: 1},"\\Big": {type: "textord",size: 2},"\\bigg": {type: "textord",size: 3},"\\Bigg": {type: "textord",size: 4}}, s = ["(", ")", "[", "\\lbrack", "]", "\\rbrack", "\\{", "\\lbrace", "\\}", "\\rbrace", "\\lfloor", "\\rfloor", "\\lceil", "\\rceil", "<", ">", "\\langle", "\\rangle", "/", "\\backslash", "|", "\\vert", "\\|", "\\Vert", "\\uparrow", "\\Uparrow", "\\downarrow", "\\Downarrow", "\\updownarrow", "\\Updownarrow", "."], a = [{funcs: ["\\blue", "\\orange", "\\pink", "\\red", "\\green", "\\gray", "\\purple"],
+                              data: {numArgs: 1,allowedInText: !0,handler: function(e, t) {
                                 var i;
                                 return i = "ordgroup" === t.type ? t.value : [t], {type: "color",color: "katex-" + e.slice(1),value: i}
                             }}}, {funcs: ["\\arcsin", "\\arccos", "\\arctan", "\\arg", "\\cos", "\\cosh", "\\cot", "\\coth", "\\csc", "\\deg", "\\dim", "\\exp", "\\hom", "\\ker", "\\lg", "\\ln", "\\log", "\\sec", "\\sin", "\\sinh", "\\tan", "\\tanh"],data: {numArgs: 0,handler: function(e) {
@@ -10585,15 +10695,27 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                                         s = "text"
                                 }
                                 return {type: "genfrac",numer: t,denom: i,hasBarLine: n,leftDelim: o,rightDelim: r,size: s}
-                            }}}, {funcs: ["\\llap", "\\rlap"],data: {numArgs: 1,allowedInText: !0,handler: function(e, t) {
+                            }
+                        }
+                    }, {funcs: ["\\llap", "\\rlap"],data: {numArgs: 1,allowedInText: !0,handler: function(e, t) {
                                 return {type: e.slice(1),body: t}
-                            }}}, {funcs: ["\\bigl", "\\Bigl", "\\biggl", "\\Biggl", "\\bigr", "\\Bigr", "\\biggr", "\\Biggr", "\\bigm", "\\Bigm", "\\biggm", "\\Biggm", "\\big", "\\Big", "\\bigg", "\\Bigg", "\\left", "\\right"],data: {numArgs: 1,handler: function(e, t, o) {
+                            }
+                        }
+                    }, {funcs: ["\\bigl", "\\Bigl", "\\biggl", "\\Biggl", "\\bigr", "\\Bigr", "\\biggr", "\\Biggr", "\\bigm", "\\Bigm", "\\biggm", "\\Biggm", "\\big", "\\Big", "\\bigg", "\\Bigg", "\\left", "\\right"],
+                       data: {numArgs: 1,handler: function(e, t, o) {
                                 if (!i.contains(s, t.value))
                                     throw new n("Invalid delimiter: '" + t.value + "' after '" + e + "'", this.lexer, o[1]);
                                 return "\\left" === e || "\\right" === e ? {type: "leftright",value: t.value} : {type: "delimsizing",size: r[e].size,delimType: r[e].type,value: t.value}
-                            }}}, {funcs: ["\\tiny", "\\scriptsize", "\\footnotesize", "\\small", "\\normalsize", "\\large", "\\Large", "\\LARGE", "\\huge", "\\Huge"],data: {numArgs: 0}}, {funcs: ["\\displaystyle", "\\textstyle", "\\scriptstyle", "\\scriptscriptstyle"],data: {numArgs: 0}}, {funcs: ["\\acute", "\\grave", "\\ddot", "\\tilde", "\\bar", "\\breve", "\\check", "\\hat", "\\vec", "\\dot"],data: {numArgs: 1,handler: function(e, t) {
+                            }
+                        }
+                    }, {funcs: ["\\tiny", "\\scriptsize", "\\footnotesize", "\\small", "\\normalsize", "\\large", "\\Large", "\\LARGE", "\\huge", "\\Huge"],data: {numArgs: 0}}, {funcs: ["\\displaystyle", "\\textstyle", "\\scriptstyle", "\\scriptscriptstyle"],data: {numArgs: 0}}, 
+                    {funcs: ["\\acute", "\\grave", "\\ddot", "\\tilde", "\\bar", "\\breve", "\\check", "\\hat", "\\vec", "\\dot"],
+                       data: {numArgs: 1,handler: function(e, t) {
                                 return {type: "accent",accent: e,base: t}
-                            }}}, {funcs: ["\\over", "\\choose"],data: {numArgs: 0,handler: function(e) {
+                            }
+                        }
+                    }, {funcs: ["\\over", "\\choose"],
+                       data: {numArgs: 0,handler: function(e) {
                                 var t;
                                 switch (e) {
                                     case "\\over":
@@ -10606,7 +10728,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                                         throw new Error("Unrecognized infix genfrac command")
                                 }
                                 return {type: "infix",replaceWith: t}
-                            }}}], l = function(e, t) {
+                            }}}
+                            ], l = function(e, t) {
                     for (var i = 0; i < e.length; i++)
                         o[e[i]] = t
                 }, c = 0; c < a.length; c++)
@@ -10620,14 +10743,27 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                         o[d] = {numArgs: u.numArgs,argTypes: u.argTypes,greediness: void 0 === u.greediness ? 1 : u.greediness,allowedInText: u.allowedInText ? u.allowedInText : !1,numOptionalArgs: void 0 === u.numOptionalArgs ? 0 : u.numOptionalArgs,handler: u.handler}
                     }
                 t.exports = {funcs: o,getGreediness: h}
-            }, {"./ParseError": 4,"./utils": 15}],13: [function(e, t) {
+            }, {"./ParseError": 4,"./utils": 15}],
+        13: [function(e, t) {
                 var i = e("./Parser"), n = function(e) {
                     var t = new i(e);
                     return t.parse()
                 };
                 t.exports = n
-            }, {"./Parser": 5}],14: [function(e, t) {
-                for (var i = {math: {"`": {font: "main",group: "textord",replace: "\u2018"},"\\$": {font: "main",group: "textord",replace: "$"},"\\%": {font: "main",group: "textord",replace: "%"},"\\_": {font: "main",group: "textord",replace: "_"},"\\angle": {font: "main",group: "textord",replace: "\u2220"},"\\infty": {font: "main",group: "textord",replace: "\u221e"},"\\prime": {font: "main",group: "textord",replace: "\u2032"},"\\triangle": {font: "main",group: "textord",replace: "\u25b3"},"\\Gamma": {font: "main",group: "textord",replace: "\u0393"},"\\Delta": {font: "main",group: "textord",replace: "\u0394"},"\\Theta": {font: "main",group: "textord",replace: "\u0398"},"\\Lambda": {font: "main",group: "textord",replace: "\u039b"},"\\Xi": {font: "main",group: "textord",replace: "\u039e"},"\\Pi": {font: "main",group: "textord",replace: "\u03a0"},"\\Sigma": {font: "main",group: "textord",replace: "\u03a3"},"\\Upsilon": {font: "main",group: "textord",replace: "\u03a5"},"\\Phi": {font: "main",group: "textord",replace: "\u03a6"},"\\Psi": {font: "main",group: "textord",replace: "\u03a8"},"\\Omega": {font: "main",group: "textord",replace: "\u03a9"},"\\neg": {font: "main",group: "textord",replace: "\xac"},"\\lnot": {font: "main",group: "textord",replace: "\xac"},"\\top": {font: "main",group: "textord",replace: "\u22a4"},"\\bot": {font: "main",group: "textord",replace: "\u22a5"},"\\emptyset": {font: "main",group: "textord",replace: "\u2205"},"\\varnothing": {font: "ams",group: "textord",replace: "\u2205"},"\\alpha": {font: "main",group: "mathord",replace: "\u03b1"},"\\beta": {font: "main",group: "mathord",replace: "\u03b2"},"\\gamma": {font: "main",group: "mathord",replace: "\u03b3"},"\\delta": {font: "main",group: "mathord",replace: "\u03b4"},"\\epsilon": {font: "main",group: "mathord",replace: "\u03f5"},"\\zeta": {font: "main",group: "mathord",replace: "\u03b6"},"\\eta": {font: "main",group: "mathord",replace: "\u03b7"},"\\theta": {font: "main",group: "mathord",replace: "\u03b8"},"\\iota": {font: "main",group: "mathord",replace: "\u03b9"},"\\kappa": {font: "main",group: "mathord",replace: "\u03ba"},"\\lambda": {font: "main",group: "mathord",replace: "\u03bb"},"\\mu": {font: "main",group: "mathord",replace: "\u03bc"},"\\nu": {font: "main",group: "mathord",replace: "\u03bd"},"\\xi": {font: "main",group: "mathord",replace: "\u03be"},"\\omicron": {font: "main",group: "mathord",replace: "o"},"\\pi": {font: "main",group: "mathord",replace: "\u03c0"},"\\rho": {font: "main",group: "mathord",replace: "\u03c1"},"\\sigma": {font: "main",group: "mathord",replace: "\u03c3"},"\\tau": {font: "main",group: "mathord",replace: "\u03c4"},"\\upsilon": {font: "main",group: "mathord",replace: "\u03c5"},"\\phi": {font: "main",group: "mathord",replace: "\u03d5"},"\\chi": {font: "main",group: "mathord",replace: "\u03c7"},"\\psi": {font: "main",group: "mathord",replace: "\u03c8"},"\\omega": {font: "main",group: "mathord",replace: "\u03c9"},"\\varepsilon": {font: "main",group: "mathord",replace: "\u03b5"},"\\vartheta": {font: "main",group: "mathord",replace: "\u03d1"},"\\varpi": {font: "main",group: "mathord",replace: "\u03d6"},"\\varrho": {font: "main",group: "mathord",replace: "\u03f1"},"\\varsigma": {font: "main",group: "mathord",replace: "\u03c2"},"\\varphi": {font: "main",group: "mathord",replace: "\u03c6"},"*": {font: "main",group: "bin",replace: "\u2217"},"+": {font: "main",group: "bin"},"-": {font: "main",group: "bin",replace: "\u2212"},"\\cdot": {font: "main",group: "bin",replace: "\u22c5"},"\\circ": {font: "main",group: "bin",replace: "\u2218"},"\\div": {font: "main",group: "bin",replace: "\xf7"},"\\pm": {font: "main",group: "bin",replace: "\xb1"},"\\times": {font: "main",group: "bin",replace: "\xd7"},"\\cap": {font: "main",group: "bin",replace: "\u2229"},"\\cup": {font: "main",group: "bin",replace: "\u222a"},"\\setminus": {font: "main",group: "bin",replace: "\u2216"},"\\land": {font: "main",group: "bin",replace: "\u2227"},"\\lor": {font: "main",group: "bin",replace: "\u2228"},"\\wedge": {font: "main",group: "bin",replace: "\u2227"},"\\vee": {font: "main",group: "bin",replace: "\u2228"},"\\surd": {font: "main",group: "textord",replace: "\u221a"},"(": {font: "main",group: "open"},"[": {font: "main",group: "open"},"\\langle": {font: "main",group: "open",replace: "\u27e8"},"\\lvert": {font: "main",group: "open",replace: "\u2223"},")": {font: "main",group: "close"},"]": {font: "main",group: "close"},"?": {font: "main",group: "close"},"!": {font: "main",group: "close"},"\\rangle": {font: "main",group: "close",replace: "\u27e9"},"\\rvert": {font: "main",group: "close",replace: "\u2223"},"=": {font: "main",group: "rel"},"<": {font: "main",group: "rel"},">": {font: "main",group: "rel"},":": {font: "main",group: "rel"},"\\approx": {font: "main",group: "rel",replace: "\u2248"},"\\cong": {font: "main",group: "rel",replace: "\u2245"},"\\ge": {font: "main",group: "rel",replace: "\u2265"},"\\geq": {font: "main",group: "rel",replace: "\u2265"},"\\gets": {font: "main",group: "rel",replace: "\u2190"},"\\in": {font: "main",group: "rel",replace: "\u2208"},"\\notin": {font: "main",group: "rel",replace: "\u2209"},"\\subset": {font: "main",group: "rel",replace: "\u2282"},"\\supset": {font: "main",group: "rel",replace: "\u2283"},"\\subseteq": {font: "main",group: "rel",replace: "\u2286"},"\\supseteq": {font: "main",group: "rel",replace: "\u2287"},"\\nsubseteq": {font: "ams",group: "rel",replace: "\u2288"},"\\nsupseteq": {font: "ams",group: "rel",replace: "\u2289"},"\\models": {font: "main",group: "rel",replace: "\u22a8"},"\\leftarrow": {font: "main",group: "rel",replace: "\u2190"},"\\le": {font: "main",group: "rel",replace: "\u2264"},"\\leq": {font: "main",group: "rel",replace: "\u2264"},"\\ne": {font: "main",group: "rel",replace: "\u2260"},"\\neq": {font: "main",group: "rel",replace: "\u2260"},"\\rightarrow": {font: "main",group: "rel",replace: "\u2192"},"\\to": {font: "main",group: "rel",replace: "\u2192"},"\\ngeq": {font: "ams",group: "rel",replace: "\u2271"},"\\nleq": {font: "ams",group: "rel",replace: "\u2270"},"\\!": {font: "main",group: "spacing"},"\\ ": {font: "main",group: "spacing",replace: "\xa0"},"~": {font: "main",group: "spacing",replace: "\xa0"},"\\,": {font: "main",group: "spacing"},"\\:": {font: "main",group: "spacing"},"\\;": {font: "main",group: "spacing"},"\\enspace": {font: "main",group: "spacing"},"\\qquad": {font: "main",group: "spacing"},"\\quad": {font: "main",group: "spacing"},"\\space": {font: "main",group: "spacing",replace: "\xa0"},",": {font: "main",group: "punct"},";": {font: "main",group: "punct"},"\\colon": {font: "main",group: "punct",replace: ":"},"\\barwedge": {font: "ams",group: "textord",replace: "\u22bc"},"\\veebar": {font: "ams",group: "textord",replace: "\u22bb"},"\\odot": {font: "main",group: "textord",replace: "\u2299"},"\\oplus": {font: "main",group: "textord",replace: "\u2295"},"\\otimes": {font: "main",group: "textord",replace: "\u2297"},"\\partial": {font: "main",group: "textord",replace: "\u2202"},"\\oslash": {font: "main",group: "textord",replace: "\u2298"},"\\circledcirc": {font: "ams",group: "textord",replace: "\u229a"},"\\boxdot": {font: "ams",group: "textord",replace: "\u22a1"},"\\bigtriangleup": {font: "main",group: "textord",replace: "\u25b3"},"\\bigtriangledown": {font: "main",group: "textord",replace: "\u25bd"},"\\dagger": {font: "main",group: "textord",replace: "\u2020"},"\\diamond": {font: "main",group: "textord",replace: "\u22c4"},"\\star": {font: "main",group: "textord",replace: "\u22c6"},"\\triangleleft": {font: "main",group: "textord",replace: "\u25c3"},"\\triangleright": {font: "main",group: "textord",replace: "\u25b9"},"\\{": {font: "main",group: "open",replace: "{"},"\\}": {font: "main",group: "close",replace: "}"},"\\lbrace": {font: "main",group: "open",replace: "{"},"\\rbrace": {font: "main",group: "close",replace: "}"},"\\lbrack": {font: "main",group: "open",replace: "["},"\\rbrack": {font: "main",group: "close",replace: "]"},"\\lfloor": {font: "main",group: "open",replace: "\u230a"},"\\rfloor": {font: "main",group: "close",replace: "\u230b"},"\\lceil": {font: "main",group: "open",replace: "\u2308"},"\\rceil": {font: "main",group: "close",replace: "\u2309"},"\\backslash": {font: "main",group: "textord",replace: "\\"},"|": {font: "main",group: "textord",replace: "\u2223"},"\\vert": {font: "main",group: "textord",replace: "\u2223"},"\\|": {font: "main",group: "textord",replace: "\u2225"},"\\Vert": {font: "main",group: "textord",replace: "\u2225"},"\\uparrow": {font: "main",group: "textord",replace: "\u2191"},"\\Uparrow": {font: "main",group: "textord",replace: "\u21d1"},"\\downarrow": {font: "main",group: "textord",replace: "\u2193"},"\\Downarrow": {font: "main",group: "textord",replace: "\u21d3"},"\\updownarrow": {font: "main",group: "textord",replace: "\u2195"},"\\Updownarrow": {font: "main",group: "textord",replace: "\u21d5"},"\\coprod": {font: "math",group: "op",replace: "\u2210"},"\\bigvee": {font: "math",group: "op",replace: "\u22c1"},"\\bigwedge": {font: "math",group: "op",replace: "\u22c0"},"\\biguplus": {font: "math",group: "op",replace: "\u2a04"},"\\bigcap": {font: "math",group: "op",replace: "\u22c2"},"\\bigcup": {font: "math",group: "op",replace: "\u22c3"},"\\int": {font: "math",group: "op",replace: "\u222b"},"\\intop": {font: "math",group: "op",replace: "\u222b"},"\\iint": {font: "math",group: "op",replace: "\u222c"},"\\iiint": {font: "math",group: "op",replace: "\u222d"},"\\prod": {font: "math",group: "op",replace: "\u220f"},"\\sum": {font: "math",group: "op",replace: "\u2211"},"\\bigotimes": {font: "math",group: "op",replace: "\u2a02"},"\\bigoplus": {font: "math",group: "op",replace: "\u2a01"},"\\bigodot": {font: "math",group: "op",replace: "\u2a00"},"\\oint": {font: "math",group: "op",replace: "\u222e"},"\\bigsqcup": {font: "math",group: "op",replace: "\u2a06"},"\\smallint": {font: "math",group: "op",replace: "\u222b"},"\\ldots": {font: "main",group: "punct",replace: "\u2026"},"\\cdots": {font: "main",group: "inner",replace: "\u22ef"},"\\ddots": {font: "main",group: "inner",replace: "\u22f1"},"\\vdots": {font: "main",group: "textord",replace: "\u22ee"},"\\acute": {font: "main",group: "accent",replace: "\xb4"},"\\grave": {font: "main",group: "accent",replace: "`"},"\\ddot": {font: "main",group: "accent",replace: "\xa8"},"\\tilde": {font: "main",group: "accent",replace: "~"},"\\bar": {font: "main",group: "accent",replace: "\xaf"},"\\breve": {font: "main",group: "accent",replace: "\u02d8"},"\\check": {font: "main",group: "accent",replace: "\u02c7"},"\\hat": {font: "main",group: "accent",replace: "^"},"\\vec": {font: "main",group: "accent",replace: "\u20d7"},"\\dot": {font: "main",group: "accent",replace: "\u02d9"}},text: {"\\ ": {font: "main",group: "spacing",replace: "\xa0"}," ": {font: "main",group: "spacing",replace: "\xa0"},"~": {font: "main",group: "spacing",replace: "\xa0"}}}, n = '0123456789/@."', o = 0; o < n.length; o++) {
+            }, {"./Parser": 5}],
+        14: [function(e, t) {
+                for (var i = {math: 
+                    {"`": {font: "main",group: "textord",replace: "\u2018"},"\\$": {font: "main",group: "textord",replace: "$"},"\\%": {font: "main",group: "textord",replace: "%"},"\\_": {font: "main",group: "textord",replace: "_"},"\\angle": {font: "main",group: "textord",replace: "\u2220"},"\\infty": {font: "main",group: "textord",replace: "\u221e"},"\\prime": {font: "main",group: "textord",replace: "\u2032"},"\\triangle": {font: "main",group: "textord",replace: "\u25b3"},"\\Gamma": {font: "main",group: "textord",replace: "\u0393"},"\\Delta": {font: "main",group: "textord",replace: "\u0394"},"\\Theta": {font: "main",group: "textord",replace: "\u0398"},"\\Lambda": {font: "main",group: "textord",replace: "\u039b"},"\\Xi": {font: "main",group: "textord",replace: "\u039e"},"\\Pi": {font: "main",group: "textord",replace: "\u03a0"},"\\Sigma": {font: "main",group: "textord",replace: "\u03a3"},"\\Upsilon": {font: "main",group: "textord",replace: "\u03a5"},"\\Phi": {font: "main",group: "textord",replace: "\u03a6"},"\\Psi": {font: "main",group: "textord",replace: "\u03a8"},"\\Omega": {font: "main",group: "textord",replace: "\u03a9"},"\\neg": {font: "main",group: "textord",replace: "\xac"},
+                    "\\lnot": {font: "main",group: "textord",replace: "\xac"},"\\top": {font: "main",group: "textord",replace: "\u22a4"},"\\bot": {font: "main",group: "textord",replace: "\u22a5"},"\\emptyset": {font: "main",group: "textord",replace: "\u2205"},"\\varnothing": {font: "ams",group: "textord",replace: "\u2205"},"\\alpha": {font: "main",group: "mathord",replace: "\u03b1"},"\\beta": {font: "main",group: "mathord",replace: "\u03b2"},"\\gamma": {font: "main",group: "mathord",replace: "\u03b3"},"\\delta": {font: "main",group: "mathord",replace: "\u03b4"},"\\epsilon": {font: "main",group: "mathord",replace: "\u03f5"},"\\zeta": {font: "main",group: "mathord",replace: "\u03b6"},"\\eta": {font: "main",group: "mathord",replace: "\u03b7"},"\\theta": {font: "main",group: "mathord",replace: "\u03b8"},"\\iota": {font: "main",group: "mathord",replace: "\u03b9"},"\\kappa": {font: "main",group: "mathord",replace: "\u03ba"},"\\lambda": {font: "main",group: "mathord",replace: "\u03bb"},"\\mu": {font: "main",group: "mathord",replace: "\u03bc"},"\\nu": {font: "main",group: "mathord",replace: "\u03bd"},"\\xi": {font: "main",group: "mathord",replace: "\u03be"},"\\omicron": {font: "main",group: "mathord",replace: "o"},
+                    "\\pi": {font: "main",group: "mathord",replace: "\u03c0"},"\\rho": {font: "main",group: "mathord",replace: "\u03c1"},"\\sigma": {font: "main",group: "mathord",replace: "\u03c3"},"\\tau": {font: "main",group: "mathord",replace: "\u03c4"},"\\upsilon": {font: "main",group: "mathord",replace: "\u03c5"},"\\phi": {font: "main",group: "mathord",replace: "\u03d5"},"\\chi": {font: "main",group: "mathord",replace: "\u03c7"},"\\psi": {font: "main",group: "mathord",replace: "\u03c8"},"\\omega": {font: "main",group: "mathord",replace: "\u03c9"},"\\varepsilon": {font: "main",group: "mathord",replace: "\u03b5"},"\\vartheta": {font: "main",group: "mathord",replace: "\u03d1"},"\\varpi": {font: "main",group: "mathord",replace: "\u03d6"},"\\varrho": {font: "main",group: "mathord",replace: "\u03f1"},"\\varsigma": {font: "main",group: "mathord",replace: "\u03c2"},"\\varphi": {font: "main",group: "mathord",replace: "\u03c6"},"*": {font: "main",group: "bin",replace: "\u2217"},"+": {font: "main",group: "bin"},"-": {font: "main",group: "bin",replace: "\u2212"},"\\cdot": {font: "main",group: "bin",replace: "\u22c5"},"\\circ": {font: "main",group: "bin",replace: "\u2218"},"\\div": {font: "main",group: "bin",replace: "\xf7"},
+                    "\\pm": {font: "main",group: "bin",replace: "\xb1"},"\\times": {font: "main",group: "bin",replace: "\xd7"},"\\cap": {font: "main",group: "bin",replace: "\u2229"},"\\cup": {font: "main",group: "bin",replace: "\u222a"},"\\setminus": {font: "main",group: "bin",replace: "\u2216"},"\\land": {font: "main",group: "bin",replace: "\u2227"},"\\lor": {font: "main",group: "bin",replace: "\u2228"},"\\wedge": {font: "main",group: "bin",replace: "\u2227"},"\\vee": {font: "main",group: "bin",replace: "\u2228"},"\\surd": {font: "main",group: "textord",replace: "\u221a"},"(": {font: "main",group: "open"},"[": {font: "main",group: "open"},"\\langle": {font: "main",group: "open",replace: "\u27e8"},"\\lvert": {font: "main",group: "open",replace: "\u2223"},")": {font: "main",group: "close"},"]": {font: "main",group: "close"},"?": {font: "main",group: "close"},"!": {font: "main",group: "close"},"\\rangle": {font: "main",group: "close",replace: "\u27e9"},"\\rvert": {font: "main",group: "close",replace: "\u2223"},"=": {font: "main",group: "rel"},"<": {font: "main",group: "rel"},">": {font: "main",group: "rel"},":": {font: "main",group: "rel"},"\\approx": {font: "main",group: "rel",replace: "\u2248"},"\\cong": {font: "main",group: "rel",replace: "\u2245"},
+                    "\\ge": {font: "main",group: "rel",replace: "\u2265"},"\\geq": {font: "main",group: "rel",replace: "\u2265"},"\\gets": {font: "main",group: "rel",replace: "\u2190"},"\\in": {font: "main",group: "rel",replace: "\u2208"},"\\notin": {font: "main",group: "rel",replace: "\u2209"},"\\subset": {font: "main",group: "rel",replace: "\u2282"},"\\supset": {font: "main",group: "rel",replace: "\u2283"},"\\subseteq": {font: "main",group: "rel",replace: "\u2286"},"\\supseteq": {font: "main",group: "rel",replace: "\u2287"},"\\nsubseteq": {font: "ams",group: "rel",replace: "\u2288"},"\\nsupseteq": {font: "ams",group: "rel",replace: "\u2289"},"\\models": {font: "main",group: "rel",replace: "\u22a8"},"\\leftarrow": {font: "main",group: "rel",replace: "\u2190"},"\\le": {font: "main",group: "rel",replace: "\u2264"},"\\leq": {font: "main",group: "rel",replace: "\u2264"},"\\ne": {font: "main",group: "rel",replace: "\u2260"},"\\neq": {font: "main",group: "rel",replace: "\u2260"},"\\rightarrow": {font: "main",group: "rel",replace: "\u2192"},"\\to": {font: "main",group: "rel",replace: "\u2192"},"\\ngeq": {font: "ams",group: "rel",replace: "\u2271"},"\\nleq": {font: "ams",group: "rel",replace: "\u2270"},"\\!": {font: "main",group: "spacing"},
+                    "\\ ": {font: "main",group: "spacing",replace: "\xa0"},"~": {font: "main",group: "spacing",replace: "\xa0"},"\\,": {font: "main",group: "spacing"},"\\:": {font: "main",group: "spacing"},"\\;": {font: "main",group: "spacing"},"\\enspace": {font: "main",group: "spacing"},"\\qquad": {font: "main",group: "spacing"},"\\quad": {font: "main",group: "spacing"},"\\space": {font: "main",group: "spacing",replace: "\xa0"},",": {font: "main",group: "punct"},";": {font: "main",group: "punct"},"\\colon": {font: "main",group: "punct",replace: ":"},"\\barwedge": {font: "ams",group: "textord",replace: "\u22bc"},"\\veebar": {font: "ams",group: "textord",replace: "\u22bb"},"\\odot": {font: "main",group: "textord",replace: "\u2299"},"\\oplus": {font: "main",group: "textord",replace: "\u2295"},"\\otimes": {font: "main",group: "textord",replace: "\u2297"},"\\partial": {font: "main",group: "textord",replace: "\u2202"},"\\oslash": {font: "main",group: "textord",replace: "\u2298"},"\\circledcirc": {font: "ams",group: "textord",replace: "\u229a"},"\\boxdot": {font: "ams",group: "textord",replace: "\u22a1"},"\\bigtriangleup": {font: "main",group: "textord",replace: "\u25b3"},"\\bigtriangledown": {font: "main",group: "textord",replace: "\u25bd"},
+                    "\\dagger": {font: "main",group: "textord",replace: "\u2020"},"\\diamond": {font: "main",group: "textord",replace: "\u22c4"},"\\star": {font: "main",group: "textord",replace: "\u22c6"},"\\triangleleft": {font: "main",group: "textord",replace: "\u25c3"},"\\triangleright": {font: "main",group: "textord",replace: "\u25b9"},"\\{": {font: "main",group: "open",replace: "{"},"\\}": {font: "main",group: "close",replace: "}"},"\\lbrace": {font: "main",group: "open",replace: "{"},"\\rbrace": {font: "main",group: "close",replace: "}"},"\\lbrack": {font: "main",group: "open",replace: "["},"\\rbrack": {font: "main",group: "close",replace: "]"},"\\lfloor": {font: "main",group: "open",replace: "\u230a"},"\\rfloor": {font: "main",group: "close",replace: "\u230b"},"\\lceil": {font: "main",group: "open",replace: "\u2308"},"\\rceil": {font: "main",group: "close",replace: "\u2309"},"\\backslash": {font: "main",group: "textord",replace: "\\"},"|": {font: "main",group: "textord",replace: "\u2223"},"\\vert": {font: "main",group: "textord",replace: "\u2223"},"\\|": {font: "main",group: "textord",replace: "\u2225"},"\\Vert": {font: "main",group: "textord",replace: "\u2225"},"\\uparrow": {font: "main",group: "textord",replace: "\u2191"},
+                    "\\Uparrow": {font: "main",group: "textord",replace: "\u21d1"},"\\downarrow": {font: "main",group: "textord",replace: "\u2193"},"\\Downarrow": {font: "main",group: "textord",replace: "\u21d3"},"\\updownarrow": {font: "main",group: "textord",replace: "\u2195"},"\\Updownarrow": {font: "main",group: "textord",replace: "\u21d5"},"\\coprod": {font: "math",group: "op",replace: "\u2210"},"\\bigvee": {font: "math",group: "op",replace: "\u22c1"},"\\bigwedge": {font: "math",group: "op",replace: "\u22c0"},"\\biguplus": {font: "math",group: "op",replace: "\u2a04"},"\\bigcap": {font: "math",group: "op",replace: "\u22c2"},"\\bigcup": {font: "math",group: "op",replace: "\u22c3"},"\\int": {font: "math",group: "op",replace: "\u222b"},"\\intop": {font: "math",group: "op",replace: "\u222b"},"\\iint": {font: "math",group: "op",replace: "\u222c"},"\\iiint": {font: "math",group: "op",replace: "\u222d"},"\\prod": {font: "math",group: "op",replace: "\u220f"},"\\sum": {font: "math",group: "op",replace: "\u2211"},"\\bigotimes": {font: "math",group: "op",replace: "\u2a02"},"\\bigoplus": {font: "math",group: "op",replace: "\u2a01"},"\\bigodot": {font: "math",group: "op",replace: "\u2a00"},"\\oint": {font: "math",group: "op",replace: "\u222e"},
+                       "\\bigsqcup": {font: "math",group: "op",replace: "\u2a06"},"\\smallint": {font: "math",group: "op",replace: "\u222b"},"\\ldots": {font: "main",group: "punct",replace: "\u2026"},"\\cdots": {font: "main",group: "inner",replace: "\u22ef"},"\\ddots": {font: "main",group: "inner",replace: "\u22f1"},"\\vdots": {font: "main",group: "textord",replace: "\u22ee"},"\\acute": {font: "main",group: "accent",replace: "\xb4"},"\\grave": {font: "main",group: "accent",replace: "`"},"\\ddot": {font: "main",group: "accent",replace: "\xa8"},"\\tilde": {font: "main",group: "accent",replace: "~"},"\\bar": {font: "main",group: "accent",replace: "\xaf"},"\\breve": {font: "main",group: "accent",replace: "\u02d8"},"\\check": {font: "main",group: "accent",replace: "\u02c7"},"\\hat": {font: "main",group: "accent",replace: "^"},"\\vec": {font: "main",group: "accent",replace: "\u20d7"},"\\dot": {font: "main",group: "accent",replace: "\u02d9"}},text: {"\\ ": {font: "main",group: "spacing",replace: "\xa0"}," ": {font: "main",group: "spacing",replace: "\xa0"},"~": {font: "main",group: "spacing",replace: "\xa0"}
+                   }
+               }, n = '0123456789/@."', o = 0; o < n.length; o++) {
                     var r = n.charAt(o);
                     i.math[r] = {font: "main",group: "textord"}
                 }
@@ -10640,7 +10776,8 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     i.math[r] = {font: "main",group: "mathord"}, i.text[r] = {font: "main",group: "textord"}
                 }
                 t.exports = i
-            }, {}],15: [function(e, t) {
+            }, {}],
+        15: [function(e, t) {
                 function i(e) {
                     return d[e]
                 }
@@ -10673,8 +10810,12 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     }
                 }
                 t.exports = {contains: l,escape: n,hyphenate: h,indexOf: a,setTextContent: r,clearNode: o}
-            }, {}]}, {}, [1])(1)
-}), function() {
+            }, {}]
+        }, {}, [1]
+    )(1)
+}), 
+
+function() {
     if ("function" == typeof window.addEventListener)
         for (var e = document.querySelectorAll("pre code"), t = 0, i = e.length; i > t; t++) {
             var n = e[t];
@@ -10683,6 +10824,11 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
             }, !1)
         }
 }();
+
+/**
+* Highlight language
+*/
+
 var hljs = new function() {
     function e(e) {
         return e.replace(/&/gm, "&amp;").replace(/</gm, "&lt;").replace(/>/gm, "&gt;")
@@ -10930,6 +11076,8 @@ var hljs = new function() {
     var b = {classPrefix: "hljs-",tabReplace: null,useBR: !1,languages: void 0}, w = {}, C = {};
     this.highlight = l, this.highlightAuto = c, this.fixMarkup = h, this.highlightBlock = d, this.configure = u, this.initHighlighting = p, this.initHighlightingOnLoad = g, this.registerLanguage = m, this.listLanguages = f, this.getLanguage = v, this.inherit = o, this.IR = "[a-zA-Z][a-zA-Z0-9_]*", this.UIR = "[a-zA-Z_][a-zA-Z0-9_]*", this.NR = "\\b\\d+(\\.\\d+)?", this.CNR = "(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)", this.BNR = "\\b(0b[01]+)", this.RSR = "!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~", this.BE = {b: "\\\\[\\s\\S]",r: 0}, this.ASM = {cN: "string",b: "'",e: "'",i: "\\n",c: [this.BE]}, this.QSM = {cN: "string",b: '"',e: '"',i: "\\n",c: [this.BE]}, this.PWM = {b: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/}, this.CLCM = {cN: "comment",b: "//",e: "$",c: [this.PWM]}, this.CBCM = {cN: "comment",b: "/\\*",e: "\\*/",c: [this.PWM]}, this.HCM = {cN: "comment",b: "#",e: "$",c: [this.PWM]}, this.NM = {cN: "number",b: this.NR,r: 0}, this.CNM = {cN: "number",b: this.CNR,r: 0}, this.BNM = {cN: "number",b: this.BNR,r: 0}, this.CSSNM = {cN: "number",b: this.NR + "(%|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?",r: 0}, this.RM = {cN: "regexp",b: /\//,e: /\/[gim]*/,i: /\n/,c: [this.BE, {b: /\[/,e: /\]/,r: 0,c: [this.BE]}]}, this.TM = {cN: "title",b: this.IR,r: 0}, this.UTM = {cN: "title",b: this.UIR,r: 0}
 };
+
+
 hljs.registerLanguage("bash", function(e) {
     var t = {cN: "variable",v: [{b: /\$[\w\d#@][\w\d_]*/}, {b: /\$\{(.*?)\}/}]}, i = {cN: "string",b: /"/,e: /"/,c: [e.BE, t, {cN: "variable",b: /\$\(/,e: /\)/,c: [e.BE]}]}, n = {cN: "string",b: /'/,e: /'/};
     return {aliases: ["sh", "zsh"],l: /-?[a-z\.]+/,k: {keyword: "if then else elif fi for break continue while in do done exit return set declare case esac export exec",literal: "true false",built_in: "printf echo read cd pwd pushd popd dirs let eval unset typeset readonly getopts source shopt caller type hash bind help sudo",operator: "-ne -eq -lt -gt -f -d -e -s -l -a"},c: [{cN: "shebang",b: /^#![^\n]+sh\s*$/,r: 10}, {cN: "function",b: /\w[\w\d_]*\s*\(\s*\)\s*\{/,rB: !0,c: [e.inherit(e.TM, {b: /\w[\w\d_]*/})],r: 0}, e.HCM, e.NM, i, n, t]}
@@ -11181,7 +11329,14 @@ hljs.registerLanguage("bash", function(e) {
 }), hljs.registerLanguage("go", function(e) {
     var t = {keyword: "break default func interface select case map struct chan else goto package switch const fallthrough if range type continue for import return var go defer",constant: "true false iota nil",typename: "bool byte complex64 complex128 float32 float64 int8 int16 int32 int64 string uint8 uint16 uint32 uint64 int uint uintptr rune",built_in: "append cap close complex copy imag len make new panic print println real recover delete"};
     return {aliases: ["golang"],k: t,i: "</",c: [e.CLCM, e.CBCM, e.QSM, {cN: "string",b: "'",e: "[^\\\\]'"}, {cN: "string",b: "`",e: "`"}, {cN: "number",b: "[^a-zA-Z_0-9](\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s)(\\+|\\-)?\\d+)?",r: 0}, e.CNM]}
-}), SL("editor.blocks").Base = Class.extend({init: function(e, t) {
+}), 
+
+/**
+* SL controller
+*/
+
+SL("editor.blocks").Base = Class.extend({
+    init: function(e, t) {
         this.type = e, this.pairings = [], this.plugins = [], this.options = $.extend({contentElementType: "div",aspectRatio: 0,minWidth: 30,minHeight: 30,horizontalResizing: !0,verticalResizing: !0,keyboardConsumer: !1}, t), this.options.element && (this.domElement = $(this.options.element), this.contentElement = this.domElement.find(".sl-block-content")), this.setup(), this.validateProperties(), this.render(), this.bind(), this.format(), this.paint(), this.transform = new SL.editor.blocks.behavior.Transform(this)
     },setup: function() {
         this.removed = new signals.Signal, this.dragStarted = new signals.Signal, this.dragUpdated = new signals.Signal, this.dragEnded = new signals.Signal, this.propertyChanged = new signals.Signal, this.focused = !1, this.moved = !1, this.mouseDownCursor = {x: 0,y: 0}, this.mouseDownMeasurements = null, this.properties = {style: {opacity: {type: "number",decimals: 2,minValue: 0,maxValue: 1,defaultValue: 1},padding: {type: "number",unit: "px",decimals: 0,minValue: 0,maxValue: 100,defaultValue: 0},color: {computed: !0},"background-color": {computed: !0},"border-color": {computed: !0,getter: this.getBorderColor.bind(this)},"border-style": {defaultValue: "none",options: [{value: "solid",title: "Solid"}, {value: "dashed",title: "Dashed"}, {value: "dotted",title: "Dotted"}]},"border-width": {type: "number",unit: "px",decimals: 0,minValue: 0,maxValue: 200,defaultValue: 0},"border-radius": {type: "number",unit: "px",decimals: 0,minValue: 0,maxValue: 200,defaultValue: 0},"text-align": {options: [{value: "left",icon: "alignleft"}, {value: "center",icon: "aligncenter"}, {value: "right",icon: "alignright"}, {value: "justify",icon: "alignjustify"}]},"font-size": {type: "number",unit: "%",minValue: 6,maxValue: 500,defaultValue: 100},"line-height": {type: "number",unit: "%",minValue: 0,maxValue: 300,defaultValue: 100},"z-index": {type: "number",minValue: 0,maxValue: 1e3,setter: this.setZ.bind(this),getter: this.getZ.bind(this)}},attribute: {"class": {type: "string",setter: this.setClassName.bind(this),getter: this.getClassName.bind(this)}}}
@@ -11701,7 +11856,10 @@ hljs.registerLanguage("bash", function(e) {
         this.paint()
     }}), SL.editor.blocks.Shape.shapeFromType = function(e, t, i) {
     return t = t || 32, i = i || 32, /^symbol\-/.test(e) ? SL.util.svg.symbol(e.replace(/^symbol\-/, "")) : "rect" === e ? SL.util.svg.rect(t, i) : "circle" === e ? SL.util.svg.ellipse(t, i) : "diamond" === e ? SL.util.svg.polygon(t, i, 4) : "octagon" === e ? SL.util.svg.polygon(t, i, 8) : "triangle-up" === e ? SL.util.svg.triangleUp(t, i) : "triangle-down" === e ? SL.util.svg.triangleDown(t, i) : "triangle-left" === e ? SL.util.svg.triangleLeft(t, i) : "triangle-right" === e ? SL.util.svg.triangleRight(t, i) : "arrow-up" === e ? SL.util.svg.arrowUp(t, i) : "arrow-down" === e ? SL.util.svg.arrowDown(t, i) : "arrow-left" === e ? SL.util.svg.arrowLeft(t, i) : "arrow-right" === e ? SL.util.svg.arrowRight(t, i) : void 0
-}, SL("editor.blocks").Snippet = SL.editor.blocks.Base.extend({init: function(e) {
+}, 
+
+SL("editor.blocks").Snippet = SL.editor.blocks.Base.extend({
+    init: function(e) {
         this._super("snippet", $.extend({}, e)), this.plug(SL.editor.blocks.plugin.HTML)
     },bind: function() {
         this._super(), this.onEditingKeyUp = this.onEditingKeyUp.bind(this), this.onEditingKeyDown = this.onEditingKeyDown.bind(this), this.onEditingInput = this.onEditingInput.bind(this)
@@ -11739,7 +11897,12 @@ hljs.registerLanguage("bash", function(e) {
         setTimeout(function() {
             SL.editor.controllers.Blocks.afterBlockTextInput()
         }, 1)
-    }}), SL.editor.blocks.Snippet.DEFAULT_WIDTH = 300, SL.editor.blocks.Snippet.DEFAULT_HEIGHT = 300, SL("editor.blocks").Text = SL.editor.blocks.Base.extend({init: function(e) {
+    }
+}), 
+
+SL.editor.blocks.Snippet.DEFAULT_WIDTH = 300, SL.editor.blocks.Snippet.DEFAULT_HEIGHT = 300, 
+SL("editor.blocks").Text = SL.editor.blocks.Base.extend({
+    init: function(e) {
         this._super("text", $.extend({verticalResizing: !1,placeholderTag: "p",placeholderText: "Text"}, e)), this.plug(SL.editor.blocks.plugin.HTML), this.readDefaultContent(), this.injectDefaultContent()
     },bind: function() {
         this._super(), this.onEditingKeyUp = this.onEditingKeyUp.bind(this), this.onEditingKeyDown = this.onEditingKeyDown.bind(this), this.onEditingInput = this.onEditingInput.bind(this), this.onEditingFocusOut = this.onEditingFocusOut.bind(this), this.propertyChanged.add(this.syncPairs.bind(this))
@@ -12273,7 +12436,10 @@ hljs.registerLanguage("bash", function(e) {
     },onPanelScroll: function() {
         var e = this.panelBody.scrollTop(), t = this.panelBody.prop("scrollHeight"), i = this.panelBody.outerHeight(), n = e / (t - i);
         n > .8 && this.load()
-    }}), SL("editor.components.sidebar").Settings = SL.editor.components.sidebar.Base.extend({init: function() {
+    }
+}), 
+SL("editor.components.sidebar").Settings = SL.editor.components.sidebar.Base.extend({
+    init: function() {
         this.domElement = $(".sidebar-panel .settings"), this.rtlToggle = this.domElement.find('.sl-checkbox input[value="rtl"]'), this.loopToggle = this.domElement.find('.sl-checkbox input[value="should_loop"]'), this.commentsEnabledToggle = this.domElement.find('.sl-checkbox input[value="comments_enabled"]'), this.forkingEnabledToggle = this.domElement.find('.sl-checkbox input[value="forking_enabled"]'), this.titleInput = this.domElement.find("#deck-input-title"), this.descriptionInput = this.domElement.find("#deck-input-description"), this.slug = this.domElement.find(".slug"), this.slugInput = this.domElement.find("#deck-input-slug"), this.slugPrefix = this.domElement.find(".slug .text-prefix"), this.autoSlideInput = this.domElement.find("#deck-input-autoslide"), this.renderAutoSlideOptions(), this._super()
     },renderAutoSlideOptions: function() {
         var e = '<option value="0">Off</option>';
@@ -12314,11 +12480,16 @@ hljs.registerLanguage("bash", function(e) {
         this.deckIsPrivate() || SL.tooltip.show("Changing the URL of your deck will break existing links to it.", {anchor: this.slugInput,alignment: "r",maxwidth: 220})
     },onSlugBlur: function() {
         SL.tooltip.hide(), this.slugInput.val(SL.util.string.slug(this.slugInput.val()))
-    }}), SL("editor.components.sidebar").Share = SL.editor.components.sidebar.Base.extend({init: function() {
+    }
+}), 
+SL("editor.components.sidebar").Share = SL.editor.components.sidebar.Base.extend({
+    init: function() {
         this.domElement = $(".sidebar-panel .share"), this.sharer = new SL.components.DeckSharer("light"), this.sharer.appendTo(this.domElement.find(".contents")), this._super()
     },open: function() {
         this._super(), this.sharer.render(SLConfig.deck), this.domElement.find(".url input").addClass("xl")
-    }}), SL("editor.components.sidebar").Style = SL.editor.components.sidebar.Base.extend({init: function() {
+    }}), 
+SL("editor.components.sidebar").Style = SL.editor.components.sidebar.Base.extend({
+    init: function() {
         this.domElement = $(".sidebar-panel .style"), this._super()
     },bind: function() {
         this._super(), this.domElement.find(".edit-style").on("click", this.onAdvancedStylesCLicked.bind(this))
@@ -12346,7 +12517,9 @@ hljs.registerLanguage("bash", function(e) {
         SL.analytics.trackEditor("Open CSS editor"), SL.editor.controllers.Mode.change("css")
     },onThemeOptionsChanged: function() {
         this.layout(), SL.editor.controllers.Grid.refresh()
-    }}), SL("editor.components").SlideOptions = Class.extend({init: function(e, t) {
+    }}), 
+SL("editor.components").SlideOptions = Class.extend({
+    init: function(e, t) {
         this.editor = e, this.options = $.extend({removeSlide: !0,backgroundColor: !0,backgroundImage: !0,customClasses: !0,fragment: !0,notes: !0,html: !0}, t), this.render(), this.bind()
     },render: function() {
         this.domElement = $('<div class="slide-options"></div>').appendTo($(".projector")), this.listElement = $("<ul></ul>").appendTo(this.domElement), this.renderOptions()
@@ -12473,7 +12646,9 @@ hljs.registerLanguage("bash", function(e) {
     },onDocumentMouseDown: function(e) {
         var t = $(e.target);
         0 === t.parents(".slide-options").length && this.collapse()
-    }}), SL("editor.components").Toolbars = Class.extend({init: function(e) {
+    }}), 
+SL("editor.components").Toolbars = Class.extend({
+    init: function(e) {
         this.editor = e, this.stack = [], this.render(), this.show(), this.push(new SL.editor.components.toolbars.Add)
     },render: function() {
         this.domElement = $('<div class="toolbars">').appendTo(document.body), this.innerElement = $('<div class="toolbars-inner">').appendTo(this.domElement), this.scrollerElement = $('<div class="toolbars-scroller">').appendTo(this.innerElement), this.footerElement = $('<div class="toolbars-footer"></div>').appendTo(this.domElement), this.footerElement.append('<div class="label" data-tooltip="You are using the new Slides editor (beta).<br>During beta you still have the option of using our old editor, see your account settings." data-tooltip-maxwidth="300">BETA</div>'), SL.editor.controllers.Capabilities.isTouchEditor() || (this.footerElement.append('<div class="option editor-settings" data-tooltip="Editor settings"><span class="icon i-equalizer"></span></div>'), this.footerElement.find(".option.editor-settings").on("click", this.onSettingsClicked))
@@ -12529,7 +12704,9 @@ hljs.registerLanguage("bash", function(e) {
         n.prop("checked", SL.current_user.settings.get("developer_mode")), n.on("change", function(e) {
             SL.current_user.settings.set("developer_mode", e.currentTarget.checked), SL.current_user.settings.save(["developer_mode"]), SL.view.slideOptions.configure({html: e.currentTarget.checked}), SL.analytics.trackEditor("Toggle Developer Mode")
         })
-    }}), SL("editor.components.toolbars").Base = Class.extend({init: function() {
+    }}), 
+SL("editor.components.toolbars").Base = Class.extend({
+    init: function() {
         this.render()
     },render: function() {
         this.domElement = $('<div class="toolbar">'), this.listElement = $('<div class="toolbar-list">').appendTo(this.domElement)
@@ -12561,7 +12738,9 @@ hljs.registerLanguage("bash", function(e) {
         this.collapse(), clearTimeout(this.destroyTimeout), "number" == typeof e && (this.destroyTimeout = setTimeout(this.destroy.bind(this), e))
     },destroy: function() {
         this.domElement.remove()
-    }}), SL("editor.components.toolbars").AddSnippet = SL.editor.components.toolbars.Base.extend({init: function() {
+    }}), 
+SL("editor.components.toolbars").AddSnippet = SL.editor.components.toolbars.Base.extend({
+    init: function() {
         this._super()
     },render: function() {
         this._super(), this.domElement.attr("data-type", "add"), this.sync()
@@ -12589,7 +12768,9 @@ hljs.registerLanguage("bash", function(e) {
             var i = e.get("template").replace(SL.models.ThemeSnippet.TEMPLATE_SELECTION_TAG, "");
             this.insert(t, i)
         }
-    }}), SL("editor.components.toolbars").Add = SL.editor.components.toolbars.Base.extend({init: function() {
+    }}), 
+SL("editor.components.toolbars").Add = SL.editor.components.toolbars.Base.extend({
+    init: function() {
         this._super()
     },render: function() {
         this._super(), this.domElement.attr("data-type", "add"), SL.config.BLOCKS.forEach(function(e) {
@@ -12626,7 +12807,9 @@ hljs.registerLanguage("bash", function(e) {
         }
         var s = 0, a = !1, l = !1;
         e.on("vclick", i), SL.editor.controllers.Capabilities.isTouchEditor() || e.on("mousedown", n)
-    }}), SL("editor.components.toolbars").EditMultiple = SL.editor.components.toolbars.Base.extend({init: function() {
+    }}), 
+SL("editor.components.toolbars").EditMultiple = SL.editor.components.toolbars.Base.extend({
+    init: function() {
         this.options = [], this._super()
     },render: function() {
         this._super(), this.domElement.attr("data-type", "edit-multiple"), [SL.editor.components.toolbars.options.BlockAlignHorizontal, SL.editor.components.toolbars.options.BlockAlignVertical, SL.editor.components.toolbars.options.BlockDepth, SL.editor.components.toolbars.options.BlockActions].forEach(this.renderOption.bind(this))
@@ -12637,7 +12820,9 @@ hljs.registerLanguage("bash", function(e) {
         for (; this.options.length; )
             this.options.pop().destroy();
         this._super()
-    }}), SL("editor.components.toolbars").Edit = SL.editor.components.toolbars.Base.extend({init: function(e) {
+    }}), 
+SL("editor.components.toolbars").Edit = SL.editor.components.toolbars.Base.extend({
+    init: function(e) {
         this.block = e, this.options = [], this._super()
     },render: function() {
         this._super(), this.domElement.attr("data-type", "edit"), this.block.getToolbarOptions().forEach(this.renderOption.bind(this)), SL.current_user.isPro() && SL.view.isDeveloperMode() && this.renderOption(SL.editor.components.toolbars.options.ClassName)
@@ -12650,7 +12835,9 @@ hljs.registerLanguage("bash", function(e) {
         for (; this.options.length; )
             this.options.pop().destroy();
         this._super()
-    }}), SL("editor.components.toolbars.groups").Base = Class.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.groups").Base = Class.extend({
+    init: function(e, t) {
         this.block = e, this.config = $.extend({label: "Group",items: []}, t), this.options = [], this.render(), this.bind()
     },render: function() {
         this.domElement = $('<div class="toolbar-option toolbar-group">'), this.config.type && this.domElement.attr("data-group-type", this.config.type), this.triggerElement = $('<div class="toolbar-group-trigger">').appendTo(this.domElement), this.triggerElement.append('<span class="label">' + this.config.label + "</span>"), this.triggerElement.append('<span class="checkbox icon i-checkmark"></span>'), this.optionsElement = $('<div class="toolbar-group-options">').appendTo(this.domElement), this.optionsInnerElement = $('<div class="toolbar-group-options-inner">').appendTo(this.optionsElement), this.config.items.forEach(this.renderOption.bind(this))
@@ -12678,14 +12865,18 @@ hljs.registerLanguage("bash", function(e) {
         for (; this.options.length; )
             this.options.pop().destroy();
         this.domElement.remove()
-    }}), SL("editor.components.toolbars.groups").BorderCSS = SL.editor.components.toolbars.groups.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.groups").BorderCSS = SL.editor.components.toolbars.groups.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "border-css",label: "Border",items: [SL.editor.components.toolbars.options.BorderStyle, SL.editor.components.toolbars.options.BorderWidth, SL.editor.components.toolbars.options.BorderRadius, SL.editor.components.toolbars.options.BorderColor]}, t))
     },sync: function() {
         var e = this.block.get("style.border-style");
         e && "none" !== e ? this.expand() : this.collapse()
     },trigger: function() {
         this.block.isset("style.border-style") ? (this.block.unset("style.border-style"), this.block.unset("style.border-radius")) : (this.block.set("style.border-style", "solid"), this.block.isset("style.border-width") || this.block.set("style.border-width", 1), this.block.isset("style.border-color") || this.block.set("style.border-color", "#000000")), this.sync()
-    }}), SL("editor.components.toolbars.groups").BorderSVG = SL.editor.components.toolbars.groups.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.groups").BorderSVG = SL.editor.components.toolbars.groups.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "border-svg",label: "Border",items: [SL.editor.components.toolbars.options.ShapeStrokeWidth, SL.editor.components.toolbars.options.ShapeStrokeColor]}, t))
     },sync: function() {
         this.block.supportsStroke() ? (this.domElement.show(), this.block.hasStroke() ? (this.expand(), this.options.forEach(function(e) {
@@ -12693,7 +12884,9 @@ hljs.registerLanguage("bash", function(e) {
         })) : this.collapse()) : this.domElement.hide()
     },trigger: function() {
         this.block.toggleStroke(), this.sync()
-    }}), SL("editor.components.toolbars.groups").Link = SL.editor.components.toolbars.groups.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.groups").Link = SL.editor.components.toolbars.groups.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "link",label: "link",items: [SL.editor.components.toolbars.options.LinkURL]}, t))
     },sync: function() {
         this.block.isLinked() ? this.expand() : this.collapse()
@@ -12701,7 +12894,11 @@ hljs.registerLanguage("bash", function(e) {
         this.block.setLinkURL(this.block.isLinked() ? null : ""), this.sync(), this.isExpanded() && !SL.editor.controllers.Capabilities.isTouchEditor() && this.options && this.options[0] && "function" == typeof this.options[0].focus && setTimeout(function() {
             this.options[0].focus()
         }.bind(this), 200)
-    }}), SL("editor.components.toolbars.options").Base = Class.extend({init: function(e, t) {
+    }}), 
+
+// toolbars.options
+SL("editor.components.toolbars.options").Base = Class.extend({
+    init: function(e, t) {
         this.block = e, this.config = t || {}, this.property = this.getPropertySettings(), this.render(), this.bind()
     },render: function() {
         if (this.domElement = $('<div class="toolbar-option">'), this.config.type && this.domElement.attr("data-option-type", this.config.type), this.config.tooltip && this.domElement.attr({"data-tooltip": this.config.tooltip,"data-tooltip-delay": 1e3,"data-tooltip-maxwidth": 200}), this.config.label && (this.domElement.append('<h4 class="toolbar-option-label">' + this.config.label + "</h4>"), this.config.helpTooltip)) {
@@ -12720,7 +12917,9 @@ hljs.registerLanguage("bash", function(e) {
         return this.block && "string" == typeof this.config.property ? this.block.getPropertySettings(this.config.property) : null
     },onClicked: function(e) {
         $(e.target).is(".toolbar-option-help") || e.preventDefault()
-    }}), SL("editor.components.toolbars.options").Value = SL.editor.components.toolbars.options.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Value = SL.editor.components.toolbars.options.Base.extend({
+    init: function(e, t) {
         this._super(e, t), this.changed = new signals.Signal, this.value = this.getDefaultValue()
     },appendTo: function(e) {
         this._super(e), this.readFromBlock()
@@ -12738,11 +12937,15 @@ hljs.registerLanguage("bash", function(e) {
         return this.property.unit ? this.property.unit : ""
     },destroy: function() {
         this.changed.dispose(), this._super()
-    }}), SL("editor.components.toolbars.options").Button = SL.editor.components.toolbars.options.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Button = SL.editor.components.toolbars.options.Base.extend({
+    init: function(e, t) {
         this._super(e, t)
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-button"), (this.config.title || this.config.icon) && (this.domElement.addClass("has-title"), this.titleElement = $('<div class="toolbar-option-title vcenter">').appendTo(this.domElement), this.config.title ? this.titleElement.html('<span class="title vcenter-target">' + this.config.title + "</span>") : this.config.icon && (this.domElement.addClass("is-icon"), this.titleElement.html('<span class="icon i-' + this.config.icon + ' vcenter-target"></span>'), this.config.activeIcon && (this.domElement.addClass("has-active-state"), this.activeElement = $('<div class="toolbar-option-title vcenter active">').appendTo(this.domElement), this.activeElement.html('<span class="icon i-' + this.config.activeIcon + ' vcenter-target"></span>'))))
-    }}), SL("editor.components.toolbars.options").Checkbox = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Checkbox = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "checkbox"}, t))
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-checkbox"), this.checkboxElement = $('<span class="checkbox icon i-checkmark">'), this.checkboxElement.appendTo(this.domElement)
@@ -12752,7 +12955,9 @@ hljs.registerLanguage("bash", function(e) {
         return this.domElement.hasClass("checked")
     },onClicked: function(e) {
         this._super(e), this.setValue(!this.getValue(), !0)
-    }}), SL("editor.components.toolbars.options").Color = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Color = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "color",alpha: !1}, t))
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-color"), this.triggerElement = $('<div class="toolbar-color-trigger">'), this.triggerElement.appendTo(this.domElement), this.triggerInnerElement = $('<div class="toolbar-color-trigger-inner">'), this.triggerInnerElement.appendTo(this.triggerElement), this.resetElement = $('<div class="toolbar-color-reset icon i-undo" data-tooltip="Use default color" data-tooltip-delay="500">'), this.resetElement.appendTo(this.triggerElement)
@@ -12776,7 +12981,9 @@ hljs.registerLanguage("bash", function(e) {
         this.setValue(this.getDefaultValue() || "", !0), this.readFromBlock(), SL.view.colorpicker.hide()
     },destroy: function() {
         this._super()
-    }}), SL("editor.components.toolbars.options").Multi = SL.editor.components.toolbars.options.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Multi = SL.editor.components.toolbars.options.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "multi",items: []}, t))
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-multi"), this.domElement.attr("data-number-of-items", this.config.items.length), this.innerElement = $('<div class="toolbar-multi-inner">').appendTo(this.domElement), this.config.items.forEach(function(e) {
@@ -12789,7 +12996,9 @@ hljs.registerLanguage("bash", function(e) {
     },onListItemClicked: function(e) {
         var t = $(e.currentTarget).attr("data-value");
         t && this.trigger(t)
-    }}), SL("editor.components.toolbars.options").Radio = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Radio = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "radio",items: []}, t))
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-radio"), this.domElement.attr("data-number-of-items", this.config.items.length), this.innerElement = $('<div class="toolbar-radio-inner">').appendTo(this.domElement), this.config.items.forEach(function(e) {
@@ -12806,7 +13015,9 @@ hljs.registerLanguage("bash", function(e) {
     },onListItemClicked: function(e) {
         var t = $(e.currentTarget).attr("data-value");
         t && this.setValue(t, !0)
-    }}), SL("editor.components.toolbars.options").Range = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Range = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "range"}, t))
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-range"), this.rangeElement = $('<div class="range">'), this.rangeElement.appendTo(this.domElement), this.rangeProgressElement = $('<div class="range-progress">').appendTo(this.rangeElement), this.rangeNumericElement = $('<div class="range-numeric">').appendTo(this.rangeElement)
@@ -12829,7 +13040,9 @@ hljs.registerLanguage("bash", function(e) {
         this.setValue(this.percentToValue(t / this.rangeElement.width() * 100), !0), this.writeToBlock(), this.changed.dispatch(this.getValue())
     },onMouseUp: function() {
         $(document).off("vmousemove", this.onMouseMove), $(document).off("vmouseup", this.onMouseUp), this.rangeElement.removeClass("is-scrubbing")
-    }}), SL("editor.components.toolbars.options").Select = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Select = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "select",panelType: "select",panelWidth: "auto",panelHeight: "auto",panelMaxHeight: 300,value: 0,items: []}, t)), this.keySearchString = "", this.keySearchTimeout
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-select"), this.triggerElement = $('<div class="toolbar-select-trigger">'), this.triggerElement.appendTo(this.domElement)
@@ -12899,7 +13112,9 @@ hljs.registerLanguage("bash", function(e) {
         return !1
     },destroy: function() {
         this.panel && (this.panel.destroy(), this.panel = null), this._super()
-    }}), SL("editor.components.toolbars.options").Stepper = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Stepper = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "stepper"}, t)), this.valueRange = this.property.maxValue - this.property.minValue, this.valuePerPixel = this.valueRange < 1 ? this.valueRange / 200 : 1, this.changing = !1, this.mouseDownValue = 0, this.mouseDownX = 0
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-stepper"), this.stepperElement = $('<div class="stepper">'), this.stepperElement.appendTo(this.domElement), this.numberInput = $('<input type="text" class="stepper-number">').appendTo(this.stepperElement)
@@ -12935,7 +13150,9 @@ hljs.registerLanguage("bash", function(e) {
         this.onChangeStart()
     },onInputBlurred: function() {
         this.onChangeEnd(), this.setValue(this.getValue(), !0)
-    }}), SL("editor.components.toolbars.options").Text = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Text = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "text",multiline: !1,expandable: !1,maxlength: 255,placeholder: ""}, t))
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-text"), this.config.multiline ? (this.inputElement = $("<textarea></textarea>"), this.config.expandable && (this.expandElement = $('<div class="expand-button icon i-fullscreen"></div>'), this.expandElement.appendTo(this.domElement))) : this.inputElement = $("<input />"), this.inputElement.attr({"class": "toolbar-text-input",maxlength: this.config.maxlength,placeholder: this.config.placeholder}), this.inputElement.appendTo(this.domElement)
@@ -12959,7 +13176,9 @@ hljs.registerLanguage("bash", function(e) {
         this.writeToBlock()
     },onExpandClicked: function() {
         this.expand()
-    }}), SL("editor.components.toolbars.options").Toggle = SL.editor.components.toolbars.options.Value.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Toggle = SL.editor.components.toolbars.options.Value.extend({
+    init: function(e, t) {
         this._super(e, t)
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-toggle")
@@ -12969,16 +13188,22 @@ hljs.registerLanguage("bash", function(e) {
         this.domElement.attr("data-value", e), this._super(e, t)
     },onClicked: function(e) {
         e.preventDefault(), this.setValue(!this.getValue(), !0)
-    }}), SL("editor.components.toolbars.options").Back = SL.editor.components.toolbars.options.Base.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").Back = SL.editor.components.toolbars.options.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "back",icon: "arrow-up",tooltip: "Go back"}, t))
     },onClicked: function(e) {
         this._super(e), SL.view.toolbars.pop()
-    }}), SL("editor.components.toolbars.options").BackgroundColor = SL.editor.components.toolbars.options.Color.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BackgroundColor = SL.editor.components.toolbars.options.Color.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "background-color",label: "Background Color",property: "style.background-color",alpha: !0}, t))
     },getColorpickerConfig: function() {
         var e = this._super.apply(this, arguments), t = tinycolor(this.getValue()).toRgb();
         return 0 === t.r && 0 === t.g && 0 === t.b && 0 === t.a && (e.color = "#000000"), e
-    }}), SL("editor.components.toolbars.options").BlockActions = SL.editor.components.toolbars.options.Multi.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BlockActions = SL.editor.components.toolbars.options.Multi.extend({
+    init: function(e, t) {
         var i = [{value: "duplicate",icon: "new-window",tooltip: "Duplicate"}, {value: "delete",icon: "trash-fill",tooltip: "Delete"}];
         e && e.options.horizontalResizing && e.options.verticalResizing && i.unshift({value: "expand",icon: "fullscreen",tooltip: "Maximize"}), e && e.hasPlugin(SL.editor.blocks.plugin.HTML) && i.unshift({value: "html",icon: "file-xml",tooltip: "Edit HTML"}), this._super(e, $.extend({type: "block-actions",label: "Actions",items: i}, t))
     },trigger: function(e) {
@@ -12988,31 +13213,51 @@ hljs.registerLanguage("bash", function(e) {
         }), SL.analytics.trackEditor("Toolbar: Expand block")) : "duplicate" === e ? (SL.editor.controllers.Blocks.copy(), SL.editor.controllers.Blocks.paste(), SL.analytics.trackEditor("Toolbar: Duplicate block")) : "delete" === e && (t.forEach(function(e) {
             e.destroy()
         }), SL.analytics.trackEditor("Toolbar: Delete block"))
-    }}), SL("editor.components.toolbars.options").BlockAlignHorizontal = SL.editor.components.toolbars.options.Multi.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BlockAlignHorizontal = SL.editor.components.toolbars.options.Multi.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "block-align-horizontal",label: "Alignment",items: [{value: "left",icon: "alignleftedges"}, {value: "horizontal-center",icon: "alignhorizontalcenters"}, {value: "right",icon: "alignrightedges"}]}, t))
     },trigger: function(e) {
         this._super(e), SL.editor.controllers.Blocks.align(SL.editor.controllers.Blocks.getFocusedBlocks(), e)
-    }}), SL("editor.components.toolbars.options").BlockAlignVertical = SL.editor.components.toolbars.options.Multi.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BlockAlignVertical = SL.editor.components.toolbars.options.Multi.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "block-align-vertical",items: [{value: "top",icon: "aligntopedges"}, {value: "vertical-center",icon: "alignverticalcenters"}, {value: "bottom",icon: "alignbottomedges"}]}, t))
     },trigger: function(e) {
         this._super(e), SL.editor.controllers.Blocks.align(SL.editor.controllers.Blocks.getFocusedBlocks(), e)
-    }}), SL("editor.components.toolbars.options").BlockDepth = SL.editor.components.toolbars.options.Multi.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BlockDepth = SL.editor.components.toolbars.options.Multi.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "block-depth",label: "Depth",items: [{value: "back",icon: "arrow-down",tooltip: "Move to back"}, {value: "front",icon: "arrow-up",tooltip: "Move to front"}]}, t))
     },trigger: function(e) {
         "front" === e ? SL.editor.controllers.Blocks.moveBlocksToDepth(SL.editor.controllers.Blocks.getFocusedBlocks(), 1e4) : "back" === e && SL.editor.controllers.Blocks.moveBlocksToDepth(SL.editor.controllers.Blocks.getFocusedBlocks(), 0)
-    }}), SL("editor.components.toolbars.options").BorderColor = SL.editor.components.toolbars.options.Color.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BorderColor = SL.editor.components.toolbars.options.Color.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "border-color",label: "Color",property: "style.border-color"}, t))
-    }}), SL("editor.components.toolbars.options").BorderRadius = SL.editor.components.toolbars.options.Stepper.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BorderRadius = SL.editor.components.toolbars.options.Stepper.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "border-radius",label: "Radius",property: "style.border-radius"}, t))
-    }}), SL("editor.components.toolbars.options").BorderStyle = SL.editor.components.toolbars.options.Select.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BorderStyle = SL.editor.components.toolbars.options.Select.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "border-style",label: "Style",property: "style.border-style",items: e.getPropertySettings("style.border-style").options}, t))
-    }}), SL("editor.components.toolbars.options").BorderWidth = SL.editor.components.toolbars.options.Stepper.extend({init: function(e, t) {
+    }}), 
+SL("editor.components.toolbars.options").BorderWidth = SL.editor.components.toolbars.options.Stepper.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "border-width",label: "Width",property: "style.border-width"}, t))
-    }}), SL("editor.components.toolbars.options").ClassName = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").ClassName = SL.editor.components.toolbars.options.Text.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "class-name",label: "Class name",property: "attribute.class",helpTooltip: "Adds a class name to the underlying HTML element. Useful when trying to target elements with custom CSS."}, t))
-    }}), SL("editor.components.toolbars.options").CodeLanguage = SL.editor.components.toolbars.options.Select.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").CodeLanguage = SL.editor.components.toolbars.options.Select.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "code-language",label: "Language",property: "code.language",items: e.getPropertySettings("code.language").options,panelMaxHeight: 400}, t))
-    }}), SL("editor.components.toolbars.options").Code = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").Code = SL.editor.components.toolbars.options.Text.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "code",label: "Code",property: "code.value",placeholder: "Paste code to syntax highlight...",multiline: !0,expandable: !0,maxlength: 1e7}, t))
     },bind: function() {
         this._super(), this.block && (this.onEditingRequested = this.onEditingRequested.bind(this), this.block.editingRequested.add(this.onEditingRequested))
@@ -13020,13 +13265,20 @@ hljs.registerLanguage("bash", function(e) {
         this.block && this.block.editingRequested.remove(this.onEditingRequested), this._super()
     },onEditingRequested: function() {
         this.expand()
-    }}), SL("editor.components.toolbars.options").Divider = SL.editor.components.toolbars.options.Base.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").Divider = SL.editor.components.toolbars.options.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "divider"}, t)), this.domElement.addClass("toolbar-divider")
-    }}), SL("editor.components.toolbars.options").HTML = SL.editor.components.toolbars.options.Button.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").HTML = SL.editor.components.toolbars.options.Button.extend({
+    init: function(e, t) {
         this._super(e, $.extend({title: "Edit HTML",property: "html.value"}, t))
     },onClicked: function(e) {
         this._super(e), this.block.editHTML()
-    }}), SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
+    }
+}), 
+SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolbars.options.Text.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "iframe-src",label: "Iframe Source",property: "iframe.src",placeholder: "URL or <iframe>...",multiline: !0,maxlength: 2e3}, t))
     },bind: function() {
         this._super(), this.block && (this.onEditingRequested = this.onEditingRequested.bind(this), this.block.editingRequested.add(this.onEditingRequested))
@@ -13045,7 +13297,9 @@ hljs.registerLanguage("bash", function(e) {
         this.writeToBlock()
     },onEditingRequested: function() {
         this.focus()
-    }}), SL("editor.components.toolbars.options").Image = SL.editor.components.toolbars.options.Base.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").Image = SL.editor.components.toolbars.options.Base.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "image",labe: "Image"}, t)), this.syncUI()
     },render: function() {
         this._super(), this.domElement.addClass("toolbar-image"), this.innerElement = $('<div class="toolbar-image-inner">').appendTo(this.domElement), this.placeholderElement = $('<div class="toolbar-image-placeholder">').appendTo(this.innerElement), this.labelElement = $('<div class="toolbar-image-label">Upload</div>').appendTo(this.innerElement), this.urlElement = $('<div class="toolbar-image-url icon i-link"></div>').appendTo(this.innerElement), this.spinnerElement = $(['<div class="toolbar-image-progress">', '<span class="spinner centered"></span>', "</div>"].join("")).appendTo(this.innerElement), this.renderFileInput()
@@ -13072,14 +13326,18 @@ hljs.registerLanguage("bash", function(e) {
         t.confirmed.add(function(e) {
             this.block.set("image.src", e), this.syncUI()
         }.bind(this))
-    }}), SL("editor.components.toolbars.options").LineHeight = SL.editor.components.toolbars.options.Stepper.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").LineHeight = SL.editor.components.toolbars.options.Stepper.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "line-height",label: "Line Height",property: "style.line-height"}, t))
     }}), SL("editor.components.toolbars.options").LinkURL = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
         this._super(e, $.extend({type: "link-url",property: "link.href",placeholder: "http://"}, t))
     },writeToBlock: function() {
         var e = this.getValue().trim();
         SL.util.string.URL_REGEX.test(e) || /^#\/\d/.test(e) ? this.block.set(this.config.property, e) : this.block.set(this.config.property, "")
-    }}), SL("editor.components.toolbars.options").MathColor = SL.editor.components.toolbars.options.Color.extend({init: function(e, t) {
+    }
+}), SL("editor.components.toolbars.options").MathColor = SL.editor.components.toolbars.options.Color.extend({
+    init: function(e, t) {
         this._super(e, $.extend({type: "math-color",label: "Color",property: "style.color"}, t))
     }}), SL("editor.components.toolbars.options").MathInput = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
         this._super(e, $.extend({type: "math",label: 'Math <span style="text-transform: none;">(TeX)</span>',property: "math.value",placeholder: "Paste or type TeX...",helpTooltip: "This block is used to display math formulae. Math is written using TeX. Click for more info.",helpTooltipLink: "http://help.slides.com/knowledgebase/articles/446424",multiline: !0,expandable: !0,maxlength: 1e7}, t))
@@ -13153,7 +13411,13 @@ hljs.registerLanguage("bash", function(e) {
         this._super(e, $.extend({type: "text-color",label: "Text Color",property: "style.color"}, t))
     }}), SL("editor.components.toolbars.options").TextSize = SL.editor.components.toolbars.options.Stepper.extend({init: function(e, t) {
         this._super(e, $.extend({type: "text-size",label: "Text Scale",property: "style.font-size"}, t))
-    }}), SL("editor.components.toolbars.util").Panel = Class.extend({init: function(e) {
+    }
+}), 
+
+// utils
+
+SL("editor.components.toolbars.util").Panel = Class.extend({
+    init: function(e) {
         this.options = $.extend({width: "auto",height: "auto",maxHeight: "none",keydown: !1,offsetX: 0,offsetY: 0}, e), this.render(), this.bind(), SL.editor.components.toolbars.util.Panel.INSTANCES.push(this)
     },render: function() {
         this.domElement = $('<div class="toolbar-panel">'), this.contentElement = $('<div class="toolbar-panel-content">').appendTo(this.domElement), this.arrowElement = $('<div class="toolbar-panel-arrow">').appendTo(this.domElement), this.contentElement.css({width: this.options.width,height: this.options.height,maxHeight: this.options.maxHeight}), this.domElement.attr("data-anchor-alignment", this.options.anchorAlignment), "string" == typeof this.options.type && this.domElement.attr("data-panel-type", this.options.type), "number" == typeof this.options.height && this.domElement.css("overflow", "auto")
@@ -13186,7 +13450,15 @@ hljs.registerLanguage("bash", function(e) {
         for (var e = 0; e < SL.editor.components.toolbars.util.Panel.INSTANCES.length; e++)
             SL.editor.components.toolbars.util.Panel.INSTANCES[e] === this && SL.editor.components.toolbars.util.Panel.INSTANCES.splice(e, 1);
         SL.keyboard.release(this.options.keydown), this.shown.dispose(), this.hidden.dispose(), this.domElement.remove()
-    }}), SL.editor.components.toolbars.util.Panel.INSTANCES = [], SL("editor.controllers").API = {forkDeck: function() {
+    }}), SL.editor.components.toolbars.util.Panel.INSTANCES = [],
+
+
+
+
+
+
+// Editor Controllers     
+SL("editor.controllers").API = {forkDeck: function() {
         SL.helpers.PageLoader.show("Duplicating..."), $.ajax({type: "POST",url: SL.config.AJAX_FORK_DECK(SLConfig.deck.id),context: this}).done(function(e) {
             e && e.deck && "string" == typeof e.deck.slug ? window.location = SL.routes.DECK_EDIT(SL.current_user.get("username"), e.deck.slug) : (SL.helpers.PageLoader.hide(), SL.notify(SL.locale.get("GENERIC_ERROR"), "negative"))
         }).fail(function() {
@@ -13200,7 +13472,10 @@ hljs.registerLanguage("bash", function(e) {
                             SL.notify(SL.locale.get("DECK_DELETE_ERROR"), "negative"), SL.helpers.PageLoader.hide()
                         })
                     }.bind(this)}]})
-    }}, SL("editor.controllers").Blocks = {init: function(e) {
+    }
+}, 
+SL("editor.controllers").Blocks = {
+    init: function(e) {
         this.editor = e, this.clipboard = [], this.clipboardAction = null, this.focusChanged = new signals.Signal, this.bind()
     },bind: function() {
         this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this), this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this), this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this), this.onDocumentKeyDown = this.onDocumentKeyDown.bind(this), this.onTextEditingTouchMove = this.onTextEditingTouchMove.bind(this), this.onTextEditingTouchEnd = this.onTextEditingTouchEnd.bind(this), $(document).on("vmousedown", this.onDocumentMouseDown), $(document).on("keydown", this.onDocumentKeyDown)
@@ -13399,7 +13674,10 @@ hljs.registerLanguage("bash", function(e) {
                     e.destroy()
                 }), e.preventDefault())
         }
-    }}, SL("editor.controllers").Capabilities = {TOUCH_EDITOR: !1,TOUCH_EDITOR_SMALL: !1,init: function() {
+    }}, 
+SL("editor.controllers").Capabilities = {
+    TOUCH_EDITOR: !1,TOUCH_EDITOR_SMALL: !1,
+    init: function() {
         return SL.util.device.supportedByEditor() ? (SL.editor.controllers.Capabilities.TOUCH_EDITOR = /ipad|iphone|ipod|android/gi.test(navigator.userAgent) && !!("ontouchstart" in window), SL.editor.controllers.Capabilities.TOUCH_EDITOR_SMALL = SL.editor.controllers.Capabilities.TOUCH_EDITOR && window.innerWidth > 0 && window.innerWidth < 1e3, SL.editor.controllers.Capabilities.TOUCH_EDITOR && ($("html").addClass("touch-editor"), SL.editor.controllers.Capabilities.TOUCH_EDITOR_SMALL && $("html").addClass("touch-editor-small")), !0) : ($(document.body).append('<div class="not-supported"><h2>Not Supported</h2><p>The Slides editor doesn\'t currently support the browser you\'re using. Please consider changing to a different browser, such as <a href="https://www.google.com/chrome">Google Chrome</a> or <a href="https://www.mozilla.org/firefox/">Firefox</a>.</p><a class="skip" href="#">Continue anyway</a></div>'), $(".not-supported .skip").on("click", function() {
             $(".not-supported").remove()
         }), !1)
@@ -13451,7 +13729,9 @@ hljs.registerLanguage("bash", function(e) {
         return SL.editor.controllers.Capabilities.isTouchEditor() ? !1 : SL.current_user.settings.get("editor_grid")
     },onContrastChange: function(e) {
         this.setContrast(e), this.isEnabled() && this.paint()
-    }}, SL("editor.controllers").Guides = {init: function() {
+    }}, 
+SL("editor.controllers").Guides = {
+    init: function() {
         this.guides = {h: [],v: []}, this.render()
     },render: function() {
         this.domElement = $('<div class="sl-block-guides editing-ui">')
@@ -13555,7 +13835,11 @@ hljs.registerLanguage("bash", function(e) {
         })), t.remove()
     },isEnabled: function() {
         return SL.editor.controllers.Capabilities.isTouchEditor() ? !0 : SL.current_user.settings.get("editor_snap")
-    }}, SL("editor.controllers").History = {MAX_SIZE: 100,MAX_FREQUENCY: 1500,MODE_RESTING: 1,MODE_UNDOING: 2,MODE_REDOING: 3,init: function() {
+    }
+}, 
+SL("editor.controllers").History = {
+    MAX_SIZE: 100,MAX_FREQUENCY: 1500,MODE_RESTING: 1,MODE_UNDOING: 2,MODE_REDOING: 3,
+    init: function() {
         this.past = [], this.future = [], this.mode = SL.editor.controllers.History.MODE_RESTING, this.lastPushTime = -1, this.changed = new signals.Signal, this.undid = new signals.Signal, this.redid = new signals.Signal
     },push: function(e, t) {
         t = t || {};
@@ -13700,12 +13984,18 @@ hljs.registerLanguage("bash", function(e) {
             var i = SL.editor.controllers.Blocks.add({type: "image",slide: $(SL.editor.controllers.Markup.getCurrentSlide())});
             i.upload(e, t)
         }
-    }}, SL("editor.controllers").Migration = {init: function() {
+    }
+}, 
+SL("editor.controllers").Migration = {
+    init: function() {
         this.migrateEditorSettings()
     },migrateEditorSettings: function() {
         var e = "editorSnap", t = "editorGrid", i = SL.settings.getValue(t), n = SL.settings.getValue(e);
         ("boolean" == typeof i || "boolean" == typeof n) && (SL.settings.removeValue([t, e]), SL.current_user.settings.set("editor_grid", i), SL.current_user.settings.set("editor_snap", n), SL.current_user.settings.save(["editor_grid", "editor_snap"]))
-    }}, SL("editor.controllers").Mode = {init: function(e, t) {
+    }
+}, 
+SL("editor.controllers").Mode = {
+    init: function(e, t) {
         this.editor = e, this.modes = t, this.modeActivated = new signals.Signal, this.modeDeactivated = new signals.Signal;
         for (var i in this.modes)
             this.modes[i].activated.add(this.onModeActivated.bind(this, i)), this.modes[i].deactivated.add(this.onModeDeactivated.bind(this, i))
@@ -13730,7 +14020,10 @@ hljs.registerLanguage("bash", function(e) {
         this.modeActivated.dispatch(e)
     },onModeDeactivated: function(e) {
         this.modeDeactivated.dispatch(e)
-    }}, SL("editor.controllers").Onboarding = {init: function(e) {
+    }}, 
+
+SL("editor.controllers").Onboarding = {
+        init: function(e) {
         this.onKeyDown = this.onKeyDown.bind(this), this.onTutorialSkipped = this.onTutorialSkipped.bind(this), this.onTutorialFinished = this.onTutorialFinished.bind(this), SL.util.getQuery().tutorial ? this.start() : SL.current_user.get("editor_tutorial_completed") || !e.isNewDeck() || SL.util.device.IS_PHONE || SL.util.device.IS_TABLET || this.start()
     },start: function() {
         SL.keyboard.keydown(this.onKeyDown), this.tutorial = new SL.components.Tutorial({context: this,steps: [this.step0, this.step1, this.step2, this.step3, this.step4, this.step5, this.step6, this.step7]}), this.tutorial.skipped.add(this.onTutorialSkipped.bind(this)), this.tutorial.finished.add(this.onTutorialFinished.bind(this)), this.tutorial.step(0)
@@ -13776,7 +14069,9 @@ hljs.registerLanguage("bash", function(e) {
         },backwards: function() {
             var e = $(".sl-templates");
             e.length && (e.css("background", ""), e.data("instance").hide()), this.tutorial.clearCutout(), this.tutorial.clearMessage()
-        }}}, SL("editor.controllers").Selection = {init: function() {
+        }}
+}, 
+SL("editor.controllers").Selection = {init: function() {
         this.domElement = $('<div class="sl-block-selection editing-ui">')
     },start: function(e, t) {
         var i = $(".projector");
@@ -13825,7 +14120,11 @@ hljs.registerLanguage("bash", function(e) {
                 return /(contenteditable|tabindex|spellcheck|role|title|aria\-.)/gi.test(e)
             })
         }), e
-    }}, SL("editor.controllers").Session = {init: function() {
+    }
+}, 
+// sessions
+SL("editor.controllers").Session = {
+    init: function() {
         this.hasLoggedOut = !1, this.loginInterval = setInterval(this.checkLogin.bind(this), SL.config.LOGIN_STATUS_INTERVAL)
     },checkLogin: function(e) {
         (SL.view.hasUnsavedChanges() && !SL.modal.isOpen("no-session") || e) && $.get(SL.config.AJAX_CHECK_STATUS).done(function(e) {
@@ -13835,7 +14134,9 @@ hljs.registerLanguage("bash", function(e) {
         this.hasLoggedOut && (this.hasLoggedOut = !1, SL.modal.close())
     },onLoggedOut: function() {
         SL.editor.controllers.Mode.get("arrange").isActive() || this.hasLoggedOut || (this.hasLoggedOut = !0, SL.modal.open("no-session"))
-    }}, SL("editor.controllers").Stream = {connect: function() {
+    }
+}, SL("editor.controllers").Stream = {
+    connect: function() {
         this.stream || (this.stream = new SL.helpers.StreamEditor({deckID: SLConfig.deck.id}), this.stream.connect())
     },get: function() {
         return this.stream || this.connect(), this.stream
@@ -13847,14 +14148,18 @@ hljs.registerLanguage("bash", function(e) {
         this.invalidated = !0
     },isInvalidated: function() {
         return this.invalidated
-    }}, SL("editor.controllers").URL = {init: function() {
+    }
+}, SL("editor.controllers").URL = {
+    init: function() {
         setTimeout(this.read.bind(this), 1)
     },read: function() {
         var e = SL.util.getQuery();
         e.panel && SL.view.sidebar.open(e.panel)
     },write: function() {
         window.history && "function" == typeof window.history.replaceState && window.history.replaceState(null, SLConfig.deck.title, SL.routes.DECK_EDIT(SLConfig.deck.user.username, SLConfig.deck.slug))
-    }}, SL("editor").Editor = SL.views.Base.extend({init: function() {
+    }
+}, SL("editor").Editor = SL.views.Base.extend({
+    init: function() {
         this._super(), SL.editor.controllers.Capabilities.init(), SLConfig.deck.theme_font = SLConfig.deck.theme_font || SL.config.DEFAULT_THEME_FONT, SLConfig.deck.theme_color = SLConfig.deck.theme_color || SL.config.DEFAULT_THEME_COLOR, SLConfig.deck.transition = SLConfig.deck.transition || SL.config.DEFAULT_THEME_TRANSITION, SLConfig.deck.background_transition = SLConfig.deck.background_transition || SL.config.DEFAULT_THEME_BACKGROUND_TRANSITION, SLConfig.deck.visibility = SLConfig.deck.visibility || SL.models.Deck.VISIBILITY_ALL, this.addHorizontalSlideButton = $(".add-horizontal-slide"), this.addVerticalSlideButton = $(".add-vertical-slide"), this.previewControlsExit = $(".preview-controls-exit"), this.flags = {editing: !0,saving: !1,unsaved: !1,newDeck: !SLConfig.deck.id}, this.isNewDeck() && SL.current_user.hasDefaultTheme() && (SLConfig.deck.theme_id = SL.current_user.getDefaultTheme().get("id")), this.savedDeck = JSON.parse(JSON.stringify(SLConfig.deck)), this.setupControllers(), this.setupComponents(), this.setupReveal(), this.setupTheme(), this.setupWYSIWYG(), this.setupDefaultContent(), this.preloadWYSIWYG(), this.changeInterval = setInterval(this.checkChanges.bind(this), SL.config.UNSAVED_CHANGES_INTERVAL), this.saveInterval = setInterval(this.checkAutoSave.bind(this), SL.config.AUTOSAVE_INTERVAL), $("html").toggleClass("is-new", this.isNewDeck()), $("html").toggleClass("rtl", SLConfig.deck.rtl), this.bind(), this.layout(), this.enableEditing(), $("html").addClass("editor-loaded-successfully"), setTimeout(function() {
             SLConfig.deck.data = SL.editor.controllers.Serialize.getDeckAsString(), this.firstSlideData = SL.editor.controllers.Serialize.getFirstSlideAsString(), this.toolbars.sync()
         }.bind(this), 1)
@@ -14031,7 +14336,10 @@ hljs.registerLanguage("bash", function(e) {
                 t.getID() === e && SL.editor.controllers.Blocks.focus(t, !0)
             })
         })
-    }}), SL.editor.Editor.VERSION = 2, SL("editor.modes").Base = Class.extend({init: function(e, t) {
+    }
+}), SL.editor.Editor.VERSION = 2, 
+SL("editor.modes").Base = Class.extend({
+    init: function(e, t) {
         this.id = t, this.editor = e, this.active = !1, this.activated = new signals.Signal, this.deactivated = new signals.Signal, this.onSlideChanged = this.onSlideChanged.bind(this), this.render(), this.bind()
     },bind: function() {
     },render: function() {
@@ -14096,7 +14404,9 @@ hljs.registerLanguage("bash", function(e) {
             var n = Reveal.getIndices(t.get(0));
             Reveal.slide(n.h, n.v), Reveal.slide(n.h, n.v), Reveal.toggleOverview(!0), Reveal.sync(), this.syncControls()
         }
-    }}), SL("editor.modes").CSS = SL.editor.modes.Base.extend({init: function(e) {
+    }
+}), SL("editor.modes").CSS = SL.editor.modes.Base.extend({
+    init: function(e) {
         this.userCSSInput = $("#user-css-input"), this.userCSSOutput = $("#user-css-output"), this.parseTimeout = -1, this.userCSSInput.length && (SLConfig.deck.css_input = this.userCSSInput.html() || void 0), this.userCSSOutput.length && (SLConfig.deck.css_output = this.userCSSOutput.html() || void 0), this._super(e, "css")
     },render: function() {
         this.domElement = $('<div class="css-editor">').appendTo(document.body), this.headerElemenet = $("<header>").appendTo(this.domElement), this.headerElemenet.append('<p>Enter custom styles using LESS or plain CSS. All selectors are prefixed with .reveal on save. <a href="http://help.slides.com/knowledgebase/articles/253052-css-editor-pro-" target="_blank">Find out more and see examples.</a></p>'), this.contentsElement = $('<div class="contents">').appendTo(this.domElement), this.contentsElement.append('<div id="ace-less" class="editor"></div>'), this.errorElement = $('<div class="error">').appendTo(this.contentsElement), this.footerElement = $("<footer>").appendTo(this.domElement), this.cancelButton = $('<button class="button cancel negative grey xl">Cancel</button>').appendTo(this.footerElement), this.saveButton = $('<button class="button save positive xl">OK</button>').appendTo(this.footerElement)
@@ -14205,7 +14515,16 @@ hljs.registerLanguage("bash", function(e) {
         Reveal.slide(e.h, e.v, -1), $(document.activeElement).blur(), "string" == typeof SLConfig.deck.slug && SLConfig.deck.slug.length > 0 ? $(".preview-controls-external").show().attr("href", SL.routes.DECK_LIVE(SLConfig.deck.user.username, SLConfig.deck.slug)) : $(".preview-controls-external").hide()
     },deactivate: function() {
         this.editor.syncPageBackground(), this.editor.enableEditing(), this._super(), Reveal.configure({progress: !1,overview: !0,touch: !1,center: !1,fragments: !1,autoSlide: 0}), SL.util.layoutReveal(500)
-    }}), SL("editor").Tests = {run: function() {
+    }
+}), 
+
+
+
+/**
+* Test
+**/
+
+SL("editor").Tests = {run: function() {
         var e = this.testOnboarding(), t = this.testBlocks();
         e && t && $("html").addClass("editor-tested-successfully")
     },testOnboarding: function() {
@@ -14219,4 +14538,5 @@ hljs.registerLanguage("bash", function(e) {
         t.destroy();
         var i = SL.editor.controllers.Blocks.add({type: "shape"});
         return i.move(100, 100), i.resize({width: 100,height: 100}), i.destroy(), !0
-    }};
+    }
+};
