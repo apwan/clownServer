@@ -527,9 +527,7 @@ SL("editor.blocks").Base = Class.extend({
     },onPropertyChanged: function() {
         this.paint()
     }}), SL.editor.blocks.Shape.shapeFromType = function(e, t, i) {
-    return t = t || 32, i = i || 32, /^symbol\-/.test(e) ? SL.util.svg.symbol(e.replace(/^symbol\-/, "")) : "rect" === e ? SL.util.svg.rect(t, i) : "circle" === e ? SL.util.svg.ellipse(t, i) : "diamond" === e ? SL.util.svg.polygon(t, i, 4) : "octagon" === e ? SL.util.svg.polygon(t, i, 8) : "triangle-up" === e ? SL.util.svg.triangleUp(t, i) : "triangle-down" === e ? SL.util.svg.triangleDown(t, i) : "triangle-left" === e ? SL.util.svg.triangleLeft(t, i) : "triangle-right" === e ? SL.util.svg.triangleRight(t, i) : "arrow-up" === e ? SL.util.svg.arrowUp(t, i) : "arrow-down" === e ? SL.util.svg.arrowDown(t, i) : "arrow-left" === e ? SL.util.svg.arrowLeft(t, i) : "arrow-right" === e ? SL.util.svg.arrowRight(t, i) : void 0
-}, 
-
+    return t = t || 32, i = i || 32, /^symbol\-/.test(e) ? SL.util.svg.symbol(e.replace(/^symbol\-/, "")) : "rect" === e ? SL.util.svg.rect(t, i) : "circle" === e ? SL.util.svg.ellipse(t, i) : "diamond" === e ? SL.util.svg.polygon(t, i, 4) : "octagon" === e ? SL.util.svg.polygon(t, i, 8) : "triangle-up" === e ? SL.util.svg.triangleUp(t, i) : "triangle-down" === e ? SL.util.svg.triangleDown(t, i) : "triangle-left" === e ? SL.util.svg.triangleLeft(t, i) : "triangle-right" === e ? SL.util.svg.triangleRight(t, i) : "arrow-up" === e ? SL.util.svg.arrowUp(t, i) : "arrow-down" === e ? SL.util.svg.arrowDown(t, i) : "arrow-left" === e ? SL.util.svg.arrowLeft(t, i) : "arrow-right" === e ? SL.util.svg.arrowRight(t, i) : void 0}, 
 SL("editor.blocks").Snippet = SL.editor.blocks.Base.extend({
     init: function(e) {
         this._super("snippet", $.extend({}, e)), this.plug(SL.editor.blocks.plugin.HTML)
@@ -569,9 +567,7 @@ SL("editor.blocks").Snippet = SL.editor.blocks.Base.extend({
         setTimeout(function() {
             SL.editor.controllers.Blocks.afterBlockTextInput()
         }, 1)
-    }
-}), 
-
+    }}), 
 SL.editor.blocks.Snippet.DEFAULT_WIDTH = 300, SL.editor.blocks.Snippet.DEFAULT_HEIGHT = 300, 
 SL("editor.blocks").Text = SL.editor.blocks.Base.extend({
     init: function(e) {
@@ -1108,8 +1104,7 @@ SL("editor.blocks").Text = SL.editor.blocks.Base.extend({
     },onPanelScroll: function() {
         var e = this.panelBody.scrollTop(), t = this.panelBody.prop("scrollHeight"), i = this.panelBody.outerHeight(), n = e / (t - i);
         n > .8 && this.load()
-    }
-}), 
+    }}), 
 SL("editor.components.sidebar").Settings = SL.editor.components.sidebar.Base.extend({
     init: function() {
         this.domElement = $(".sidebar-panel .settings"), this.rtlToggle = this.domElement.find('.sl-checkbox input[value="rtl"]'), this.loopToggle = this.domElement.find('.sl-checkbox input[value="should_loop"]'), this.commentsEnabledToggle = this.domElement.find('.sl-checkbox input[value="comments_enabled"]'), this.forkingEnabledToggle = this.domElement.find('.sl-checkbox input[value="forking_enabled"]'), this.titleInput = this.domElement.find("#deck-input-title"), this.descriptionInput = this.domElement.find("#deck-input-description"), this.slug = this.domElement.find(".slug"), this.slugInput = this.domElement.find("#deck-input-slug"), this.slugPrefix = this.domElement.find(".slug .text-prefix"), this.autoSlideInput = this.domElement.find("#deck-input-autoslide"), this.renderAutoSlideOptions(), this._super()
@@ -1152,8 +1147,7 @@ SL("editor.components.sidebar").Settings = SL.editor.components.sidebar.Base.ext
         this.deckIsPrivate() || SL.tooltip.show("Changing the URL of your deck will break existing links to it.", {anchor: this.slugInput,alignment: "r",maxwidth: 220})
     },onSlugBlur: function() {
         SL.tooltip.hide(), this.slugInput.val(SL.util.string.slug(this.slugInput.val()))
-    }
-}), 
+    }}), 
 SL("editor.components.sidebar").Share = SL.editor.components.sidebar.Base.extend({
     init: function() {
         this.domElement = $(".sidebar-panel .share"), this.sharer = new SL.components.DeckSharer("light"), this.sharer.appendTo(this.domElement.find(".contents")), this._super()
@@ -1919,16 +1913,16 @@ SL("editor.components.toolbars.options").BorderStyle = SL.editor.components.tool
 SL("editor.components.toolbars.options").BorderWidth = SL.editor.components.toolbars.options.Stepper.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "border-width",label: "Width",property: "style.border-width"}, t))
-    }
-}), SL("editor.components.toolbars.options").ClassName = SL.editor.components.toolbars.options.Text.extend({
+    }}),
+SL("editor.components.toolbars.options").ClassName = SL.editor.components.toolbars.options.Text.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "class-name",label: "Class name",property: "attribute.class",helpTooltip: "Adds a class name to the underlying HTML element. Useful when trying to target elements with custom CSS."}, t))
-    }
-}), SL("editor.components.toolbars.options").CodeLanguage = SL.editor.components.toolbars.options.Select.extend({
+    }}), 
+SL("editor.components.toolbars.options").CodeLanguage = SL.editor.components.toolbars.options.Select.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "code-language",label: "Language",property: "code.language",items: e.getPropertySettings("code.language").options,panelMaxHeight: 400}, t))
-    }
-}), SL("editor.components.toolbars.options").Code = SL.editor.components.toolbars.options.Text.extend({
+    }}), 
+SL("editor.components.toolbars.options").Code = SL.editor.components.toolbars.options.Text.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "code",label: "Code",property: "code.value",placeholder: "Paste code to syntax highlight...",multiline: !0,expandable: !0,maxlength: 1e7}, t))
     },bind: function() {
@@ -1937,18 +1931,17 @@ SL("editor.components.toolbars.options").BorderWidth = SL.editor.components.tool
         this.block && this.block.editingRequested.remove(this.onEditingRequested), this._super()
     },onEditingRequested: function() {
         this.expand()
-    }
-}), SL("editor.components.toolbars.options").Divider = SL.editor.components.toolbars.options.Base.extend({
+    }}), 
+SL("editor.components.toolbars.options").Divider = SL.editor.components.toolbars.options.Base.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "divider"}, t)), this.domElement.addClass("toolbar-divider")
-    }
-}), SL("editor.components.toolbars.options").HTML = SL.editor.components.toolbars.options.Button.extend({
+    }}), 
+SL("editor.components.toolbars.options").HTML = SL.editor.components.toolbars.options.Button.extend({
     init: function(e, t) {
         this._super(e, $.extend({title: "Edit HTML",property: "html.value"}, t))
     },onClicked: function(e) {
         this._super(e), this.block.editHTML()
-    }
-}), 
+    }}), 
 SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolbars.options.Text.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "iframe-src",label: "Iframe Source",property: "iframe.src",placeholder: "URL or <iframe>...",multiline: !0,maxlength: 2e3}, t))
@@ -1969,8 +1962,8 @@ SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolba
         this.writeToBlock()
     },onEditingRequested: function() {
         this.focus()
-    }
-}), SL("editor.components.toolbars.options").Image = SL.editor.components.toolbars.options.Base.extend({
+    }}), 
+SL("editor.components.toolbars.options").Image = SL.editor.components.toolbars.options.Base.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "image",labe: "Image"}, t)), this.syncUI()
     },render: function() {
@@ -1998,8 +1991,8 @@ SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolba
         t.confirmed.add(function(e) {
             this.block.set("image.src", e), this.syncUI()
         }.bind(this))
-    }
-}), SL("editor.components.toolbars.options").LineHeight = SL.editor.components.toolbars.options.Stepper.extend({
+    }}), 
+SL("editor.components.toolbars.options").LineHeight = SL.editor.components.toolbars.options.Stepper.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "line-height",label: "Line Height",property: "style.line-height"}, t))
     }}), SL("editor.components.toolbars.options").LinkURL = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
@@ -2007,8 +2000,8 @@ SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolba
     },writeToBlock: function() {
         var e = this.getValue().trim();
         SL.util.string.URL_REGEX.test(e) || /^#\/\d/.test(e) ? this.block.set(this.config.property, e) : this.block.set(this.config.property, "")
-    }
-}), SL("editor.components.toolbars.options").MathColor = SL.editor.components.toolbars.options.Color.extend({
+    }}), 
+SL("editor.components.toolbars.options").MathColor = SL.editor.components.toolbars.options.Color.extend({
     init: function(e, t) {
         this._super(e, $.extend({type: "math-color",label: "Color",property: "style.color"}, t))
     }}), SL("editor.components.toolbars.options").MathInput = SL.editor.components.toolbars.options.Text.extend({init: function(e, t) {
@@ -2083,8 +2076,7 @@ SL("editor.components.toolbars.options").IframeSRC = SL.editor.components.toolba
         this._super(e, $.extend({type: "text-color",label: "Text Color",property: "style.color"}, t))
     }}), SL("editor.components.toolbars.options").TextSize = SL.editor.components.toolbars.options.Stepper.extend({init: function(e, t) {
         this._super(e, $.extend({type: "text-size",label: "Text Scale",property: "style.font-size"}, t))
-    }
-}), 
+    }}), 
 
 // utils
 
@@ -2130,7 +2122,8 @@ SL("editor.components.toolbars.util").Panel = Class.extend({
 
 
 // Editor Controllers     
-SL("editor.controllers").API = {forkDeck: function() {
+SL("editor.controllers").API = {
+    forkDeck: function() {
         SL.helpers.PageLoader.show("Duplicating..."), $.ajax({type: "POST",url: SL.config.AJAX_FORK_DECK(SLConfig.deck.id),context: this}).done(function(e) {
             e && e.deck && "string" == typeof e.deck.slug ? window.location = SL.routes.DECK_EDIT(SL.current_user.get("username"), e.deck.slug) : (SL.helpers.PageLoader.hide(), SL.notify(SL.locale.get("GENERIC_ERROR"), "negative"))
         }).fail(function() {
@@ -2144,8 +2137,7 @@ SL("editor.controllers").API = {forkDeck: function() {
                             SL.notify(SL.locale.get("DECK_DELETE_ERROR"), "negative"), SL.helpers.PageLoader.hide()
                         })
                     }.bind(this)}]})
-    }
-}, 
+    }}, 
 SL("editor.controllers").Blocks = {
     init: function(e) {
         this.editor = e, this.clipboard = [], this.clipboardAction = null, this.focusChanged = new signals.Signal, this.bind()
@@ -2507,8 +2499,7 @@ SL("editor.controllers").Guides = {
         })), t.remove()
     },isEnabled: function() {
         return SL.editor.controllers.Capabilities.isTouchEditor() ? !0 : SL.current_user.settings.get("editor_snap")
-    }
-}, 
+    }}, 
 SL("editor.controllers").History = {
     MAX_SIZE: 100,MAX_FREQUENCY: 1500,MODE_RESTING: 1,MODE_UNDOING: 2,MODE_REDOING: 3,
     init: function() {
@@ -2656,16 +2647,14 @@ SL("editor.controllers").History = {
             var i = SL.editor.controllers.Blocks.add({type: "image",slide: $(SL.editor.controllers.Markup.getCurrentSlide())});
             i.upload(e, t)
         }
-    }
-}, 
+    }}, 
 SL("editor.controllers").Migration = {
     init: function() {
         this.migrateEditorSettings()
     },migrateEditorSettings: function() {
         var e = "editorSnap", t = "editorGrid", i = SL.settings.getValue(t), n = SL.settings.getValue(e);
         ("boolean" == typeof i || "boolean" == typeof n) && (SL.settings.removeValue([t, e]), SL.current_user.settings.set("editor_grid", i), SL.current_user.settings.set("editor_snap", n), SL.current_user.settings.save(["editor_grid", "editor_snap"]))
-    }
-}, 
+    }}, 
 SL("editor.controllers").Mode = {
     init: function(e, t) {
         this.editor = e, this.modes = t, this.modeActivated = new signals.Signal, this.modeDeactivated = new signals.Signal;
@@ -2693,9 +2682,8 @@ SL("editor.controllers").Mode = {
     },onModeDeactivated: function(e) {
         this.modeDeactivated.dispatch(e)
     }}, 
-
 SL("editor.controllers").Onboarding = {
-        init: function(e) {
+    init: function(e) {
         this.onKeyDown = this.onKeyDown.bind(this), this.onTutorialSkipped = this.onTutorialSkipped.bind(this), this.onTutorialFinished = this.onTutorialFinished.bind(this), SL.util.getQuery().tutorial ? this.start() : SL.current_user.get("editor_tutorial_completed") || !e.isNewDeck() || SL.util.device.IS_PHONE || SL.util.device.IS_TABLET || this.start()
     },start: function() {
         SL.keyboard.keydown(this.onKeyDown), this.tutorial = new SL.components.Tutorial({context: this,steps: [this.step0, this.step1, this.step2, this.step3, this.step4, this.step5, this.step6, this.step7]}), this.tutorial.skipped.add(this.onTutorialSkipped.bind(this)), this.tutorial.finished.add(this.onTutorialFinished.bind(this)), this.tutorial.step(0)
@@ -2741,9 +2729,9 @@ SL("editor.controllers").Onboarding = {
         },backwards: function() {
             var e = $(".sl-templates");
             e.length && (e.css("background", ""), e.data("instance").hide()), this.tutorial.clearCutout(), this.tutorial.clearMessage()
-        }}
-}, 
-SL("editor.controllers").Selection = {init: function() {
+        }}}, 
+SL("editor.controllers").Selection = {
+    init: function() {
         this.domElement = $('<div class="sl-block-selection editing-ui">')
     },start: function(e, t) {
         var i = $(".projector");
@@ -2792,8 +2780,7 @@ SL("editor.controllers").Selection = {init: function() {
                 return /(contenteditable|tabindex|spellcheck|role|title|aria\-.)/gi.test(e)
             })
         }), e
-    }
-}, 
+    }}, 
 // sessions
 SL("editor.controllers").Session = {
     init: function() {
@@ -2806,8 +2793,8 @@ SL("editor.controllers").Session = {
         this.hasLoggedOut && (this.hasLoggedOut = !1, SL.modal.close())
     },onLoggedOut: function() {
         SL.editor.controllers.Mode.get("arrange").isActive() || this.hasLoggedOut || (this.hasLoggedOut = !0, SL.modal.open("no-session"))
-    }
-}, SL("editor.controllers").Stream = {
+    }}, 
+SL("editor.controllers").Stream = {
     connect: function() {
         this.stream || (this.stream = new SL.helpers.StreamEditor({deckID: SLConfig.deck.id}), this.stream.connect())
     },get: function() {
@@ -2820,8 +2807,8 @@ SL("editor.controllers").Session = {
         this.invalidated = !0
     },isInvalidated: function() {
         return this.invalidated
-    }
-}, SL("editor.controllers").URL = {
+    }}, 
+SL("editor.controllers").URL = {
     init: function() {
         setTimeout(this.read.bind(this), 1)
     },read: function() {
@@ -2829,8 +2816,8 @@ SL("editor.controllers").Session = {
         e.panel && SL.view.sidebar.open(e.panel)
     },write: function() {
         window.history && "function" == typeof window.history.replaceState && window.history.replaceState(null, SLConfig.deck.title, SL.routes.DECK_EDIT(SLConfig.deck.user.username, SLConfig.deck.slug))
-    }
-}, SL("editor").Editor = SL.views.Base.extend({
+    }}, 
+SL("editor").Editor = SL.views.Base.extend({
     init: function() {
         this._super(), SL.editor.controllers.Capabilities.init(), SLConfig.deck.theme_font = SLConfig.deck.theme_font || SL.config.DEFAULT_THEME_FONT, SLConfig.deck.theme_color = SLConfig.deck.theme_color || SL.config.DEFAULT_THEME_COLOR, SLConfig.deck.transition = SLConfig.deck.transition || SL.config.DEFAULT_THEME_TRANSITION, SLConfig.deck.background_transition = SLConfig.deck.background_transition || SL.config.DEFAULT_THEME_BACKGROUND_TRANSITION, SLConfig.deck.visibility = SLConfig.deck.visibility || SL.models.Deck.VISIBILITY_ALL, this.addHorizontalSlideButton = $(".add-horizontal-slide"), this.addVerticalSlideButton = $(".add-vertical-slide"), this.previewControlsExit = $(".preview-controls-exit"), this.flags = {editing: !0,saving: !1,unsaved: !1,newDeck: !SLConfig.deck.id}, this.isNewDeck() && SL.current_user.hasDefaultTheme() && (SLConfig.deck.theme_id = SL.current_user.getDefaultTheme().get("id")), this.savedDeck = JSON.parse(JSON.stringify(SLConfig.deck)), this.setupControllers(), this.setupComponents(), this.setupReveal(), this.setupTheme(), this.setupWYSIWYG(), this.setupDefaultContent(), this.preloadWYSIWYG(), this.changeInterval = setInterval(this.checkChanges.bind(this), SL.config.UNSAVED_CHANGES_INTERVAL), this.saveInterval = setInterval(this.checkAutoSave.bind(this), SL.config.AUTOSAVE_INTERVAL), $("html").toggleClass("is-new", this.isNewDeck()), $("html").toggleClass("rtl", SLConfig.deck.rtl), this.bind(), this.layout(), this.enableEditing(), $("html").addClass("editor-loaded-successfully"), setTimeout(function() {
             SLConfig.deck.data = SL.editor.controllers.Serialize.getDeckAsString(), this.firstSlideData = SL.editor.controllers.Serialize.getFirstSlideAsString(), this.toolbars.sync()
@@ -3008,8 +2995,8 @@ SL("editor.controllers").Session = {
                 t.getID() === e && SL.editor.controllers.Blocks.focus(t, !0)
             })
         })
-    }
-}), SL.editor.Editor.VERSION = 2, 
+    }}), 
+SL.editor.Editor.VERSION = 2, 
 SL("editor.modes").Base = Class.extend({
     init: function(e, t) {
         this.id = t, this.editor = e, this.active = !1, this.activated = new signals.Signal, this.deactivated = new signals.Signal, this.onSlideChanged = this.onSlideChanged.bind(this), this.render(), this.bind()
@@ -3076,8 +3063,8 @@ SL("editor.modes").Base = Class.extend({
             var n = Reveal.getIndices(t.get(0));
             Reveal.slide(n.h, n.v), Reveal.slide(n.h, n.v), Reveal.toggleOverview(!0), Reveal.sync(), this.syncControls()
         }
-    }
-}), SL("editor.modes").CSS = SL.editor.modes.Base.extend({
+    }}), 
+SL("editor.modes").CSS = SL.editor.modes.Base.extend({
     init: function(e) {
         this.userCSSInput = $("#user-css-input"), this.userCSSOutput = $("#user-css-output"), this.parseTimeout = -1, this.userCSSInput.length && (SLConfig.deck.css_input = this.userCSSInput.html() || void 0), this.userCSSOutput.length && (SLConfig.deck.css_output = this.userCSSOutput.html() || void 0), this._super(e, "css")
     },render: function() {
@@ -3187,8 +3174,7 @@ SL("editor.modes").Base = Class.extend({
         Reveal.slide(e.h, e.v, -1), $(document.activeElement).blur(), "string" == typeof SLConfig.deck.slug && SLConfig.deck.slug.length > 0 ? $(".preview-controls-external").show().attr("href", SL.routes.DECK_LIVE(SLConfig.deck.user.username, SLConfig.deck.slug)) : $(".preview-controls-external").hide()
     },deactivate: function() {
         this.editor.syncPageBackground(), this.editor.enableEditing(), this._super(), Reveal.configure({progress: !1,overview: !0,touch: !1,center: !1,fragments: !1,autoSlide: 0}), SL.util.layoutReveal(500)
-    }
-}), 
+    }}), 
 
 
 
@@ -3196,7 +3182,8 @@ SL("editor.modes").Base = Class.extend({
 * Test
 **/
 
-SL("editor").Tests = {run: function() {
+SL("editor").Tests = {
+    run: function() {
         var e = this.testOnboarding(), t = this.testBlocks();
         e && t && $("html").addClass("editor-tested-successfully")
     },testOnboarding: function() {
@@ -3210,5 +3197,4 @@ SL("editor").Tests = {run: function() {
         t.destroy();
         var i = SL.editor.controllers.Blocks.add({type: "shape"});
         return i.move(100, 100), i.resize({width: 100,height: 100}), i.destroy(), !0
-    }
-};
+    }};
