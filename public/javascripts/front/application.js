@@ -7048,6 +7048,9 @@ $(function() {
     setTimeout(t, 1)
 }), 
 
+/**
+*  SL Models
+*/
 
 SL("models").Collection = Class.extend({
     init: function(t, e) {
@@ -7624,6 +7627,10 @@ SL("models").UserSettings = SL.models.Model.extend({
     }
 }, 
 
+/**
+* SL Utility & Helper
+*/
+
 SL.util.color = {
     getContrast: function(t) {
         var e = window.tinycolor(t).toRgb(), n = (299 * e.r + 587 * e.g + 114 * e.b) / 1e3;
@@ -7761,7 +7768,6 @@ SL.analytics = {
         }), e ? (t.preventDefault(), t.stopImmediatePropagation(), !1) : void 0
     }
 }, 
-
 
 
 SL.locale = {
@@ -7950,8 +7956,6 @@ SL.pointer = {down: !1,downTimeout: -1,
         return n && (e.innerSVG = SL.util.svg.SYMBOLS[t]), e
     }
 }, 
-
-
 
 
 SL.warnings = {
@@ -8349,6 +8353,11 @@ SL.helpers.ThemeController = {
     }
 }), 
 
+/**
+*  SL Reusable Components
+*
+*/
+
 SL("components").Kudos = function() {
     function t() {
         $("[data-kudos-value][data-kudos-id]").each(function(t, e) {
@@ -8488,10 +8497,7 @@ SL("components").Menu = Class.extend({
     }
 }), 
 
-/**
-*  This control the side panel and sections
-*
-*/
+
 SL.modal = function() {
     function t() {
         $(['<div class="inner edit-html">', "<h3>Edit HTML</h3>", '<div id="ace-html" class="editor"></div>', "<footer>", '<button class="button grey negative close xl">Cancel</button>', '<button class="button save-changes xl">OK</button>', "</footer>", "</div>"].join("")).appendTo(a);
@@ -9467,8 +9473,8 @@ SL("components").Tutorial = Class.extend({
         $("html").addClass("presentation-started")
     }}), 
 
-/** side panel controlling
-*
+/** 
+*  SL Views
 *
 */
 SL("views.decks").Show = SL.views.Base.extend({

@@ -8,6 +8,8 @@
     var t = "", i = function() {
         return this
     }();
+
+    // requirejs module
     if (t || "undefined" == typeof requirejs) {
         var n = function(e, t, i) {
             return "string" != typeof e ? void (n.original ? n.original.apply(window, arguments) : (console.error("dropping module because define wasn't a string."), console.trace())) : (2 == arguments.length && (i = t), n.modules || (n.modules = {}), n.modules[e] = i, void 0)
@@ -56,6 +58,7 @@
         };
         e(t)
     }
+
 }(), define("ace/ace", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/lib/dom", "ace/lib/event", "ace/editor", "ace/edit_session", "ace/undomanager", "ace/virtual_renderer", "ace/multi_select", "ace/worker/worker_client", "ace/keyboard/hash_handler", "ace/placeholder", "ace/mode/folding/fold_mode", "ace/theme/textmate", "ace/config"], function(e, t) {
     e("./lib/fixoldbrowsers");
     var i = e("./lib/dom"), n = e("./lib/event"), o = e("./editor").Editor, r = e("./edit_session").EditSession, s = e("./undomanager").UndoManager, a = e("./virtual_renderer").VirtualRenderer, l = e("./multi_select").MultiSelect;
@@ -9808,6 +9811,7 @@ skriv.util = {expressions: {IS_YOUTUBE_URL: /(?:www\.)?youtu(?:be\.com\/watch\?(
                     this.text = e, this.data = t, this.position = i
                 }
                 var o = e("./ParseError"), r = [/^[/|@.""`0-9a-zA-Z]/, /^[*+-]/, /^[=<>:]/, /^[,;]/, /^['\^_{}]/, /^[(\[]/, /^[)\]?!]/, /^~/], s = [/^[a-zA-Z0-9`!@*()-=+\[\]'";:?\/.,]/, /^[{}]/, /^~/], a = /^\s*/, l = /^( +|\\  +)/, c = /^\\(?:[a-zA-Z]+|.)/;
+
                 i.prototype._innerLex = function(e, t, i) {
                     var r, s = this._input.slice(e);
                     if (i)
