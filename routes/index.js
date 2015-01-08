@@ -69,6 +69,7 @@ var setup = function(newServer){
     io.on('connection', sc.onConnection);
     console.log('socket setup');
 };
+
 exports.init = setup;
 exports.router = router;
 
