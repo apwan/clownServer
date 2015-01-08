@@ -33,9 +33,6 @@ html(lang="en")
           section#test_part
             if test.test_on == 'true'
               div#test
-                  p Database Test: #{test.test_db}
-                  p Socket Test: #{test.test_sc}
-                  p Image Test:
                   img(src="/users/img" width="200" hight="200")
                   form#test_upload(action='/upload', method='post', enctype='multipart/form-data')
 
