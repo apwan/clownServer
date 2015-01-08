@@ -2,10 +2,11 @@
  * Created by Wu Yijie on 12/26/14.
  */
 
-
-var Db = require('mongodb').Db;
-var Connection = require('mongodb').Connection;
-var Server = require('mongodb').Server;
+var settings = require('./settings');
+var mongodb = require('mongodb');
+var Db = mongodb.Db;
+var Connection = mongodb.Connection;
+server = new mongodb.Server(settings.host, settings.port, {auto_reconnect: true});
 var Slide = require('./slide');
 var User = require('./user');
 var Resource = require('./resource');
@@ -20,21 +21,41 @@ var db = {
 	sample_resource: null,
 	database: null,
 	clearDB: function(callback) {
-		var collectionList = ['users', 'slides', 'resources'];
-		for (var i = 0; i < collectionList; i++) {
-			this.database.dropCollection(collectionList[i], function (err, result) {
+		var collectionList = ['users', 'slides', 'resources', 'sessions'];
+		for (var i in collectionList) {
+			this.database.dropCollection(i, function (err, result) {
 				if (err) {
 					return callback(err);
 				}
+				console.log("dropped: "+ i);
 			});
 		}
 		console.log('database cleared');
 
 	},
     // initialize database module
-	init: function(settings){
-        // the order?
-		this.database = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT), {safe:false});
+	init: function(){
+
+		/*
+		 var addr = 'mongodb://'+settings.dbuser+':'+settings.dbpwd+'@'+settings.host+':'+settings.port+'/'+ settings.db;
+		 console.log(addr);
+		Db.connect(addr, function(err, db) {
+			if(err){
+				console.log(err);
+				return;
+			}
+			this.database = db;
+			console.log(">> Dropping collection test");
+			db.dropCollection('test', function(err, result) {
+				if(err){
+					console.log(err);
+
+				}
+				console.dir(result);
+			});
+
+		});*/
+		this.database = new Db(settings.db, server, {safe:true});
 		//this.clearDB();
 		this.guest = new User({_id:'20150001', name:'guest',password:'', email:'guest@scoreur.net', regtime:''}, true, this.database);
 		this.sample_slide = new Slide({_id:'20150001', name:'sample_slide',creator:'guest',createtime:'201501010000'},

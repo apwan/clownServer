@@ -16,7 +16,8 @@ $(function() {
     function init() {
         envDetect(), SL.settings.init(), SL.keyboard.init(), SL.pointer.init(), SL.warnings.init(), 
         "undefined" == typeof SLConfig && (window.SLConfig = {}), 
-        config(), i(), s()
+        config(),
+        s()
     }
 
     function envDetect() {
@@ -32,21 +33,7 @@ $(function() {
             "object" == typeof SLConfig.team && (SL.current_team = new SL.models.Team(SLConfig.team))
         )
     }
-    function i() {
-        if (document.querySelector(".fb-like") && ($("body").append('<div id="fb-root"></div>'), function(t, e, n) {
-            var i, s = t.getElementsByTagName(e)[0];
-            t.getElementById(n) || (i = t.createElement(e), i.id = n, i.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=178466085544080", s.parentNode.insertBefore(i, s))
-        }(document, "script", "facebook-jssdk")), document.querySelector(".twitter-share-button") && !function(t, e, n) {
-            var i, s = t.getElementsByTagName(e)[0];
-            t.getElementById(n) || (i = t.createElement(e), i.id = n, i.src = "//platform.twitter.com/widgets.js", s.parentNode.insertBefore(i, s))
-        }(document, "script", "twitter-wjs"), document.querySelector(".g-plusone")) 
-        {
-            var t = document.createElement("script");
-            t.type = "text/javascript", t.async = !0, t.src = "https://apis.google.com/js/plusone.js";
-            var e = document.getElementsByTagName("script")[0];
-            e.parentNode.insertBefore(t, e) //insert plusone.js before all scripts
-        }
-    }
+    
     function s() {
         var t = $("html");
         // short for consecutive if/elseif's
@@ -834,7 +821,7 @@ SL.config = {
     S3_HOST: "https://s3.amazonaws.com/media-p.slid.es",
     ASSET_URLS: {"offline-v2.css": "./offline-v2.css","homepage-background.jpg": "./homepage-background.jpg","reveal-plugins/markdown/marked.js": "./marked.js","reveal-plugins/markdown/markdown.js": "./markdown.js","reveal-plugins/highlight/highlight.js": "./highlight.js"}
 },
- 
+
 SL.config.V1 = {DEFAULT_THEME_COLOR: "grey-blue",DEFAULT_THEME_FONT: "league",DEFAULT_THEME_TRANSITION: "linear",DEFAULT_THEME_BACKGROUND_TRANSITION: "fade",
     THEME_COLORS: [{id: "grey-blue"}, {id: "black-mint"}, {id: "black-orange"}, {id: "forest-yellow"}, {id: "lila-yellow"}, {id: "asphalt-orange"}, {id: "sky-blue"}, {id: "beige-brown"}, {id: "sand-grey"}, {id: "silver-green"}, {id: "silver-blue"}, {id: "cobalt-orange"}, {id: "white-blue"}, {id: "mint-beige"}, {id: "sea-yellow"}, {id: "coral-blue"}],
     THEME_FONTS: [{id: "league",title: "League"}, {id: "opensans",title: "Open Sans"}, {id: "josefine",title: "Josefine"}, {id: "palatino",title: "Palatino"}, {id: "news",title: "News"}, {id: "montserrat",title: "Montserrat"}, {id: "helvetica",title: "Helvetica"}, {id: "asul",title: "Asul"}, {id: "merriweather",title: "Merriweather"}, {id: "sketch",title: "Sketch"}, {id: "quicksand",title: "Quicksand"}, {id: "overpass",title: "Overpass"}]

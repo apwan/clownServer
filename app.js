@@ -9,7 +9,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var settings = require('./ctrl/settings');
 var db = require('./ctrl/db').db;
-db.init(settings);
+db.init();
 
 var app = express();
 
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
 	secret: settings.cookieSecret,
 	key: settings.db,
+    cookie: { maxAge: 2 * 60 * 60},
 	store: new MongoStore({
 		db: settings.db,
 		host: settings.host
