@@ -1,13 +1,30 @@
-doctype html
-html(lang="en")
-	head
-		title="reg"
-	body
-		form(method="post")
-			input(type="text", name="username")
-			input(type="text", name="password")
-			input(type="text", name="repassword")
-			input(type="text", name="email")
-			input(type="submit", name="submit")
-	h1
-		#{errmsg}
+//- reg.jade
+extends ./layout.jade
+
+block title
+	title 注册-Register
+
+block aCSS
+	link(href="/stylesheets/login.css" rel="stylesheet")
+
+block content
+	.container
+	form.form-signin(action="/reg", method="post")
+		h2.form-signin-heading 注册新用户
+		label.sr-only(for='inputUsername') User Name
+		input#username.form-control(name='name', type='text', placeholder='User Name', required, autofocus)
+		label.sr-only(for='inputEmail') Email
+		input#email.form-control(name='email', type='email', placeholder='Email', required)
+		label.sr-only(for='inputPassword') Password
+		input#password.form-control(name='password', type='password', placeholder='Password', required)
+		label.sr-only(for='reinputPassword') Password Again
+		input#repassword.form-control(name='repassword', type='password', placeholder='Password Again', required)
+		button.btn.btn-lg.btn-primary.btn-block#loginBtn(type='submit') 注册
+
+block scripts
+	- if (receive)
+		script(type="text/javascript")
+			$('#inputUsername').val(#{name});
+			$('#inputEmail').val(#{email});
+			$('#inputPassword').val(#{password});
+			$('#inputPassword').val(#{repassword});

@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var formidable = require('formidable');
 var util = require('util');
+var session = require('express-session');
 var io = null;
 var server = null;
 
@@ -14,7 +15,9 @@ var test2 = require('../test/test2');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    console.log(req.query);
+    console.log(req.session.cookie._expires);
+    console.log(req);
+    //console.log(req.query);
     if(req.query.user && req.query.slide){
         var info = {
             username: req.query.user,
@@ -55,7 +58,17 @@ router.get('/edit', function (req, res) {
 });
 router.post('/upload', db.saveUploadFile);
 
+router.get('/login', function(req, res){
+   console.log(req.session.user || {});
+    res.render('login',{});
+});
+router.post('/reg', db.signup);
 
+router.get('/reg', function(req, res){
+    console.log(req.session.user || {});
+    res.render('reg',{});
+});
+router.post('/login', db.login);
 
 router.use('/test1', test1);
 router.use('/test2', test2);

@@ -57,6 +57,7 @@ router.get('/reg', function(req, res){
     //res.send('This is the first test module.');
 });
 
+
 router.post('/login', function(req, res){
 	var reJson = {
 		receive: 1

@@ -1,11 +1,39 @@
-doctype html
-html(lang="en")
-	head
-		title="login"
-	body
-		form(method="post")
-			input(type="text", name="username")
-			input(type="text", name="password")
-			input(type="submit", name="submit")
-	h1
-		#{errmsg}
+//- login.jade
+extends ./layout.jade
+
+block title
+	title 登陆-Login
+
+block aCSS
+	link(href="/stylesheets/login.css" rel="stylesheet")
+
+block content
+	.container
+		form.form-signin(action="/login", method="post")
+			h2.form-signin-heading 请登录
+			label.sr-only(for='inputUsername') User Name
+			input#username.form-control(name='name', type='text', placeholder='User Name', required, autofocus)
+			label.sr-only(for='inputPassword') Password
+			input#password.form-control(name='password', type='password', placeholder='Password', required)
+			button.btn.btn-lg.btn-primary.btn-block#loginBtn(type='text') 登陆
+
+block scripts
+	- if (receive)
+		script(type="text/javascript").
+			$('#username').val(#{name});
+			$('#password').val(#{password});
+//-
+	block scripts
+	script(type='text/javascript').
+		$('#loginBtn').click(function() {
+			var username = $('#inputUsername').val();
+			var passwd = $('#inputPassword').val();
+			alert(username);
+			alert(passwd);
+			console.log('username: '+username);
+			console.log('passwd:' + passwd);
+			$.post('http://127.0.0.1:3000/login', {
+				username: username,
+				passwd: passwd
+			});
+		});

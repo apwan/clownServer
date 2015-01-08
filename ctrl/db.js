@@ -118,6 +118,73 @@ var db = {
 		return res.redirect('/');
 	},
 
+	login: function(req, res){
+		var reJson = {
+			receive: 1
+		}
+		var user = new User({
+			name: req.body['username'] || null,
+			password: req.body['password'] || null
+		});
+		//res.send(JSON.stringify(user));
+		user.checkPassword(function(userT) {
+			if (userT) {
+				req.session.user = userT;
+				reJson.success = 1;
+				res.send(JSON.stringify(reJson));
+			} else {
+				req.session.user = null;
+				reJson.success = 0;
+				res.send(JSON.stringify(reJson));
+			}
+		});
+	},
+	signup: function(req, res){
+		var reJson = {
+			receive: 1
+		};
+		if (req.body['repassword'] != req.body['password']) {
+			reJson.success = 0;
+			reJson.errmsg = '两次输入的口令不一致';
+			res.send(JSON.stringify(reJson));
+		} else if (req.body['password'] == '') {
+			reJson.success = 0;
+			reJson.errmsg = '密码不能为空';
+			res.send(JSON.stringify(reJson));
+		} else if (req.body['username'] && req.body['username'].length < 3) {
+			reJson.success = 0;
+			reJson.errmsg = '用户名小于3个字符';
+			res.send(JSON.stringify(reJson));
+		} else {
+			User.getUserByName(req.body['username']||null, function(err, userT) {
+				//userT && (reJson.success = 0, reJson.errmsg = '用户名已存在') && res.send(JSON.stringify());
+				if (userT) {
+					reJson.success = 0;
+					reJson.errmsg = '用户名已存在';
+					res.send(JSON.stringify(reJson));
+				} else {
+					var newUser = new User({
+						name: req.body['username']||'',
+						email: req.body['email']||'',
+						password: req.body['password']||''
+					});
+					newUser.createUser(function(err, userT) {
+						if (err) {
+							reJson.success = 0;
+							reJson.errmsg = err;
+							console.log('err:', err);
+							res.send(JSON.stringify(reJson));
+						} else {
+							req.session.user = userT;
+							reJson.success = 1;
+							res.render('login', {receive: 1, name: userT.name, password: userT.password});
+							//res.send(JSON.stringify(reJson));
+						}
+					});
+				}
+			});
+		}
+	},
 
 
 

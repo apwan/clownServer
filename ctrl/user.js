@@ -31,7 +31,7 @@ function User(user, noHash, database_instance) {
 
 /*
  * 将该用户信息插入数据库
- * @param callback 回调函数。参数为错误信息、插入返回的object。
+ * @param callback 回调函数。参数为返回的object。
  */
 User.prototype.createUser = function createUser(callback) {
 	var user = {
@@ -42,17 +42,20 @@ User.prototype.createUser = function createUser(callback) {
 	};
 	database.open(function(err, db) {
 		if (err) {
-			return callback(err);
+			return callback(err, null);
 		}
 		db.collection('users', function(err, collection) {
 			if (err) {
 				database.close();
-				return callback(err);
+				return console.log(err), callback(err, null);
 			}
-			collection.ensureIndex('name', {unique: true});
+			collection.ensureIndex('name', {unique: true}, function(err){
+				if(err)
+					return console.log(err), callback(err, null);
+			});
 			collection.insert(user, {safe: true}, function(err, userT) {
 				database.close();
-				return callback(err, userT);
+				return err? (console.log(err), callback(err, null)):callback(null, userT);
 			})
 		});
 	});
@@ -73,17 +76,12 @@ User.prototype.checkPassword = function checkPassword(callback) {
 		}
 		db.collection('users', function(err, collection) {
 			if (err) {
-				database.close();
-				return callback(err);
+				return database.close(), callback(err);
 			}
 			collection.findOne(query, function(err, doc) {
 				database.close();
-				if (doc) {
-					var user = new User(doc, 1);
-					return callback(err, user);
-				} else {
-					return callback(err, null);
-				}
+				return doc? callback(new User(doc, 1)): (console.log(err), callback(null));
+
 			});
 		});
 	});	
@@ -100,18 +98,14 @@ User.getUserByName = function (username, callback) {
 			return callback(err);
 		}
 		db.collection('users', function(err, collection) {
+			database.close();
 			if (err) {
-				database.close();
 				return callback(err);
 			}
 			collection.findOne({name: username}, function(err, doc) {
-				database.close();
-				if (doc) {
-					var user = new User(doc);
-					return callback(err, user);
-				} else {
-					return callback(err, null);
-				}
+
+				return doc? callback(null, new User(doc)): (cosole.log(err), callback(err, null));
+
 			});
 		});
 	});
