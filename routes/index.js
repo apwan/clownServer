@@ -36,9 +36,9 @@ router.get('/', function (req, res) {
                 publish:['Visibility','i-unlock-stroke'],
                 settings:['Settings','i-cog'], style:['style','i-brush'],
                 arrange:['Arrange slides','i-layers'], //revisions:['Revision history','i-clock'],
-                import:['Import','i-cloud-upload'],
-                export:['Export','i-cloud-download'],
-                share:['Share','i-share'], about:['About', 'i-star']
+                //import:['Import','i-cloud-upload'],
+                //export:['Export','i-cloud-download'],
+                //share:['Share','i-share'], about:['About', 'i-star']
             }
 
         };
