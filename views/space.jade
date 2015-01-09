@@ -1,0 +1,29 @@
+//- space.jade
+extends ./layout.jade
+
+block title
+	title 个人主页
+block aCSS
+	link(rel='stylesheet', href='/stylesheets/space.css')
+
+block content
+	//- 用户信息
+	.container
+		.col-lg-6
+			img(src= avatar, height="100", width="100")
+		.col-lg-6
+			ul.list-group
+				.li.list-group-item= '用户名: ' + name
+				.li.list-group-item= 'Email: ' + email
+	
+	+slideItemList(slideList)
+
+mixin slideItemList(slideList)
+	ul.list-group
+		each slide in slideList
+			.li.list-group-item
+				h3= slide.name
+				.btn-toolbar.pull-right(role="toolbar", aria-label= slide._id)
+					button(type="button", class="btn btn-default showBtn") 展示
+					button(type="button", class="btn btn-default modifyBtn") 修改
+					button(type="button", class="btn btn-default deleteBtn") 删除

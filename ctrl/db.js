@@ -130,8 +130,10 @@ var db = {
 		user.checkPassword(function(userT) {
 			if (userT) {
 				req.session.user = userT;
+
+				console.log(userT._id || null);
 				reJson.success = 1;
-				res.send(JSON.stringify(reJson));
+				res.redirect('/user/space');
 			} else {
 				req.session.user = null;
 				reJson.success = 0;
@@ -140,6 +142,7 @@ var db = {
 		});
 	},
 	signup: function(req, res){
+		console.log(req.body);
 		var reJson = {
 			receive: 1
 		};
@@ -156,17 +159,18 @@ var db = {
 			reJson.errmsg = '用户名小于3个字符';
 			res.send(JSON.stringify(reJson));
 		} else {
-			User.getUserByName(req.body['username']||null, function(err, userT) {
+			User.getUserByName(req.body['username']||'guest', function(err, userT) {
 				//userT && (reJson.success = 0, reJson.errmsg = '用户名已存在') && res.send(JSON.stringify());
 				if (userT) {
 					reJson.success = 0;
 					reJson.errmsg = '用户名已存在';
+					console.log(reJson);
 					res.send(JSON.stringify(reJson));
 				} else {
 					var newUser = new User({
-						name: req.body['username']||'',
-						email: req.body['email']||'',
-						password: req.body['password']||''
+						name: req.body['username'],
+						email: req.body['email'],
+						password: req.body['password']
 					});
 					newUser.createUser(function(err, userT) {
 						if (err) {

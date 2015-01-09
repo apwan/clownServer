@@ -11,11 +11,11 @@ block content
 	.container
 	form.form-signin(action="/reg", method="post")
 		h2.form-signin-heading 注册新用户
-		label.sr-only(for='inputUsername') User Name
-		input#username.form-control(name='name', type='text', placeholder='User Name', required, autofocus)
+		label.sr-only(for='username') User Name
+		input#username.form-control(name='username', type='text', placeholder='User Name', required, autofocus)
 		label.sr-only(for='inputEmail') Email
 		input#email.form-control(name='email', type='email', placeholder='Email', required)
-		label.sr-only(for='inputPassword') Password
+		label.sr-only(for='password') Password
 		input#password.form-control(name='password', type='password', placeholder='Password', required)
 		label.sr-only(for='reinputPassword') Password Again
 		input#repassword.form-control(name='repassword', type='password', placeholder='Password Again', required)
@@ -24,7 +24,7 @@ block content
 block scripts
 	- if (receive)
 		script(type="text/javascript")
-			$('#inputUsername').val(#{name});
-			$('#inputEmail').val(#{email});
-			$('#inputPassword').val(#{password});
-			$('#inputPassword').val(#{repassword});
+			$('input#username').val(#{username});
+			$('input#email').val(#{email});
+			$('input#password').val(#{password});
+			$('input#password').val(#{repassword});

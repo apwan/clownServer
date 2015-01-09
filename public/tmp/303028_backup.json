@@ -1,20 +1,20 @@
 {
   "current_user": {
-    "id": 888888,
+    "id": 248705,
     "username": "Guest",
     "name": null,
     "email": "guest@scoreur.net",
     "description": null,
     "thumbnail_url": "/images/clown.png",
-    "pro": true,
-    "enterprise": true,
-    "enterprise_manager": true,
+    "pro": false,
+    "enterprise": false,
+    "enterprise_manager": false,
     "notify_on_receipt": false,
     "billing_address": null,
     "editor_tutorial_completed": true,
     "settings": {
       "id": 63494,
-      "present_controls": false,
+      "present_controls": true,
       "present_upsizing": true,
       "editor_grid": true,
       "editor_snap": true,
@@ -24,38 +24,37 @@
   },
   "deck": {
     "id": 303028,
-    "slug": "deck-1",
-    "title": "Welcom",
+    "slug": "deck--3",
+    "title": "deck",
     "description": "",
     "visibility": "all",
-    "published_at": "2015-01-01T00:00:00.888Z",
+    "published_at": "2014-12-05T02:46:25.345Z",
     "sanitize_messages": null,
     "thumbnail_url": "/images/clown.png",
     "view_count": 3,
     "user": {
-      "id": 888888,
+      "id": 248705,
       "username": "Guest",
       "name": null,
       "email": "guest@scoreur.net",
       "description": null,
       "thumbnail_url": "/images/clown.png",
-      "pro": true,
-      "enterprise": true,
-      "enterprise_manager": true,
+      "pro": false,
+      "enterprise": false,
+      "enterprise_manager": false,
       "notify_on_receipt": false,
       "billing_address": null,
       "editor_tutorial_completed": true,
       "settings": {
         "id": 63494,
-        "present_controls": false,
+        "present_controls": true,
         "present_upsizing": true,
         "editor_grid": true,
         "editor_snap": true,
         "developer_mode": false
       },
-    "registered": true
-     },
-      
+      "registered": true
+    },
     "background_transition": "slide",
     "transition": "slide",
     "theme_id": null,
@@ -69,7 +68,7 @@
     "should_loop": false,
     "rtl": false,
     "version": 2,
-    "access_token": "no-token",
+    "access_token": "GpRLWceTs1pPHdnxfxFAF3Bi8yzr",
     "notes": {}
   }
 }

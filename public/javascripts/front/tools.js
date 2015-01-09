@@ -43,7 +43,7 @@ var ajax_loader = {
     op: 'none',
     base: '/ajax',
     urls: {
-        cfg:'/cfg', data:'/data', save:'/save',
+        cfg:'/cfg', data:'/deck-data', save:'/save',
         view:'/slide-watch', pres:'/slide-change', prof:'/prof'
     },
     init: function(base, urls){

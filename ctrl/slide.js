@@ -9,12 +9,18 @@ var ObjectID = require('mongodb').ObjectID;
 var fs = require('fs');
 var database = null;
 
+/**
+ * Build slide instance
+ * @param slide
+ * @param database_instance, provided only first time
+ * @constructor
+ */
 function Slide(slide, database_instance) {
 	this._id = slide._id;
 	this.name = slide.name;
 	this.creator = slide.creator;
 	this.createtime = slide.createtime;
-	// why need captcha?
+
 	this.captcha = slide.captcha;
 	this.active = slide.active;
 	// the database instance storing this slide
@@ -27,13 +33,17 @@ function Slide(slide, database_instance) {
 
 }
 
-
+/**
+ *
+ * @param content
+ * @param callback
+ */
 Slide.prototype.createSlide = function createSlide(content, callback) {
 	var slide = {
 		name: this.name,
 		creator: this.creator,
 		createtime: this.createtime,
-		captcha: this.captcha,
+		captcha: this.captcha||null,
 		active: this.active
 	};
 	if (!slide.active) slide.active = 1; // use true/false
@@ -92,43 +102,34 @@ Slide.getSlideById = function getSlideById(id, callback) {
 	});
 
 }
-
+/**
+ *
+ * @param id
+ * @param callback
+ */
 Slide.getContentById = function getContentById(id, callback) {
 	var dir ='./public/slides/' + id;
 	database.open(function(err, db) {
 		if (err) {
-			return callback(err);
+			return callback(err, null);
 		}
-		db.collection('slides', function(err, collection) {
+		db.collection('slides.contents', function(err, collection) {
 			if (err) {
-				console.log(err);
+				//console.log(err);
 				database.close();
-				return callback(err);
+				return callback(err, null);
 			}
-			collection.findOne({_id: new ObjectID(id), active: 1}, function(err, doc) {
-				console.log('doc: ' + JSON.stringify(doc));
+			collection.findOne({_id: new ObjectID(id)}, function(err, doc) {
+				console.log('doc: ', doc.data||'null');
 				database.close();
-				if (doc) {
-					fs.readFile(dir, {
-						encoding: 'utf8'
-					},
-						function(err, data) {
-						if (err) {
-							return callback(err);
-						} else {
-							console.log('data' + JSON.stringify(data));
-							return callback(err, data);
-						}
-					});
-				} else {
-					return callback(err);
-				}
+				return doc? callback(null, doc.data):callback(null, null);
+
 			});
 		});
 	});
 }
 
-Slide.getIdListByCreator = function getSlideListByCreator(creator, callback) {
+Slide.getSlideListByCreator = function getSlideListByCreator(creator, callback) {
 	database.open(function(err, db) {
 		if (err) {
 			return callback(err);
@@ -145,7 +146,11 @@ Slide.getIdListByCreator = function getSlideListByCreator(creator, callback) {
 		});
 	});
 }
-
+/**
+ *
+ * @param id
+ * @param callback
+ */
 Slide.deleteSlideById = function deleteSlideById(id, callback) {
 	database.open(function(err, db) {
 		if (err) {

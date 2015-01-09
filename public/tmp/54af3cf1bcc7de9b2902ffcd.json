@@ -1,7 +1,7 @@
 {
   "current_user": {
-    "id": 888888,
-    "username": "Guest",
+    "id": "54af4cd9e5abfb131d636885",
+    "username": "guest",
     "name": null,
     "email": "guest@scoreur.net",
     "description": null,
@@ -14,7 +14,7 @@
     "editor_tutorial_completed": true,
     "settings": {
       "id": 63494,
-      "present_controls": false,
+      "present_controls": true,
       "present_upsizing": true,
       "editor_grid": true,
       "editor_snap": true,
@@ -23,9 +23,9 @@
     "registered": true
   },
   "deck": {
-    "id": 303028,
+    "id": "54af3cf1bcc7de9b2902ffcd",
     "slug": "deck-1",
-    "title": "Welcom",
+    "title": "Welcome",
     "description": "",
     "visibility": "all",
     "published_at": "2015-01-01T00:00:00.888Z",
@@ -33,8 +33,8 @@
     "thumbnail_url": "/images/clown.png",
     "view_count": 3,
     "user": {
-      "id": 888888,
-      "username": "Guest",
+      "id": "54af4cd9e5abfb131d636885",
+      "username": "guest",
       "name": null,
       "email": "guest@scoreur.net",
       "description": null,
@@ -47,7 +47,7 @@
       "editor_tutorial_completed": true,
       "settings": {
         "id": 63494,
-        "present_controls": false,
+        "present_controls": true,
         "present_upsizing": true,
         "editor_grid": true,
         "editor_snap": true,

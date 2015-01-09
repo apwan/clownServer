@@ -4,6 +4,7 @@ var fs = require('fs');
 var formidable = require('formidable');
 var util = require('util');
 var session = require('express-session');
+var settings = require('../ctrl/settings');
 var io = null;
 var server = null;
 
@@ -16,7 +17,9 @@ var test2 = require('../test/test2');
 /* GET home page. */
 router.get('/', function (req, res) {
     console.log(req.session.cookie._expires);
-    console.log(req);
+    if(req.session.user){
+        console.log(req.session.user);
+    }
     //console.log(req.query);
     if(req.query.user && req.query.slide){
         var info = {
@@ -30,29 +33,25 @@ router.get('/', function (req, res) {
             },
             // buttons for editor: Tooltip, icon
             secbtns: {
-                publish:['Visibility','i-unlock-stroke'], settings:['Settings','i-cog'], style:['style','i-brush'],
-                arrange:['Arrange slides','i-layers'], revisions:['Revision history','i-clock'], import:['Import','i-cloud-upload'],
-                export:['Export','i-cloud-download'], share:['Share','i-share'], about:['About', 'i-star']
+                publish:['Visibility','i-unlock-stroke'],
+                settings:['Settings','i-cog'], style:['style','i-brush'],
+                arrange:['Arrange slides','i-layers'], //revisions:['Revision history','i-clock'],
+                import:['Import','i-cloud-upload'],
+                export:['Export','i-cloud-download'],
+                share:['Share','i-share'], about:['About', 'i-star']
             }
 
         };
         res.render('edit', info);
     }else{
-        var cfg = {
-            title: 'CLoWN Online Presentation',
-            test: {
-                test_on: 'true',
-                test_db: db.test(),
-                test_sc: sc.test()
-            }
-        };
-        res.render('index', cfg);
+        res.redirect('/login');
+
     }
 
 
 });
 router.get('/edit', function (req, res) {
-    res.redirect('/?user=Guest&slide=303028');
+    res.redirect('/?user=Guest&slide='+settings.err_slide_id);
 
 
 });
@@ -73,6 +72,7 @@ router.post('/login', db.login);
 router.use('/test1', test1);
 router.use('/test2', test2);
 
+router.use('/user', require('./user'));
 
 // set up io
 var setup = function(newServer){
