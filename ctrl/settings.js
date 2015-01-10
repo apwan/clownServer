@@ -3,12 +3,12 @@
  */
 
 module.exports = {
-	db: 'clown',
-	host: 'scoreur.net',
-	port: 27017,
-	dbuser: 'clown',
-	dbpwd: 'clown',
-	cookieSecret: 'hahaha',
+	db: process.env.DB||'clown',
+	host: process.env.HOST||'scoreur.net',
+	port: process.env.MONGOPORT||27017,
+	dbuser: process.env.DBUSER||'clown',
+	dbpwd: process.env.DBPWD||'clown',
+	cookieSecret: process.env.SECRET||'hahaha',
     urls: {
 		cfg:'/cfg', data:'/deck-data', save:'/save',
 		view:'/slide-watch', pres:'/slide-change', prof:'/prof'

@@ -6,7 +6,7 @@ var settings = require('./settings');
 var mongodb = require('mongodb');
 var Db = mongodb.Db;
 var Connection = mongodb.Connection;
-server = new mongodb.Server(settings.host, settings.port, {auto_reconnect: true});
+server = new mongodb.Server(settings.host, settings.port, {auto_reconnect: false});
 var Slide = require('./slide');
 var User = require('./user');
 var Resource = require('./resource');
@@ -39,30 +39,64 @@ var db = {
 		/*
 		 var addr = 'mongodb://'+settings.dbuser+':'+settings.dbpwd+'@'+settings.host+':'+settings.port+'/'+ settings.db;
 		 console.log(addr);
-		Db.connect(addr, function(err, db) {
-			if(err){
-				console.log(err);
-				return;
-			}
-			this.database = db;
-			console.log(">> Dropping collection test");
-			db.dropCollection('test', function(err, result) {
-				if(err){
-					console.log(err);
-
-				}
-				console.dir(result);
-			});
-
 		});*/
-		this.database = new Db(settings.db, server, {safe:true});
+
+		(this.database = this.database || new Db(settings.db, server, {safe:true}) ) &&
+		this.auth();
 		//this.clearDB();
-		this.guest = new User({_id:'20150001', name:'guest',password:'', email:'guest@scoreur.net', regtime:''}, true, this.database);
-		this.sample_slide = new Slide({_id:'20150001', name:'sample_slide',creator:'guest',createtime:'201501010000'},
-			this.database);
-		this.sample_resource = new Resource({_id:'20150001', name:'sample_image',creator:'guest',createtime:'201501010100'},
-			this.database);
-		PresState.setDb(this.database);
+		//this.guest = new User({_id:'20150001', name:'guest',password:'', email:'guest@scoreur.net', regtime:''}, true, this.database);
+		//this.sample_slide = new Slide({_id:'20150001', name:'sample_slide',creator:'guest',createtime:'201501010000'}, this.database);
+		//this.sample_resource = new Resource({_id:'20150001', name:'sample_image',creator:'guest',createtime:'201501010100'},this.database);
+		//PresState.setDb(this.database);
+
+	},
+
+	/**
+	 *
+	 * @param successcallback 回调参数为collection及下一级callback, 进行数据库操作
+	 * @param nextcallback 回调参数为数据库操作返回结果, 对结果进行处理
+	 * @param errcallback 回调参数为err
+	 */
+	auth: function(collectionname, successcallback, nextcallback, errcallback){
+		var database;
+		//判断是否初始化，然后认证连接
+		(database = this.database = this.database || new Db(settings.db, server, {safe:true}))&&
+			database.open(function(err, db) {
+				if(err || !db){
+					// 未指定errcallback时控制台输出err
+					return errcallback? (console.log('db open failed'), errcallback(err)):console.log(err);
+				}
+				// 数据库已开启成功，开始权限认证
+				db.authenticate(settings.dbuser, settings.dbpwd, function (err, result) {
+					if (err) {
+						// 未指定errcallback时控制台输出err
+						return errcallback? errcallback(err): this.databcase.close(), console.log('auth: '+result, err);
+					} else {
+						//console.log('auth:', result)
+						collectionname = collectionname || 'users';//'测试users表'
+
+						db.collection(collectionname, function (err, collection) {
+							if(err){
+								database.close();
+								return errcallback? errcallback(err): console.log(err);
+
+							}else{
+								successcallback? successcallback(collection, function(err, doc){
+									database.close();
+									err? (errcallback? errcallback(err):console.log(err)): (nextcallback?nextcallback(doc):console.log(doc));
+								}):
+								// sample successcallback(collection, nextcallback)
+								collection.findOne({'name': 'apwan'}, function (err, doc) {
+									database.close();
+									console.log(err ? err : doc);
+								});
+							}
+						});
+					}
+				});
+
+
+			});
 
 	},
 
