@@ -3,7 +3,9 @@
  */
 
 var database = null;
+//var auth = require('./db'),auth;
 var crypto = require('crypto');
+var collections = require('./settings').collections;
 
 /*
  * 构造函数
@@ -40,6 +42,7 @@ User.prototype.createUser = function createUser(callback) {
 		email: this.email,
 		regtime: new Date().getTime()
 	};
+	//auth()
 	database.open(function(err, db) {
 		if (err) {
 			return callback(err, null);
@@ -74,7 +77,7 @@ User.prototype.checkPassword = function checkPassword(callback) {
 		if (err) {
 			return callback(err);
 		}
-		db.collection('users', function(err, collection) {
+		db.collection(collections.users, function(err, collection) {
 			if (err) {
 				return database.close(), callback(err);
 			}

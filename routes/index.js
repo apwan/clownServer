@@ -9,7 +9,7 @@ var io = null;
 var server = null;
 
 // require server control
-var db = require('../ctrl/db').db;
+var db = require('../ctrl/db');
 var sc = require('../ctrl/sc');
 var test1 = require('../test/test1');
 var test2 = require('../test/test2');
@@ -61,13 +61,34 @@ router.get('/login', function(req, res){
    console.log(req.session.user || {});
     res.render('login',{});
 });
-router.post('/reg', db.signup);
+router.post('/reg', function(req, res){
+    console.log(req.body);
+    var reJson = {
+        receive: 1,
+        success: 0
+    };
+    if (req.body['repassword'] != req.body['password']) {
+        reJson.errmsg = '两次输入的口令不一致';
+        res.send(JSON.stringify(reJson));
+    } else if (req.body['password'] == '') {
+        reJson.errmsg = '密码不能为空';
+        res.send(JSON.stringify(reJson));
+    } else if (req.body['username'] && req.body['username'].length < 3) {
+        reJson.errmsg = '用户名小于3个字符';
+        res.send(JSON.stringify(reJson));
+    } else {
+        return db.signup(req, res);
+    }
+});
 
 router.get('/reg', function(req, res){
     console.log(req.session.user || {});
     res.render('reg',{});
 });
-router.post('/login', db.login);
+router.post('/login', function(req, res){
+
+    return db.login(req, res);
+});
 
 router.use('/test1', test1);
 router.use('/test2', test2);

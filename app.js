@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 var settings = require('./ctrl/settings');
 console.log('start with settings:', settings);
-var db = require('./ctrl/db').db;
+var db = require('./ctrl/db');
 db.init();
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
@@ -21,7 +21,7 @@ var app = express();
  */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.set('port', process.env.PORT | 3000);// default 3000
+app.set('port', process.env.PORT || 3000);// default 3000
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -35,12 +35,12 @@ app.use(session({
     cookie: { maxAge: 2 * 60 * 60},
 	store: new MongoStore({
         // Basic usage
-        host: settings.host, // Default, optional
-        port: settings.port, // Default, optional
-        db: settings.db, // Required
+        host: settings.db.host, // Default, optional
+        port: settings.db.port, // Default, optional
+        db: settings.db.name, // Required
         // Basic authentication (optional)
-        username: settings.dbuser,
-        password: settings.dbpwd,
+        username: settings.db.admin,
+        password: settings.db.pwd,
         // Advanced options (optional)
         autoReconnect: true, // Default
         w: 1, // Default,

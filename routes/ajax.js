@@ -9,7 +9,7 @@ var Slide = require('../ctrl/slide');
 
 
 var sc = require('../ctrl/sc');
-var db = require('../ctrl/db').db;
+var db = require('../ctrl/db');
 var settings = require('../ctrl/settings');
 var ajaxurls = settings.urls;
 /**

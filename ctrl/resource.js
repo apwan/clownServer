@@ -2,77 +2,48 @@
  * Created by lzn on 12/28/14.
  */
  
-
+var collections = require('./settings').collections;
 var ObjectID = require('mongodb').ObjectID; 
 var database = null;
+var auth = require('./db').auth;
 
 
-function Resource(resource, database_instance) {
+function Resource(resource) {
 	this._id = resource._id;
 	this.name = resource.name;
 	this.creator = resource.creator;
 	this.createtime = resource.createtime;
-
-	if(database_instance){
-		if(database == null){
-			database = database_instance;
-			console.log('init db instance for Resource');
-		}
-	}
 }
 
-Resource.prototype.createResource = function createResource(content, callback) {
+Resource.prototype.createResource = function createResource(content, resCallback) {
 	var resource = {
 		name: this.name,
 		creator: this.creator,
 		createtime: this.createtime
 	};
-	database.open(function(err, db) {
-		if (err) {
-			return callback(err);
-		}
-		db.collection('resources', function(err, collection) {
-			if (err) {
-				database.close();
-				return callback(err);
-			}
-			collection.insert(resource, {safe: true}, function(err, resourceT) {
-				if (err) {
-					database.close();
-					return callback(err);
-				}
-				resourceT = resourceT[0];
-				var dir = './public/resources/' + resourceT._id;
-				fs.writeFile(dir, content, function(err) {
-					database.close();
-					return callback(err);
-				});
-			})
-		});
-	});
-}
+	auth(collections.resources, function(collection, callback){
+		collection.insert(resource, {safe: true}, callback);
 
-Resource.getContentById = function getContentById(id, callback) {
+	}, function(resourceT){
+		resourceT = 'object'==typeof resourceT? resourceT[0]:resourceT;
+		var dir = './public/resources/' + resourceT._id;
+		fs.writeFile(dir, content, resCallback);
+
+	}, resCallback);
+
+};
+
+Resource.getContentById = function getContentById(id, rescallback) {
 	var dir = __dirname + '/public/resources/' + id;
-	database.open(function(err, db) {
-		if (err) {
-			return callback(err);
+	auth(collections.resources, function(collection, callback){
+		collection.findOne({_id: new ObjectID(id)}, callback);
+	}, function(doc){
+		if(doc){
+			fs.readFile(dir, rescallback);
 		}
-		collection.findOne({_id: new ObjectID(id)}, function(err, doc) {
-			database.close();
-			if (doc) {
-				fs.readFile(dir, function(err, data) {
-					if (err) {
-						return callback(err);
-					} else {
-						return callback(err, data);
-					}
-				});
-			} else {
-				return callback(err);
-			}
-		});
+	}, function(err){
+		return rescallback(err, null);
 	});
-}
+};
 
 module.exports = Resource;

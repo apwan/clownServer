@@ -1,0 +1,25 @@
+.showBtn {
+	background-color: hsl(195, 79%, 43%) !important;
+	color: #333 !important;
+}
+
+.deleteBtn {
+	background-color: hsl(0, 69%, 22%) !important;
+	color: #fff !important;
+}
+
+.modifyBtn {
+	 background-color: hsl(41, 85%, 35%) !important;
+	 color: #fff !important;
+}
+
+.btn-toolbar {
+	position: relative;
+	top: -30px;
+}
+
+
+
+.createNew {
+	background-color: #CAFF70;
+}

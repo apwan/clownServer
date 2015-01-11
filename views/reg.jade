@@ -23,7 +23,7 @@ block content
 
 block scripts
 	- if (receive)
-		script(type="text/javascript")
+		script(type="text/javascript").
 			$('input#username').val(#{username});
 			$('input#email').val(#{email});
 			$('input#password').val(#{password});

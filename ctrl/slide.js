@@ -5,9 +5,10 @@
  */
  
 var ObjectID = require('mongodb').ObjectID; 
-
+var auth = require('./db').auth;
 var fs = require('fs');
 var database = null;
+var collections = require('./settings').collections;
 
 /**
  * Build slide instance
@@ -107,45 +108,28 @@ Slide.getSlideById = function getSlideById(id, callback) {
  * @param id
  * @param callback
  */
-Slide.getContentById = function getContentById(id, callback) {
-	var dir ='./public/slides/' + id;
-	database.open(function(err, db) {
-		if (err) {
-			return callback(err, null);
-		}
-		db.collection('slides.contents', function(err, collection) {
-			if (err) {
-				//console.log(err);
-				database.close();
-				return callback(err, null);
-			}
-			collection.findOne({_id: new ObjectID(id)}, function(err, doc) {
-				console.log('doc: ', doc.data||'null');
-				database.close();
-				return doc? callback(null, doc.data):callback(null, null);
+Slide.getContentById = function getContentById(sid, rescallback) {
+	//var dir ='./public/slides/' + sid;
+	auth(collections.slides_contents, function(collection, callback){
+		collection.findOne({_id: new ObjectID(sid)}, callback);
+	}, function(doc){
+		return rescallback(null, doc.data);
 
-			});
-		});
+	}, function(err){
+		return rescallback(err, null);
 	});
-}
+
+};
 
 Slide.getSlideListByCreator = function getSlideListByCreator(creator, callback) {
-	database.open(function(err, db) {
-		if (err) {
-			return callback(err);
-		}
-		db.collection('slides', function(err, collection) {
-			if (err) {
-				database.close();
-				return callback(err);
-			}
-			collection.find({creator: creator, active: 1}).toArray(function(err, docs) {
-				database.close();
-				return callback(err, docs);
-			});
-		});
+	auth(collections.slides, function(collection, callback){
+		collection.find({creator: creator, active: 1}).toArray(callback);
+	}, function(docs){
+		callback(null, docs);
+	}, function(err){
+		callback(err, null);
 	});
-}
+};
 /**
  *
  * @param id

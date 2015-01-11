@@ -1,15 +1,16 @@
 ﻿/**
  * Created by Wu Yijie on 12/26/14.
  */
-
+var settings = require('./settings');
 var presstate = require('./presstate');
 var url = require('url');
 var slidedb = require('./slide');
+var db = require('./db');
 /** 
  * socket control namespace
  * @namespace sc 
  */
-var sc = {
+var socketController = {
 
     io: null,
     test: function(){
@@ -122,7 +123,7 @@ var sc = {
      if (reqBody.command == 'start') {
         var now = (new Date()).getTime();
         // 新建展示
-        slidedb.getContentById(reqBody.slideId, function(err, contents) {
+        db.getSlideContent(reqBody.slideId, function(err, contents) {
            if (err || !contents) {
               return res.send({
                  success: 0,
@@ -143,7 +144,7 @@ var sc = {
               }
               var urlParts = {
                        'protocol': 'http',
-                       'host': 'localhost:3000',
+                       'host': 'localhost:'+ process.e,
                        'pathname': '/ajax/slide-watch',
                        'query': {
                           'presId': presId.toString()
@@ -209,7 +210,7 @@ var sc = {
          else {
             if (command == "contents") {
                // 获取内容
-               slidedb.getContentById(data.slideId, function(err, contents) {
+               db.getSlideContent(data.slideId, function(err, contents) {
                   if (err || !contents) {
                      return res.send({
                         success: 0,
@@ -296,6 +297,8 @@ var sc = {
 }
 
 
-module.exports = sc;
+module.exports = (function(){
+    return socketController;
+}());
 
 console.log('Socket Module Loading Successful!');
