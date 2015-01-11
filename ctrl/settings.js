@@ -8,6 +8,7 @@ module.exports = {
 	port: process.env.MONGOPORT||27017,
 	dbuser: process.env.DBUSER||'clown',
 	dbpwd: process.env.DBPWD||'clown',
+	collectionList:['users', 'slides', 'resources', 'sessions'],
 	cookieSecret: process.env.SECRET||'hahaha',
     urls: {
 		cfg:'/cfg', data:'/deck-data', save:'/save',

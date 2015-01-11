@@ -4,6 +4,7 @@
 
 var settings = require('./settings');
 var mongodb = require('mongodb');
+var ObjectId = mongodb.ObjectID;
 var Db = mongodb.Db;
 var Connection = mongodb.Connection;
 server = new mongodb.Server(settings.host, settings.port, {auto_reconnect: false});
@@ -21,7 +22,7 @@ var db = {
 	sample_resource: null,
 	database: null,
 	clearDB: function(callback) {
-		var collectionList = ['users', 'slides', 'resources', 'sessions'];
+		var collectionList = settings.collectionList;
 		for (var i in collectionList) {
 			this.database.dropCollection(i, function (err, result) {
 				if (err) {
@@ -42,8 +43,12 @@ var db = {
 		});*/
 
 		(this.database = this.database || new Db(settings.db, server, {safe:true}) ) &&
-		this.auth();
-		//this.clearDB();
+		this.auth(['slides.contents','users'], function(collection, callback){
+			collection.findOne({'_id': new ObjectId("54af3cf1bcc7de9b2902ffcd")}, callback);
+		}, function(doc){
+			console.log(doc?doc.data:doc);
+		});
+
 		//this.guest = new User({_id:'20150001', name:'guest',password:'', email:'guest@scoreur.net', regtime:''}, true, this.database);
 		//this.sample_slide = new Slide({_id:'20150001', name:'sample_slide',creator:'guest',createtime:'201501010000'}, this.database);
 		//this.sample_resource = new Resource({_id:'20150001', name:'sample_image',creator:'guest',createtime:'201501010100'},this.database);
@@ -73,7 +78,7 @@ var db = {
 						return errcallback? errcallback(err): this.databcase.close(), console.log('auth: '+result, err);
 					} else {
 						//console.log('auth:', result)
-						collectionname = collectionname || 'users';//'测试users表'
+						 collectionname = 'object'== typeof collectionname? collectionname[0]: 'string'==typeof collectionname? collectionname:'users';//'测试users表'
 
 						db.collection(collectionname, function (err, collection) {
 							if(err){
@@ -81,7 +86,7 @@ var db = {
 								return errcallback? errcallback(err): console.log(err);
 
 							}else{
-								successcallback? successcallback(collection, function(err, doc){
+								'function' == typeof successcallback? successcallback(collection, function(err, doc){
 									database.close();
 									err? (errcallback? errcallback(err):console.log(err)): (nextcallback?nextcallback(doc):console.log(doc));
 								}):
