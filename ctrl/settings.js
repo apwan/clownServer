@@ -16,12 +16,14 @@ module.exports = {
 	collections:{
 		users:'users', slides:'slides',
 		slides_contents: 'slides.contents',
-		resources:'resources', sessions:'sessions'
+		resources:'resources', sessions:'sessions',
+		present: 'presstate'
 	},
 	cookieSecret: process.env.SECRET||'hahaha',
     urls: {
 		cfg:'/cfg', data:'/deck-data', save:'/save',
-		view:'/slide-watch', pres:'/slide-change', prof:'/prof'
+		view:'/slide-watch', pres:'/slide-change', prof:'/prof',
+		show:'/slide-show'
 	},
 	err_slide_id: '54af3cf1bcc7de9b2902ffcd',
 	guest_uid:'54af4cd9e5abfb131d636885'

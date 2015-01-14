@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 var settings = require('./ctrl/settings');
 console.log('start with settings:', settings);
 var db = require('./ctrl/db');
-db.init();
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
@@ -53,7 +52,6 @@ app.use(session({
  */
 var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
-    require('./routes/index').init(server);
 });
 
 
@@ -62,7 +60,7 @@ var server = app.listen(app.get('port'), function() {
  * @type {router}
  */
 // main entry
-var routes = require('./routes/index').router;
+var routes = require('./routes/index')(server);
 // for file transfer
 var users = require('./routes/users');
 // for SE course final presentation
@@ -79,9 +77,6 @@ app.use('/users', users);
 app.use('/demo', demo);
 app.use('/ajax', ajax);
 
-
-// configure socket control
-// set up socket
 
 
 // catch 404 and forward to error handler

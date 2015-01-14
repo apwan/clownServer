@@ -22,30 +22,12 @@ var server = new mongodb.Server(settings.db.host, settings.db.port,
 var database = new mongodb.Db(settings.db.name, server, {safe:true});
 
 
-function createCollections(db, callback){
-
-	return callback();
-
-}
-function clearCollections(db, callback){
-	for (var i in collections) {
-		db.dropCollection(collections[i], function (err, result) {
-			if (err) {
-				return callback(err);
-			}else{
-				console.log("dropped "+ i, result);
-				callback(null, result);
-			}
-		});
-	}
-
-}
 
 
 /**
  * 提供数据库认证连接
- * @param collectionName 数据表名
- * @param successCallback 回调参数为collection及下一级callback(!一定要调用!), 进行数据库操作
+ * @param collectionName 数据表名(为数组时进行批量并行操作)
+ * @param successCallback 回调参数为collection及下一级callback, 进行数据库操作
  * @param nextCallback 回调参数为数据库操作返回结果, 对结果进行处理
  * @param errCallback 回调参数为err
  *
@@ -66,42 +48,74 @@ var auth = function auth(collectionName, successCallback, nextCallback, errCallb
 				// 未指定errcallback时控制台输出err
 				return errCallback? errCallback(err): console.log('auth: '+result, err);
 			} else {
+				var watchdog = function(){
+					db.close(true), errCallback? errCallback('forcely close db connection'):
+						console.log('forcely close db connection');
+				};
+				if('function' == typeof collectionName) {
+					errCallback = nextCallback, nextCallback = successCallback,
+						successCallback = collectionName, collectionName = null;
+				}
 				//console.log('auth:', result)
-				if(collectionName == null){
-					//进行跨数据表级别的操作
-					'function' == successCallback? successCallback(db, function(err,result){
-						if(err){
-							db.close();
-							return 'function' == errCallback? errCallback(err): console.log(err);
-						}else{
-							return 'function' == nextCallback? nextCallback(result): console.log(result);
-						}
+				if('object' == typeof collectionName && collectionName.length) {
+				// parallel operation among several collections
+					var not_completed = collectionName.length;
+					var errmsg = '';
+					var resmsg = '';
+					for(var i in collectionName){
+						successCallback(db, collectionName[i], function(err, result){
+							--not_completed;
+							if(err){
+								errmsg += err+';';
+							}else{
+								result = 'object'==typeof result? JSON.stringify(result): result;
+							}
+							if(!not_completed){
+								db.close(), watchdog = function(){};
+								return nextCallback? nextCallback(errmsg, resmsg):console.log(errmsg, resmsg);
+							}
+						});
+					}
 
-					}): console.log('drop all collections?');
-				}else{
-					collectionName = 'object'== typeof collectionName? collectionName[0]:
-						'string'==typeof collectionName? collectionName:collections.users, //'测试users表'
 
+				}else if('string' == typeof collectionName){
+				// specific collection
 						db.collection(collectionName, function (err, collection) {
 							if(err){
-								db.close();
+								db.close(),watchdog = function(){};
 								return errCallback? errCallback(err): console.log(err);
 
 							}else{
 								'function' == typeof successCallback? successCallback(collection, function(err, doc){
-									db.close();
+									db.close(),watchdog = function(){};
 									err? (errCallback? errCallback(err):console.log(err)):
 										(nextCallback?nextCallback(doc):console.log(doc));
 								}):
 									// sample successCallback(collection, callback)
 									collection.findOne({'name': 'apwan'}, function (err, doc) {
-										db.close();
+										db.close(),watchdog = function(){};
 										console.log(err ? err : doc);
 									});
 							}
 						});
 
+				}else{
+					//进行跨数据表级别的操作
+					'function' == successCallback? successCallback(db, function(err,result, completed){
+						if(err){
+							if(completed) {db.close(), watchdog = function(){};}
+							'function' == errCallback? errCallback(err): console.log(err);
+						}else{
+							if(completed) {db.close(), watchdog = function(){};}
+							'function' == nextCallback? nextCallback(result): console.log(result);
+						}
+
+
+					}): (db.close(), watchdog = function(){}, console.log('callback function not provided!!'));
 				}
+				return setTimeout(function(){
+					watchdog();
+				}, 8*1000);
 
 
 			}
@@ -113,55 +127,53 @@ var auth = function auth(collectionName, successCallback, nextCallback, errCallb
 };
 
 
-//var User = require('./user');
-
 /**
  * For module exports
- * @type {{guest: null, sample_slide: null, sample_resource: null, database: null, auth: null,
- *       clearDB: Function, init: Function, saveSlide: Function, saveUploadFile: Function, login: Function, signup: Function, test: Function}}
+ * @type {{database: null, auth: null,
+ * init: Function, createCollections: Function, clearCollections: Function,
+ * saveUploadFile: Function, login: Function, signup: Function,
+ * getSlideInfo: Function, getSlideList: Function, getSlideContent: Function, saveSlideInfo: Function, saveSlide: Function, deleteSlide: Function,
+ * test: Function}}
  */
 var dbController = {
-	guest: null,
-	sample_slide: null,
-	sample_resource: null,
 	database: null,
 	auth: null,
 
-    // initialize database module
+    // initialize database module for exports
 	init: function(){
 		if(!this.database || !this.database){
 			(this.database = database),
 			(this.auth = auth);
-
 		}
-		/*
-		this.auth(collections.slides_contents, function(collection, callback){
-			collection.findOne({'_id': new ObjectId("54af3cf1bcc7de9b2902dddd")}, function(err,doc){
-				if(err) return callback(err,doc);
-				else {
-					console.log(doc);
-					if(doc){
-						collection.insert({_id:new ObjectId("54af3cf1bcc7de9b2902dddd"),data:'<section><section><p>Failed</p></section></section></section>'}, callback);
-					}else{
-						collection.save({_id:new ObjectId("54af3cf1bcc7de9b2902dddd"),data:'<section><section><p>Failed</p></section></section></section>'}, callback);
-					}
-
-				}
-			});
-		}, function(doc){
-			console.log('object'==typeof doc?doc[0]:doc);
-		});
-		*/
-		//this.guest = new User({_id:'20150001', name:'guest',password:'', email:'guest@scoreur.net', regtime:''}, true, this.database);
-		//this.sample_slide = new Slide({_id:'20150001', name:'sample_slide',creator:'guest',createtime:'201501010000'}, this.database);
-		//this.sample_resource = new Resource({_id:'20150001', name:'sample_image',creator:'guest',createtime:'201501010100'},this.database);
-		//PresState.setDb(this.database);
-
 	},
 
-
-
-
+	/**
+	 * 初始化数据库，创建表
+	 * @param db
+	 * @param resCallback
+	 * @returns {*}
+	 */
+	createCollections: function(names, resCallback){
+		if('string' == typeof names) names = [names];
+		auth(names, function(db, item, callback){
+			db.createCollection(item, callback);
+		}, function(errmsg, resmsg){
+			resCallback(errmsg, resmsg);
+		});
+    },
+	/**
+	 * 清理数据库
+	 * @param names
+	 * @param resCallback
+	 */
+	clearCollections: function(names, resCallback){
+		if('string' == typeof names) names = [names];
+		auth(names, function(db, item, callback){
+			db.dropCollection(item, callback);
+		}, function(errmsg, resmsg){
+			resCallback(errmsg, resmsg);
+	    });
+    },
 
 	//TODO: change to saving upload resource in database
 	saveUploadFile: function (req, res) {
@@ -237,7 +249,7 @@ var dbController = {
 		});
 
 	},
-	signup: function(req, res){
+	signUp: function(req, res){
 		var reJson = {
 			receive: 1,
 			success: 0
@@ -273,7 +285,19 @@ var dbController = {
 
 	},
 
-	getSlideInfo: function(sid, callback){
+	getSlideInfo: function(sid, resCallback){
+		auth(collections.slides, function(collection, callback){
+			collection.findOne({_id: new ObjectID(sid), active: 1}, callback);
+		}, function(slideT){
+			if(slideT){
+				resCallback(null, slideT);
+			}else{
+				return resCallback('not exist', null);
+			}
+		}, function(err){
+			return resCallback(err);
+		});
+
 
 	},
 
@@ -298,8 +322,22 @@ var dbController = {
 		});
 
 	},
+	createSlide: function(slide, resCallback){
+		auth(collections.slides, function(collection, callback){
+			collection.insert(slide, {safe: true}, callback);
+		}, function(slideT){//TODO:
+			if('object' == typeof slideT) slideT = slideT[0];
+			var dir = './public/html/' + (slideT && slideT._id || 'null');
+			fs.writeFile(dir, '<section><section><p>Welcome!</p></section></section>', function(err){
+				return resCallback(err);
+			});
 
-	saveSlideInfo: function (sid, rescallback){
+		}, function(err){
+			return resCallback(err);
+		});
+	},
+
+	saveSlideInfo: function (sid, resCallback){
 		auth(collections.slides, function(collection, callback){
 
 		}, function(doc){
@@ -314,28 +352,25 @@ var dbController = {
 		var slide_id = req.params[0];
 		var slide_data = req.body["deck[data]"]||'';
 		console.log(slide_id);
-		this.auth('slides.contents', function(collection,callback){
+		this.auth(collections.slides_contents, function(collection,callback){
 			collection.update({_id:new ObjectId(slide_id)},{$set:{data:slide_data}},{safe:true}, callback);
 		}, function(doc){
 			console.log(doc);
 		});
 
-		//TODO: insert to database
-
 		res.send('ok');
 	},
 
-	deleteSlide: function (sid, rescallback){
-	   auth(collections.slides, function(collection, callback){
+	deleteSlide: function (sid, resCallback){
+		auth(collections.slides, function(collection, callback){
+			collection.update({_id: new ObjectID(sid), active: 1}, {$set:{active: 0}},{safe:true}, callback);
+		}, function(result){
+			return resCallback(null, result);
+		}, function(err){
+			return resCallback(err, null);
+		});
 
-	   }, function(doc){
-
-	   }, function(err){
-
-	   });
 	},
-
-
 
 
 	test: function(){

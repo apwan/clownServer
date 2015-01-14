@@ -30,7 +30,7 @@ $(function() {
 		$('.modifyBtn').click(function() {
 			console.log($(this).parent().attr('aria-label'));
 			var slideId = $(this).parent().attr('aria-label');
-			window.open('/slide/modify?slideId='+slideId);
+			window.open('/ajax/modify?slideId='+slideId);
 		});
 	}
 	activeModify();
@@ -43,7 +43,7 @@ $(function() {
 			var listItem = $(this).parent().parent();
 			var slideId = $(this).parent().attr('aria-label');
 			console.log(slideId);		
-			$.get('/slide/ajax/delete', {
+			$.get('/ajax/delete', {
 				'slideId': slideId
 			}, function(data) {
 				data = JSON.parse(data);
@@ -66,7 +66,7 @@ $(function() {
 	$('.createBtn').click(function() {
 		var newSlideName = $('.newSlideName').val();
 		if (newSlideName) {
-			$.post('/slide/ajax/add', {
+			$.post('/ajax/add', {
 				name: newSlideName
 			}, function(data) {
 				data = JSON.parse(data);

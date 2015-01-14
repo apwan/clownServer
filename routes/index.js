@@ -12,7 +12,6 @@ var server = null;
 var db = require('../ctrl/db');
 var sc = require('../ctrl/sc');
 var test1 = require('../test/test1');
-var test2 = require('../test/test2');
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -77,7 +76,7 @@ router.post('/reg', function(req, res){
         reJson.errmsg = '用户名小于3个字符';
         res.send(JSON.stringify(reJson));
     } else {
-        return db.signup(req, res);
+        return db.signUp(req, res);
     }
 });
 
@@ -91,19 +90,18 @@ router.post('/login', function(req, res){
 });
 
 router.use('/test1', test1);
-router.use('/test2', test2);
 
 router.use('/user', require('./user'));
 
 // set up io
-var setup = function(newServer){
-    server = newServer;
-    io = require('socket.io')(server);
-    sc.setIO(io);
-    io.on('connection', sc.onConnection);
-    console.log('socket setup');
-};
 
-exports.init = setup;
-exports.router = router;
+
+module.exports = function(newServer){
+        server = newServer,
+            io = require('socket.io')(server),
+            sc.setIO(io),
+            io.on('connection', sc.onConnection),
+            console.log('socket setup');
+        return router;
+};
 

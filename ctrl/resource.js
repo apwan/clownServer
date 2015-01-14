@@ -7,7 +7,7 @@ var ObjectID = require('mongodb').ObjectID;
 var database = null;
 var auth = require('./db').auth;
 
-
+//TODO: migrate to models.js
 function Resource(resource) {
 	this._id = resource._id;
 	this.name = resource.name;
