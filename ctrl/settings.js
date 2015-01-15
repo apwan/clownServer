@@ -27,6 +27,10 @@ module.exports = {
 		view:'/slide-watch', pres:'/slide-change', prof:'/prof',
 		show:'/slide-show'
 	},
+	debug: {
+		'clear': 'clearCollections',
+		'create': 'createCollections'
+	},
 	err_slide_id: '54af3cf1bcc7de9b2902ffcd',
 	guest_uid:'54af4cd9e5abfb131d636885'
 };

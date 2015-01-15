@@ -21,22 +21,23 @@ var ajaxurls = settings.urls;
 // test database
 router.get('/', function(req, res){
    if(req.query.debug){
-      switch(req.query.debug){
-         case 'clear':
-            db.clearCollections(settings.collections);
-            res.send('clear');
-            break;
-         case 'create':
-            db.createCollections(settings.collections);
-            res.send('create');
-            break;
-         default:
-            res.send('undefined');
+      var cmd = settings.debug[req.query.debug];
+      if(cmd){
+         db[cmd](function(err, result){
+            res.send(JSON.stringify({
+               cmd: cmd,
+               err: err,
+               result: result
+            }));
+         })
+      }else{
+         res.send('debug cmd: '+JSON.stringify(settings.debug));
       }
+
    }else{
       return res.send('use debug cmd');
    }
-})
+});
 //testing
 router.put('/put', function(req, res){
    var cfg = {

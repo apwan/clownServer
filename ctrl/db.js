@@ -171,7 +171,7 @@ var dbController = {
 							if(err){
 								console.log('auth', err);
 							}else{
-								createCollections(settings.collections,function(err, res){
+								createCollections(function(err, res){
 									console.log(err, res);
 								});
 							}
@@ -191,7 +191,13 @@ var dbController = {
 	 * @returns {*}
 	 */
 	createCollections: function(names, resCallback){
-		if('string' == typeof names) names = [names];
+		if('string' == typeof names){
+			names = [names];
+		}
+		if('function' == typeof names){
+			resCallback = names,
+				names = settings.collections;
+		}
 		auth(names, function(db, item, callback){
 			db.createCollection(item, callback);
 		}, function(errmsg, resmsg){
@@ -205,6 +211,10 @@ var dbController = {
 	 */
 	clearCollections: function(names, resCallback){
 		if('string' == typeof names) names = [names];
+		if('function' == typeof names){
+			resCallback = names,
+			names = settings.collections;
+		}
 		auth(names, function(db, item, callback){
 			db.dropCollection(item, callback);
 		}, function(errmsg, resmsg){
