@@ -16,13 +16,9 @@ var test1 = require('../test/test1');
 /* GET home page. */
 router.get('/', function (req, res) {
     console.log(req.session.cookie._expires);
-    if(req.session.user){
-        console.log(req.session.user);
-    }
-    //console.log(req.query);
     if(req.query.user && req.query.slide){
         var info = {
-            username: req.query.user,
+            username: req.session.user || req.query.user,
             slide_id: req.query.slide,
             uses:{
                 loader: true,
@@ -42,8 +38,12 @@ router.get('/', function (req, res) {
 
         };
         res.render('edit', info);
+    }else if(req.session.user){
+        console.log(req.session.user);
+        res.render('login', {receive: 1});
+
+
     }else{
-        console.log(req.session.user || {});
         res.render('login',{});
 
     }
@@ -59,7 +59,7 @@ router.post('/upload', db.saveUploadFile);
 
 router.get('/login', function(req, res){
    console.log(req.session.user || {});
-    res.render('login',{});
+    res.redirect('/');
 });
 router.post('/reg', function(req, res){
     console.log(req.body);

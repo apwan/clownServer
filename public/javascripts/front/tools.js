@@ -146,60 +146,68 @@ function post(path, params, method) {
 
 
 function activeShow() {
-    $('.showBtn').click(function() {
-        console.log($(this).parent().attr('aria-label'));
-        var slideId = $(this).parent().attr('aria-label');
-        var params = {
-            'slideId': slideId,
-            'command': 'start',
-        };
-        post('/pres/slide-show/', params);
-    });
-}
+    console.log($(this).parent().attr('aria-label'));
+    var slideId = $(this).parent().attr('aria-label');
+    var params = {
+        'slideId': slideId,
+        'command': 'start'
+    };
+    post('/pres/slide-show/', params);
+};
+
+
 
 
 /**
  * 发送编辑幻灯片的post请求
  */
 function activeModify() {
-    $('.modifyBtn').click(function() {
-        console.log($(this).parent().attr('aria-label'));
-        var slideId = $(this).parent().attr('aria-label');
-        window.open('/ajax/modify?slideId='+slideId);
+    console.log($(this).parent().attr('aria-label'));
+    var slideId = $(this).parent().attr('aria-label');
+    $.ajax({
+        type:'GET',
+        url: '/ajax/modify',
+        dataType:'text',
+        data: {
+            'slideId': slideId
+        },
+        success: function(data){
+            alert(data);
+        }
     });
-}
+
+};
+
 
 
 /**
  * 发送删除幻灯片的AJAX GET请求
  */
 function activeDelete() {
-    $('.deleteBtn').click(function() {
-        var listItem = $(this).parent().parent();
-        var slideId = $(this).parent().attr('aria-label');
-        console.log(slideId);
-        $.ajax({
-            type:'GET',
-            url:'/ajax/delete',
-            dataType:'text',
-            data:{
-                'slideId': slideId
-            },
-            success: function(data){
-                data = JSON.parse(data);
-                if (data.success == 0) {
-                    // 展示错误信息
-                    alert('删除幻灯片失败');
-                }
-                else {
-                    // 删除这个列表项
-                    listItem.remove();
-                }
+    var listItem = $(this).parent().parent();
+    var slideId = $(this).parent().attr('aria-label');
+    console.log(slideId);
+    $.ajax({
+        type:'GET',
+        url:'/ajax/delete',
+        dataType:'text',
+        data:{
+            'slideId': slideId
+        },
+        success: function(data){
+            data = JSON.parse(data);
+            if (data.success == 0) {
+                // 展示错误信息
+                alert('删除幻灯片失败');
             }
-        });
-
+            else {
+                // 删除这个列表项
+                listItem.remove();
+            }
+        }
     });
-}
+
+};
 
 
 /**

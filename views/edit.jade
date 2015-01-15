@@ -1,3 +1,4 @@
+
 include basic
 
 //- the url to get slide config information
@@ -7,7 +8,7 @@ include basic
 
 //- document start here
 doctype html
-html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibility="all")
+html(class='decks edit dark clown-edit', data-editor-version="2", data-account="free", data-visibility="all")
   //-html.decks.speaker
   //- common head part with required js/css, etc
       params: tile,token
@@ -18,7 +19,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
        $(window).load(function () {
            setTimeout('$(".preview").click()', 0);
        });
-    
+
 
   body
     if uses.loader
@@ -75,7 +76,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
               script(defer="defer", src='javascripts/'+val+'.js')
 
 
-    - each val in ['js/lib/reveal.min','javascripts/front/ckeditor']
+    - each val in ['js/lib/reveal.min','javascripts/front/ckeditor', 'javacripts/front/CW']
        script(defer="defer", src=''+val+'.js')
 
 

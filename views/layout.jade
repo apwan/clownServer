@@ -1,29 +1,33 @@
 //- layout.jade
 doctype html
-html
-	head
-		meta(charset='utf-8')
-		meta(name="viewport", content="width=device-width, initial-scale=1")
-		block title
-			title CLOWN
-		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-		link(rel='stylesheet', href='/stylesheets/layout.css')
-		block aCSS
-	body
-		block content
-		
-		p= success
-		.container
-			- if (receive)
-				case success
-					when 0: .alert.alert-danger= errmsg
-					when 1: .alert.alert-success= errmsg
+- var html_class = 'clown-plain'
+- if(html_ctrl) html_class = html_ctrl
 
-		hr
-		footer.footer
-			.container
-				p.text-muted CLOWN小组
-		script(src='/js/lib/jquery.min.js')
-		script(src='/js/lib/bootstrap.min.js')
-		script(src='/javascripts/front/tools.js')
-		block scripts
+html(class=html_class)
+    head
+        meta(charset='utf-8')
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        block title
+            title CLOWN
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/layout.css')
+        block aCSS
+    body
+        block content
+        
+        p= success
+        .container
+            - if (receive)
+                case success
+                    when 0: .alert.alert-danger= errmsg
+                    when 1: .alert.alert-success= errmsg
+
+        hr
+        footer.footer
+            .container
+                p.text-muted CLOWN小组
+        script(src='/js/lib/jquery.min.js')
+        script(src='/js/lib/bootstrap.min.js')
+        script(src='/javascripts/front/tools.js')
+        script(src='/javascripts/front/CW.js')
+        block scripts

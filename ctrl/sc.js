@@ -164,10 +164,21 @@ var socketController = {
         // broadcast to this show room
         sc.broadcastToRoom(reqBody.presId, 'show end');
         presstate.deletePresStateById(reqBody.presId, function (err, data) {
-           if (err) {
+            var reJson = {
+                success: 0
+
+            };
+            if (err) {
+              reJson.errmsg = err;
               console.log('erorr when deleting presentation state');
+
+              res.send(JSON.stringify(reJson));
+           }else{
+                reJson.success = 1;
+               res.send(JSON.stringify(reJson));
+
            }
-           res.end();
+
         });
      }
   },

@@ -212,7 +212,7 @@ router.post('/modify', function (req, res) {
 router.get('/delete', function (req, res) {
    var reJson = {success: null};
    db.getSlideInfo(req.query['slideId'], function(err, slide) {
-      console.log(req.session.user._id.toHexString());
+      console.log('string' == req.session.user._id);
       if (!err && slide && slide.creator.toHexString() == req.session.user._id.toHexString()) {
          db.deleteSlideById(req.query['slideId'], function (err) {
             if (!err) {
