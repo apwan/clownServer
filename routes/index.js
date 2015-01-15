@@ -90,6 +90,7 @@ router.post('/login', function(req, res){
 });
 
 router.use('/test1', test1);
+router.use('/test', require('./unit-test'));
 
 router.use('/user', require('./user'));
 

@@ -23,6 +23,18 @@ module.exports = function(grunt) {
             all: ['ctrl/db.js', 'ctrl/sc.js']
 
         },
+        qunit:{
+            all: {
+                options: {
+                    urls: [
+                        'http://localhost:3000/test'
+
+                    ]
+                }
+            }
+
+
+        },
         jsdoc: {
             dist : {
                 src: ['ctrl/*.js', 'routes/*.js'],
@@ -57,9 +69,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-contrib-qunit');
 // default tasks to run
     grunt.registerTask('default', ['concat', 'uglify']);
     grunt.registerTask('docgen', ['jsdoc']);
+    grunt.registerTask('test', ['qunit']);
     grunt.registerTask('development', ['jshint']);
     grunt.registerTask('production', ['concat', 'uglify']);
 };
