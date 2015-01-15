@@ -4,10 +4,7 @@ $(function() {
 
 	// JQuery 获取前端组件
 	var $window = $(window);
-	// 结束展示按钮
-	var $endShowBtn = $('.endShowBtn');
-	// 开始展示按钮
-	var $startShowBtn = $('.startShowBtn');
+
 	// 输入slideId
 	var $slideIdInput = $('.slideIdInput');
 	// 展示区域
@@ -23,7 +20,7 @@ $(function() {
 	/**
 	 * 开始一个展示
 	 */
-	$startShowBtn.click(function () {
+	$('.startShowBtn').click(function () {
 		var slideId = $slideIdInput.val();
 		$.post('/ajax/slide-show', {
 			slideId: slideId,
@@ -64,7 +61,7 @@ $(function() {
 	 * @name endShow
 	 * @function
 	 */
-	$endShowBtn.click(function() {
+	$('endShowBtn').click(function() {
 		$.post('/ajax/slide-show/', {
 			'command': 'end',
 			'presId': UserShowObj.presId,

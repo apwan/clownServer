@@ -6,7 +6,7 @@ var db = require('../ctrl/db');
 /**
  * 用户主页
  */
-router.get('/space', function (req, res) {
+router.get('/', function (req, res) {
 	var reJson = {
 		login: 1,
 		name: req.session.user? req.session.user.name:'guest',
@@ -15,7 +15,7 @@ router.get('/space', function (req, res) {
 	};
 	db.getSlideList(req.session.user._id, function(err, docs) {
 		reJson.slideList = docs;
-		console.log(docs);
+		console.log('get slide list: ', docs);
 		res.render('space', reJson);
 	});
 });

@@ -215,37 +215,17 @@ var dbController = {
 		return res.redirect('/');
 	},
 
-	login: function(req, res){
+	login: function(checkUser, resCallback){
 
-		var reJson = {
-			receive: 1,
-			success: 0
-		};
-		var checkUser = {
-			name: req.body['username'],
-			password: req.body['password']
-		};
 		//res.send(JSON.stringify(user));
 		auth(collections.users, function(collection, callback){
 			collection.findOne(checkUser, callback);//一次查询，无进一步操作；
 		}, function(userT){
-			if(userT){
-				console.log('user pass:', userT);
-				req.session.user = userT;
-				reJson.success = 1;
-				//res.send(JSON.stringify(erJson));
-				res.redirect('user/space');
-			}else{
-				reJson.errmsg = '用户不存在或密码不符';
-				res.send(JSON.stringify(reJson));
-
-			}
+			return userT? resCallback(null, userT): resCallback('not exist', null);
 
 		}, function(err){
-			req.session.user = null;
-			reJson.success = 0;
-			reJson.errmsg = err;
-            res.send(JSON.stringify(reJson));
+			return resCallback(err, null);
+
 		});
 
 	},

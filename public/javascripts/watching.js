@@ -19,52 +19,7 @@ $(function() {
 	var $presIdInput = $('.presIdInput');
 	var $startWatchBtn = $('.startWatchBtn');
 
-	$startWatchBtn.click(function () {
-		var presId = $presIdInput.val();
-		$.get('/ajax/slide-watch', {
-			presId: presId
-		}, function (data) {
-			if (data.success == 0) {
-				// 展示错误信息
-				alert(data.errStr);
-			}
-			else {
-				UserWatchObj.presId = presId;
-				UserWatchObj.username = data.username;
-				$.get('/ajax/slide-watch', {
-					presId: presId,
-					command: 'contents'
-				}, function (data) {
-					if (data.success == 0) {
-						//展示错误信息
-						alert(data.errStr);
-					}
-					else {
-						// 动态的设置contents
-						$showArea.prepend(data.contents);
-						Reveal.initialize(
-        					{
-          						controls: true,
-          						progress: true,
-          						history: false,
-          						center: true,
-          						slideNumber: true,
-
-          						theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-          						transition: Reveal.getQueryHash().transition || 'default' 
-        				});
-        				//创建并设置socket
-						var socket = io(); 
-						setupSocket(socket);
-						socket.emit('slide watch', {'presId': UserWatchObj.presId,
-									'username': UserWatchObj.username
-									});
-
-					}
-				});
-			}
-		});
-	});
+	$startWatchBtn.click(startWatch);
 
 
 	/**

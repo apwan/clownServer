@@ -9,6 +9,16 @@ function format(string, values) {
     return string;
 }
 
+module("basics", {
+    setup: function(){
+
+    },
+    teardown: function(){
+
+    }
+
+});
+
 test("basics", function() {
     var values = {
         name: "World"

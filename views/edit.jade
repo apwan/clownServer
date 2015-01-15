@@ -16,9 +16,9 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
        $(ajax_include(ajax_loader.base+ajax_loader.urls.cfg+"#{ajax_cfg}","user-info","var SLConfig=", " "));
        $(ajax_include(ajax_loader.base+ajax_loader.urls.data+"#{ajax_slide_data}","clown_slide"));
        $(window).load(function () {
-           setTimeout('$(".preview")[0].click()', 0);
+           setTimeout('$(".preview").click()', 0);
        });
-
+    
 
   body
     if uses.loader

@@ -43,7 +43,8 @@ router.get('/', function (req, res) {
         };
         res.render('edit', info);
     }else{
-        res.redirect('/login');
+        console.log(req.session.user || {});
+        res.render('login',{});
 
     }
 
@@ -84,9 +85,33 @@ router.get('/reg', function(req, res){
     console.log(req.session.user || {});
     res.render('reg',{});
 });
-router.post('/login', function(req, res){
+router.post('/', function(req, res){
+    var reJson = {
+        receive: 1,
+        success: 0
+    };
+    var checkUser = {
+        name: req.body['username'],
+        password: req.body['password']
+    };
 
-    return db.login(req, res);
+    return db.login(checkUser, function(err, userT){
+        if(err || !userT){
+            req.session.user = null;
+            reJson.success = 0;
+            reJson.errmsg = err || '用户不存在或密码不符';
+            res.send(JSON.stringify(reJson));
+
+        }else{
+            console.log('user pass:', userT);
+            req.session.user = userT;
+            reJson.success = 1;
+            //res.send(JSON.stringify(erJson));
+            res.redirect('/user');
+
+
+        }
+    });
 });
 
 router.use('/test1', test1);
