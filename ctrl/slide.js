@@ -83,7 +83,7 @@ Slide.getContentById = function getContentById(sid, rescallback) {
 	auth(collections.slides_contents, function(collection, callback){
 		collection.findOne({_id: new ObjectID(sid)}, callback);
 	}, function(doc){
-		return rescallback(null, doc.data);
+		return doc? rescallback(null, doc.data):rescallback('not exist', null);
 
 	}, function(err){
 		return rescallback(err, null);

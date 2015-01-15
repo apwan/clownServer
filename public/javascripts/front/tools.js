@@ -10,7 +10,7 @@ function ajax_include(src,id,ahead,append){
 
         dataType: "html",
         success: function(data){
-            var ul = document.getElementById(id);
+            var ul = 'object' == typeof id? id : document.getElementById(id);
             if(append && ahead) {
                 ul.innerHTML = ahead + data + append;
             }else{

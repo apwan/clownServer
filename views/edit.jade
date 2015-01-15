@@ -15,6 +15,9 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
     script(type="text/javascript").
        $(ajax_include(ajax_loader.base+ajax_loader.urls.cfg+"#{ajax_cfg}","user-info","var SLConfig=", " "));
        $(ajax_include(ajax_loader.base+ajax_loader.urls.data+"#{ajax_slide_data}","clown_slide"));
+       $(window).load(function () {
+           setTimeout('$(".preview")[0].click()', 0);
+       });
 
 
   body
@@ -64,7 +67,7 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
     script#user-info(type="text/javascript")
     script#socket-info(type="text/javascript")
     //- application
-    - each val in ['lib/modern','lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor', 'lib/reveal.min','front/ckeditor', 'front/last']
+    - each val in ['lib/modern','lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor', 'lib/reveal.min','front/ckeditor']
        script(defer="defer", src='javascripts/'+val+'.js')
 
 

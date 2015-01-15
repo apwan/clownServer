@@ -19,7 +19,7 @@ $(function() {
         config(),
         s()
     }
-
+    // detect device
     function envDetect() {
         var t = $("html");
         t.addClass("loaded"), SL.util.device.HAS_TOUCH && t.addClass("touch"), SL.util.device.isChrome() ? t.addClass("ua-chrome") : SL.util.device.isSafari() ? t.addClass("ua-safari") : SL.util.device.isIE() && t.addClass("ua-ie")

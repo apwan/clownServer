@@ -71,22 +71,12 @@ router.get(ajaxurls.cfg, function(req, res){
 router.get(ajaxurls.data, function(req, res){
    var p = 'public/slides/'+(req.query.slide || '')+'.html'
    console.log('get slide contents', p);
-   Slide.getContentById(req.query.slide || settings.err_slide_id, function(err, data){
+   db.getSlideContent(req.query.slide, function(err, data){
       err? (console.log(err, data),
           res.send('<section><section><h1>Failed to load slide data!</h1></section></section>')):
           res.send(data);
    });
-   /*
-   fs.readFile(p, 'utf8', function(err, data){
-      if(err){
-         console.log(err);
-         res.send('<section><section><h1>Failed to load slide data!</h1></section></section>');
-      }else{
-         res.send(data);
-      }
 
-   });
-   */
 });
 
 router.get('/*.json', function(req, res){
