@@ -1,21 +1,11 @@
-module("Money", {
-    setup: function() {
-        this.dollar = new Money({
-            amount: 15.5
+var sample_slidesId = '54af3cf1bcc7de9b2902ffcd';
+var sample_usrId = 'Guest';
+asyncTest("async1", 1, function() {
+    $.post('/ajax/slide-show', {
+            slideId: sample_slidesId,
+            command: 'start'
+        }, function (result) {
+            deepEqual(result.success, 1);
+            start();
         });
-        this.euro = Money.euro(14.5);
-    },
-    teardown: function() {
-        // 可以使用 this.dollar 和 this.euro 作清除
-    }
-});
-     
-test("add", function() {
-    equal( this.dollar.amount, 15.5 );
-    this.dollar.add(16.1)
-    equal( this.dollar.amount, 31.6 );
-});
-test("toString", function() {
-    equal( this.dollar.toString(), "$15.5" );
-    equal( this.euro.toString(), "14.5 EUR" );
-});
+})
