@@ -5,5 +5,4 @@
 .idea/scopes/*
 *.log
 public/js/front/*
-public/js/lib/*
 public/slides/*

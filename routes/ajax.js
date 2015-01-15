@@ -69,7 +69,7 @@ router.get(ajaxurls.cfg, function(req, res){
 });
 
 router.get(ajaxurls.data, function(req, res){
-   var p = 'public/slides/'+(req.query.slide || '')+'.html'
+   var p = 'public/slides/'+(req.query.slide || '')+'.html';
    console.log('get slide contents', p);
    db.getSlideContent(req.query.slide, function(err, data){
       err? (console.log(err, data),

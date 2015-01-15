@@ -39,12 +39,14 @@ html(lang="en")
       + projector(subpage)
          + slide_sample_3('Demo')
 
+      if _dev
+         script(src="js/front/clown.min.js")
+      else
+         - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
+         script(defer="defer", src='javascripts/'+val+'.js')
 
-
-
-
-      - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor', 'lib/reveal.min','front/ckeditor']
-         script(defer="defer", src='/javascripts/'+val+'.js')
+      - each val in ['lib/reveal.min','front/ckeditor.min']
+         script(defer="defer", src='/js/'+val+'.js')
       script#socket-info(type="text/javascript",src=socket_src)
       script(src="/javascripts/showing.js")
 

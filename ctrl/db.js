@@ -351,11 +351,19 @@ var dbController = {
 		//console.log(req.body["deck[data]"]);
 		var slide_id = req.params[0];
 		var slide_data = req.body["deck[data]"]||'';
-		console.log(slide_id);
+		console.log('save slide contents', slide_id);
 		this.auth(collections.slides_contents, function(collection,callback){
-			collection.update({_id:new ObjectId(slide_id)},{$set:{data:slide_data}},{safe:true}, callback);
+			collection.update({_id:new ObjectId(slide_id)},{$set:{data:slide_data}},{safe:true}, function(err, result){
+				if(err){
+					console.log(err), callback(err, null);
+				}else{
+					callback(null, result);
+				}
+			});
 		}, function(doc){
-			console.log(doc);
+			console.log('res', doc);
+		}, function(err){
+			console.log(err);
 		});
 
 		res.send('ok');

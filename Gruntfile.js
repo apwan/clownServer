@@ -38,7 +38,8 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 files: {
-                    'public/js/front/clown.min.js': ['public/js/front/clown.js'] //save over the newly created script
+                    'public/js/front/clown.min.js': ['public/js/front/clown.js'],
+                    'public/js/front/ckeditor.min.js': ['public/javascripts/front/ckeditor.js'] //save over the newly created script
                 }
             }
         }

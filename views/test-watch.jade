@@ -23,9 +23,18 @@ html(lang="en")
       .sl-scroll-shadow-top(style="height:10px; opacity:0; top:0px;")
       .sl-scroll-shadow-bottom(style="height:10px; opacity:1; bottom:121px;")
 
+
+
+
     script(src=reveal_src)
     script(src=head_src)
-    script(src="/javascripts/front/application.js")
+
+    if _dev
+      script(src="js/front/clown.min.js")
+    else
+      - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
+      script(defer="defer", src='javascripts/'+val+'.js')
+
     script(src="/javascripts/utils.js")
     script(src="/javascripts/watching.js")
     script(src=socket_src)

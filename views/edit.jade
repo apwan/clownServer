@@ -67,8 +67,16 @@ html.decks.edit.dark(data-editor-version="2", data-account="free", data-visibili
     script#user-info(type="text/javascript")
     script#socket-info(type="text/javascript")
     //- application
-    - each val in ['lib/modern','lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor', 'lib/reveal.min','front/ckeditor']
-       script(defer="defer", src='javascripts/'+val+'.js')
+    //- var _dev = true
+    if _dev
+          script(src="js/front/clown.min.js")
+    else
+          - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
+              script(defer="defer", src='javascripts/'+val+'.js')
+
+
+    - each val in ['js/lib/reveal.min','javascripts/front/ckeditor']
+       script(defer="defer", src=''+val+'.js')
 
 
 
