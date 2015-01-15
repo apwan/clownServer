@@ -67,7 +67,7 @@ CKEDITOR.editorConfig = function( config ) {
 	};
 
 	// Custom styles for the parts of CKE that are loaded into iframes (like dropdowns)
-	config.contentsCss = '/ckeditor/slides/editor.css';
+	config.contentsCss = '/javascripts/front/skins/bootstrapck/editor.css';// set by WuYijie
 
 	// Always paste as plain text
 	// config.forcePasteAsPlainText = true;

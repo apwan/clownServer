@@ -15,7 +15,7 @@ var models = require('./models');
 
 
 
-var ObjectId = mongodb.ObjectID;
+var ObjectID = mongodb.ObjectID;
 //var Connection = mongodb.Connection;
 var server = new mongodb.Server(settings.db.host, settings.db.port,
 	{auto_reconnect: false});
@@ -311,14 +311,14 @@ var dbController = {
 		});
 
     },
-	getSlideContent: function(sid, rescallback){
+	getSlideContent: function(sid, resCallback){
 		auth(collections.slides_contents, function(collection, callback){
 			collection.findOne({_id: new ObjectID(sid)}, callback);
 		}, function(doc){
-			return rescallback(null, doc.data);
+			return doc? resCallback(null, doc.data): resCallback('not exist', doc);
 
 		}, function(err){
-			return rescallback(err, null);
+			return resCallback(err, null);
 		});
 
 	},
@@ -327,11 +327,14 @@ var dbController = {
 			collection.insert(slide, {safe: true}, callback);
 		}, function(slideT){//TODO:
 			if('object' == typeof slideT) slideT = slideT[0];
-			var dir = './public/html/' + (slideT && slideT._id || 'null');
-			fs.writeFile(dir, '<section><section><p>Welcome!</p></section></section>', function(err){
-				return resCallback(err);
+			auth(collections.slides_contents, function(collection, callback){
+				collection.insert({_id: new ObjectID(slideT._id), data:'<section><section><p>Welcome!</p></section></section>'},
+					{safe: true}, callback);
+			}, function(doc){
+				return resCallback(null, doc);
+			}, function(err){
+				return resCallback(err, null);
 			});
-
 		}, function(err){
 			return resCallback(err);
 		});
@@ -353,7 +356,7 @@ var dbController = {
 		var slide_data = req.body["deck[data]"]||'';
 		console.log('save slide contents', slide_id);
 		this.auth(collections.slides_contents, function(collection,callback){
-			collection.update({_id:new ObjectId(slide_id)},{$set:{data:slide_data}},{safe:true}, function(err, result){
+			collection.update({_id:new ObjectID(slide_id)},{$set:{data:slide_data}},{safe:true}, function(err, result){
 				if(err){
 					console.log(err), callback(err, null);
 				}else{
