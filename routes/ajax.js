@@ -18,8 +18,25 @@ var ajaxurls = settings.urls;
 		view:'/slide-watch', pres:'/slide-change', prof:'/prof'
 	}
  */
-
-
+// test database
+router.get('/', function(req, res){
+   if(req.query.debug){
+      switch(req.query.debug){
+         case 'clear':
+            db.clearCollections(settings.collections);
+            res.send('clear');
+            break;
+         case 'create':
+            db.createCollections(settings.collections);
+            res.send('create');
+            break;
+         default:
+            res.send('undefined');
+      }
+   }else{
+      return res.send('use debug cmd');
+   }
+})
 //testing
 router.put('/put', function(req, res){
    var cfg = {

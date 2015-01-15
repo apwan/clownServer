@@ -38,7 +38,7 @@ app.use(session({
         port: settings.db.port, // Default, optional
         db: settings.db.name, // Required
         // Basic authentication (optional)
-        username: settings.db.admin,
+        username: settings.db.user,
         password: settings.db.pwd,
         // Advanced options (optional)
         autoReconnect: true, // Default

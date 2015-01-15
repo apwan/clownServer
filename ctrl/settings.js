@@ -8,8 +8,10 @@ module.exports = {
 		name: process.env.DB||'clown',
 		host: process.env.HOST||'scoreur.net',
 		port: process.env.MONGOPORT||27017,
-		admin: process.env.DBUSER||'clown',
-		pwd: process.env.DBPWD||'clown'
+		user: process.env.DBUSER||'clown',
+		pwd: process.env.DBPWD||'clown',
+		admin: process.envDBADMIN||'admin',
+		sudo: process.env.DBSUDO||null
 
 
 	},

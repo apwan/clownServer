@@ -11,7 +11,10 @@ var server = null;
 // require server control
 var db = require('../ctrl/db');
 var sc = require('../ctrl/sc');
-var test1 = require('../test/test1');
+// frontend unit test
+router.use('/test', require('./unit-test'));
+// server test
+router.use('/test1', require('../test/test1'));
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -50,41 +53,6 @@ router.get('/', function (req, res) {
 
 
 });
-router.get('/edit', function (req, res) {
-    res.redirect('/?user=Guest&slide='+settings.err_slide_id);
-
-
-});
-router.post('/upload', db.saveUploadFile);
-
-router.get('/login', function(req, res){
-   console.log(req.session.user || {});
-    res.redirect('/');
-});
-router.post('/reg', function(req, res){
-    console.log(req.body);
-    var reJson = {
-        receive: 1,
-        success: 0
-    };
-    if (req.body['repassword'] != req.body['password']) {
-        reJson.errmsg = '两次输入的口令不一致';
-        res.send(JSON.stringify(reJson));
-    } else if (req.body['password'] == '') {
-        reJson.errmsg = '密码不能为空';
-        res.send(JSON.stringify(reJson));
-    } else if (req.body['username'] && req.body['username'].length < 3) {
-        reJson.errmsg = '用户名小于3个字符';
-        res.send(JSON.stringify(reJson));
-    } else {
-        return db.signUp(req, res);
-    }
-});
-
-router.get('/reg', function(req, res){
-    console.log(req.session.user || {});
-    res.render('reg',{});
-});
 router.post('/', function(req, res){
     var reJson = {
         receive: 1,
@@ -114,10 +82,40 @@ router.post('/', function(req, res){
     });
 });
 
-router.use('/test1', test1);
-router.use('/test', require('./unit-test'));
+router.get('/edit', function (req, res) {
+    res.redirect('/?user=Guest&slide='+settings.err_slide_id);
+
+
+});
 
 router.use('/user', require('./user'));
+
+router.post('/upload', db.saveUploadFile);
+
+router.post('/reg', function(req, res){
+    console.log(req.body);
+    var reJson = {
+        receive: 1,
+        success: 0
+    };
+    if (req.body['repassword'] != req.body['password']) {
+        reJson.errmsg = '两次输入的口令不一致';
+        res.send(JSON.stringify(reJson));
+    } else if (req.body['password'] == '') {
+        reJson.errmsg = '密码不能为空';
+        res.send(JSON.stringify(reJson));
+    } else if (req.body['username'] && req.body['username'].length < 3) {
+        reJson.errmsg = '用户名小于3个字符';
+        res.send(JSON.stringify(reJson));
+    } else {
+        return db.signUp(req, res);
+    }
+});
+
+router.get('/reg', function(req, res){
+    console.log(req.session.user || {});
+    res.render('reg',{});
+});
 
 // set up io
 

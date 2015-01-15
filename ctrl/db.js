@@ -11,6 +11,7 @@ var fs = require('fs');
 var formidable = require('formidable');
 
 var models = require('./models');
+var help = require('./helper');
 // END of dependency
 
 
@@ -20,7 +21,6 @@ var ObjectID = mongodb.ObjectID;
 var server = new mongodb.Server(settings.db.host, settings.db.port,
 	{auto_reconnect: false});
 var database = new mongodb.Db(settings.db.name, server, {safe:true});
-
 
 
 
@@ -42,7 +42,7 @@ var auth = function auth(collectionName, successCallback, nextCallback, errCallb
 			return errCallback? (console.log('db open failed'), errCallback(err)):console.log(err);
 		}
 		// 数据库已开启成功，开始权限认证
-		db.authenticate(settings.db.admin, settings.db.pwd, function (err, result) {
+		db.authenticate(settings.db.user, settings.db.pwd, function (err, result) {
 			if (err) {
 				db.close();
 				// 未指定errcallback时控制台输出err
@@ -57,8 +57,16 @@ var auth = function auth(collectionName, successCallback, nextCallback, errCallb
 						successCallback = collectionName, collectionName = null;
 				}
 				//console.log('auth:', result)
-				if('object' == typeof collectionName && collectionName.length) {
+				if('object' == typeof collectionName) {
 				// parallel operation among several collections
+					if(!collectionName.length){// change object to array
+						var tmp = [];
+						for(var i in collectionName){
+							tmp[tmp.length] = collectionName[i];
+						}
+						console.log(tmp);
+						collectionName = tmp;
+					}
 					var not_completed = collectionName.length;
 					var errmsg = '';
 					var resmsg = '';
@@ -68,7 +76,9 @@ var auth = function auth(collectionName, successCallback, nextCallback, errCallb
 							if(err){
 								errmsg += err+';';
 							}else{
-								result = 'object'==typeof result? JSON.stringify(result): result;
+								//console.log(result);
+								var r = ('object'==typeof result? '[object]': result);
+								resmsg += r+';';
 							}
 							if(!not_completed){
 								db.close(), watchdog = function(){};
@@ -141,10 +151,37 @@ var dbController = {
 
     // initialize database module for exports
 	init: function(){
-		if(!this.database || !this.database){
+		if(!this.database){
+
 			(this.database = database),
 			(this.auth = auth);
+			var createCollections = this.createCollections;
+			// 提供管理员密码时进行初始化
+			settings.db.sudo && database.open(function(err, db){
+				if(err){
+					return console.log(err);
+				};
+				db.authenticate(settings.db.admin, settings.db.sudo, function(err, result){
+					if(err){
+						db.close();
+						return console.log('auth failed', err);
+					}else{
+						db.addUser(settings.db.user, settings.db.pwd, {readOnly: false}, function(err,res){
+							db.close();
+							if(err){
+								console.log('auth', err);
+							}else{
+								createCollections(settings.collections,function(err, res){
+									console.log(err, res);
+								});
+							}
+						});
+
+					}
+				})
+			});
 		}
+
 	},
 
 	/**
@@ -158,7 +195,7 @@ var dbController = {
 		auth(names, function(db, item, callback){
 			db.createCollection(item, callback);
 		}, function(errmsg, resmsg){
-			resCallback(errmsg, resmsg);
+			resCallback? resCallback(errmsg, resmsg): console.log(errmsg, resmsg);
 		});
     },
 	/**
@@ -171,7 +208,7 @@ var dbController = {
 		auth(names, function(db, item, callback){
 			db.dropCollection(item, callback);
 		}, function(errmsg, resmsg){
-			resCallback(errmsg, resmsg);
+			resCallback? resCallback(errmsg, resmsg): console.log(errmsg, resmsg);
 	    });
     },
 
