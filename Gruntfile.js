@@ -23,6 +23,14 @@ module.exports = function(grunt) {
             all: ['ctrl/db.js', 'ctrl/sc.js']
 
         },
+        jsdoc: {
+            dist : {
+                src: ['ctrl/*.js', 'routes/*.js'],
+                options: {
+                    destination: 'jsDoc'
+                }
+            }
+        },
 //our concat options
         concat: {
             options: {
@@ -48,8 +56,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-jsdoc');
 // default tasks to run
     grunt.registerTask('default', ['concat', 'uglify']);
+    grunt.registerTask('docgen', ['jsdoc']);
     grunt.registerTask('development', ['jshint']);
     grunt.registerTask('production', ['concat', 'uglify']);
 };
