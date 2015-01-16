@@ -18,7 +18,7 @@ var ajaxurls = settings.urls;
 		view:'/slide-watch', pres:'/slide-change', prof:'/prof'
 	}
  */
-// test database
+// debug database
 router.get('/', function(req, res){
    if(req.query.debug){
       var cmd = settings.debug[req.query.debug];
@@ -33,8 +33,12 @@ router.get('/', function(req, res){
       }else{
          res.send('debug cmd: '+JSON.stringify(settings.debug));
       }
-
    }else{
+      if(req.query.exit){
+
+         setTimeout(process.exit, 1000);
+         return res.send('exit');
+      }
       return res.send('use debug cmd');
    }
 });
@@ -56,15 +60,7 @@ router.put('/put', function(req, res){
    });
 
 });
-//testing
-router.post('/post', function(req, res){
-   if(req.body.username) {
-      res.send({username: req.body.username, status: 'ok'});
-      console.log(req.body.email);
-   }
-   else
-      console.log('nobody');
-});
+
 router.post('/*/thumbnails.json', function(req, res){
    console.log(req.url, req.body);
    res.send('ok');

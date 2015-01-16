@@ -42,8 +42,7 @@ html(lang="en")
       if _dev
          script(src="js/front/clown.min.js")
       else
-         - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
-         script(defer="defer", src='javascripts/'+val+'.js')
+         + modern
 
       - each val in ['lib/reveal.min','front/ckeditor.min']
          script(defer="defer", src='/js/'+val+'.js')

@@ -150,37 +150,46 @@ var dbController = {
 	auth: null,
 
     // initialize database module for exports
-	init: function(){
-		if(!this.database){
+	init: function() {
+		if (this.database) return;
 
-			(this.database = database),
+		(this.database = database),
 			(this.auth = auth);
-			var createCollections = this.createCollections;
-			// 提供管理员密码时进行初始化
-			settings.db.sudo && database.open(function(err, db){
-				if(err){
-					return console.log(err);
-				};
-				db.authenticate(settings.db.admin, settings.db.sudo, function(err, result){
-					if(err){
-						db.close();
-						return console.log('auth failed', err);
-					}else{
-						db.addUser(settings.db.user, settings.db.pwd, {readOnly: false}, function(err,res){
-							db.close();
-							if(err){
-								console.log('auth', err);
-							}else{
-								createCollections(function(err, res){
-									console.log(err, res);
-								});
-							}
-						});
+		var createCollections = this.createCollections;
+		// 提供管理员密码时进行初始化
+		settings.db.sudo && database.open(function (err, db) {
+			if (err) {
+				return console.log(err);
+			}
+			;
+			db.authenticate(settings.db.admin, settings.db.sudo, function (err, result) {
+				if (err) {
+					db.close();
+					return console.log('auth failed', err);
+				} else {
 
-					}
-				})
-			});
-		}
+					db.addUser(settings.db.user, settings.db.pwd, {readOnly: false}, function (err, res) {
+						db.close();
+						if (err) {
+							console.log('auth', err);
+						} else {
+							createCollections(function (err, res) {
+								console.log(err, res);
+							});
+						}
+					});
+
+				}
+			})
+		});
+		var clearCollections = this.clearCollections;
+		settings.db.sudo && process.on('exit', function(){
+			clearCollections();
+			console.log('exit callback');
+			// others
+		});
+
+		this.testHelper();
 
 	},
 
@@ -221,6 +230,16 @@ var dbController = {
 			resCallback? resCallback(errmsg, resmsg): console.log(errmsg, resmsg);
 	    });
     },
+
+	testHelper: function(){
+		console.log('==== start testing helper ====');
+		console.log('obj',new ObjectID());
+		console.log('help', help.newID());
+
+		console.log('==== end testing helper ====');
+	},
+
+
 
 	//TODO: change to saving upload resource in database
 	saveUploadFile: function (req, res) {

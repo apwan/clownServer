@@ -49,8 +49,8 @@ module.exports = function(grunt) {
                 separator: ';' //separates scripts
             },
             dist: {
-                src: ['public/javascripts/lib/modern.js','public/javascripts/lib/application.js', 'public/javascripts/front/SL.js', 'public/javascripts/lib/acetex.js',
-                    'public/javascripts/front/SLeditor.js'], //Grunt mini match for your scripts to concatenate
+                src: ['public/javascripts/lib/*.js','public/javascripts/lib/application.js', 'public/javascripts/front/SL.js', 'public/javascripts/lib/acetex.js',
+                    'public/javascripts/lib/highlight.js','public/javascripts/front/SLeditor.js'], //Grunt mini match for your scripts to concatenate
                 dest: 'public/js/front/clown.js' //where to output the script
             }
         },

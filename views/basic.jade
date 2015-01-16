@@ -95,3 +95,9 @@ mixin sidebar(uses, secbtns)
       .scroll-shadow-bottom
       if block
          block
+
+mixin modern
+   - each val in ['modernizr', 'jquery', 'jquery.ujs','debounce_throttle','jquery.easing','jquery.payment','jquery.mobile','extend','es5_shim', 'signals','json','moment', 'spin_ladda','mousetrap','hammer']
+       script(defer="defer", src='javascripts/lib/'+val+'.js')
+   - each val in ['lib/application', 'front/SL', 'lib/acetex', 'lib/highlight','front/SLeditor']
+       script(defer="defer", src='javascripts/'+val+'.js')

@@ -70,13 +70,12 @@ html(class='decks edit dark clown-edit', data-editor-version="2", data-account="
     //- application
     //- var _dev = true
     if _dev
-          script(src="js/front/clown.min.js")
+        script(src="js/front/clown.min.js")
     else
-          - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
-              script(defer="defer", src='javascripts/'+val+'.js')
+        + modern
 
 
-    - each val in ['js/lib/reveal.min','javascripts/front/ckeditor', 'javacripts/front/CW']
+    - each val in ['js/lib/reveal.min','javascripts/front/ckeditor', 'javascripts/front/CW']
        script(defer="defer", src=''+val+'.js')
 
 
