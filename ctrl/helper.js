@@ -57,9 +57,9 @@ HELPER.eachSeries = function (arr, iterator, callback) {
 };
 
 HELPER.newID = function(){
-    var t_stamp = new Date().getTime()/(3600*1000);
-    var rnd_stamp = Math.random()*100;
-    return Math.floor(t_stamp)*100 + Math.floor(rnd_stamp);
+    var t_stamp = new Date().getTime()/1000%3600;
+    var rnd_stamp = Math.random()*1000;
+    return Math.floor(t_stamp)*1000 + Math.floor(rnd_stamp);
 };
 
 module.exports = (function(){

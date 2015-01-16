@@ -46,8 +46,8 @@ html(lang="en")
 
       - each val in ['lib/reveal.min','front/ckeditor.min']
          script(defer="defer", src='/js/'+val+'.js')
-      script#socket-info(type="text/javascript",src=socket_src)
-      script(src="/javascripts/showing.js")
+      script#socket-info(defer="defer" type="text/javascript",src=socket_src)
+      script(defer="defer" src="/javascripts/showing.js")
 
 
 

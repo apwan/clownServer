@@ -764,41 +764,42 @@ SL.config = {
     BLOCKS: new SL.models.Collection([{type: "text",factory: "Text",label: "Text",icon: "type"}, {type: "image",factory: "Image",label: "Image",icon: "picture"}, {type: "shape",factory: "Shape",label: "Shape",icon: "shapes"}, {type: "iframe",factory: "Iframe",label: "Iframe",icon: "browser"}, {type: "code",factory: "Code",label: "Code",icon: "file-css"}, {type: "math",factory: "Math",label: "Math",icon: "divide"}, {type: "snippet",factory: "Snippet",label: "snippet",icon: "file-xml",hidden: !0}]),
     DEFAULT_DECK_THUMBNAIL: "/images/default-deck-thumbnail.png",DEFAULT_USER_THUMBNAIL: "/images/default-profile-picture.png",
     DECK_THUMBNAIL_TEMPLATE: ['<li class="deck-thumbnail">', '<div class="deck-image" style="background-image: url({{DECK_THUMB_URL}})">', '<a class="deck-link" href="{{DECK_URL}}"></a>', "</div>", '<footer class="deck-details">', '<a class="author" href="{{USER_URL}}">', '<span class="picture" style="background-image: url({{USER_THUMB_URL}})"></span>', '<span class="name">{{USER_NAME}}</span>', "</a>", '<div class="stats">', '<div>{{DECK_VIEWS}}<span class="icon i-eye"></span></div>', "</div>", "</footer>", "</li>"].join(""),
-    AJAX_SEARCH: "/ajax/search.json",AJAX_SEARCH_ORGANIZATION: "/ajax/team/search.json",
+    AJAX_SEARCH: "/ajax?op=search",AJAX_SEARCH_ORGANIZATION: "/ajax?op=search",
     AJAX_CREATE_DECK: function() {
-        return "/ajax/decks.json"
+        return "/ajax?op=create"
     },AJAX_UPDATE_DECK: function(t) {
-        return "/ajax/" + t + ".json"
+        return "/ajax?op=save&arg=" + t
     },AJAX_PUBLISH_DECK: function(t) {
-        return "/ajax/" + t + "/publish.json"
+        return "/ajax?op=publish&arg=" + t
     },AJAX_GET_DECK_VERSIONS: function(t) {
-        return "/ajax/" + t + "/revisions.json"
+        return "/ajax?op=revisions&arg=" + t
     },AJAX_PREVIEW_DECK_VERSION: function(t, e, n) {
-        return "/" + t + "/" + e + "/preview?revision=" + n
+        return "/view?user=" + t + "&id=" + e + "&revision=" + n
     },AJAX_RESTORE_DECK_VERSION: function(t, e) {
-        return "/ajax/" + t + "/revisions/" + e + "/restore.json"
+        return "/ajax?op=restore&arg=" + t + "&id=" + e
     },AJAX_EXPORT_DECK: function(t, e) {
-        return "/" + t + "/" + e + "/export"
+        return "/ajax?op=export&arg=" + t + "&id=" + e
     },AJAX_THUMBNAIL_DECK: function(t) {
-        return "/ajax/" + t + "/thumbnails.json"
+        return "/ajax?op=thumbnails&arg=" + t
     },AJAX_FORK_DECK: function(t) {
-        return "/ajax/" + t + "/fork.json"
+        return "/ajax?op=fork&arg=" + t
     },AJAX_KUDO_DECK: function(t) {
-        return "/ajax/" + t + "/kudos/kudo.json"
+        return "/ajax?op=kudo&arg=" + t
     },AJAX_UNKUDO_DECK: function(t) {
-        return "/ajax/" + t + "/kudos/unkudo.json"
+        return "/ajax?op=unkudo&arg=" + t
     },AJAX_PDF_EXPORT_START: function(t) {
-        return "/ajax/" + t + "/exports.json"
+        return "/ajax?op=exports&arg=" + t
     },AJAX_PDF_EXPORT_LIST: function(t) {
-        return "/ajax/" + t + "/exports.json"
+        return "/ajax?op=exports&arg=" + t
     },AJAX_PDF_EXPORT_STATUS: function(t, e) {
-        return "/ajax/" + t + "/exports/" + e + ".json"
-    },AJAX_PDF_IMPORT_NEW: "/ajax/imports.json",AJAX_PDF_IMPORT_UPLOADED: function(t) {
-        return "/ajax/imports/" + t + ".json"
+        return "/ajax?op=exports&arg=" + t + "&id=" + e
+    },AJAX_PDF_IMPORT_NEW: "/ajax?op=import",
+    AJAX_PDF_IMPORT_UPLOADED: function(t) {
+        return "/ajax?op=imports&arg=" + t
     },
-    AJAX_DROPBOX_CONNECT: "/settings/dropbox/authorize",AJAX_DROPBOX_DISCONNECT: "https://www.dropbox.com/account/security#apps",
+    AJAX_DROPBOX_CONNECT: "#",AJAX_DROPBOX_DISCONNECT: "#",
     AJAX_DROPBOX_SYNC_DECK: function(t) {
-        return "/ajax/" + t + "/export.json"
+        return "#"
     },AJAX_UPDATE_ORGANIZATION: "/ajax/team.json",AJAX_LOOKUP_ORGANIZATION: "/ajax/team/lookup.json",AJAX_ORGANIZATION_MEMBERS_LIST: "/ajax/team/users.json",AJAX_ORGANIZATION_MEMBER_CREATE: "/ajax/team/users.json",AJAX_ORGANIZATION_MEMBER_DELETE: function(t) {
         return "/ajax/team/users/" + t + ".json"
     },AJAX_ORGANIZATION_MEMBER_WELCOME: function(t) {
@@ -808,11 +809,14 @@ SL.config = {
         return "/ajax/themes/" + t + ".json"
     },AJAX_THEMES_DELETE: function(t) {
         return "/ajax/themes/" + t + ".json"
-    },AJAX_SLIDE_TEMPLATES_LIST: "/ajax/slide_templates.json",AJAX_SLIDE_TEMPLATES_CREATE: "/ajax/slide_templates.json",AJAX_SLIDE_TEMPLATES_UPDATE: function(t) {
+    },AJAX_SLIDE_TEMPLATES_LIST: "/ajax/slide_templates.json",
+    AJAX_SLIDE_TEMPLATES_CREATE: "/ajax/slide_templates.json",
+    AJAX_SLIDE_TEMPLATES_UPDATE: function(t) {
         return "/ajax/slide_templates/" + t + ".json"
     },AJAX_SLIDE_TEMPLATES_DELETE: function(t) {
         return "/ajax/slide_templates/" + t + ".json"
-    },AJAX_TEAM_SLIDE_TEMPLATES_LIST: "/ajax/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_CREATE: "/ajax/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_UPDATE: function(t) {
+    },AJAX_TEAM_SLIDE_TEMPLATES_LIST: "/ajax/team/slide_templates.json",
+    AJAX_TEAM_SLIDE_TEMPLATES_CREATE: "/ajax/team/slide_templates.json",AJAX_TEAM_SLIDE_TEMPLATES_UPDATE: function(t) {
         return "/ajax/team/slide_templates/" + t + ".json"
     },AJAX_TEAM_SLIDE_TEMPLATES_DELETE: function(t) {
         return "/ajax/team/slide_templates/" + t + ".json"
@@ -820,9 +824,10 @@ SL.config = {
         return "/ajax/users/" + t + ".json"
     },AJAX_LOOKUP_USER: "/ajax/users/lookup.json",AJAX_SERVICES_USER: "/ajax/users/services.json",AJAX_UPDATE_USER: "/users.json",AJAX_GET_USER_SETTINGS: "/ajax/user_settings.json",AJAX_UPDATE_USER_SETTINGS: "/ajax/user_settings.json",AJAX_SUBSCRIPTIONS: "/subscriptions",AJAX_SUBSCRIPTIONS_STATUS: "/account/details.json",
     AJAX_SUBSCRIPTIONS_PRINT_RECEIPT: function(t) {
-        return "/account/receipts/" + t
+        return "#"
     },
-    AJAX_TEAMS_CREATE: "/teams.json",AJAX_CHECK_STATUS: "/ajax/status.json",AJAX_IMAGE_UPLOAD: "/ajax/media.json",STREAM_ENGINE_HOST: window.location.protocol + "//stream.slides.com",STREAM_ENGINE_LIVE_NAMESPACE: "live",STREAM_ENGINE_EDITOR_NAMESPACE: "editor",
+    //important!
+    AJAX_TEAMS_CREATE: "/teams.json",AJAX_CHECK_STATUS: "/ajax?op=status",AJAX_IMAGE_UPLOAD: "/ajax?op=media",STREAM_ENGINE_HOST: window.location.protocol + "//clown.scoreur.net",STREAM_ENGINE_LIVE_NAMESPACE: "view",STREAM_ENGINE_EDITOR_NAMESPACE: "editor",
     S3_HOST: "https://s3.amazonaws.com/media-p.slid.es",
     ASSET_URLS: {"offline-v2.css": "./offline-v2.css","homepage-background.jpg": "./homepage-background.jpg","reveal-plugins/markdown/marked.js": "./marked.js","reveal-plugins/markdown/markdown.js": "./markdown.js","reveal-plugins/highlight/highlight.js": "./highlight.js"}
 },
@@ -830,7 +835,9 @@ SL.config = {
 SL.config.V1 = {DEFAULT_THEME_COLOR: "grey-blue",DEFAULT_THEME_FONT: "league",DEFAULT_THEME_TRANSITION: "linear",DEFAULT_THEME_BACKGROUND_TRANSITION: "fade",
     THEME_COLORS: [{id: "grey-blue"}, {id: "black-mint"}, {id: "black-orange"}, {id: "forest-yellow"}, {id: "lila-yellow"}, {id: "asphalt-orange"}, {id: "sky-blue"}, {id: "beige-brown"}, {id: "sand-grey"}, {id: "silver-green"}, {id: "silver-blue"}, {id: "cobalt-orange"}, {id: "white-blue"}, {id: "mint-beige"}, {id: "sea-yellow"}, {id: "coral-blue"}],
     THEME_FONTS: [{id: "league",title: "League"}, {id: "opensans",title: "Open Sans"}, {id: "josefine",title: "Josefine"}, {id: "palatino",title: "Palatino"}, {id: "news",title: "News"}, {id: "montserrat",title: "Montserrat"}, {id: "helvetica",title: "Helvetica"}, {id: "asul",title: "Asul"}, {id: "merriweather",title: "Merriweather"}, {id: "sketch",title: "Sketch"}, {id: "quicksand",title: "Quicksand"}, {id: "overpass",title: "Overpass"}]
-}, 
+},
+
+
 // key bindings
 SL.keyboard = {
     init: function() {
@@ -856,13 +863,13 @@ SL.keyboard = {
 
 
 SL.locale = {
-    GENERIC_ERROR: ["Oops, something went wrong", "We ran into an unexpected error", "Something's wong, can you try that again?"],
+    GENERIC_ERROR: ["唉，有地方出错啦", "我们遇到了未知错误", "出错了，请重试"],
     WARN_UNSAVED_CHANGES: "You have unsaved changes, save first?",CLOSE: "Close",PREVIOUS: "Previous",NEXT: "Next",
-    DECK_SAVE_SUCCESS: "Saved successfully",DECK_SAVE_ERROR: "Failed to save",NEW_SLIDE_TITLE: "Title",LEAVE_UNSAVED_DECK: "You will lose your unsaved changes.",LEAVE_UNSAVED_THEME: "You will lose your unsaved changes.",REMOVE_PRO_CONFIRM: "After the end of the current billing cycle your account will be downgraded from Pro to the Free plan.",REMOVE_PRO_SUCCESS: "Subscription canceled",
-    DECK_RESTORE_CONFIRM: "Are you sure you want to revert to this version from {#time}?",DECK_DELETE_CONFIRM: 'Are you sure you want to delete "{#title}"?',DECK_DELETE_SUCCESS: "Deck deleted",DECK_DELETE_ERROR: "Failed to delete",DECK_VISIBILITY_CHANGE_SELF: '<div><span class="icon i-lock-stroke"></span></div><h3>Private</h3><p>Only visible to you</p>',DECK_VISIBILITY_CHANGE_TEAM: '<div><span class="icon i-users"></span></div><h3>Internal</h3><p>Visible to your team</p>',DECK_VISIBILITY_CHANGE_ALL: '<div><span class="icon i-globe"></span></div><h3>Public</h3><p>Visible to the world</p>',DECK_VISIBILITY_CHANGED_SELF: "Your deck is now private",DECK_VISIBILITY_CHANGED_TEAM: "Your deck is now internal",DECK_VISIBILITY_CHANGED_ALL: "Your deck is now public",DECK_VISIBILITY_CHANGED_ERROR: "Failed to change visibility",DECK_EDIT_INVALID_TITLE: "Please enter a valid title",DECK_EDIT_INVALID_SLUG: "Please enter a valid URL",DECK_DELETE_SLIDE_CONFIRM: "Are you sure you want to remove this slide?",DECK_IMPORT_HTML_CONFIRM: "All existing content will be replaced, continue?",EXPORT_PDF_BUTTON: "Download PDF",EXPORT_PDF_BUTTON_WORKING: "Creating PDF...",EXPORT_PDF_ERROR: "An error occured while exporting your PDF.",DECKSHARER_URL_TITLE: "Link",DECKSHARER_EMBED_TITLE: "Embed",DECKSHARER_PRIVATE_URL_NOTICE: 'This deck is private but can be shared using the secret link above. To publicly share or embed your deck, please publish it first.',
+    DECK_SAVE_SUCCESS: "保存成功",DECK_SAVE_ERROR: "保存失败",NEW_SLIDE_TITLE: "Title",LEAVE_UNSAVED_DECK: "您将失去未保存的修改",LEAVE_UNSAVED_THEME: "You will lose your unsaved changes.",REMOVE_PRO_CONFIRM: "收费到期账户会降级",REMOVE_PRO_SUCCESS: "Subscription canceled",
+    DECK_RESTORE_CONFIRM: "Are you sure you want to revert to this version from {#time}?",DECK_DELETE_CONFIRM: 'Are you sure you want to delete "{#title}"?',DECK_DELETE_SUCCESS: "幻灯片删除成功",DECK_DELETE_ERROR: "幻灯片删除失败",DECK_VISIBILITY_CHANGE_SELF: '<div><span class="icon i-lock-stroke"></span></div><h3>Private</h3><p>Only visible to you</p>',DECK_VISIBILITY_CHANGE_TEAM: '<div><span class="icon i-users"></span></div><h3>Internal</h3><p>Visible to your team</p>',DECK_VISIBILITY_CHANGE_ALL: '<div><span class="icon i-globe"></span></div><h3>Public</h3><p>Visible to the world</p>',DECK_VISIBILITY_CHANGED_SELF: "Your deck is now private",DECK_VISIBILITY_CHANGED_TEAM: "Your deck is now internal",DECK_VISIBILITY_CHANGED_ALL: "Your deck is now public",DECK_VISIBILITY_CHANGED_ERROR: "Failed to change visibility",DECK_EDIT_INVALID_TITLE: "Please enter a valid title",DECK_EDIT_INVALID_SLUG: "Please enter a valid URL",DECK_DELETE_SLIDE_CONFIRM: "Are you sure you want to remove this slide?",DECK_IMPORT_HTML_CONFIRM: "All existing content will be replaced, continue?",EXPORT_PDF_BUTTON: "Download PDF",EXPORT_PDF_BUTTON_WORKING: "Creating PDF...",EXPORT_PDF_ERROR: "An error occured while exporting your PDF.",DECKSHARER_URL_TITLE: "Link",DECKSHARER_EMBED_TITLE: "Embed",DECKSHARER_PRIVATE_URL_NOTICE: 'This deck is private but can be shared using the secret link above. To publicly share or embed your deck, please publish it first.',
     FORM_ERROR_REQUIRED: "Required",FORM_ERROR_USERNAME_TAKEN: ["That one's already taken :(", "Sorry, that's taken too"],FORM_ERROR_ORGANIZATION_SLUG_TAKEN: ["That one's already taken :(", "Sorry, that's taken too"],BILLING_DETAILS_ERROR: "An error occured while fetching your billing details, please try again.",BILLING_DETAILS_NOHISTORY: "You haven't made any payments yet.",
     THEME_CREATE: "New theme",THEME_CREATE_ERROR: "Failed to create theme",THEME_SAVE_SUCCESS: "Theme saved",THEME_SAVE_ERROR: "Failed to save theme",THEME_REMOVE_CONFIRM: "Are you sure you want to delete this theme?",THEME_REMOVE_SUCCESS: "Theme removed successfully",THEME_REMOVE_ERROR: "Failed to remove theme",THEME_LIST_LOAD_ERROR: "Failed to load themes",THEME_LIST_EMPTY: 'You haven\'t created any themes yet. <a href="#" class="create-theme-button">Create one now</a>.',THEME_CSS_DESCRIPTION: "This editor supports LESS or plain CSS input. All selectors are prefixed with .reveal when saved to avoid style spillover.",THEME_HTML_DESCRIPTION: "HTML is inserted into the presentation container, meaning it lives separately from individual slides. This makes it great for things like a company logo which is constantly visible on top of the presentation.",THEME_JS_DESCRIPTION: "Scripts will be executed when a deck that uses this theme is loaded.",THEME_DEFAULT_SAVE_SUCCESS: "Default theme was changed",THEME_DEFAULT_SAVE_ERROR: "Failed to change default theme",THEME_DELETE_TOOLTIP: "Delete",THEME_EDIT_TOOLTIP: "Edit",THEME_MAKE_DEFAULT_TOOLTIP: "Make this the default theme",THEME_IS_DEFAULT_TOOLTIP: "This is the default theme",THEME_SNIPPET_DELETE_CONFIRM: "Are you sure you want to delete this snippet?",
-    TEMPLATE_LOAD_ERROR: "Failed to load slide templates",TEMPLATE_CREATE_ERROR: "Failed to save template",TEMPLATE_DELETE_CONFIRM: "Are you sure you want to delete this template?",
+    TEMPLATE_LOAD_ERROR: "模板载入失败",TEMPLATE_CREATE_ERROR: "模板保存失败",TEMPLATE_DELETE_CONFIRM: "Are you sure you want to delete this template?",
     ORG_USERS_REMOVE_CONFIRM: 'Delete "{#name}" and all of their decks?',ORG_USERS_REMOVE_SUCCESS: "User removed successfully",ORG_USERS_REMOVE_ERROR: "Failed to remove user",ORG_USERS_INVITE_SEND_SUCCESS: "Invite email sent",ORG_USERS_INVITE_SEND_ERROR: "Failed to send invite email",ORG_USERS_LIST_EMPTY: "Couldn't find any members of this team.",ORG_USERS_LIST_LOAD_ERROR: "Failed to load user list",
     SEARCH_PAGINATION_PAGE: "Page",SEARCH_NO_RESULTS_FOR: 'No results for "{#term}"',SEARCH_SERVER_ERROR: "Failed to fetch search results",SEARCH_NO_TERM_ERROR: "Please enter a search term",
     counter: {},
@@ -911,8 +918,10 @@ SL.pointer = {
         clearTimeout(this.downTimeout), this.down = !1
     },onMouseUp: function() {
         clearTimeout(this.downTimeout), this.down = !1
-    }},
-    SL.routes = {PRICING: "/pricing",SIGN_IN: "/users/sign_in",SIGN_OUT: "/users/sign_out",SUBSCRIPTIONS_NEW: "/account/upgrade",SUBSCRIPTIONS_EDIT_CARD: "/account/update_billing",SUBSCRIPTIONS_EDIT_PERIOD: "/account/update_billing_period",USER: function(t) {
+    }
+},
+SL.routes = {PRICING: "/#",SIGN_IN: "/",SIGN_OUT: "/logout",SUBSCRIPTIONS_NEW: "/#",SUBSCRIPTIONS_EDIT_CARD: "/#",SUBSCRIPTIONS_EDIT_PERIOD: "/#",
+    USER: function(t) {
         return "/" + t
     },USER_EDIT: "/users/edit",DECK: function(t, e) {
         return "/" + t + "/" + e
@@ -923,8 +932,8 @@ SL.pointer = {
     },DECK_EMBED: function(t, e) {
         return "/" + t + "/" + e + "/embed"
     },DECK_LIVE: function(t, e) {
-        return "/" + t + "/" + e + "/live"
-    },THEME_EDITOR: "/themes",BILLING_DETAILS: "/account/billing"},
+        return "/" + t + "/" + e + "/view"
+    },THEME_EDITOR: "/themes",BILLING_DETAILS: "/#"},
     SL.settings = {STORAGE_KEY: "slides-settings",STORAGE_VERSION: 1,EDITOR_AUTO_HIDE: "editorAutoHide",EDITOR_AUTO_SAVE: "editorAutoSave",
     init: function() {
         this.settings = {version: this.STORAGE_VERSION}, this.changed = new signals.Signal, this.restore()
@@ -979,7 +988,8 @@ SL.templates = {
         }, 
         SL.templates.userTemplatesLoading === !1 && SL.templates.userTemplatesLoaded === !1 ? (
         SL.templates.userTemplatesLoading = !0, SL.templates.userTemplatesCallbacks.push(t), 
-            $.ajax({type: "GET",url: SL.config.AJAX_SLIDE_TEMPLATES_LIST,context: this
+            $.ajax({type: "GET",
+                url: SL.config.AJAX_SLIDE_TEMPLATES_LIST,context: this
             }).
             done(function(t) {
                SL.templates.userTemplates = new SL.models.Collection(t.results, SL.models.Template), 
@@ -1130,7 +1140,8 @@ SL("helpers").FileUploader = Class.extend({
     init: function(t) {
         if (this.options = $.extend({external: !1,method: "POST"}, t), "undefined" == typeof this.options.file || "undefined" == typeof this.options.service)
             throw "File and service must be defined for FileUploader task.";
-        this.timeout = -1, this.uploading = !1, this.onUploadSuccess = this.onUploadSuccess.bind(this), this.onUploadProgress = this.onUploadProgress.bind(this), this.onUploadError = this.onUploadError.bind(this), this.failed = new signals.Signal, this.succeeded = new signals.Signal, this.progressed = new signals.Signal
+        this.timeout = -1, this.uploading = !1, this.onUploadSuccess = this.onUploadSuccess.bind(this), this.onUploadProgress = this.onUploadProgress.bind(this), this.onUploadError = this.onUploadError.bind(this), 
+        this.failed = new signals.Signal, this.succeeded = new signals.Signal, this.progressed = new signals.Signal
     },upload: function() {
         this.uploading = !0, clearTimeout(this.timeout), "number" == typeof this.options.timeout && (this.timeout = setTimeout(this.onUploadError, this.options.timeout));
         var t = new FormData;
@@ -1185,7 +1196,8 @@ SL("helpers").ImageUploader = Class.extend({
     init: function(t) {
         this.options = $.extend({service: SL.config.AJAX_IMAGE_UPLOAD,timeout: 9e4}, t), this.onUploadSuccess = this.onUploadSuccess.bind(this), this.onUploadProgress = this.onUploadProgress.bind(this), this.onUploadError = this.onUploadError.bind(this), this.progressed = new signals.Signal, this.succeeded = new signals.Signal, this.failed = new signals.Signal
     },upload: function(t, e) {
-        return t && t.type.match(/image.*/) ? "number" == typeof t.size && t.size / 1024 > SL.config.MAX_IMAGE_UPLOAD_SIZE.maxsize ? void SL.notify("No more than " + Math.round(MAX_IMAGE_UPLOAD_SIZE / 1e3) + "mb please", "negative") : (this.fileUploader && this.fileUploader.destroy(), this.fileUploader = new SL.helpers.FileUploader({file: t,filename: e || this.options.filename,service: this.options.service,timeout: this.options.timeout}), this.fileUploader.succeeded.add(this.onUploadSuccess), this.fileUploader.progressed.add(this.onUploadProgress), this.fileUploader.failed.add(this.onUploadError), void this.fileUploader.upload()) : void SL.notify("Only image files, please")
+        return t && t.type.match(/image.*/) ? "number" == typeof t.size && t.size / 1024 > SL.config.MAX_IMAGE_UPLOAD_SIZE.maxsize ? void SL.notify("No more than " + Math.round(MAX_IMAGE_UPLOAD_SIZE / 1e3) + "mb please", "negative") : (this.fileUploader && this.fileUploader.destroy(), this.fileUploader = new SL.helpers.FileUploader({file: t,filename: e || this.options.filename,service: this.options.service,timeout: this.options.timeout}), 
+            this.fileUploader.succeeded.add(this.onUploadSuccess), this.fileUploader.progressed.add(this.onUploadProgress), this.fileUploader.failed.add(this.onUploadError), void this.fileUploader.upload()) : void SL.notify("Only image files, please")
     },isUploading: function() {
         return !(!this.fileUploader || !this.fileUploader.isUploading())
     },onUploadSuccess: function(t) {
@@ -1408,6 +1420,9 @@ SL("components.form").Scripts = Class.extend({
     },onFormSubmit: function(t) {
         return this.inputElement.is(":focus") ? (t.preventDefault(), !1) : void 0
     }}),
+
+
+
 SL("components").FormUnit = Class.extend({
     init: function(t) {
         this.domElement = $(t), this.inputElement = this.domElement.find("input"), this.errorElement = $('<div class="error">'), this.errorIcon = $('<span class="icon">!</span>').appendTo(this.errorElement), this.errorMessage = $('<p class="message">!</p>').appendTo(this.errorElement), this.validateType = this.domElement.attr("data-validate"), this.validateTimeout = -1, this.originalValue = this.inputElement.val(), this.originalError = this.domElement.attr("data-error-message"), this.asyncValidatedValue = null, this.clientErrors = [], this.serverErrors = [], this.inputElement.on("input", this.onInput.bind(this)), this.inputElement.on("change", this.onInputChange.bind(this)), this.inputElement.on("focus", this.onInputFocus.bind(this)), this.inputElement.on("blur", this.onInputBlur.bind(this)), this.inputElement.on("invalid", this.onInputInvalid.bind(this)), this.domElement.parents("form").first().on("submit", this.onFormSubmit.bind(this)), this.originalError && (this.domElement.removeClass("hidden"), this.validate(), this.inputElement.focus()), this.domElement.data("controller", this)
@@ -1490,13 +1505,16 @@ SL("components").FormUnit = Class.extend({
         return this.beforeSubmit(t)
     },onFormSubmit: function(t) {
         return this.beforeSubmit(t) === !1 ? (t.preventDefault(), !1) : void 0
-    }}),
+    }
+}),
+
 SL("components").Header = Class.extend({
         init: function() {
         this.domElement = $(".global-header"), this.render(), this.bind()
     },render: function() {
         var t = this.domElement.find(".profile-button .nav-item-anchor"), e = [{label: "Profile",icon: "home",url: SL.routes.USER(SL.current_user.get("username"))}, {label: "New deck",icon: "plus",url: SL.routes.DECK_NEW(SL.current_user.get("username"))}];
-        SL.current_user.isEnterpriseManager() && e.push({label: "Themes",icon: "brush",url: SL.routes.THEME_EDITOR}), e.push({label: "Settings",icon: "cog",url: SL.routes.USER_EDIT}), SL.current_user.isPro() && !SL.current_user.isEnterprise() ? e.push({label: "Billing",icon: "credit",url: SL.routes.BILLING_DETAILS}) : SL.current_user.isEnterprise() || e.push({label: "Upgrade",icon: "star",url: SL.routes.PRICING}), e.push({label: "Sign out",icon: "exit",url: SL.routes.SIGN_OUT,attributes: {rel: "nofollow","data-method": "delete"}}), this.dropdown = new SL.components.Menu({anchor: t,anchorSpacing: 10,alignment: "auto",minWidth: 160,showOnHover: !0,options: e})
+         e.push({label: "Settings",icon: "cog",url: SL.routes.USER_EDIT}), e.push({label: "Sign out",icon: "exit",url: SL.routes.SIGN_OUT,attributes: {rel: "nofollow","data-method": "delete"}}),
+            this.dropdown = new SL.components.Menu({anchor: t,anchorSpacing: 10,alignment: "auto",minWidth: 160,showOnHover: !0,options: e})
     },bind: function() {
         this.domElement.find(".logo-animation").on("contextmenu", function() {
             return window.location.href = "/about#logo", !1
@@ -1515,6 +1533,7 @@ SL("components").Header = Class.extend({
 *  SL Reusable Components
 *
 */
+
 SL("components").Kudos = function() {
     function t() {
         $("[data-kudos-value][data-kudos-id]").each(function(t, e) {
@@ -1555,6 +1574,8 @@ SL("components").Kudos = function() {
     var r = {};
     t()
 }(), 
+
+
 SL("components").Menu = Class.extend({
     init: function(t) {
         this.config = $.extend({alignment: "auto",anchorSpacing: 10,minWidth: 0,offsetX: 0,offsetY: 0,options: [],showOnHover: !1}, t), this.config.anchor = $(this.config.anchor), this.show = this.show.bind(this), this.hide = this.hide.bind(this), this.layout = this.layout.bind(this), this.toggle = this.toggle.bind(this), this.onMouseOver = this.onMouseOver.bind(this), this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this), this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this), this.onDocumentKeydown = this.onDocumentKeydown.bind(this), this.destroyed = new signals.Signal, this.render(), this.renderList(), this.config.anchor.length && (/(iphone|ipod|ipad|android|windows\sphone)/gi.test(navigator.userAgent) ? (this.config.anchor.addClass("menu-show-on-touch"), this.config.anchor.on("touchstart pointerdown", function(t) {
@@ -1658,7 +1679,7 @@ SL("components").Meter = Class.extend({
 
 
 SL.modal = function() {
-    function t() {
+    function edit() {
         $(['<div class="inner edit-html">', "<h3>Edit HTML</h3>", '<div id="ace-html" class="editor"></div>', "<footer>", '<button class="button grey negative close xl">Cancel</button>', '<button class="button save-changes xl">OK</button>', "</footer>", "</div>"].join("")).appendTo(a);
         this.htmlEditor && "function" == typeof this.htmlEditor.destroy && (this.htmlEditor.destroy(), this.htmlEditor = null);
         try {
@@ -1671,17 +1692,17 @@ SL.modal = function() {
             SL.editor.controllers.Markup.writeHTMLToCurrentSlide(SL.htmlEditor.env.document.getValue()), SL.modal.close()
         })
     }
-    function e() {
+    function nosession() {
         $(['<div class="inner no-session">', "<h3>Session Expired</h3>", "<p>You are no longer signed in to Slides. This can happen when you leave the editor idle for too long, log out in a different tab or go offline. To continue please:</p>", "<ol>", '<li><a href="' + SL.routes.SIGN_IN + '" target="_blank">Sign in</a> to Slides from another browser tab.</li>', "<li>Come back to this tab and press the 'Retry' button.</li>", "</ol>", "<footer>", '<button class="button outline negative close l">Ignore</button>', '<button class="button retry l">Retry</button>', "</footer>", "</div>"].join("")).appendTo(a);
         a.find(".retry").on("click", function() {
             SL.editor.controllers.Session.checkLogin(!0)
         })
     }
-    function n(t) {
+    function share(t) {
         var e = $(['<div class="inner share-deck">', "<footer>", '<button class="button xl done close">Done</button>', "</footer>", "</div>"].join("")).appendTo(a);
         controller = new SL.components.DeckSharer, controller.prependTo(e), e.data("decksharer", controller), controller.render(t)
     }
-    function i(t) {
+    function preview(t) {
         var e = $(['<div class="inner preview-deck">', '<div class="spinner centered"></div>', '<div class="deck"></div>', "<footer></footer>", "</div>"].join("")).appendTo(a), n = e.find(".deck").empty(), i = e.find("footer").empty();
         e.addClass("loading"), SL.util.html.generateSpinners();
         var s = $("<iframe>", {src: t.src,load: function() {
@@ -1689,7 +1710,7 @@ SL.modal = function() {
             }});
         s.appendTo(n), i.append(t.footer ? t.footer : '<button class="button close l">Close</button>')
     }
-    function s(t) {
+    function insert(t) {
         var e = $(['<div class="inner insert-snippet">', '<h3>Insert: "' + t.snippet.get("title") + '"</h3>', '<div class="variables sl-form"></div>', "<footer>", '<button class="button outline close l">Cancel</button>', '<button class="button insert l">Insert</button>', "</footer>", "</div>"].join("")).appendTo(a), n = a.find(".insert"), i = t.snippet.getTemplateVariables(), s = e.find(".variables");
         i.forEach(function(t) {
             var e = $(['<div class="unit">', "<label>" + t.label + "</label>", '<input type="text" value="' + t.defaultValue + '">', "</div>"].join("")).appendTo(s);
@@ -1724,19 +1745,19 @@ SL.modal = function() {
     {open: function(o, l) {
             switch (a.find(">.inner").remove(), u = o, o) {
                 case "edit-html":
-                    t(l);
+                    edit(l);
                     break;
                 case "no-session":
-                    e(l);
+                    nosession(l);
                     break;
                 case "share-deck":
-                    n(l);
+                    share(l);
                     break;
                 case "preview-deck":
-                    i(l);
+                    preview(l);
                     break;
                 case "insert-snippet":
-                    s(l)
+                    insert(l)
             }
             $("html").addClass("modal-open"), clearTimeout(d), c.show(), a.find(">.inner").removeClass("visible"), a.find("." + o).addClass("visible"), $(window).on("resize", r), r()
         },close: function() {
@@ -1778,7 +1799,8 @@ SL.notify = function(t, e) {
 
 SL("components").Prompt = Class.extend({
     init: function(t) {
-        this.config = $.extend({type: "custom",data: null,anchor: null,title: null,optional: !0,alignment: "auto",offsetX: 0,offsetY: 0,className: null,confirmLabel: "OK",cancelLabel: "Cancel"}, t), this.onBackgroundClicked = this.onBackgroundClicked.bind(this), this.onDocumentKeydown = this.onDocumentKeydown.bind(this), this.onPromptCancelClick = this.onPromptCancelClick.bind(this), this.onPromptConfirmClick = this.onPromptConfirmClick.bind(this), this.onInputChanged = this.onInputChanged.bind(this), this.layout = this.layout.bind(this), this.confirmed = new signals.Signal, this.canceled = new signals.Signal, this.destroyed = new signals.Signal, this.render()
+        this.config = $.extend({type: "custom",data: null,anchor: null,title: null,optional: !0,alignment: "auto",offsetX: 0,offsetY: 0,className: null,confirmLabel: "OK",cancelLabel: "Cancel"}, t), this.onBackgroundClicked = this.onBackgroundClicked.bind(this), this.onDocumentKeydown = this.onDocumentKeydown.bind(this), this.onPromptCancelClick = this.onPromptCancelClick.bind(this), this.onPromptConfirmClick = this.onPromptConfirmClick.bind(this), this.onInputChanged = this.onInputChanged.bind(this), this.layout = this.layout.bind(this), 
+        this.confirmed = new signals.Signal, this.canceled = new signals.Signal, this.destroyed = new signals.Signal, this.render()
     },render: function() {
         this.domElement = $('<div class="sl-prompt" data-type="' + this.config.type + '">'), this.innerElement = $('<div class="inner">').appendTo(this.domElement), this.arrowElement = $('<div class="arrow">').appendTo(this.innerElement), this.config.title && (this.titleElement = $('<h3 class="title">').html(this.config.title).appendTo(this.innerElement)), this.config.className && this.domElement.addClass(this.config.className), this.config.html && this.innerElement.append(this.config.html), "select" === this.config.type ? this.renderSelect() : "list" === this.config.type ? (this.renderList(), this.renderButtons(!this.config.multiselect, this.config.multiselect)) : "input" === this.config.type && (this.renderInput(), this.renderButtons())
     },renderSelect: function() {
@@ -1893,8 +1915,9 @@ SL("components").Prompt = Class.extend({
             var e = this.inputElement.val().length, n = this.config.data.maxlength;
             t.text(e + "/" + n), t.toggleClass("negative", e > .95 * n)
         }
-    }}),
-    SL.prompt = function(t) {
+    }
+}),
+SL.prompt = function(t) {
     var e = new SL.components.Prompt(t);
     return e.show(), e
 }, 
@@ -2564,7 +2587,8 @@ SL("components").Tutorial = Class.extend({
     },onFullScreenClicked: function() {
         var t = $("html").get(0);
         return t ? (SL.helpers.Fullscreen.enter(t), !1) : void 0
-    }}),
+    }
+}),
     SL("views.decks").Fullscreen = SL.views.Base.extend({
         init: function() {
         this._super(), SL.util.setupReveal({history: !navigator.userAgent.match(/(iphone|ipod|ipad|android)/gi),openLinksInTabs: !0,trackEvents: !0})
@@ -2617,7 +2641,7 @@ SL("components").Tutorial = Class.extend({
         init: function() {
         this._super(), SL.util.setupReveal({history: !0,openLinksInTabs: !0,controls: SL.current_user.settings.get("present_controls"),progress: SL.current_user.settings.get("present_controls"),maxScale: SL.current_user.settings.get("present_upsizing") ? SL.config.PRESENT_UPSIZING_MAX_SCALE : 1}), this.stream = new SL.helpers.StreamLive({publisher: !0}), this.stream.connect(), this.render()
     },render: function() {
-        var t = SL.current_deck.getTokenedAbsoluteURL("live"), e = SL.current_deck.getTokenedAbsoluteURL("speaker"), n = "http://help.slides.com/knowledgebase/articles/333924", i = "http://help.slides.com/knowledgebase/articles/333923";
+        var t = SL.current_deck.getTokenedAbsoluteURL("live"), e = SL.current_deck.getTokenedAbsoluteURL("speaker"), n = "/help?content=live", i = "/help?content=speaker";
         this.presentationControls = $(['<aside class="presentation-controls">', '<div class="presentation-controls-content">', "<h2>Presentation Controls</h2>", '<div class="presentation-controls-section">', "<h2>Speaker View</h2>", '<p>The control panel for your presentation. Includes speaker notes, an upcoming slide preview and more. It can be used as a remote control when opened from a mobile device. <a href="' + i + '" target="_blank">Learn more.</a></p>', '<a class="button l outline" href="' + e + '" target="_blank">Open speaker view</a>', "</div>", '<div class="presentation-controls-section">', "<h2>Present Live</h2>", '<p>Share this link with your audience to have them follow along with the presentation in real-time. <a href="' + n + '" target="_blank">Learn more.</a></p>', '<input class="live-view-url input-field" type="text" value="' + t + '" readonly />', "</div>", '<div class="presentation-controls-section sl-form">', "<h2>Options</h2>", '<div class="sl-checkbox outline fullscreen-toggle">', '<input id="fullscreen-checkbox" type="checkbox">', '<label for="fullscreen-checkbox">Fullscreen</label>', "</div>", '<div class="sl-checkbox outline controls-toggle" data-tooltip="Hide the presentation control arrows and progress bar." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="250">', '<input id="controls-checkbox" type="checkbox">', '<label for="controls-checkbox">Hide controls</label>', "</div>", '<div class="sl-checkbox outline upsizing-toggle" data-tooltip="Your content is automatically scaled up to fill as much of the browser window as possible. This option disables that scaling and favors the original authored at size." data-tooltip-alignment="r" data-tooltip-delay="500" data-tooltip-maxwidth="300">', '<input id="upsizing-checkbox" type="checkbox">', '<label for="upsizing-checkbox">Disable upsizing</label>', "</div>", "</div>", "</div>", '<footer class="presentation-controls-footer">', '<button class="button xl positive start-presentation">Start presentation</button>', "</footer>", "</aside>"].join("")).appendTo(document.body), this.presentationControlsScrollShadow = new SL.components.ScrollShadow({parentElement: this.presentationControls,contentElement: this.presentationControls.find(".presentation-controls-content"),footerElement: this.presentationControls.find(".presentation-controls-footer")}), this.presentationControls.find(".live-view-url").on("mousedown", this.onLiveURLMouseDown.bind(this)), this.presentationControls.find(".fullscreen-toggle").on("click", this.onFullscreenToggled.bind(this)), this.presentationControls.find(".controls-toggle").on("click", this.onControlsToggled.bind(this)), this.presentationControls.find(".upsizing-toggle").on("click", this.onUpsizingToggled.bind(this)), this.presentationControls.find(".button.start-presentation").on("click", this.onStartPresentationClicked.bind(this)), $(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange", this.onFullscreenChange.bind(this)), this.syncPresentationControls()
     },syncPresentationControls: function() {
         this.presentationControls.find(".fullscreen-toggle input").prop("checked", SL.helpers.Fullscreen.isActive()), this.presentationControls.find(".controls-toggle input").prop("checked", !SL.current_user.settings.get("present_controls")), this.presentationControls.find(".upsizing-toggle input").prop("checked", !SL.current_user.settings.get("present_upsizing"))

@@ -241,16 +241,17 @@ var dbController = {
 
 
 
-	//TODO: change to saving upload resource in database
-	saveUploadFile: function (req, res) {
+	//save images
+	saveUploadFile: function (req, res, storename) {
 		var form = formidable.IncomingForm();
-		form.uploadDir = 'public/tmp/';
+		form.uploadDir = 'public/images/';
 		form.keepExtensions = true;
 		form.maxFieldsSize = 2 * 1024 * 1024;
 
-		console.log('new formidable', form);
+		console.log('new formidable');
 
-		//return res.redirect('/');
+
+				//return res.redirect('/');
 
 		form.
 			on('progress', function (byteReceived, byteExpected) {
@@ -261,8 +262,25 @@ var dbController = {
 
 			}).
 			on('fileBegin', function (name, file) {
-				console.log('new file', name);
-				var newPath = 'public/tmp/newfile';
+				console.log('new file');
+				var extName = '';  //后缀名
+				switch (file.type) {
+					case 'image/pjpeg':
+						extName = '.jpg';
+						break;
+					case 'image/jpeg':
+						extName = '.jpg';
+						break;
+					case 'image/png':
+						extName = '.png';
+						break;
+					case 'image/gif':
+						extName = '.gif';
+						break;
+				}
+				console.log('ext',extName);
+
+				var newPath = 'public/images/'+storename;
 				file.path = newPath;
 
 
@@ -278,7 +296,7 @@ var dbController = {
 			});
 		form.parse(req);
 
-		return res.redirect('/');
+
 	},
 
 	login: function(checkUser, resCallback){
@@ -389,6 +407,7 @@ var dbController = {
 	saveSlideInfo: function (sid, resCallback){
 		auth(collections.slides, function(collection, callback){
 
+
 		}, function(doc){
 
 		}, function(err){
@@ -398,11 +417,11 @@ var dbController = {
 
 	saveSlide: function(req, res){
 		//console.log(req.body["deck[data]"]);
-		var slide_id = req.params[0];
+		var slide_id = req.query.arg;
 		var slide_data = req.body["deck[data]"]||'';
 		console.log('save slide contents', slide_id);
 		this.auth(collections.slides_contents, function(collection,callback){
-			collection.update({_id:new ObjectID(slide_id)},{$set:{data:slide_data}},{safe:true}, function(err, result){
+			collection.save({_id:new ObjectID(slide_id), data:slide_data},{safe:true}, function(err, result){
 				if(err){
 					console.log(err), callback(err, null);
 				}else{

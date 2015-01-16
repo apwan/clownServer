@@ -17,23 +17,24 @@ function() {
         }) ? /\b_super\b/ : /.*/;
 
         this.Class = function() {// declaration
-        }, Class.extend = function(n) {
-            function i() {
+        },
+        Class.extend = function(n) {
+            function subr() {
                 !t && this.init && this.init.apply(this, arguments)
             }
-            var s = this.prototype;
+            var supr = this.prototype;
             t = !0;
             var o = new this;
             t = !1;
             for (var r in n)
-                o[r] = "function" == typeof n[r] && "function" == typeof s[r] && e.test(n[r]) ? function(t, e) {
+                o[r] = "function" == typeof n[r] && "function" == typeof supr[r] && e.test(n[r]) ? function(t, e) {
                     return function() {
                         var n = this._super;
-                        this._super = s[t];
+                        this._super = supr[t];
                         var i = e.apply(this, arguments);
                         return this._super = n, i
                     }
                 }(r, n[r]) : n[r];
-            return i.prototype = o, i.constructor = i, i.extend = arguments.callee, i
+            return subr.prototype = o, subr.constructor = subr, subr.extend = arguments.callee, subr
         }
 }();

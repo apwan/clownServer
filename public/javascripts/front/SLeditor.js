@@ -392,6 +392,7 @@ SL("editor.blocks").Base = Class.extend({
             e.preventDefault(), $(document).off("vmousemove", this.onMouseMove), $(document).off("vmouseup", this.onMouseUp), SL.editor.controllers.Guides.stop(), this.moved && this.resizeEnded.dispatch(this), this.state.direction = null, this.state.centered = null, this.state.proportional = null
         }
     }),
+
     SL("editor.blocks").Code = SL.editor.blocks.Base.extend({
         init: function (e) {
             this._super("code", e), this.editingRequested = new signals.Signal
@@ -529,9 +530,17 @@ SL("editor.blocks").Base = Class.extend({
             this._super(e), 13 !== e.keyCode || SL.util.isTypingEvent(e) || (this.editingRequested.dispatch(), e.preventDefault())
         }
     }),
+
+
+
+
+
+
     SL("editor.blocks").Image = SL.editor.blocks.Base.extend({
         init: function (e) {
-            this._super("image", e), this.plug(SL.editor.blocks.plugin.Link), this.uploader = new SL.helpers.ImageUploader, this.uploader.succeeded.add(this.onUploadSuccess.bind(this)), this.uploader.failed.add(this.onUploadError.bind(this)), this.uploadStateChanged = new signals.Signal
+            this._super("image", e), this.plug(SL.editor.blocks.plugin.Link), this.uploader = new SL.helpers.ImageUploader,
+                this.uploader.succeeded.add(this.onUploadSuccess.bind(this)), this.uploader.failed.add(this.onUploadError.bind(this)),
+                this.uploadStateChanged = new signals.Signal
         }, setup: function () {
             this._super(), this.properties.image = {
                 src: {

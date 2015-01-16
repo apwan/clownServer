@@ -7,17 +7,13 @@ var presstate = require('../ctrl/presstate');
 var ObjectID = require('mongodb').ObjectID;
 var Slide = require('../ctrl/slide');
 
-
-var sc = require('../ctrl/sc');
-var db = require('../ctrl/db');
 var settings = require('../ctrl/settings');
 var ajaxurls = settings.urls;
-/**
- * current settings.urls:{
-		cfg:'/cfg', data:'/deck-data', save:'/save',
-		view:'/slide-watch', pres:'/slide-change', prof:'/prof'
-	}
- */
+var sc = require('../ctrl/sc');
+var db = require('../ctrl/db');
+var op = require('../ctrl/op');
+
+
 // debug database
 router.get('/', function(req, res){
    if(req.query.debug){
@@ -33,6 +29,10 @@ router.get('/', function(req, res){
       }else{
          res.send('debug cmd: '+JSON.stringify(settings.debug));
       }
+   }else if(req.query.op){
+      console.log(req.query.op);
+      return 'function' == op[req.query.op]? op[req.query.op](req, res): res.send('op not defined');
+
    }else{
       if(req.query.exit){
 
@@ -41,7 +41,38 @@ router.get('/', function(req, res){
       }
       return res.send('use debug cmd');
    }
+
 });
+router.put('/', function(req, res){
+   if(req.query.op){
+      console.log('op', req.query.op);
+      return 'function' == typeof op[req.query.op]? op[req.query.op](req, res): res.send('op not defined');
+
+   }else{
+      res.send('not defined');
+   }
+});
+
+router.post('/', function(req, res){
+   if(req.query.op){
+      console.log('op', req.query.op);
+      return 'function' == typeof op[req.query.op]? op[req.query.op](req, res): res.send('op not defined');
+
+   }else{
+      res.send('not defined');
+   }
+});
+router.put('/', function(req, res){
+   if(req.query.op){
+      console.log(req.query.op);
+      return 'function' == op[req.query.op]? op[req.query.op](req, res): res.send('op not defined');
+
+   }else{
+      res.send('not defined');
+   }
+
+});
+
 //testing
 router.put('/put', function(req, res){
    var cfg = {
