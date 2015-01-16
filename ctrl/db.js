@@ -365,13 +365,15 @@ var dbController = {
 
 	},
 
-	getSlideList: function(uid, callback){
+	getSlideList: function(uid, resCallback){
 		auth(collections.slides, function(collection, callback){
-			collection.find({creator: uid, active: 1}).toArray(callback);
+			collection.find({creator: uid}).toArray(function(err, items){
+				return callback(err,items);
+			});
 		}, function(docs){
-			callback(null, docs);
+			resCallback(null, docs);
 		}, function(err){
-			callback(err, null);
+			resCallback(err, null);
 		});
 
     },
@@ -390,10 +392,12 @@ var dbController = {
 		auth(collections.slides, function(collection, callback){
 			collection.insert(slide, {safe: true}, callback);
 		}, function(slideT){//TODO:
-			if('object' == typeof slideT) slideT = slideT[0];
+			var sl = slideT.lenght? slideT[0] : slideT;
 			auth(collections.slides_contents, function(collection, callback){
-				collection.insert({_id: new ObjectID(slideT._id), data:'<section><section><p>Welcome!</p></section></section>'},
-					{safe: true}, callback);
+				collection.insert({_id: new ObjectID(sl._id), data:'<section><section><p>Welcome!</p></section></section>'},
+					{safe: true}, function(err, doc){
+						return err? callback(err, doc):callback(null, sl)
+					});
 			}, function(doc){
 				return resCallback(null, doc);
 			}, function(err){

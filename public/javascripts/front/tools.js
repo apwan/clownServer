@@ -215,8 +215,9 @@ function activeDelete() {
  */
 function createNewSlide() {
     var newSlideName = $('.newSlideName').val();
+
     if (newSlideName) {
-        $.post('/ajax/add', {
+        $.post('/ajax?op=create', {
             name: newSlideName
         }, function(data) {
             data = JSON.parse(data);
@@ -229,15 +230,15 @@ function createNewSlide() {
                 console.log(newSlideName);
                 console.log(data.name);
                 console.log(data._id);
-                $('.createNew').before('<div class="li list-group-item">' +
-                '<h3>' + newSlideName + '</h3>' +
-                '<div  class="btn-toolbar pull-right" role="toolbar" aria-label='+data._id+
-                '><button type="button" class="btn btn-default showBtn"> 展示</button>'+
-                '<button type="button" class="btn btn-default modifyBtn"> 修改</button>'+
-                '<button type="button" class="btn btn-default deleteBtn"> 删除</button></btn-toolbar></li>');
-                activeDelete();
-                activeModify();
-                activeShow();
+                $('.createNew').before(['<div class="li list-group-item">',
+                '<h3>' ,newSlideName , '</h3>' ,
+                '<div  class="btn-toolbar pull-right" role="toolbar" aria-label=',data._id,
+                '><button type="button" class="btn btn-default showBtn"> 展示</button>',
+                '<button type="button" class="btn btn-default modifyBtn"> 修改</button>',
+                '<button type="button" class="btn btn-default deleteBtn"> 删除</button></btn-toolbar></li>'].join('')),
+                bindClick();
+
+
             }
         });
     }
@@ -245,7 +246,7 @@ function createNewSlide() {
 
 function startWatch() {
     var presId = $presIdInput.val();
-    $.get('/ajax/slide-watch', {
+    $.get('/ajax?op=view', {
         presId: presId
     }, function (data) {
         if (data.success == 0) {
@@ -255,7 +256,7 @@ function startWatch() {
         else {
             UserWatchObj.presId = presId;
             UserWatchObj.username = data.username;
-            $.get('/ajax/slide-watch', {
+            $.get('/ajax?op=view', {
                 presId: presId,
                 command: 'contents'
             }, function (data) {
@@ -265,7 +266,7 @@ function startWatch() {
                 }
                 else {
                     // 动态的设置contents
-                    $showArea.prepend(data.contents);
+                    $('.showArea').prepend(data.contents);
                     Reveal.initialize(
                         {
                             controls: true,

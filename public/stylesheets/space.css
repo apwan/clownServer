@@ -11,11 +11,13 @@
 .modifyBtn {
 	 background-color: hsl(41, 85%, 35%) !important;
 	 color: #fff !important;
+
 }
 
 .btn-toolbar {
 	position: relative;
 	top: -30px;
+
 }
 
 

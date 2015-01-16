@@ -7,6 +7,7 @@ var session = require('express-session');
 var settings = require('../ctrl/settings');
 var io = null;
 var server = null;
+var gravatar = require('gravatar');
 
 // require server control
 var db = require('../ctrl/db');
@@ -33,17 +34,33 @@ router.get('/', function (req, res) {
             secbtns: {
                 publish:['Visibility','i-unlock-stroke'],
                 settings:['Settings','i-cog'], style:['style','i-brush'],
-                arrange:['Arrange slides','i-layers'], //revisions:['Revision history','i-clock'],
+                arrange:['Arrange slides','i-layers'] //,revisions:['Revision history','i-clock'],
                 //import:['Import','i-cloud-upload'],
                 //export:['Export','i-cloud-download'],
-                //share:['Share','i-share'], about:['About', 'i-star']
+                //share:['Share','i-share'],
+                // about:['About', 'i-star']
             }
 
         };
         res.render('edit', info);
     }else if(req.session.user){
-        console.log(req.session.user);
-        res.render('login', {receive: 1});
+        var reJson = {
+            login: 1,
+            name: req.session.user.name || 'guest',
+            email: req.session.user.email|| 'guest@scoreur.net',
+            avatar: gravatar.url(req.session.user.email ,  {s: '100', r: 'x', d: 'retro'}, true)
+        };
+        db.getSlideList(req.session.user._id, function(err, docs) {
+            if(err){
+                console.log(err);
+                reJson.slideList = null;
+            }else{
+                reJson.slideList = docs;
+                console.log('get slide list: ', docs);
+            }
+            res.render('space', reJson);
+        });
+
 
 
     }else{
@@ -75,7 +92,7 @@ router.post('/', function(req, res){
             req.session.user = userT;
             reJson.success = 1;
             //res.send(JSON.stringify(erJson));
-            res.redirect('/user');
+            res.redirect('/');
 
 
         }

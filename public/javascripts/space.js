@@ -1,11 +1,11 @@
-$(function() {
+function bindClick() {
 
 	/**
 	 * 标识是否正在展示
 	 * @name started
 	 * @type {boolean}
 	 */
-	var started = false;
+	//var started = false;
 	/**
 	 * 跳转到展示页面
 	 */
@@ -19,11 +19,13 @@ $(function() {
 	/**
 	 * 发送删除幻灯片的AJAX GET请求
 	 */
-	$('.deleteBtn').click(activeDelete);
+	//$('.deleteBtn').click(activeDelete);
 
 	/**
 	 * 新建一个幻灯片的AJAX POST请求
 	 */
 	$('.createBtn').click(createNewSlide);
-
-});
+}
+$(
+bindClick()
+);
