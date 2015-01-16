@@ -3,11 +3,10 @@
  */
 var express = require('express');
 var router = express.Router();
-var crypto = require('crypto');
 var User = require('../ctrl/user.js');
 var session = require('express-session');
 
-// for Lin Zinan
+// tesing by Lin Zinan
 router.post('/reg', function(req, res){
 	var reJson = {
 		receive: 1
@@ -52,12 +51,13 @@ router.post('/reg', function(req, res){
 	}
 });
 
+//注册
 router.get('/reg', function(req, res){
    res.render('reg',{});
     //res.send('This is the first test module.');
 });
 
-
+//登陆
 router.post('/login', function(req, res){
 	var reJson = {
 		receive: 1
@@ -100,6 +100,7 @@ router.get('/login', function(req, res){
 	}
 });
 
+//登出
 router.get('/logout', function(req, res) {
 	req.session.user = null;
 	res.redirect('/test1/login');

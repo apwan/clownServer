@@ -1,5 +1,8 @@
 //
   Created by Foxfi Ning
+
+include basic
+
 doctype html
 html(lang="en")
   head
@@ -32,8 +35,8 @@ html(lang="en")
     if _dev
       script(src="js/front/clown.min.js")
     else
-      - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
-      script(defer="defer", src='javascripts/'+val+'.js')
+
+      + modern
 
     script(src="/javascripts/utils.js")
     script(src="/javascripts/watching.js")

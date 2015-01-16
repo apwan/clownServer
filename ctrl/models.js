@@ -13,12 +13,22 @@ var MODELS = {
 //var Slide = require('./slide');
 
 
+/**
+ * 图片、多媒体资源类
+ * @param resource
+ * @constructor
+ */
 
 MODELS.Resource = function Resource(resource){
     this.name = resource.name;
     this.creator = resource.creator;
     this.createtime = resource.createtime;
 };
+/**
+ * 幻灯片类
+ * @param slide
+ * @constructor
+ */
 MODELS.Slide = function Slide(slide){
     //_id later assigned
     this.name = slide.name || 'deck';
@@ -27,6 +37,11 @@ MODELS.Slide = function Slide(slide){
     this.captcha = slide.captcha || '';
     this.active = slide.active || '1';
 };
+/**
+ * 用户类
+ * @param user
+ * @constructor
+ */
 MODELS.User = function User(user){
     //_id
     this.name = user.name;

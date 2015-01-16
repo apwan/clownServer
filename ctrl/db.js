@@ -17,9 +17,10 @@ var help = require('./helper');
 
 
 var ObjectID = mongodb.ObjectID;
-//var Connection = mongodb.Connection;
+// create mongodb server
 var server = new mongodb.Server(settings.db.host, settings.db.port,
 	{auto_reconnect: false});
+// initialize database instance
 var database = new mongodb.Db(settings.db.name, server, {safe:true});
 
 
@@ -231,6 +232,11 @@ var dbController = {
 	    });
     },
 
+
+	/**
+	 *  测试HELPER class
+	 */
+
 	testHelper: function(){
 		console.log('==== start testing helper ====');
 		console.log('obj',new ObjectID());
@@ -241,7 +247,12 @@ var dbController = {
 
 
 
-	//save images
+	/**
+	 * 保存slide编辑时上传的图片
+	 * @param req
+	 * @param res
+	 * @param storename
+	 */
 	saveUploadFile: function (req, res, storename) {
 		var form = formidable.IncomingForm();
 		form.uploadDir = 'public/images/';
@@ -299,6 +310,12 @@ var dbController = {
 
 	},
 
+
+	/**
+	 * 用户登陆验证
+	 * @param checkUser
+	 * @param resCallback
+	 */
 	login: function(checkUser, resCallback){
 
 		//res.send(JSON.stringify(user));
@@ -313,6 +330,12 @@ var dbController = {
 		});
 
 	},
+
+	/**
+	 * 用户注册
+	 * @param req
+	 * @param res
+	 */
 	signUp: function(req, res){
 		var reJson = {
 			receive: 1,
@@ -349,6 +372,11 @@ var dbController = {
 
 	},
 
+	/**
+	 * 获取slide信息
+	 * @param sid
+	 * @param resCallback
+	 */
 	getSlideInfo: function(sid, resCallback){
 		auth(collections.slides, function(collection, callback){
 			collection.findOne({_id: new ObjectID(sid), active: 1}, callback);
@@ -365,6 +393,11 @@ var dbController = {
 
 	},
 
+	/**
+	 * 获取用户slide列表
+	 * @param uid
+	 * @param resCallback
+	 */
 	getSlideList: function(uid, resCallback){
 		auth(collections.slides, function(collection, callback){
 			collection.find({creator: uid}).toArray(function(err, items){
@@ -377,6 +410,12 @@ var dbController = {
 		});
 
     },
+
+	/**
+	 * 获取用户slide内容
+	 * @param sid
+	 * @param resCallback
+	 */
 	getSlideContent: function(sid, resCallback){
 		auth(collections.slides_contents, function(collection, callback){
 			collection.findOne({_id: new ObjectID(sid)}, callback);
@@ -388,6 +427,12 @@ var dbController = {
 		});
 
 	},
+
+	/**
+	 * 创建slide
+	 * @param slide
+	 * @param resCallback
+	 */
 	createSlide: function(slide, resCallback){
 		auth(collections.slides, function(collection, callback){
 			collection.insert(slide, {safe: true}, callback);
@@ -408,6 +453,11 @@ var dbController = {
 		});
 	},
 
+	/**
+	 * 保存slide信息
+	 * @param sid
+	 * @param resCallback
+	 */
 	saveSlideInfo: function (sid, resCallback){
 		auth(collections.slides, function(collection, callback){
 
@@ -419,6 +469,12 @@ var dbController = {
 		});
 	},
 
+
+	/**
+	 * 保存slide内容
+	 * @param req
+	 * @param res
+	 */
 	saveSlide: function(req, res){
 		//console.log(req.body["deck[data]"]);
 		var slide_id = req.query.arg;
@@ -441,6 +497,12 @@ var dbController = {
 		res.send('ok');
 	},
 
+
+	/**
+	 * 删除slide
+	 * @param sid
+	 * @param resCallback
+	 */
 	deleteSlide: function (sid, resCallback){
 		auth(collections.slides, function(collection, callback){
 			collection.update({_id: new ObjectID(sid), active: 1}, {$set:{active: 0}},{safe:true}, callback);
@@ -453,8 +515,14 @@ var dbController = {
 	},
 
 
+
+	/**
+	 * 数据库测试
+	 * @returns {string}
+	 */
 	test: function(){
 		return 'ok';
+		// add other codes for testing
 	}
 
 };
