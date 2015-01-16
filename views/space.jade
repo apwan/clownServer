@@ -17,20 +17,29 @@ block content
 				.li.list-group-item= 'Email: ' + email
 
 	ul.list-group.slideList
-		each slide in slideList
-			+slideItem(slide)
+		each slide,index in slideList
+			+slideItem(slide, index)
 		.li.list-group-item.createNew
 			input.newSlideName(type="text", placeholder="new slide name")
-			button(type="button", class="btn btn-primary createBtn pull-right") 新建Slide
+			button(index=index, type="button", class="btn btn-primary createBtn pull-right") 新建Slide
 
 block scripts
 	script(src='/javascripts/space.js')
+	script#user-info(type="text/javascript").
+		var SLConfig = {
+			username: "#{name}",
+			email: "#{email}"
+		}
 
-mixin slideItem(slide)
-		.li.list-group-item
+
+
+
+
+mixin slideItem(slide, index)
+		.li.list-group-item(index=index)
 			h3= slide.name
-			.btn-toolbar.pull-right(role="toolbar", aria-label= slide._id)
+			.btn-toolbar.pull-right(index=index,role="toolbar", aria-label= slide._id)
 				button(type="button", class="btn btn-default showBtn") 展示
-				button(type="button", class="btn btn-default modifyBtn") 修改
+				button(index=index, type="button", class="btn btn-default modifyBtn") 修改
 				button(type="button", class="btn btn-default deleteBtn") 删除
 

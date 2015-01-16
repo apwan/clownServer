@@ -100,7 +100,7 @@ router.post('/*/thumbnails.json', function(req, res){
 
 router.get(ajaxurls.cfg, function(req, res){
    //TODO: get json data from database
-   var p = 'public/tmp/'+(req.query.slide || settings.err_slide_id)+'.json';
+   var p = 'public/tmp/'+settings.err_slide_id+'.json';
    console.log('get config json', p);
 
    fs.readFile(p, 'utf8', function(err, data){
@@ -108,13 +108,15 @@ router.get(ajaxurls.cfg, function(req, res){
          console.log("Reading config failed");
          res.send('{current_user:{},deck:{}}');
       }else{
-         res.send(data);
+         config = data.replace(settings.err_slide_id, req.query.slide);
+
+         res.send(config);
       }
    });
 });
 
 router.get(ajaxurls.data, function(req, res){
-   var p = 'public/slides/'+(req.query.slide || '')+'.html';
+   var p = 'public/slides/'+(req.query.slide || settings.err_slide_id)+'.html';
    console.log('get slide contents', p);
    db.getSlideContent(req.query.slide, function(err, data){
       err? (console.log(err, data),

@@ -164,17 +164,9 @@ function activeShow() {
 function activeModify() {
     console.log($(this).parent().attr('aria-label'));
     var slideId = $(this).parent().attr('aria-label');
-    $.ajax({
-        type:'GET',
-        url: '/ajax/modify',
-        dataType:'text',
-        data: {
-            'slideId': slideId
-        },
-        success: function(data){
-            alert(data);
-        }
-    });
+    var slideurl = ['/?user=',SLConfig.username,'&slide=',$(".btn-toolbar[index=0]").attr("aria-label")].join('');
+    //console.log(slideurl);
+    window.open(slideurl,'blank');
 
 };
 
@@ -187,9 +179,10 @@ function activeDelete() {
     var listItem = $(this).parent().parent();
     var slideId = $(this).parent().attr('aria-label');
     console.log(slideId);
+
     $.ajax({
         type:'GET',
-        url:'/ajax/delete',
+        url:'/ajax?op=delete',
         dataType:'text',
         data:{
             'slideId': slideId
