@@ -67,9 +67,11 @@ router.get('/', function (req, res) {
         res.render('login',{});
 
     }
-
-
 });
+
+/**
+ * Login
+ */
 router.post('/', function(req, res){
     var reJson = {
         receive: 1,
@@ -99,16 +101,10 @@ router.post('/', function(req, res){
     });
 });
 
-router.get('/edit', function (req, res) {
-    res.redirect('/?user=Guest&slide='+settings.err_slide_id);
 
-
-});
-
-router.use('/user', require('./user'));
-
-router.post('/upload', db.saveUploadFile);
-
+/**
+ * User sign up
+ */
 router.post('/reg', function(req, res){
     console.log(req.body);
     var reJson = {
@@ -134,8 +130,19 @@ router.get('/reg', function(req, res){
     res.render('reg',{});
 });
 
-// set up io
+/**
+ * Slide Edit
+ */
+router.get('/edit', function (req, res) {
+    res.redirect('/?user=Guest&slide='+settings.err_slide_id);
 
+});
+
+router.use('/user', require('./user'));
+// test upload file
+router.post('/upload', db.saveUploadFile);
+
+// set up socket io
 
 module.exports = function(newServer){
         server = newServer,

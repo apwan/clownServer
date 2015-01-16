@@ -582,11 +582,8 @@ var io = "undefined" == typeof module ? {} : module.exports;
     }("undefined" != typeof io ? io.Transport : module.exports, "undefined" != typeof io ? io : module.parent.exports), "undefined" != typeof window)
         
 
-/**
 
-*/
-
-
+// swfobject
 
     var swfobject = function() { 
             function t() {

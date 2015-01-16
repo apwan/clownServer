@@ -1,7 +1,10 @@
 /**
  * Created by WuYijie on 1/12/15.
  */
-
+/**
+ * 辅助类
+ * @type {{acknowledgement: Function, examples: Function, init: Function}}
+ */
 var HELPER = {
     acknowledgement: function(){
         return {
@@ -30,6 +33,13 @@ var HELPER = {
 };
 
 // excerpt from https://github.com/caolan/async
+/**
+ * 异步情况下顺序执行任务
+ * @param arr
+ * @param iterator
+ * @param callback
+ * @returns {*|Function}
+ */
 HELPER.eachSeries = function (arr, iterator, callback) {
     callback = callback || function () {};
     if (!arr.length) {
@@ -55,7 +65,10 @@ HELPER.eachSeries = function (arr, iterator, callback) {
     };
     iterate();
 };
-
+/**
+ * 产生十进制ID
+ * @returns {number}
+ */
 HELPER.newID = function(){
     var t_stamp = new Date().getTime()/1000%3600;
     var rnd_stamp = Math.random()*1000;
