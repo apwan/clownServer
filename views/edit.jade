@@ -1,0 +1,88 @@
+
+include basic
+
+//- the url to get slide config information
+-var ajax_cfg = '?slide='+slide_id
+//- the url to get slide deck data
+-var ajax_slide_data = '?slide='+slide_id
+
+//- document start here
+doctype html
+html(class='decks edit dark clown-edit', data-editor-version="2", data-account="free", data-visibility="all")
+  //-html.decks.speaker
+  //- common head part with required js/css, etc
+      params: tile,token
+  +head('CLoWN Online presentation', "no-token")
+
+
+      script(defer="defer" type="text/javascript").
+
+          $(ajax_include(ajax_loader.base+ajax_loader.urls.cfg+"#{ajax_cfg}","user-info","var SLConfig=", " "));
+          $(ajax_include(ajax_loader.base+ajax_loader.urls.data+"#{ajax_slide_data}","clown_slide"));
+          $(window).load(function () {
+              setTimeout('$(".preview").click()', 0);
+          });
+
+
+
+  body
+    if uses.loader
+      .page-loader
+         .page-loader-inner
+           p.page-loader-message Loading editor
+           .page-loader-spinner.spinner
+
+    .page-wrapper
+      //- use for both audience and presenter
+      .preview-controls
+        if uses.resume
+          button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
+            span.icon.i-pen-alt2
+
+        a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
+          span.icon.i-new-window
+
+      - var hrefs = ['/','/','explore','/users','/'+username]
+      + sidebar(uses, secbtns)
+          + gheader(hrefs, username)
+
+      if uses.sections == true
+         include sections
+         .sidebar-panel
+           if secbtns.settings
+              + sec_settings
+           if secbtns.style
+              + sec_style
+           if secbtns.export
+              + sec_export
+           if secbtns.import
+              + sec_import
+           if secbtns.share
+              + sec_share
+           if secbtns.import
+              + sec_import
+
+      include sample_slide
+      //- var subpage = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
+      - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
+      + projector(subpage)
+          //- + slide_sample_1
+
+    //- dynamic loading info
+    script#user-info(type="text/javascript")
+    script#socket-info(type="text/javascript")
+
+    //- application
+    //- var _dev = true
+    if _dev
+        script(src="js/front/clown.min.js")
+    else
+        + modern
+
+
+    - each val in ['js/lib/reveal.min','javascripts/front/ckeditor', 'javascripts/front/CW']
+       script(defer="defer", src=''+val+'.js')
+
+
+
+

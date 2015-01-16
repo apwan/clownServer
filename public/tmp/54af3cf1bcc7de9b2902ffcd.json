@@ -1,0 +1,75 @@
+{
+  "current_user": {
+    "id": "54af4cd9e5abfb131d636885",
+    "username": "guest",
+    "name": null,
+    "email": "guest@scoreur.net",
+    "description": null,
+    "thumbnail_url": "/images/clown.png",
+    "pro": true,
+    "enterprise": true,
+    "enterprise_manager": true,
+    "notify_on_receipt": false,
+    "billing_address": null,
+    "editor_tutorial_completed": true,
+    "settings": {
+      "id": 63494,
+      "present_controls": true,
+      "present_upsizing": true,
+      "editor_grid": true,
+      "editor_snap": true,
+      "developer_mode": false
+    },
+    "registered": true
+  },
+  "deck": {
+    "id": "54af3cf1bcc7de9b2902ffcd",
+    "slug": "deck-1",
+    "title": "Welcome",
+    "description": "",
+    "visibility": "all",
+    "published_at": "2015-01-01T00:00:00.888Z",
+    "sanitize_messages": null,
+    "thumbnail_url": "/images/clown.png",
+    "view_count": 3,
+    "user": {
+      "id": "54af4cd9e5abfb131d636885",
+      "username": "guest",
+      "name": null,
+      "email": "guest@scoreur.net",
+      "description": null,
+      "thumbnail_url": "/images/clown.png",
+      "pro": true,
+      "enterprise": true,
+      "enterprise_manager": true,
+      "notify_on_receipt": false,
+      "billing_address": null,
+      "editor_tutorial_completed": true,
+      "settings": {
+        "id": 63494,
+        "present_controls": true,
+        "present_upsizing": true,
+        "editor_grid": true,
+        "editor_snap": true,
+        "developer_mode": false
+      },
+    "registered": true
+     },
+      
+    "background_transition": "slide",
+    "transition": "slide",
+    "theme_id": null,
+    "theme_font": "montserrat",
+    "theme_color": "white-blue",
+    "auto_slide_interval": 0,
+    "comments_enabled": true,
+    "forking_enabled": true,
+    "rolling_links": false,
+    "center": false,
+    "should_loop": false,
+    "rtl": false,
+    "version": 2,
+    "access_token": "no-token",
+    "notes": {}
+  }
+}

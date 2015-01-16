@@ -1,0 +1,11 @@
+.idea/*
+.idea/libraries/*
+.idea/runConfigurations/*
+.idea/*.xml
+.idea/scopes/*
+*.log
+public/js/front/*
+public/images/*
+jsDoc/*
+public/slides/*
+node_modules/*

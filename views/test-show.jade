@@ -1,0 +1,39 @@
+//
+  Created by Foxfi Ning
+
+include basic
+include sample_slide
+
+doctype html
+html(lang="en")
+  + head(title, 'no-token')
+    link(rel="stylesheet" href="/stylesheets/sky.css" id="theme")
+
+  body
+    - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
+    + projector(subpage)
+       + slide_sample_1
+    
+
+          
+    div(class="show-ctrl")
+      p(class="presIdText")
+      p 输入slideId:
+      input(class="slideIdInput")
+      button(class="startShowBtn") 开始展示
+      button(class="endShowBtn") 结束展示
+
+
+    if _dev
+      script(src="js/front/clown.min.js")
+    else
+      - each val in ['lib/modern', 'lib/application', 'front/SL', 'lib/acetex', 'front/SLeditor']
+         script(defer="defer", src='javascripts/'+val+'.js')
+
+    - each val in ['lib/reveal.min','front/ckeditor']
+       script(defer="defer", src='/js/'+val+'.js')
+
+    script#socket-info(type="text/javascript",src=socket_src)
+    script(src="/javascripts/showing.js")
+
+

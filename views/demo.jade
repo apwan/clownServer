@@ -1,0 +1,56 @@
+//
+   Created by WuYijie on 12/5/14.
+
+include basic
+include sample_slide
+
+doctype html
+html(lang="en")
+   + head(title, 'no-token')
+      link(rel="stylesheet" href="stylesheets/sky.css" id="theme")
+
+   body
+      if uses.loader == true
+         .page-loader
+            .page-loader-inner
+               p.page-loader-message Loading editor
+               .page-loader-spinner.spinner
+
+      .page-wrapper
+         //- use for both audience and presenter
+         .preview-controls
+            if uses.resume
+               button.button.preview-controls-button.preview-controls-exit.grey.l(data-tooltip="Resume editing", data-tooltip-direction="b", data-tooltip-delay="1000")
+                  span.icon.i-pen-alt2
+
+            a.button.preview-controls-button.preview-controls-external.grey.l(href="#", target="_blank", data-tooltip="Present this deck", data-tooltip-direction="b")
+               span.icon.i-new-window
+         .show-ctrl
+            p.presIdText
+            p 输入slideId:
+            input.slideIdInput
+            button.startShowBtn 开始展示
+            button.endShowBtn 结束展示
+
+         - var hrefs = ['/','/','explore','/users','/'+username]
+         + sidebar(uses, secbtns)
+            + gheader(hrefs, username)
+      - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
+      + projector(subpage)
+         + slide_sample_3('Demo')
+
+      if _dev
+         script(src="js/front/clown.min.js")
+      else
+         + modern
+
+      - each val in ['lib/reveal.min','front/ckeditor.min']
+         script(defer="defer", src='/js/'+val+'.js')
+      script#socket-info(defer="defer" type="text/javascript",src=socket_src)
+      script(defer="defer" src="/javascripts/showing.js")
+
+
+
+
+
+
