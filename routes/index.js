@@ -56,7 +56,7 @@ router.get('/', function (req, res) {
                 reJson.slideList = null;
             }else{
                 reJson.slideList = docs;
-                console.log('get slide list: ', docs);
+                //console.log('get slide list: ', docs);
             }
             res.render('space', reJson);
         });
@@ -94,7 +94,7 @@ router.post('/', function(req, res){
             req.session.user = userT;
             reJson.success = 1;
             //res.send(JSON.stringify(erJson));
-            res.redirect('/');
+            res.redirect('/user');
 
 
         }
@@ -139,8 +139,7 @@ router.get('/edit', function (req, res) {
 });
 
 router.use('/user', require('./user'));
-// test upload file
-router.post('/upload', db.saveUploadFile);
+
 
 // set up socket io
 

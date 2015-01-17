@@ -22,7 +22,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('port', process.env.PORT || 3000);// default 3000
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
+if(process.env.DEV){
+    app.use(logger('dev'));
+}else{
+    //only log err
+    app.use(logger('combined', {
+        skip: function (req, res) { return res.statusCode < 400 }
+    }));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -69,6 +77,7 @@ var demo = require('./routes/demo');
 var ajax = require('./routes/ajax');
 
 
+
 /**
  *  Routes planning
  */
@@ -89,9 +98,8 @@ app.use(function(req, res, next) {
 
 // error handlers
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
+// development error handler will print stacktrace
+if (process.env.DEV) {
     app.use(function(err, req, res, next) {
 
         res.status(err.status || 500);
@@ -100,20 +108,17 @@ if (app.get('env') === 'development') {
             error: err
         });
     });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    if(err.status == 404){
-        return res.redirect('/');
-    }
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
+}else{
+    // production error handler no stacktraces leaked to user
+    app.use(function(err, req, res, next) {
+        if(err.status == 404){
+            return res.redirect('/');
+        }else{
+            res.status(err.status || 500);
+            res.send('error');
+        }
     });
-});
 
+}
 
 module.exports = app;
