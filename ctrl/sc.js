@@ -108,6 +108,40 @@ var socketController = {
    			});
    		});
 
+   		socket.on('move', function(data) {
+   			io.to(presId).emit('new message', {
+   				username: socket.username,
+   				message: data
+   			});
+   		});
+
+   		socket.on('up', function() {
+   			socket.broadcast.emit('up', {
+   				username: socket.username,
+   				message: data
+   			});
+   		});
+
+   		socket.on('down', function() {
+   			socket.broadcast.emit('down', {
+   				username: socket.username,
+   				message: data
+   			});
+   		});
+
+   		socket.on('left', function() {
+   			socket.broadcast.emit('left', {
+   				username: socket.username,
+   				message: data
+   			});
+   		});
+
+   		socket.on('right', function() {
+   			socket.broadcast.emit('right', {
+   				username: socket.username,
+   				message: data
+   			});
+   		});
     },
 
 

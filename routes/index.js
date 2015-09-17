@@ -133,7 +133,7 @@ router.get('/reg', function(req, res){
 /**
  * Slide Edit
  */
-router.get('/edit', function (req, res) {
+router.get('/edit', function (req, res) {		
     res.redirect('/?user=Guest&slide='+settings.err_slide_id);
 
 });
@@ -148,6 +148,7 @@ module.exports = function(newServer){
             io = require('socket.io')(server),
             sc.setIO(io),
             io.on('connection', sc.onConnection),
+	    server.listen(3000),
             console.log('socket setup');
         return router;
 };
