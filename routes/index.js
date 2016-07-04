@@ -14,8 +14,7 @@ var db = require('../ctrl/db');
 var sc = require('../ctrl/sc');
 // frontend unit test
 router.use('/test', require('./unit-test'));
-// server test
-router.use('/test1', require('../test/test1'));
+
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -148,7 +147,7 @@ module.exports = function(newServer){
             io = require('socket.io')(server),
             sc.setIO(io),
             io.on('connection', sc.onConnection),
-	    server.listen(3000),
+
             console.log('socket setup');
         return router;
 };
