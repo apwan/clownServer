@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 include basic
+=======
+include mixins/basic
+>>>>>>> master
 
 //- the url to get slide config information
 -var ajax_cfg = '?slide='+slide_id
@@ -47,7 +51,11 @@ html(class='decks edit dark clown-edit', data-editor-version="2", data-account="
           + gheader(hrefs, username)
 
       if uses.sections == true
+<<<<<<< HEAD
          include sections
+=======
+         include mixins/sections
+>>>>>>> master
          .sidebar-panel
            if secbtns.settings
               + sec_settings
@@ -62,7 +70,11 @@ html(class='decks edit dark clown-edit', data-editor-version="2", data-account="
            if secbtns.import
               + sec_import
 
+<<<<<<< HEAD
       include sample_slide
+=======
+      include mixins/sample_slide
+>>>>>>> master
       //- var subpage = {type:'sample_slide', h_tip:'Add new slide<br>(Hold shift for blank)', v_tip:'Add new slide<br>(Hold shift for blank)'}
       - var subpage = {type:'sample_slide', h_tip:'添加新幻灯片<br>(按住shift创建空白页)', v_tip:'添加新幻灯片<br>(按住shift创建空白页)'}
       + projector(subpage)

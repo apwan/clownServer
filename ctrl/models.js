@@ -24,6 +24,7 @@ MODELS.Resource = function Resource(resource){
     this.creator = resource.creator;
     this.createtime = resource.createtime;
 };
+
 /**
  * 幻灯片类
  * @param slide
@@ -61,6 +62,7 @@ MODELS.User.prototype.models = function(){
         active: this.active
     }
 };
+
 MODELS.Slide.prototype.models = function(){
     return {
         _id: this._id,
@@ -69,6 +71,7 @@ MODELS.Slide.prototype.models = function(){
         active: this.active
     }
 };
+
 MODELS.Resource.prototype.models = function(){
     return {
 

@@ -236,7 +236,6 @@ var dbController = {
 	/**
 	 *  测试HELPER class
 	 */
-
 	testHelper: function(){
 		console.log('==== start testing helper ====');
 		console.log('obj',new ObjectID());
@@ -244,8 +243,6 @@ var dbController = {
 
 		console.log('==== end testing helper ====');
 	},
-
-
 
 	/**
 	 * 保存slide编辑时上传的图片
@@ -309,7 +306,6 @@ var dbController = {
 
 
 	},
-
 
 	/**
 	 * 用户登陆验证

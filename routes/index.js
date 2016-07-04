@@ -14,8 +14,12 @@ var db = require('../ctrl/db');
 var sc = require('../ctrl/sc');
 // frontend unit test
 router.use('/test', require('./unit-test'));
+<<<<<<< HEAD
 // server test
 router.use('/test1', require('../test/test1'));
+=======
+
+>>>>>>> master
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -56,7 +60,11 @@ router.get('/', function (req, res) {
                 reJson.slideList = null;
             }else{
                 reJson.slideList = docs;
+<<<<<<< HEAD
                 console.log('get slide list: ', docs);
+=======
+                //console.log('get slide list: ', docs);
+>>>>>>> master
             }
             res.render('space', reJson);
         });
@@ -94,7 +102,11 @@ router.post('/', function(req, res){
             req.session.user = userT;
             reJson.success = 1;
             //res.send(JSON.stringify(erJson));
+<<<<<<< HEAD
             res.redirect('/');
+=======
+            res.redirect('/user');
+>>>>>>> master
 
 
         }
@@ -133,14 +145,22 @@ router.get('/reg', function(req, res){
 /**
  * Slide Edit
  */
+<<<<<<< HEAD
 router.get('/edit', function (req, res) {
+=======
+router.get('/edit', function (req, res) {		
+>>>>>>> master
     res.redirect('/?user=Guest&slide='+settings.err_slide_id);
 
 });
 
 router.use('/user', require('./user'));
+<<<<<<< HEAD
 // test upload file
 router.post('/upload', db.saveUploadFile);
+=======
+
+>>>>>>> master
 
 // set up socket io
 
@@ -149,6 +169,10 @@ module.exports = function(newServer){
             io = require('socket.io')(server),
             sc.setIO(io),
             io.on('connection', sc.onConnection),
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             console.log('socket setup');
         return router;
 };

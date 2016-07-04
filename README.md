@@ -8,12 +8,28 @@ which aims to promote the interactivity of online presentation.
 Prerequisite: node, npm, mongodb.
 Clone the release branch, run `npm install` to get required node modules.
 
+<<<<<<< HEAD
 ### Lauch server
 Lauch mongodb with `--auth`, connect by `mongo`, and type:
 - use clown
 - db.addUser('clown','clown')
 
 or use your specific  configuration and pass them through command line.
+=======
+### Launch database server
+After the first launch via `mongod` (with `--auth` flag), configurate the admin account:
+- use admin
+- db.addUser('admin','your_password')
+- db.shutdownServer()
+
+Then launch mongodb via `mongod` with the flag `--auth`, connect by `mongo`, and type:
+- use clown
+- db.auth('admin','your_password')
+- db.addUser('clown','clown')
+- exit
+
+You can also use your own configuration and pass them through command line.
+>>>>>>> master
 See `ctrl/settings.js` to for what parameters to pass. 
 
 Example:
@@ -28,6 +44,10 @@ Run `grunt docgen` to generate jsDoc.
 Run `grunt test` to lauch QUnit test.
 
 
+<<<<<<< HEAD
 ### Liscence
+=======
+### Licence
+>>>>>>> master
 
 MIT

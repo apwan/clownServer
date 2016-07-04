@@ -5,7 +5,7 @@
 var db = require('./db');
 var help = require('./helper');
 
-var op = {
+
 /**
  * 异步请求（ajax）处理
  * @type {{media: Function, stream: Function, create: Function, save: Function, delete: Function, thumbnails: Function}}

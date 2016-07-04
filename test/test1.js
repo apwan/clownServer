@@ -50,7 +50,10 @@ router.post('/reg', function(req, res){
 		});
 	}
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 //注册
 router.get('/reg', function(req, res){
    res.render('reg',{});
@@ -99,7 +102,10 @@ router.get('/login', function(req, res){
 		res.render('login',{});
 	}
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 //登出
 router.get('/logout', function(req, res) {
 	req.session.user = null;

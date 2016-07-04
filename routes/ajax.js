@@ -41,7 +41,10 @@ router.get('/', function(req, res){
       }
       return res.send('use debug cmd');
    }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 });
 
 /**
@@ -141,6 +144,7 @@ router.get('/*.json', function(req, res){
    });
 });
 
+<<<<<<< HEAD
 
 router.post(ajaxurls.show, sc.slideShow);
 
@@ -149,6 +153,8 @@ router.post(ajaxurls.pres, sc.slideChange);
 router.get(ajaxurls.view, sc.slideWatch);
 
 
+=======
+>>>>>>> master
 // showing slide
 router.post(ajaxurls.show, sc.slideShow);
 // slide changed in presentation
@@ -157,4 +163,8 @@ router.post(ajaxurls.pres, sc.slideChange);
 router.get(ajaxurls.view, sc.slideWatch);
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 module.exports = router;

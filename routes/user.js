@@ -6,7 +6,12 @@ var db = require('../ctrl/db');
 /**
  * 用户主页
  */
+<<<<<<< HEAD
 router.get('/', function (req, res) {
+=======
+router.get("/:uid(\\d+)?/:op?", function(req, res, next){
+	console.log('param', req.params.uid, req.params.format);
+>>>>>>> master
 	var reJson = {
 		login: 1,
 		name: req.session.user? req.session.user.name:'guest',
@@ -15,9 +20,16 @@ router.get('/', function (req, res) {
 	};
 	db.getSlideList(req.session.user._id, function(err, docs) {
 		reJson.slideList = docs;
+<<<<<<< HEAD
 		console.log('get slide list: ', docs);
 		res.render('space', reJson);
 	});
+=======
+		//console.log('get slide list: ', docs);
+		res.render('space', reJson);
+	});
+
+>>>>>>> master
 });
 
 module.exports = router;
